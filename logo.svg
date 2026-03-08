@@ -7,33 +7,53 @@
     </linearGradient>
   </defs>
 
-  <!-- Clapperboard icon in frame -->
-  <g transform="translate(460, 5)">
-    <rect x="0" y="0" width="110" height="135" rx="4" fill="none" stroke="url(#gold)" stroke-width="3"/>
+  <!-- Two film reels symbol -->
+  <g transform="translate(470, 10)">
+    <!-- Top reel -->
+    <circle cx="55" cy="35" r="30" fill="none" stroke="url(#gold)" stroke-width="2.5"/>
+    <circle cx="55" cy="35" r="10" fill="none" stroke="url(#gold)" stroke-width="2"/>
+    <circle cx="55" cy="35" r="3" fill="url(#gold)"/>
+    <!-- Top reel spokes -->
+    <line x1="55" y1="5" x2="55" y2="25" stroke="url(#gold)" stroke-width="1.5"/>
+    <line x1="55" y1="45" x2="55" y2="65" stroke="url(#gold)" stroke-width="1.5"/>
+    <line x1="25" y1="35" x2="45" y2="35" stroke="url(#gold)" stroke-width="1.5"/>
+    <line x1="65" y1="35" x2="85" y2="35" stroke="url(#gold)" stroke-width="1.5"/>
+    <line x1="34" y1="14" x2="44" y2="24" stroke="url(#gold)" stroke-width="1.5"/>
+    <line x1="66" y1="46" x2="76" y2="56" stroke="url(#gold)" stroke-width="1.5"/>
+    <line x1="76" y1="14" x2="66" y2="24" stroke="url(#gold)" stroke-width="1.5"/>
+    <line x1="44" y1="46" x2="34" y2="56" stroke="url(#gold)" stroke-width="1.5"/>
+    <!-- Reel teeth outer -->
+    <rect x="53" y="3" width="4" height="6" rx="1" fill="url(#gold)"/>
+    <rect x="53" y="61" width="4" height="6" rx="1" fill="url(#gold)"/>
+    <rect x="23" y="33" width="6" height="4" rx="1" fill="url(#gold)"/>
+    <rect x="81" y="33" width="6" height="4" rx="1" fill="url(#gold)"/>
 
-    <!-- Clapperboard -->
-    <!-- Top clapper part -->
-    <polygon points="20,25 90,25 95,45 15,45" fill="none" stroke="url(#gold)" stroke-width="2.5"/>
-    <!-- Diagonal stripes on clapper -->
-    <line x1="30" y1="25" x2="25" y2="45" stroke="url(#gold)" stroke-width="2" opacity="0.7"/>
-    <line x1="45" y1="25" x2="40" y2="45" stroke="url(#gold)" stroke-width="2" opacity="0.7"/>
-    <line x1="60" y1="25" x2="55" y2="45" stroke="url(#gold)" stroke-width="2" opacity="0.7"/>
-    <line x1="75" y1="25" x2="70" y2="45" stroke="url(#gold)" stroke-width="2" opacity="0.7"/>
-    <!-- Board body -->
-    <rect x="15" y="45" width="80" height="55" rx="2" fill="none" stroke="url(#gold)" stroke-width="2.5"/>
-    <!-- Board lines -->
-    <line x1="25" y1="58" x2="85" y2="58" stroke="url(#gold)" stroke-width="1.5" opacity="0.5"/>
-    <line x1="25" y1="70" x2="85" y2="70" stroke="url(#gold)" stroke-width="1.5" opacity="0.5"/>
-    <line x1="25" y1="82" x2="85" y2="82" stroke="url(#gold)" stroke-width="1.5" opacity="0.5"/>
+    <!-- Bottom reel (smaller, offset) -->
+    <circle cx="55" cy="105" r="25" fill="none" stroke="url(#gold)" stroke-width="2.5"/>
+    <circle cx="55" cy="105" r="8" fill="none" stroke="url(#gold)" stroke-width="2"/>
+    <circle cx="55" cy="105" r="3" fill="url(#gold)"/>
+    <!-- Bottom reel spokes -->
+    <line x1="55" y1="80" x2="55" y2="97" stroke="url(#gold)" stroke-width="1.5"/>
+    <line x1="55" y1="113" x2="55" y2="130" stroke="url(#gold)" stroke-width="1.5"/>
+    <line x1="30" y1="105" x2="47" y2="105" stroke="url(#gold)" stroke-width="1.5"/>
+    <line x1="63" y1="105" x2="80" y2="105" stroke="url(#gold)" stroke-width="1.5"/>
+    <!-- Reel teeth -->
+    <rect x="53" y="78" width="4" height="5" rx="1" fill="url(#gold)"/>
+    <rect x="53" y="128" width="4" height="5" rx="1" fill="url(#gold)"/>
+    <rect x="28" y="103" width="5" height="4" rx="1" fill="url(#gold)"/>
+    <rect x="78" y="103" width="5" height="4" rx="1" fill="url(#gold)"/>
 
-    <!-- Stars -->
-    <polygon points="55,115 58,122 66,122 60,127 62,134 55,130 48,134 50,127 44,122 52,122" fill="url(#gold)" opacity="0.8"/>
-    <polygon points="30,118 31,121 34,121 32,123 33,126 30,124 27,126 28,123 26,121 29,121" fill="url(#gold)" opacity="0.4"/>
-    <polygon points="80,118 81,121 84,121 82,123 83,126 80,124 77,126 78,123 76,121 79,121" fill="url(#gold)" opacity="0.4"/>
+    <!-- Film strip connecting reels -->
+    <path d="M 85,40 Q 100,45 100,70 Q 100,80 80,85" fill="none" stroke="url(#gold)" stroke-width="2"/>
+    <!-- Film perforations on strip -->
+    <rect x="96" y="50" width="4" height="5" rx="1" fill="url(#gold)" opacity="0.5"/>
+    <rect x="98" y="60" width="4" height="5" rx="1" fill="url(#gold)" opacity="0.5"/>
+    <rect x="96" y="70" width="4" height="5" rx="1" fill="url(#gold)" opacity="0.5"/>
   </g>
 
-  <!-- GERMANY TELUGU -->
+  <!-- GERMANY -->
   <text x="15" y="62" font-family="'Cinzel', 'Impact', 'Arial Black', sans-serif" font-weight="900" font-size="62" fill="url(#gold)" letter-spacing="4" font-style="italic">GERMANY</text>
+  <!-- TELUGU -->
   <text x="15" y="118" font-family="'Cinzel', 'Impact', 'Arial Black', sans-serif" font-weight="900" font-size="62" fill="url(#gold)" letter-spacing="2" font-style="italic">TELUGU</text>
 
   <!-- Thin line -->
