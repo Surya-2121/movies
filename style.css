@@ -11,6 +11,17 @@ body {
   min-height: 100vh;
 }
 
+/* Site Header */
+.site-header {
+  padding: 16px 32px;
+  border-bottom: 2px solid #2a2a4a;
+}
+
+.header-logo {
+  height: 50px;
+  display: block;
+}
+
 .main-layout {
   display: flex;
   gap: 28px;
