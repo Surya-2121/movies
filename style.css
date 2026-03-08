@@ -638,18 +638,24 @@ main {
   border-radius: 14px;
   overflow: hidden;
   border: 1px solid #2a2a4a;
+  display: flex;
+  flex-direction: row;
 }
 
 .cs-card img {
-  width: 100%;
+  width: 140px;
+  flex-shrink: 0;
+  object-fit: cover;
   display: block;
 }
 
 .cs-card h3 {
-  padding: 14px;
-  font-size: 1.1rem;
+  padding: 20px;
+  font-size: 1.25rem;
   font-weight: 700;
   color: #fff;
+  display: flex;
+  align-items: center;
 }
 
 /* Landing page responsive */
