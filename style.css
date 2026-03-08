@@ -540,6 +540,7 @@ main {
 
 .coming-soon-col {
   flex: 1;
+  min-width: 0;
 }
 
 .section-title {
