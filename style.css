@@ -606,6 +606,45 @@ main {
   color: #f0ad4e;
 }
 
+/* Coming Soon */
+.coming-soon {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 32px 64px;
+}
+
+.coming-soon-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.cs-card {
+  text-align: center;
+  border-radius: 14px;
+  overflow: hidden;
+  background: #1a1a2e;
+  border: 1px solid #2a2a4a;
+  transition: border-color 0.2s, transform 0.2s;
+}
+
+.cs-card:hover {
+  border-color: #f0ad4e;
+  transform: translateY(-4px);
+}
+
+.cs-card img {
+  width: 100%;
+  display: block;
+}
+
+.cs-card h3 {
+  padding: 14px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #fff;
+}
+
 /* Landing page responsive */
 @media (max-width: 768px) {
   .hero-title { font-size: 2.4rem; }
@@ -619,4 +658,5 @@ main {
   .hero-poster-grid { grid-template-columns: repeat(3, 1fr); grid-template-rows: repeat(10, 1fr); }
   .now-playing-card { flex-direction: column; }
   .np-poster { width: 100%; height: 200px; }
+  .coming-soon-grid { grid-template-columns: 1fr; max-width: 300px; margin: 0 auto; }
 }
