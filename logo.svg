@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 200">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 160">
   <defs>
     <linearGradient id="gold" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" style="stop-color:#f0ad4e"/>
@@ -7,57 +7,39 @@
     </linearGradient>
   </defs>
 
-  <!-- Right side: Film reel icon in bordered frame -->
-  <g transform="translate(560, 16)">
-    <!-- Outer frame -->
-    <rect x="0" y="0" width="120" height="150" rx="4" fill="none" stroke="url(#gold)" stroke-width="3"/>
-    <!-- Inner frame top extensions -->
-    <line x1="30" y1="0" x2="30" y2="-12" stroke="url(#gold)" stroke-width="3"/>
-    <line x1="90" y1="0" x2="90" y2="-12" stroke="url(#gold)" stroke-width="3"/>
-    <line x1="30" y1="-12" x2="90" y2="-12" stroke="url(#gold)" stroke-width="3"/>
-
-    <!-- Film reel - outer -->
-    <circle cx="60" cy="62" r="40" fill="none" stroke="url(#gold)" stroke-width="2.5"/>
-    <!-- Film reel - inner -->
-    <circle cx="60" cy="62" r="15" fill="none" stroke="url(#gold)" stroke-width="2"/>
-    <!-- Film reel - center -->
-    <circle cx="60" cy="62" r="5" fill="url(#gold)"/>
-    <!-- Film reel spokes -->
-    <line x1="60" y1="22" x2="60" y2="47" stroke="url(#gold)" stroke-width="2"/>
-    <line x1="60" y1="77" x2="60" y2="102" stroke="url(#gold)" stroke-width="2"/>
-    <line x1="20" y1="62" x2="45" y2="62" stroke="url(#gold)" stroke-width="2"/>
-    <line x1="75" y1="62" x2="100" y2="62" stroke="url(#gold)" stroke-width="2"/>
-    <line x1="32" y1="34" x2="47" y2="49" stroke="url(#gold)" stroke-width="2"/>
-    <line x1="73" y1="75" x2="88" y2="90" stroke="url(#gold)" stroke-width="2"/>
-    <line x1="88" y1="34" x2="73" y2="49" stroke="url(#gold)" stroke-width="2"/>
-    <line x1="47" y1="75" x2="32" y2="90" stroke="url(#gold)" stroke-width="2"/>
-
-    <!-- Film strip hanging from reel -->
-    <path d="M 95,85 Q 105,110 95,130 Q 88,142 80,145" fill="none" stroke="url(#gold)" stroke-width="2"/>
-    <!-- Film strip perforations -->
-    <rect x="92" y="100" width="4" height="5" rx="1" fill="url(#gold)" opacity="0.6"/>
-    <rect x="90" y="110" width="4" height="5" rx="1" fill="url(#gold)" opacity="0.6"/>
-    <rect x="87" y="120" width="4" height="5" rx="1" fill="url(#gold)" opacity="0.6"/>
-    <rect x="83" y="130" width="4" height="5" rx="1" fill="url(#gold)" opacity="0.6"/>
-
-    <!-- Stars above reel -->
-    <polygon points="60,12 62,17 67,17 63,20 64,25 60,22 56,25 57,20 53,17 58,17" fill="url(#gold)" opacity="0.8"/>
-    <polygon points="35,20 36,23 39,23 37,25 38,28 35,26 32,28 33,25 31,23 34,23" fill="url(#gold)" opacity="0.5"/>
-    <polygon points="85,20 86,23 89,23 87,25 88,28 85,26 82,28 83,25 81,23 84,23" fill="url(#gold)" opacity="0.5"/>
+  <!-- Film reel icon in bordered frame - right side, tight to text -->
+  <g transform="translate(460, 5)">
+    <rect x="0" y="0" width="110" height="135" rx="4" fill="none" stroke="url(#gold)" stroke-width="3"/>
+    <line x1="28" y1="0" x2="28" y2="-10" stroke="url(#gold)" stroke-width="3"/>
+    <line x1="82" y1="0" x2="82" y2="-10" stroke="url(#gold)" stroke-width="3"/>
+    <line x1="28" y1="-10" x2="82" y2="-10" stroke="url(#gold)" stroke-width="3"/>
+    <circle cx="55" cy="55" r="36" fill="none" stroke="url(#gold)" stroke-width="2.5"/>
+    <circle cx="55" cy="55" r="13" fill="none" stroke="url(#gold)" stroke-width="2"/>
+    <circle cx="55" cy="55" r="4.5" fill="url(#gold)"/>
+    <line x1="55" y1="19" x2="55" y2="42" stroke="url(#gold)" stroke-width="2"/>
+    <line x1="55" y1="68" x2="55" y2="91" stroke="url(#gold)" stroke-width="2"/>
+    <line x1="19" y1="55" x2="42" y2="55" stroke="url(#gold)" stroke-width="2"/>
+    <line x1="68" y1="55" x2="91" y2="55" stroke="url(#gold)" stroke-width="2"/>
+    <line x1="30" y1="30" x2="43" y2="43" stroke="url(#gold)" stroke-width="2"/>
+    <line x1="67" y1="67" x2="80" y2="80" stroke="url(#gold)" stroke-width="2"/>
+    <line x1="80" y1="30" x2="67" y2="43" stroke="url(#gold)" stroke-width="2"/>
+    <line x1="43" y1="67" x2="30" y2="80" stroke="url(#gold)" stroke-width="2"/>
+    <path d="M 86,78 Q 95,100 86,118 Q 80,128 74,132" fill="none" stroke="url(#gold)" stroke-width="2"/>
+    <rect x="84" y="92" width="4" height="5" rx="1" fill="url(#gold)" opacity="0.6"/>
+    <rect x="82" y="102" width="4" height="5" rx="1" fill="url(#gold)" opacity="0.6"/>
+    <rect x="79" y="112" width="4" height="5" rx="1" fill="url(#gold)" opacity="0.6"/>
+    <polygon points="55,10 57,15 62,15 58,18 59,23 55,20 51,23 52,18 48,15 53,15" fill="url(#gold)" opacity="0.8"/>
+    <polygon points="32,17 33,20 36,20 34,22 35,25 32,23 29,25 30,22 28,20 31,20" fill="url(#gold)" opacity="0.5"/>
+    <polygon points="78,17 79,20 82,20 80,22 81,25 78,23 75,25 76,22 74,20 77,20" fill="url(#gold)" opacity="0.5"/>
   </g>
 
-  <!-- Main text: GERMANY -->
-  <text x="20" y="75" font-family="'Cinzel', 'Impact', 'Arial Black', sans-serif" font-weight="900" font-size="72" fill="url(#gold)" letter-spacing="6" font-style="italic">GERMANY</text>
+  <!-- GERMANY TELUGU -->
+  <text x="15" y="62" font-family="'Cinzel', 'Impact', 'Arial Black', sans-serif" font-weight="900" font-size="62" fill="url(#gold)" letter-spacing="4" font-style="italic">GERMANY</text>
+  <text x="15" y="118" font-family="'Cinzel', 'Impact', 'Arial Black', sans-serif" font-weight="900" font-size="62" fill="url(#gold)" letter-spacing="2" font-style="italic">TELUGU</text>
 
-  <!-- TELUGU MOVIES -->
-  <text x="20" y="140" font-family="'Cinzel', 'Impact', 'Arial Black', sans-serif" font-weight="900" font-size="72" fill="url(#gold)" letter-spacing="2" font-style="italic">TELUGU</text>
+  <!-- Thin line -->
+  <line x1="15" y1="128" x2="440" y2="128" stroke="url(#gold)" stroke-width="1.5" opacity="0.5"/>
 
-  <!-- Thin line separator -->
-  <line x1="20" y1="152" x2="530" y2="152" stroke="url(#gold)" stroke-width="1.5" opacity="0.5"/>
-
-  <!-- MOVIES subtitle -->
-  <text x="20" y="178" font-family="'Cinzel', 'Impact', 'Arial Black', sans-serif" font-weight="900" font-size="34" fill="#888" letter-spacing="20" font-style="italic">M O V I E S</text>
-
-  <!-- Tagline -->
-  <text x="20" y="198" font-family="Arial, sans-serif" font-size="11" fill="#666" letter-spacing="4">YOUR SITE FOR MOVIE NEWS</text>
+  <!-- MOVIES + tagline -->
+  <text x="15" y="150" font-family="'Cinzel', 'Impact', 'Arial Black', sans-serif" font-weight="900" font-size="26" fill="#888" letter-spacing="16" font-style="italic">M O V I E S</text>
 </svg>
