@@ -515,10 +515,21 @@ main {
   z-index: 2;
 }
 
+.hero-logo-wrap {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
 .hero-logo {
-  width: 500px;
-  max-width: 90%;
+  width: 420px;
+  max-width: 70%;
   filter: drop-shadow(0 4px 24px rgba(240,173,78,0.3));
+}
+
+.hero-reel {
+  width: 120px;
+  filter: invert(1) drop-shadow(0 4px 24px rgba(240,173,78,0.3));
 }
 
 .hero-title {
