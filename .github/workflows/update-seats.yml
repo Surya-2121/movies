@@ -1,0 +1,31 @@
+name: Update Seat Data
+
+on:
+  schedule:
+    # 4 AM Germany (3 AM UTC in winter, 2 AM UTC in summer)
+    - cron: '0 2,3 * * *'
+    # 6 PM Germany (5 PM UTC in winter, 4 PM UTC in summer)
+    - cron: '0 16,17 * * *'
+    # 11 PM Germany (10 PM UTC in winter, 9 PM UTC in summer)
+    - cron: '0 21,22 * * *'
+  workflow_dispatch:
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Fetch seat data
+        run: python fetch_seats.py
+
+      - name: Commit and push if changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git diff --staged --quiet || (git commit -m "Auto-update seat data $(date -u +%Y-%m-%dT%H:%M:%SZ)" && git push)

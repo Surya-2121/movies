@@ -15,7 +15,7 @@ import webbrowser
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 OUTPUT_FILE = os.path.join(SCRIPT_DIR, "seat_data.json")
 APP_JS = os.path.join(SCRIPT_DIR, "app.js")
-INDEX_HTML = os.path.join(SCRIPT_DIR, "index.html")
+DASHBOARD_HTML = os.path.join(SCRIPT_DIR, "ustaad.html")
 
 MOVIES_URL = "https://www.getmyticket.de/movies.php"
 
@@ -305,6 +305,12 @@ def main():
             prices_obj = ", ".join(
                 f"'row{k}': {v}" for k, v in sorted(r["rowPrices"].items(), key=lambda x: int(x[0]))
             )
+            # Find matching show to get booking URL
+            matching = [s for s in shows if s['showId'] == r['showId']]
+            booking_url = ""
+            if matching:
+                s = matching[0]
+                booking_url = f"https://www.getmyticket.de/showbookings.php?id={s['showId']}&time={urllib.request.quote(s['timeParam'])}&mdate={s['mdate']}"
             shows_js += f"""  {{
     id: {r['showId']},
     city: {json.dumps(r['city'])},
@@ -314,6 +320,7 @@ def main():
     language: "Telugu",
     totalSeats: {r['totalSeats']},
     ticketsBooked: {r['sold']},
+    bookingUrl: {json.dumps(booking_url)},
     prices: {{ {prices_obj} }},
   }},
 """
@@ -332,9 +339,9 @@ def main():
     except Exception as ex:
         print(f"\n  WARNING: Could not inject into app.js: {ex}")
 
-    # Update HTML title
+    # Update dashboard HTML title
     try:
-        with open(INDEX_HTML, "r", encoding="utf-8") as f:
+        with open(DASHBOARD_HTML, "r", encoding="utf-8") as f:
             html_code = f.read()
 
         # Update the h1 title
@@ -350,7 +357,7 @@ def main():
             html_code,
         )
 
-        with open(INDEX_HTML, "w", encoding="utf-8") as f:
+        with open(DASHBOARD_HTML, "w", encoding="utf-8") as f:
             f.write(html_code)
     except Exception:
         pass
@@ -369,9 +376,10 @@ def main():
         )
     print("=" * 55)
 
-    # Open in browser
-    webbrowser.open(f"file:///{INDEX_HTML}")
-    print(f"\n  Opening dashboard in browser...")
+    # Open in browser (skip in CI)
+    if not os.environ.get("CI"):
+        webbrowser.open(f"file:///{DASHBOARD_HTML}")
+        print(f"\n  Opening dashboard in browser...")
 
 
 if __name__ == "__main__":
