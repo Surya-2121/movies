@@ -355,6 +355,37 @@ main {
   margin-top: 4px;
 }
 
+.book-btn {
+  display: block;
+  text-align: center;
+  margin-top: 16px;
+  padding: 10px 20px;
+  background: #f0ad4e;
+  color: #000;
+  font-weight: 700;
+  font-size: 0.95rem;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: background 0.2s, transform 0.2s;
+  cursor: pointer;
+}
+
+.book-btn:hover {
+  background: #ec971f;
+  transform: translateY(-1px);
+}
+
+.book-btn-soon {
+  background: #2a2a4a;
+  color: #888;
+  cursor: default;
+}
+
+.book-btn-soon:hover {
+  background: #2a2a4a;
+  transform: none;
+}
+
 /* Revenue Table */
 .revenue-table {
   width: 100%;

@@ -1,4 +1,7 @@
 // Show data for Ustaad Bhagat Singh
+// Admin mode: add ?admin=true to URL to see revenue section
+const isAdmin = new URLSearchParams(window.location.search).get('admin') === 'true';
+
 const showsData = [
   {
     id: 168,
@@ -9,6 +12,7 @@ const showsData = [
     language: "Telugu",
     totalSeats: 103,
     ticketsBooked: 3,
+    bookingUrl: "",
     prices: { 'row1': 18, 'row2': 18, 'row3': 18, 'row4': 22, 'row5': 22, 'row6': 22, 'row7': 22, 'row8': 22, 'row9': 22, 'row10': 22 },
   },
   {
@@ -20,6 +24,7 @@ const showsData = [
     language: "Telugu",
     totalSeats: 222,
     ticketsBooked: 34,
+    bookingUrl: "",
     prices: { 'row1': 19, 'row2': 19, 'row3': 19, 'row4': 21, 'row5': 21, 'row6': 21, 'row7': 21, 'row8': 21, 'row9': 21, 'row10': 21, 'row11': 21, 'row12': 21, 'row13': 21, 'row14': 21, 'row15': 21 },
   },
   {
@@ -31,6 +36,7 @@ const showsData = [
     language: "Telugu",
     totalSeats: 117,
     ticketsBooked: 0,
+    bookingUrl: "",
     prices: { 'row1': 15, 'row2': 15, 'row3': 15, 'row4': 16, 'row5': 16, 'row6': 16, 'row7': 16, 'row8': 16, 'row9': 18, 'row10': 18, 'row11': 18, 'row12': 18, 'row13': 18, 'row14': 18, 'row15': 18, 'row16': 18 },
   },
 ]// Embedded real seat data (auto-injected by fetch_seats.py)
@@ -178,11 +184,17 @@ function render() {
           <div class="percentage-text" style="color: ${percent >= 100 ? '#ff6b81' : '#aaa'}">${percent}% Booked</div>
         </div>
       </div>
+      ${show.bookingUrl ? `<a href="${show.bookingUrl}" target="_blank" rel="noopener" class="book-btn">Book Now</a>` : '<span class="book-btn book-btn-soon">Coming Soon</span>'}
     `;
     showList.appendChild(card);
   });
 
-  renderRevenueTable();
+  if (isAdmin) {
+    renderRevenueTable();
+  } else {
+    const rp = document.querySelector('.right-panel');
+    if (rp) rp.style.display = 'none';
+  }
 }
 
 function renderRevenueTable() {
