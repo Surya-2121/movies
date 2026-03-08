@@ -7,30 +7,29 @@
     </linearGradient>
   </defs>
 
-  <!-- Film reel icon in bordered frame - right side, tight to text -->
+  <!-- Clapperboard icon in frame -->
   <g transform="translate(460, 5)">
     <rect x="0" y="0" width="110" height="135" rx="4" fill="none" stroke="url(#gold)" stroke-width="3"/>
-    <line x1="28" y1="0" x2="28" y2="-10" stroke="url(#gold)" stroke-width="3"/>
-    <line x1="82" y1="0" x2="82" y2="-10" stroke="url(#gold)" stroke-width="3"/>
-    <line x1="28" y1="-10" x2="82" y2="-10" stroke="url(#gold)" stroke-width="3"/>
-    <circle cx="55" cy="55" r="36" fill="none" stroke="url(#gold)" stroke-width="2.5"/>
-    <circle cx="55" cy="55" r="13" fill="none" stroke="url(#gold)" stroke-width="2"/>
-    <circle cx="55" cy="55" r="4.5" fill="url(#gold)"/>
-    <line x1="55" y1="19" x2="55" y2="42" stroke="url(#gold)" stroke-width="2"/>
-    <line x1="55" y1="68" x2="55" y2="91" stroke="url(#gold)" stroke-width="2"/>
-    <line x1="19" y1="55" x2="42" y2="55" stroke="url(#gold)" stroke-width="2"/>
-    <line x1="68" y1="55" x2="91" y2="55" stroke="url(#gold)" stroke-width="2"/>
-    <line x1="30" y1="30" x2="43" y2="43" stroke="url(#gold)" stroke-width="2"/>
-    <line x1="67" y1="67" x2="80" y2="80" stroke="url(#gold)" stroke-width="2"/>
-    <line x1="80" y1="30" x2="67" y2="43" stroke="url(#gold)" stroke-width="2"/>
-    <line x1="43" y1="67" x2="30" y2="80" stroke="url(#gold)" stroke-width="2"/>
-    <path d="M 86,78 Q 95,100 86,118 Q 80,128 74,132" fill="none" stroke="url(#gold)" stroke-width="2"/>
-    <rect x="84" y="92" width="4" height="5" rx="1" fill="url(#gold)" opacity="0.6"/>
-    <rect x="82" y="102" width="4" height="5" rx="1" fill="url(#gold)" opacity="0.6"/>
-    <rect x="79" y="112" width="4" height="5" rx="1" fill="url(#gold)" opacity="0.6"/>
-    <polygon points="55,10 57,15 62,15 58,18 59,23 55,20 51,23 52,18 48,15 53,15" fill="url(#gold)" opacity="0.8"/>
-    <polygon points="32,17 33,20 36,20 34,22 35,25 32,23 29,25 30,22 28,20 31,20" fill="url(#gold)" opacity="0.5"/>
-    <polygon points="78,17 79,20 82,20 80,22 81,25 78,23 75,25 76,22 74,20 77,20" fill="url(#gold)" opacity="0.5"/>
+
+    <!-- Clapperboard -->
+    <!-- Top clapper part -->
+    <polygon points="20,25 90,25 95,45 15,45" fill="none" stroke="url(#gold)" stroke-width="2.5"/>
+    <!-- Diagonal stripes on clapper -->
+    <line x1="30" y1="25" x2="25" y2="45" stroke="url(#gold)" stroke-width="2" opacity="0.7"/>
+    <line x1="45" y1="25" x2="40" y2="45" stroke="url(#gold)" stroke-width="2" opacity="0.7"/>
+    <line x1="60" y1="25" x2="55" y2="45" stroke="url(#gold)" stroke-width="2" opacity="0.7"/>
+    <line x1="75" y1="25" x2="70" y2="45" stroke="url(#gold)" stroke-width="2" opacity="0.7"/>
+    <!-- Board body -->
+    <rect x="15" y="45" width="80" height="55" rx="2" fill="none" stroke="url(#gold)" stroke-width="2.5"/>
+    <!-- Board lines -->
+    <line x1="25" y1="58" x2="85" y2="58" stroke="url(#gold)" stroke-width="1.5" opacity="0.5"/>
+    <line x1="25" y1="70" x2="85" y2="70" stroke="url(#gold)" stroke-width="1.5" opacity="0.5"/>
+    <line x1="25" y1="82" x2="85" y2="82" stroke="url(#gold)" stroke-width="1.5" opacity="0.5"/>
+
+    <!-- Stars -->
+    <polygon points="55,115 58,122 66,122 60,127 62,134 55,130 48,134 50,127 44,122 52,122" fill="url(#gold)" opacity="0.8"/>
+    <polygon points="30,118 31,121 34,121 32,123 33,126 30,124 27,126 28,123 26,121 29,121" fill="url(#gold)" opacity="0.4"/>
+    <polygon points="80,118 81,121 84,121 82,123 83,126 80,124 77,126 78,123 76,121 79,121" fill="url(#gold)" opacity="0.4"/>
   </g>
 
   <!-- GERMANY TELUGU -->
@@ -40,6 +39,6 @@
   <!-- Thin line -->
   <line x1="15" y1="128" x2="440" y2="128" stroke="url(#gold)" stroke-width="1.5" opacity="0.5"/>
 
-  <!-- MOVIES + tagline -->
+  <!-- MOVIES -->
   <text x="15" y="150" font-family="'Cinzel', 'Impact', 'Arial Black', sans-serif" font-weight="900" font-size="26" fill="#888" letter-spacing="16" font-style="italic">M O V I E S</text>
 </svg>
