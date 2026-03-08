@@ -521,11 +521,25 @@ main {
   font-weight: 400;
 }
 
-/* Now Playing */
-.now-playing {
-  max-width: 1000px;
+/* Movies Section Layout */
+.movies-section {
+  max-width: 1100px;
   margin: 0 auto;
   padding: 48px 32px 64px;
+}
+
+.movies-layout {
+  display: flex;
+  gap: 40px;
+  align-items: flex-start;
+}
+
+.movies-col {
+  flex: 1;
+}
+
+.coming-soon-col {
+  flex: 1;
 }
 
 .section-title {
@@ -606,31 +620,24 @@ main {
   color: #f0ad4e;
 }
 
-/* Coming Soon */
-.coming-soon {
-  max-width: 1000px;
-  margin: 0 auto;
-  padding: 0 32px 64px;
+/* Coming Soon Slider */
+.cs-slider {
+  overflow: hidden;
+  border-radius: 14px;
 }
 
-.coming-soon-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
+.cs-track {
+  display: flex;
+  transition: transform 0.6s ease;
 }
 
 .cs-card {
+  min-width: 100%;
   text-align: center;
+  background: #1a1a2e;
   border-radius: 14px;
   overflow: hidden;
-  background: #1a1a2e;
   border: 1px solid #2a2a4a;
-  transition: border-color 0.2s, transform 0.2s;
-}
-
-.cs-card:hover {
-  border-color: #f0ad4e;
-  transform: translateY(-4px);
 }
 
 .cs-card img {
@@ -649,14 +656,15 @@ main {
 @media (max-width: 768px) {
   .hero-title { font-size: 2.4rem; }
   .hero-poster-grid { grid-template-columns: repeat(5, 1fr); grid-template-rows: repeat(6, 1fr); }
-  .now-playing { padding: 32px 20px 48px; }
+  .movies-section { padding: 32px 20px 48px; }
+  .movies-layout { flex-direction: column; }
 }
 
 @media (max-width: 480px) {
   .hero-title { font-size: 1.8rem; }
   .hero-tagline { font-size: 1rem; }
   .hero-poster-grid { grid-template-columns: repeat(3, 1fr); grid-template-rows: repeat(10, 1fr); }
+  .movies-layout { flex-direction: column; }
   .now-playing-card { flex-direction: column; }
   .np-poster { width: 100%; height: 200px; }
-  .coming-soon-grid { grid-template-columns: 1fr; max-width: 300px; margin: 0 auto; }
 }
