@@ -11,8 +11,8 @@ const showsData = [
     time: "19:30",
     language: "Telugu",
     totalSeats: 103,
-    ticketsBooked: 3,
-    bookingUrl: "https://www.getmyticket.de/showbookings.php?id=168&time=07:30%20PM&mdate=MjAyNi0wMy0xOA==",
+    ticketsBooked: 0,
+    bookingUrl: "https://www.getmyticket.de/showbookings.php?id=168&time=07%3A30%20PM&mdate=MjAyNi0wMy0xOA==",
     prices: { 'row1': 18, 'row2': 18, 'row3': 18, 'row4': 22, 'row5': 22, 'row6': 22, 'row7': 22, 'row8': 22, 'row9': 22, 'row10': 22 },
   },
   {
@@ -23,8 +23,8 @@ const showsData = [
     time: "19:30",
     language: "Telugu",
     totalSeats: 222,
-    ticketsBooked: 34,
-    bookingUrl: "https://www.getmyticket.de/showbookings.php?id=169&time=07:30%20PM&mdate=MjAyNi0wMy0xOA==",
+    ticketsBooked: 37,
+    bookingUrl: "https://www.getmyticket.de/showbookings.php?id=169&time=07%3A30%20PM&mdate=MjAyNi0wMy0xOA==",
     prices: { 'row1': 19, 'row2': 19, 'row3': 19, 'row4': 21, 'row5': 21, 'row6': 21, 'row7': 21, 'row8': 21, 'row9': 21, 'row10': 21, 'row11': 21, 'row12': 21, 'row13': 21, 'row14': 21, 'row15': 21 },
   },
   {
@@ -41,7 +41,7 @@ const showsData = [
   },
 ]// Embedded real seat data (auto-injected by fetch_seats.py)
 // SEAT_DATA_START
-const seatData = {"fetchedAt": "2026-03-08T10:53:08Z", "movie": "Ustaad Bhagat Singh - Telugu", "totalShows": 3, "totalSeats": 442, "totalBooked": 37, "totalAvailable": 405, "overallBookingPercent": 8.4, "totalRevenue": 780, "shows": [{"showId": 168, "city": "Nürnberg", "cinema": "Cinecittà Kino 6", "date": "2026-03-18", "time": "19:30", "dateText": "Wed 18 Mar 2026 - 07:30 PM", "totalSeats": 103, "sold": 3, "available": 100, "unavailable": 0, "revenue": 66, "soldByPrice": {"22": 3}, "rowPrices": {"1": 18, "2": 18, "3": 18, "4": 22, "5": 22, "6": 22, "7": 22, "8": 22, "9": 22, "10": 22}}, {"showId": 169, "city": "Dusseldorf", "cinema": "UFA Palast Kino 9", "date": "2026-03-18", "time": "19:30", "dateText": "Wed 18 Mar 2026 - 07:30 PM", "totalSeats": 222, "sold": 34, "available": 188, "unavailable": 0, "revenue": 714, "soldByPrice": {"21": 34}, "rowPrices": {"1": 19, "2": 19, "3": 19, "4": 21, "5": 21, "6": 21, "7": 21, "8": 21, "9": 21, "10": 21, "11": 21, "12": 21, "13": 21, "14": 21, "15": 21}}, {"showId": 170, "city": "Erlangen", "cinema": "Erlangen LammKino Screen 1", "date": "2026-03-22", "time": "11 AM", "dateText": "Sun 22 Mar 2026 - 11 AM", "totalSeats": 117, "sold": 0, "available": 117, "unavailable": 0, "revenue": 0, "soldByPrice": {}, "rowPrices": {"1": 15, "2": 15, "3": 15, "4": 16, "5": 16, "6": 16, "7": 16, "8": 16, "9": 18, "10": 18, "11": 18, "12": 18, "13": 18, "14": 18, "15": 18, "16": 18}}]};
+const seatData = {"fetchedAt": "2026-03-08T17:20:19Z", "movie": "Ustaad Bhagat Singh - Telugu", "totalShows": 3, "totalSeats": 442, "totalBooked": 37, "totalAvailable": 405, "overallBookingPercent": 8.4, "totalRevenue": 777, "shows": [{"showId": 168, "city": "Nürnberg", "cinema": "Cinecittà Kino 6", "date": "2026-03-18", "time": "19:30", "dateText": "Wed 18 Mar 2026 - 07:30 PM", "totalSeats": 103, "sold": 0, "available": 103, "unavailable": 0, "revenue": 0, "soldByPrice": {}, "rowPrices": {"1": 18, "2": 18, "3": 18, "4": 22, "5": 22, "6": 22, "7": 22, "8": 22, "9": 22, "10": 22}}, {"showId": 169, "city": "Dusseldorf", "cinema": "UFA Palast Kino 9", "date": "2026-03-18", "time": "19:30", "dateText": "Wed 18 Mar 2026 - 07:30 PM", "totalSeats": 222, "sold": 37, "available": 185, "unavailable": 0, "revenue": 777, "soldByPrice": {"21": 37}, "rowPrices": {"1": 19, "2": 19, "3": 19, "4": 21, "5": 21, "6": 21, "7": 21, "8": 21, "9": 21, "10": 21, "11": 21, "12": 21, "13": 21, "14": 21, "15": 21}}, {"showId": 170, "city": "Erlangen", "cinema": "Erlangen LammKino Screen 1", "date": "2026-03-22", "time": "11 AM", "dateText": "Sun 22 Mar 2026 - 11 AM", "totalSeats": 117, "sold": 0, "available": 117, "unavailable": 0, "revenue": 0, "soldByPrice": {}, "rowPrices": {"1": 15, "2": 15, "3": 15, "4": 16, "5": 16, "6": 16, "7": 16, "8": 16, "9": 18, "10": 18, "11": 18, "12": 18, "13": 18, "14": 18, "15": 18, "16": 18}}]};
 // SEAT_DATA_END
 
 function loadShows() {
