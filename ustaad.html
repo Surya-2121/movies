@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ustaad Bhagat Singh - Telugu - Ticket Dashboard</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main>
+    <div class="main-layout">
+      <div class="side-panel">
+        <img src="poster.jpg" alt="Movie Poster" class="side-poster">
+        <h1 class="movie-title">Ustaad Bhagat Singh - Telugu</h1>
+        <p class="subtitle">Premieres on 18th March 2026</p>
+        <table class="movie-info">
+          <tr><td>Directed by</td><td>Harish Shankar</td></tr>
+          <tr><td>Screenplay by</td><td>Dasaradh</td></tr>
+          <tr><td>Produced by</td><td>Naveen Yerneni<br>Yalamanchili Ravi Shankar</td></tr>
+          <tr><td>Starring</td><td>Pawan Kalyan<br>Sreeleela<br>Raashii Khanna</td></tr>
+          <tr><td>Cinematography</td><td>Ayananka Bose</td></tr>
+          <tr><td>Edited by</td><td>Karthika Srinivas</td></tr>
+          <tr><td>Music by</td><td><b>Score:</b> Thaman S.<br><b>Songs:</b> Devi Sri Prasad</td></tr>
+          <tr><td>Production</td><td>Mythri Movie Makers</td></tr>
+        </table>
+      </div>
+      <div class="main-content">
+        <section class="summary-bar" id="summaryBar"></section>
+
+        <div class="filter-bar">
+          <select id="dateFilter">
+            <option value="all">All Dates</option>
+          </select>
+        </div>
+
+        <section id="showList" class="show-grid"></section>
+      </div>
+      <div class="right-panel">
+        <section id="revenueSection"></section>
+      </div>
+    </div>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
