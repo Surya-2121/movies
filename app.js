@@ -137,9 +137,9 @@ function render() {
     <div class="summary-row-stats">
       <div class="summary-card"><div class="value">${filtered.length}</div><div class="label">Shows</div></div>
       <div class="summary-card"><div class="value">${totalSeats}</div><div class="label">Total Seats</div></div>
-      <div class="summary-card highlight"><div class="value">${totalBooked}</div><div class="label">Booked</div></div>
+      ${isAdmin ? `<div class="summary-card highlight"><div class="value">${totalBooked}</div><div class="label">Booked</div></div>` : ''}
       <div class="summary-card"><div class="value">${totalAvailable}</div><div class="label">Available</div></div>
-      <div class="summary-card highlight"><div class="value">${overallPercent}%</div><div class="label">Booking %</div></div>
+      ${isAdmin ? `<div class="summary-card highlight"><div class="value">${overallPercent}%</div><div class="label">Booking %</div></div>` : ''}
     </div>
   `;
 
@@ -169,20 +169,20 @@ function render() {
           <span class="stat-label">Total Seats</span>
           <span class="stat-value">${show.totalSeats}</span>
         </div>
-        <div class="stat-row">
+        ${isAdmin ? `<div class="stat-row">
           <span class="stat-label">Booked</span>
           <span class="stat-value">${show.ticketsBooked}</span>
-        </div>
+        </div>` : ''}
         <div class="stat-row">
           <span class="stat-label">Available</span>
           <span class="stat-value">${available}</span>
         </div>
-        <div>
+        ${isAdmin ? `<div>
           <div class="progress-bar-container">
             <div class="progress-bar ${getBarClass(percent)}" style="width: ${Math.min(percent, 100)}%"></div>
           </div>
           <div class="percentage-text" style="color: ${percent >= 100 ? '#ff6b81' : '#aaa'}">${percent}% Booked</div>
-        </div>
+        </div>` : ''}
       </div>
       ${show.bookingUrl ? `<a href="${show.bookingUrl}" target="_blank" rel="noopener" class="book-btn">Book Now</a>` : '<span class="book-btn book-btn-soon">Coming Soon</span>'}
     `;
