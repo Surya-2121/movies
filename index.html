@@ -3,44 +3,74 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ustaad Bhagat Singh - Telugu - Ticket Dashboard</title>
+  <title>Germany Telugu Movies</title>
   <link rel="stylesheet" href="style.css">
 </head>
-<body>
-  <main>
-    <div class="main-layout">
-      <div class="side-panel">
-        <img src="poster.jpg" alt="Movie Poster" class="side-poster">
-        <h1 class="movie-title">Ustaad Bhagat Singh - Telugu</h1>
-        <p class="subtitle">Premieres on 18th March 2026</p>
-        <table class="movie-info">
-          <tr><td>Directed by</td><td>Harish Shankar</td></tr>
-          <tr><td>Screenplay by</td><td>Dasaradh</td></tr>
-          <tr><td>Produced by</td><td>Naveen Yerneni<br>Yalamanchili Ravi Shankar</td></tr>
-          <tr><td>Starring</td><td>Pawan Kalyan<br>Sreeleela<br>Raashii Khanna</td></tr>
-          <tr><td>Cinematography</td><td>Ayananka Bose</td></tr>
-          <tr><td>Edited by</td><td>Karthika Srinivas</td></tr>
-          <tr><td>Music by</td><td><b>Score:</b> Thaman S.<br><b>Songs:</b> Devi Sri Prasad</td></tr>
-          <tr><td>Production</td><td>Mythri Movie Makers</td></tr>
-        </table>
-      </div>
-      <div class="main-content">
-        <section class="summary-bar" id="summaryBar"></section>
+<body class="landing-page">
 
-        <div class="filter-bar">
-          <select id="dateFilter">
-            <option value="all">All Dates</option>
-          </select>
-        </div>
-
-        <section id="showList" class="show-grid"></section>
-      </div>
-      <div class="right-panel">
-        <section id="revenueSection"></section>
-      </div>
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-poster-grid">
+      <!-- Row 1 -->
+      <img src="https://image.tmdb.org/t/p/w300/h6Pd89ngvl9quPVsx3KoJlQsvk9.jpg" alt="Pushpa: The Rise">
+      <img src="https://image.tmdb.org/t/p/w300/t5ePZYRibJ0EEK1FK3GhihVkDW5.jpg" alt="Pushpa 2: The Rule">
+      <img src="https://image.tmdb.org/t/p/w300/u0XUBNQWlOvrh0Gd97ARGpIkL0.jpg" alt="RRR">
+      <img src="https://image.tmdb.org/t/p/w300/8WgLM4DAHEqhBS65QV58Jb5IGoU.jpg" alt="Baahubali: The Beginning">
+      <img src="https://image.tmdb.org/t/p/w300/zW2EJ3lhdc7R56W91hHca5xjq1m.jpg" alt="Baahubali 2: The Conclusion">
+      <img src="https://image.tmdb.org/t/p/w300/nlu9WbcetNFRGXXPWITr30ob7W6.jpg" alt="Salaar">
+      <!-- Row 2 -->
+      <img src="https://image.tmdb.org/t/p/w300/7eO5iuvQjqHmqGwVoq7JPrWoXt6.jpg" alt="Devara">
+      <img src="https://image.tmdb.org/t/p/w300/qtOGsZoLW7QceqKmsOy5nSM6Aik.jpg" alt="Game Changer">
+      <img src="https://image.tmdb.org/t/p/w300/rstcAnBeCkxNQjNp3YXrF6IP1tW.jpg" alt="Kalki 2898 AD">
+      <img src="https://image.tmdb.org/t/p/w300/m1zq48rWSXxplzoJR8YtbXWnnHM.jpg" alt="HanuMan">
+      <img src="https://image.tmdb.org/t/p/w300/hhMLtq9m1aK0dpY9Wcq26XeDH2z.jpg" alt="Hi Nanna">
+      <img src="https://image.tmdb.org/t/p/w300/qvBt4YLy274ZmoMAfVlwmHkjVkq.jpg" alt="Guntur Kaaram">
+      <!-- Row 3 -->
+      <img src="https://image.tmdb.org/t/p/w300/unRseguQgs9YQbzSHTZKIE3qXa7.jpg" alt="Tillu Square">
+      <img src="https://image.tmdb.org/t/p/w300/imy0RTW2xGZNF0SCY3jf672VQmP.jpg" alt="Bimbisara">
+      <img src="https://image.tmdb.org/t/p/w300/t1O94ZBzsQXJihtVkrsStRLyUDR.jpg" alt="Sita Ramam">
+      <img src="https://image.tmdb.org/t/p/w300/1mjw3CdnDJk3W0gki3N9K5Ol0EL.jpg" alt="Akhanda">
+      <img src="https://image.tmdb.org/t/p/w300/jiIKf2tXZJDnpeDxEsA5UnH6DID.jpg" alt="Vakeel Saab">
+      <img src="https://image.tmdb.org/t/p/w300/yiEzDgBBFC25Zd6z0r7sMngn5vr.jpg" alt="Rangasthalam">
+      <!-- Row 4 -->
+      <img src="https://image.tmdb.org/t/p/w300/kHubDgL59I5hCn7ccBYvU7bKY1r.jpg" alt="Arjun Reddy">
+      <img src="https://image.tmdb.org/t/p/w300/3VovbDY0VisdNH1Rew43nEu11uD.jpg" alt="Eega">
+      <img src="https://image.tmdb.org/t/p/w300/pEMlHkxK4IGZsJOqRUGYJmriqei.jpg" alt="Magadheera">
+      <img src="https://image.tmdb.org/t/p/w300/goVGxWzvxs8oMNJ1Zc0QmfJlIzs.jpg" alt="Ala Vaikunthapurramuloo">
+      <img src="https://image.tmdb.org/t/p/w300/abjWQwUakmBUecf73jiZDx5iex0.jpg" alt="Saaho">
+      <img src="https://image.tmdb.org/t/p/w300/dQTaImrDWlGt9wBoxfYrkkrIpFz.jpg" alt="Sye Raa Narasimha Reddy">
+      <!-- Row 5 -->
+      <img src="https://image.tmdb.org/t/p/w300/3Ry340WkEjlkglTnqLbvEGwMBmK.jpg" alt="Khaidi No. 150">
+      <img src="https://image.tmdb.org/t/p/w300/hVgTZdg25d8RN2hIHbqSTijdeX1.jpg" alt="Acharya">
+      <img src="https://image.tmdb.org/t/p/w300/g4mx225pbBH5i0KSjc3t1pO5hIy.jpg" alt="Waltair Veerayya">
+      <img src="https://image.tmdb.org/t/p/w300/14KeWSkgzTbfJmmD4bXT9mwkaYz.jpg" alt="Bheemla Nayak">
+      <img src="https://image.tmdb.org/t/p/w300/2XKg3VhpFDXdAktwKvFMSuIneE3.jpg" alt="DJ Tillu">
+      <img src="https://image.tmdb.org/t/p/w300/4OTVoCVXa5aHDZl8opKoIV9Ezr5.jpg" alt="Dasara">
     </div>
-  </main>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <h1 class="hero-title">Germany Telugu Movies</h1>
+      <p class="hero-tagline">Your home for Telugu cinema premieres across Germany</p>
+    </div>
+  </section>
 
-  <script src="app.js"></script>
+  <!-- Now Playing Section -->
+  <section class="now-playing">
+    <h2 class="section-title">Now Playing</h2>
+    <div class="now-playing-grid">
+      <a href="ustaad.html" class="now-playing-card">
+        <div class="np-poster">
+          <img src="poster.jpg" alt="Ustaad Bhagat Singh">
+        </div>
+        <div class="np-info">
+          <h3 class="np-movie-name">Ustaad Bhagat Singh</h3>
+          <p class="np-language">Telugu</p>
+          <p class="np-dates">March 18 – 23, 2026</p>
+          <span class="np-cta">View Dashboard &rarr;</span>
+        </div>
+      </a>
+    </div>
+  </section>
+
 </body>
 </html>
