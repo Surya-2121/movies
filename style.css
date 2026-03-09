@@ -727,6 +727,167 @@ main {
   color: #555;
 }
 
+/* ===== Movie Detail Page ===== */
+.movie-page {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 32px;
+}
+
+.mp-hero {
+  display: flex;
+  gap: 32px;
+  align-items: flex-start;
+  margin-bottom: 40px;
+}
+
+.mp-poster {
+  width: 260px;
+  flex-shrink: 0;
+  border-radius: 12px;
+  border: 2px solid #f0ad4e;
+}
+
+.mp-hero-info {
+  flex: 1;
+}
+
+.mp-title {
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: #fff;
+  margin-bottom: 12px;
+}
+
+.mp-meta {
+  display: flex;
+  gap: 16px;
+  font-size: 0.9rem;
+  color: #aaa;
+  margin-bottom: 16px;
+}
+
+.mp-meta span {
+  background: #1a1a2e;
+  padding: 4px 12px;
+  border-radius: 6px;
+  border: 1px solid #2a2a4a;
+}
+
+.mp-crew {
+  font-size: 0.9rem;
+  color: #ccc;
+  line-height: 1.8;
+  margin-bottom: 16px;
+}
+
+.mp-crew strong {
+  color: #f0ad4e;
+}
+
+.mp-dates {
+  font-size: 1rem;
+  color: #f0ad4e;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.mp-book-btn {
+  display: inline-block;
+  padding: 12px 28px;
+  font-size: 1rem;
+}
+
+.mp-section {
+  margin-bottom: 40px;
+}
+
+.mp-section-title {
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: #fff;
+  margin-bottom: 16px;
+  padding-bottom: 8px;
+  border-bottom: 2px solid #f0ad4e;
+  display: inline-block;
+}
+
+.mp-synopsis {
+  font-size: 1rem;
+  color: #ccc;
+  line-height: 1.8;
+}
+
+.mp-video {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.mp-video iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 12px;
+}
+
+.mp-songs {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.mp-song-card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: #1a1a2e;
+  border: 1px solid #2a2a4a;
+  border-radius: 12px;
+  padding: 16px 24px;
+  text-decoration: none;
+  color: #fff;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: border-color 0.2s, transform 0.2s;
+}
+
+.mp-song-card:hover {
+  border-color: #f0ad4e;
+  transform: translateY(-2px);
+}
+
+.mp-song-icon {
+  font-size: 1.4rem;
+  color: #f0ad4e;
+}
+
+.mp-cta-section {
+  text-align: center;
+  padding: 32px 0;
+}
+
+.mp-book-btn-large {
+  display: inline-block;
+  padding: 16px 48px;
+  font-size: 1.2rem;
+  background: #f0ad4e;
+  color: #000;
+  font-weight: 700;
+  border-radius: 12px;
+  text-decoration: none;
+  transition: background 0.2s, transform 0.2s;
+}
+
+.mp-book-btn-large:hover {
+  background: #ec971f;
+  transform: translateY(-2px);
+}
+
 /* Landing page responsive */
 @media (max-width: 768px) {
   .hero-title { font-size: 2.4rem; }
@@ -737,6 +898,15 @@ main {
   .cs-card img { width: 100px; }
   .np-poster { width: 100px; }
   .site-footer { padding: 24px 16px; }
+
+  /* Movie detail page responsive */
+  .movie-page { padding: 20px 16px; }
+  .mp-hero { flex-direction: column; gap: 20px; }
+  .mp-poster { width: 160px; }
+  .mp-title { font-size: 1.6rem; }
+  .mp-meta { flex-wrap: wrap; gap: 8px; }
+  .mp-songs { flex-direction: column; }
+  .mp-book-btn-large { padding: 14px 32px; font-size: 1rem; }
 
   /* Dashboard responsive */
   main { padding: 16px; }
