@@ -895,17 +895,19 @@ main {
 .mp-interested-btn {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 10px;
   background: #1a1a2e;
-  border: 2px solid #2a2a4a;
+  border: 2px solid #f0ad4e;
   border-radius: 8px;
-  padding: 10px 20px;
-  color: #ccc;
+  padding: 12px 28px;
+  color: #f0ad4e;
   font-size: 0.95rem;
   font-weight: 700;
   cursor: pointer;
   transition: border-color 0.2s, background 0.2s, transform 0.2s;
   font-family: inherit;
+  box-sizing: border-box;
 }
 
 .mp-interested-btn:hover {
