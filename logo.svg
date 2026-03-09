@@ -8,13 +8,13 @@
   </defs>
 
   <!-- GERMANY -->
-  <text x="15" y="62" font-family="'Cinzel', 'Impact', 'Arial Black', sans-serif" font-weight="900" font-size="62" fill="url(#gold)" letter-spacing="4" font-style="italic">GERMANY</text>
+  <text x="240" y="62" text-anchor="middle" font-family="'Cinzel', 'Impact', 'Arial Black', sans-serif" font-weight="900" font-size="62" fill="url(#gold)" letter-spacing="4" font-style="italic">GERMANY</text>
   <!-- TELUGU -->
-  <text x="15" y="118" font-family="'Cinzel', 'Impact', 'Arial Black', sans-serif" font-weight="900" font-size="62" fill="url(#gold)" letter-spacing="2" font-style="italic">TELUGU</text>
+  <text x="240" y="118" text-anchor="middle" font-family="'Cinzel', 'Impact', 'Arial Black', sans-serif" font-weight="900" font-size="62" fill="url(#gold)" letter-spacing="2" font-style="italic">TELUGU</text>
 
   <!-- Thin line -->
-  <line x1="15" y1="128" x2="440" y2="128" stroke="url(#gold)" stroke-width="1.5" opacity="0.5"/>
+  <line x1="20" y1="128" x2="460" y2="128" stroke="url(#gold)" stroke-width="1.5" opacity="0.5"/>
 
   <!-- MOVIES -->
-  <text x="15" y="150" font-family="'Cinzel', 'Impact', 'Arial Black', sans-serif" font-weight="900" font-size="26" fill="#888" letter-spacing="16" font-style="italic">M O V I E S</text>
+  <text x="240" y="150" text-anchor="middle" font-family="'Cinzel', 'Impact', 'Arial Black', sans-serif" font-weight="900" font-size="26" fill="#888" letter-spacing="16" font-style="italic">M O V I E S</text>
 </svg>
