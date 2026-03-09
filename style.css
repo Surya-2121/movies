@@ -888,6 +888,51 @@ main {
   transform: translateY(-2px);
 }
 
+.mp-interested-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: #1a1a2e;
+  border: 2px solid #2a2a4a;
+  border-radius: 12px;
+  padding: 14px 28px;
+  color: #ccc;
+  font-size: 1.05rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: border-color 0.2s, background 0.2s, transform 0.2s;
+  font-family: inherit;
+}
+
+.mp-interested-btn:hover {
+  border-color: #f0ad4e;
+  transform: translateY(-2px);
+}
+
+.mp-thumbsup {
+  font-size: 1.4rem;
+}
+
+.mp-interested-count {
+  background: #2a2a4a;
+  padding: 4px 12px;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  color: #aaa;
+}
+
+.mp-interested-active {
+  border-color: #f0ad4e;
+  background: linear-gradient(135deg, #1a1a2e, #2a1a00);
+  color: #f0ad4e;
+}
+
+.mp-interested-active .mp-interested-count {
+  background: #f0ad4e;
+  color: #000;
+  font-weight: 700;
+}
+
 /* Landing page responsive */
 @media (max-width: 768px) {
   .hero-title { font-size: 2.4rem; }
