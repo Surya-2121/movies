@@ -841,7 +841,7 @@ main {
 .hero-overlay {
   position: absolute;
   inset: 0;
-  background: radial-gradient(ellipse at center, rgba(15,15,26,0.4) 0%, rgba(15,15,26,0.92) 75%);
+  background: radial-gradient(ellipse at center, rgba(15,15,26,0.15) 0%, rgba(15,15,26,0.75) 75%);
   z-index: 1;
   pointer-events: none;
 }
