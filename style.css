@@ -659,6 +659,13 @@ main {
   border: 1px solid #2a2a4a;
   display: flex;
   flex-direction: row;
+  text-decoration: none;
+  color: inherit;
+  transition: border-color 0.2s;
+}
+
+.cs-card:hover {
+  border-color: #f0ad4e;
 }
 
 .cs-card img {
