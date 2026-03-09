@@ -285,7 +285,7 @@ def discover_3realms_shows():
                 "trier": "Trier",
             }
             city_name = city_map.get(city_slug, city_slug.replace("-", " ").title())
-            cinema_name = "CinemaxX"
+            cinema_name = f"CinemaxX {city_name}"
 
             # Try to extract time from nearby text
             # Look for time CLOSE to this URL (within same theater block)
