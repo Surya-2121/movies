@@ -716,7 +716,7 @@ main {
 /* Landing page responsive */
 @media (max-width: 768px) {
   .hero-title { font-size: 2.4rem; }
-  .hero-logo { width: 300px; max-width: 80%; }
+  .hero-logo { width: 300px; max-width: 80%; display: block; margin: 0 auto; }
   .hero-poster-grid { grid-template-columns: repeat(5, 1fr); grid-template-rows: none; gap: 3px; }
   .hero-poster-grid img { height: auto; object-fit: contain; }
   .movies-section { padding: 32px 16px 48px; }
@@ -743,7 +743,7 @@ main {
 @media (max-width: 480px) {
   .hero-title { font-size: 1.8rem; }
   .hero-tagline { font-size: 0.95rem; }
-  .hero-logo { width: 240px; max-width: 85%; }
+  .hero-logo { width: 240px; max-width: 85%; display: block; margin: 0 auto; }
   .hero-poster-grid { grid-template-columns: repeat(5, 1fr); grid-template-rows: none; gap: 2px; }
   .hero-poster-grid img { height: auto; object-fit: contain; }
   .movies-layout { flex-direction: column; }
