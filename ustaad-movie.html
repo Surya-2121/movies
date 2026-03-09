@@ -79,23 +79,36 @@
     </section>
   </main>
 
-  <script>
-    const STORAGE_KEY = 'ustaad_interested';
-    const BASE_COUNT = 124;
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-app.js";
+    import { getDatabase, ref, get, set, runTransaction } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-database.js";
 
-    function getState() {
-      const saved = localStorage.getItem(STORAGE_KEY);
-      return saved ? JSON.parse(saved) : { clicked: false };
+    const firebaseConfig = {
+      apiKey: "AIzaSyDmGjpEbIo3YupHpWSc8rgzXWESF5-IPCQ",
+      authDomain: "gtm-counter.firebaseapp.com",
+      databaseURL: "https://gtm-counter-default-rtdb.europe-west1.firebasedatabase.app",
+      projectId: "gtm-counter",
+      storageBucket: "gtm-counter.firebasestorage.app",
+      messagingSenderId: "424507047798",
+      appId: "1:424507047798:web:ab288d3575e67917abc457"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const db = getDatabase(app);
+    const counterRef = ref(db, 'interested/ustaad');
+
+    const STORAGE_KEY = 'ustaad_interested';
+
+    function isClicked() {
+      return localStorage.getItem(STORAGE_KEY) === 'true';
     }
 
-    function updateUI() {
-      const state = getState();
+    function updateUI(count) {
       const btn = document.getElementById('interestedBtn');
       const text = document.getElementById('interestedText');
-      const count = document.getElementById('interestedCount');
-      const num = BASE_COUNT + (state.clicked ? 1 : 0);
-      count.textContent = num;
-      if (state.clicked) {
+      const countEl = document.getElementById('interestedCount');
+      if (count !== undefined) countEl.textContent = count;
+      if (isClicked()) {
         btn.classList.add('mp-interested-active');
         text.textContent = 'Interested';
       } else {
@@ -104,14 +117,35 @@
       }
     }
 
-    function toggleInterest() {
-      const state = getState();
-      state.clicked = !state.clicked;
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
-      updateUI();
+    async function loadCount() {
+      try {
+        const snapshot = await get(counterRef);
+        const count = snapshot.val() || 0;
+        updateUI(count);
+      } catch {
+        updateUI(0);
+      }
     }
 
-    updateUI();
+    window.toggleInterest = async function() {
+      const btn = document.getElementById('interestedBtn');
+      btn.disabled = true;
+      try {
+        if (!isClicked()) {
+          localStorage.setItem(STORAGE_KEY, 'true');
+          await runTransaction(counterRef, (current) => (current || 0) + 1);
+        } else {
+          localStorage.removeItem(STORAGE_KEY);
+          await runTransaction(counterRef, (current) => Math.max((current || 0) - 1, 0));
+        }
+        await loadCount();
+      } catch {
+        updateUI();
+      }
+      btn.disabled = false;
+    };
+
+    loadCount();
   </script>
 
   <!-- Footer -->
