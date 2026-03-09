@@ -721,6 +721,8 @@ main {
   .hero-poster-grid img { height: auto; object-fit: contain; }
   .movies-section { padding: 32px 16px 48px; }
   .movies-layout { flex-direction: column; gap: 32px; }
+  .cs-card img { width: 100px; }
+  .np-poster { width: 100px; }
   .site-footer { padding: 24px 16px; }
 
   /* Dashboard responsive */
@@ -747,11 +749,8 @@ main {
   .hero-poster-grid { grid-template-columns: repeat(5, 1fr); grid-template-rows: none; gap: 2px; }
   .hero-poster-grid img { height: auto; object-fit: contain; }
   .movies-layout { flex-direction: column; }
-  .now-playing-card { flex-direction: column; }
-  .now-playing-card { flex-direction: row; }
-  .np-poster { width: 100px; height: auto; }
-  .cs-card { flex-direction: row; }
-  .cs-card img { width: 100px; height: auto; }
+  .np-poster { width: 80px; }
+  .cs-card img { width: 80px; }
   .section-title { font-size: 1.3rem; }
   .summary-card.countdown-card { padding: 20px 24px; }
   .summary-card.countdown-card .value { font-size: 1.8rem; }
