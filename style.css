@@ -789,7 +789,11 @@ main {
   font-size: 1rem;
   color: #f0ad4e;
   font-weight: 700;
-  margin-bottom: 20px;
+  margin-bottom: 16px;
+}
+
+.mp-hero-info .mp-interested-btn {
+  margin-bottom: 16px;
 }
 
 .mp-book-btn {
