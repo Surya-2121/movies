@@ -111,6 +111,7 @@
             </a>
           </div>
         </div>
+        <div class="cs-dots" id="csDots"></div>
       </div>
     </div>
   </section>
@@ -132,13 +133,30 @@
   </footer>
 
   <script>
-    // Auto-slide Coming Soon posters
     const track = document.querySelector('.cs-track');
     const cards = track.querySelectorAll('.cs-card');
+    const dotsContainer = document.getElementById('csDots');
     let current = 0;
-    setInterval(() => {
-      current = (current + 1) % cards.length;
+
+    // Create dots
+    cards.forEach((_, i) => {
+      const dot = document.createElement('span');
+      dot.className = 'cs-dot' + (i === 0 ? ' cs-dot-active' : '');
+      dot.addEventListener('click', () => goTo(i));
+      dotsContainer.appendChild(dot);
+    });
+
+    function goTo(index) {
+      current = index;
       track.style.transform = `translateX(-${current * 100}%)`;
+      document.querySelectorAll('.cs-dot').forEach((d, i) => {
+        d.classList.toggle('cs-dot-active', i === current);
+      });
+    }
+
+    // Auto-slide
+    setInterval(() => {
+      goTo((current + 1) % cards.length);
     }, 3000);
   </script>
 
