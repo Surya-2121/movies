@@ -457,15 +457,6 @@ main {
   .right-panel { width: 100%; border-left: none; padding-left: 0; border-top: 4px solid #f0ad4e; padding-top: 24px; margin-top: 24px; position: static; }
 }
 
-@media (max-width: 600px) {
-  .movie-title { font-size: 1.1rem; }
-  .show-grid { grid-template-columns: 1fr; }
-  .revenue-table th, .revenue-table td { padding: 8px 6px; font-size: 0.8rem; }
-  .main-layout { flex-direction: column; }
-  .side-panel { width: 100%; position: static; display: flex; flex-wrap: wrap; gap: 16px; align-items: center; }
-  .side-poster { width: 100px; }
-}
-
 /* ===== Landing Page Styles ===== */
 
 .landing-page {
@@ -725,16 +716,43 @@ main {
 /* Landing page responsive */
 @media (max-width: 768px) {
   .hero-title { font-size: 2.4rem; }
-  .hero-poster-grid { grid-template-columns: repeat(5, 1fr); grid-template-rows: repeat(6, 1fr); }
-  .movies-section { padding: 32px 20px 48px; }
-  .movies-layout { flex-direction: column; }
+  .hero-logo { width: 300px; max-width: 80%; }
+  .hero-poster-grid { grid-template-columns: repeat(4, 1fr); grid-template-rows: repeat(8, 1fr); }
+  .movies-section { padding: 32px 16px 48px; }
+  .movies-layout { flex-direction: column; gap: 32px; }
+  .site-footer { padding: 24px 16px; }
+
+  /* Dashboard responsive */
+  main { padding: 16px; }
+  .site-header { padding: 12px 16px; }
+  .main-layout { flex-direction: column; }
+  .side-panel { width: 100%; position: static; display: flex; flex-wrap: wrap; gap: 16px; align-items: flex-start; }
+  .side-poster { width: 120px; border-radius: 8px; }
+  .side-panel .movie-title,
+  .side-panel .subtitle,
+  .side-panel .movie-info { flex: 1; min-width: 200px; }
+  .main-content { border-left: none; padding-left: 0; border-top: 3px solid #f0ad4e; padding-top: 20px; margin-top: 16px; }
+  .right-panel { width: 100%; border-left: none; padding-left: 0; border-top: 3px solid #f0ad4e; padding-top: 20px; margin-top: 16px; position: static; }
+  .show-grid { grid-template-columns: 1fr; }
+  .summary-row-top { grid-template-columns: 1fr; }
+  .top-movie-name { font-size: 1.3rem; padding: 14px 18px; }
+  .summary-row-stats { grid-template-columns: repeat(2, 1fr); }
 }
 
 @media (max-width: 480px) {
   .hero-title { font-size: 1.8rem; }
-  .hero-tagline { font-size: 1rem; }
+  .hero-tagline { font-size: 0.95rem; }
+  .hero-logo { width: 240px; max-width: 85%; }
   .hero-poster-grid { grid-template-columns: repeat(3, 1fr); grid-template-rows: repeat(10, 1fr); }
   .movies-layout { flex-direction: column; }
   .now-playing-card { flex-direction: column; }
   .np-poster { width: 100%; height: 200px; }
+  .cs-card { flex-direction: column; }
+  .cs-card img { width: 100%; height: 200px; }
+  .section-title { font-size: 1.3rem; }
+  .summary-card.countdown-card { padding: 20px 24px; }
+  .summary-card.countdown-card .value { font-size: 1.8rem; }
+  .revenue-table th, .revenue-table td { padding: 8px 6px; font-size: 0.78rem; }
+  .side-panel { flex-direction: column; }
+  .side-poster { width: 100%; max-width: 200px; }
 }
