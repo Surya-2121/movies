@@ -327,6 +327,215 @@ def discover_3realms_shows():
     return shows
 
 
+# ─── CinemaxX API ──────────────────────────────────────
+
+
+def fetch_json(url, headers=None):
+    """Fetch JSON from URL."""
+    req = urllib.request.Request(url)
+    req.add_header("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36")
+    for k, v in (headers or {}).items():
+        req.add_header(k, v)
+    try:
+        resp = urllib.request.urlopen(req, timeout=15)
+        return json.loads(resp.read().decode("utf-8")), resp
+    except Exception as e:
+        print(f"  ERROR fetching {url}: {e}")
+        return None, None
+
+
+def get_cinemaxx_token():
+    """Get a microservices JWT token from CinemaxX."""
+    req = urllib.request.Request("https://www.cinemaxx.de/", method="GET")
+    req.add_header("User-Agent", "Mozilla/5.0")
+    try:
+        resp = urllib.request.urlopen(req, timeout=15)
+        for header in resp.headers.get_all("Set-Cookie") or []:
+            if "microservicesToken=" in header:
+                return header.split("microservicesToken=")[1].split(";")[0]
+    except Exception:
+        pass
+    return None
+
+
+def fetch_cinemaxx_shows(cinemaxx_cities):
+    """Fetch seat data for CinemaxX shows via their API."""
+    if not cinemaxx_cities:
+        return []
+
+    print(f"\n[CinemaxX API] Fetching seat data for {len(cinemaxx_cities)} city/cities...")
+    token = get_cinemaxx_token()
+    if not token:
+        print("  ERROR: Could not get CinemaxX token")
+        return []
+
+    # Get all CinemaxX cinemas
+    data, _ = fetch_json(
+        "https://www.cinemaxx.de/api/microservice/showings/cinemas",
+        headers={"Authorization": f"Bearer {token}"},
+    )
+    if not data:
+        print("  ERROR: Could not get cinema list")
+        return []
+
+    # Build cinema lookup by city slug
+    cinema_lookup = {}
+    for group in data.get("result", []):
+        for c in group.get("cinemas", []):
+            slug = c.get("cinemaName", "").lower().replace(" ", "-")
+            cinema_lookup[slug] = {
+                "cinemaId": c["cinemaId"],
+                "name": c.get("fullName", ""),
+                "city": c.get("cinemaName", ""),
+            }
+
+    # Find the Ustaad film ID by checking a cinema that has our show
+    film_id = None
+    # Use Bielefeld (known to have Ustaad) or first available cinemaxx city
+    search_cinema = cinema_lookup.get("bielefeld") or cinema_lookup.get(
+        cinemaxx_cities[0].get("_slug", "")) or next(iter(cinema_lookup.values()), None)
+
+    if search_cinema:
+        films_data, _ = fetch_json(
+            f"https://www.cinemaxx.de/api/microservice/showings/cinemas/{search_cinema['cinemaId']}/films",
+            headers={"Authorization": f"Bearer {token}"},
+        )
+        if films_data:
+            for f in films_data.get("result", []):
+                fid = f.get("filmId", "")
+                try:
+                    show_data, _ = fetch_json(
+                        f"https://www.cinemaxx.de/api/microservice/showings/cinemas/{search_cinema['cinemaId']}/films/{fid}/showings",
+                        headers={"Authorization": f"Bearer {token}"},
+                    )
+                    if show_data:
+                        for s in show_data.get("result", []):
+                            title = s.get("title", "") or f.get("title", "")
+                            poster = s.get("posterUrl", "")
+                            if ("ustaad" in title.lower() or "bhagat" in title.lower()
+                                    or "ustaad" in poster.lower()):
+                                film_id = fid
+                                print(f"  Found film: {title or 'Ustaad'} (ID: {film_id})")
+                                break
+                    if film_id:
+                        break
+                except Exception:
+                    continue
+                time.sleep(0.2)
+
+    if not film_id:
+        print("  Could not find Ustaad film ID on CinemaxX")
+        return []
+
+    results = []
+    for i, city_info in enumerate(cinemaxx_cities, 1):
+        city_slug = city_info.get("_slug", "")
+        cinema = cinema_lookup.get(city_slug)
+        if not cinema:
+            # Try fuzzy match
+            for slug, c in cinema_lookup.items():
+                if city_slug in slug or slug in city_slug:
+                    cinema = c
+                    break
+
+        if not cinema:
+            print(f"  [{i}/{len(cinemaxx_cities)}] {city_info['city']} - Cinema not found in API")
+            continue
+
+        # Get sessions
+        show_data, _ = fetch_json(
+            f"https://www.cinemaxx.de/api/microservice/showings/cinemas/{cinema['cinemaId']}/films/{film_id}/showings",
+            headers={"Authorization": f"Bearer {token}"},
+        )
+        if not show_data or not show_data.get("result"):
+            print(f"  [{i}/{len(cinemaxx_cities)}] {city_info['city']} - No sessions")
+            continue
+
+        for session in show_data.get("result", []):
+            session_id = session["id"]
+            show_time_raw = session.get("showTime", "")
+            price_str = session.get("formattedPrice", "")
+            screen = session.get("screenName", "")
+
+            # Parse price (e.g., "14,99 €" -> 14.99)
+            price_num = 0
+            pm = re.search(r"(\d+)[,.](\d+)", price_str)
+            if pm:
+                price_num = float(f"{pm.group(1)}.{pm.group(2)}")
+
+            # Parse datetime
+            show_date = show_time_raw[:10] if len(show_time_raw) >= 10 else ""
+            show_time = show_time_raw[11:16] if len(show_time_raw) >= 16 else ""
+
+            # Get seat data
+            seat_data, _ = fetch_json(
+                f"https://www.cinemaxx.de/api/microservice/booking/session/{cinema['cinemaId']}/{session_id}/seats",
+                headers={"Authorization": f"Bearer {token}"},
+            )
+
+            total_seats = 0
+            sold = 0
+            available = 0
+            if seat_data:
+                result_data = seat_data.get("result", {})
+                for row in result_data.get("seatRows", []):
+                    for col in row.get("columns", []):
+                        if col is None:
+                            continue
+                        status = col.get("seatStatus", -1)
+                        total_seats += 1
+                        if status == 0:
+                            available += 1
+                        elif status == 1:
+                            sold += 1
+
+            revenue = round(sold * price_num)
+
+            # Build dateText
+            if show_date:
+                from datetime import datetime as _dt
+                try:
+                    dt = _dt.strptime(show_date, "%Y-%m-%d")
+                    h, m = show_time.split(":")
+                    h = int(h)
+                    ampm = "AM" if h < 12 else "PM"
+                    h12 = h if h <= 12 else h - 12
+                    if h12 == 0:
+                        h12 = 12
+                    date_text = f"{dt.strftime('%a')} {dt.day} {dt.strftime('%b')} {dt.year} - {h12:02d}:{m} {ampm}"
+                except Exception:
+                    date_text = f"{show_date} - {show_time}"
+            else:
+                date_text = ""
+
+            pct = round(sold / total_seats * 100, 1) if total_seats > 0 else 0
+            print(f"  [{i}/{len(cinemaxx_cities)}] {city_info['city']} - {screen}")
+            print(f"           Seats: {total_seats} | Sold: {sold} | Available: {available} | {pct}% | €{price_num}/ticket")
+
+            results.append({
+                "showId": f"cinemaxx-{cinema['cinemaId']}-{session_id}",
+                "city": city_info["city"],
+                "cinema": f"CinemaxX {city_info['city']}",
+                "date": show_date,
+                "time": show_time,
+                "dateText": date_text,
+                "totalSeats": total_seats,
+                "sold": sold,
+                "available": available,
+                "unavailable": 0,
+                "revenue": revenue,
+                "soldByPrice": {str(price_num): sold} if sold > 0 else {},
+                "rowPrices": {},
+                "source": "cinemaxx",
+                "bookingUrl": city_info.get("bookingUrl", ""),
+                "ticketPrice": price_num,
+            })
+
+        time.sleep(0.3)
+
+    return results
+
+
 def get_cinema_name(html, city):
     """Extract cinema/theater name from the booking page title."""
     # Title format: "Get My Ticket - MovieName CityName TheaterName"
@@ -649,10 +858,30 @@ def main():
         total_seats += r["totalSeats"]
         total_booked += r["sold"]
 
-    # Step 6: Add showtime-only entries (Luxor etc. — no seat data)
-    for s in unique_extra:
+    # Step 6: Fetch CinemaxX seat data via API
+    cinemaxx_entries = [s for s in unique_extra if s.get("source") == "cinemaxx"]
+    other_extra = [s for s in unique_extra if s.get("source") != "cinemaxx"]
+
+    if cinemaxx_entries:
+        # Add city slug for API lookup
+        slug_map = {
+            "Bielefeld": "bielefeld", "Bremen": "bremen", "Essen": "essen",
+            "Hamburg-Harburg": "hamburg-harburg", "Hannover": "hannover",
+            "Magdeburg": "magdeburg", "Frankfurt (Offenbach)": "offenbach",
+            "Regensburg": "regensburg", "Trier": "trier",
+        }
+        for s in cinemaxx_entries:
+            s["_slug"] = slug_map.get(s["city"], s["city"].lower().replace(" ", "-"))
+
+        cinemaxx_results = fetch_cinemaxx_shows(cinemaxx_entries)
+        for r in cinemaxx_results:
+            results.append(r)
+            total_seats += r["totalSeats"]
+            total_booked += r["sold"]
+
+    # Step 7: Add remaining showtime-only entries (Luxor etc.)
+    for s in other_extra:
         print(f"  [Showtime-only] {s['city']} - {s['cinema']} ({s.get('date','')}) — no seat data")
-        # These appear in showtimes but not in seat/revenue tracking
 
     # If getmyticket failed, preserve previous getmyticket shows from existing data
     if not gmt_shows:
