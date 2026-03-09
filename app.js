@@ -128,20 +128,23 @@ function render() {
     countdownHtml = `<div class="summary-card countdown-card"><div class="value">${days}</div><div class="label">Days to Premiere</div></div>`;
   }
 
-  const movieName = seatData ? seatData.movie : 'Ustaad Bhagat Singh - Telugu';
-  document.getElementById('summaryBar').innerHTML = `
-    <div class="summary-row-top">
-      <div class="top-movie-name">${escapeHtml(movieName)}</div>
-      ${countdownHtml}
-    </div>
-    <div class="summary-row-stats">
-      <div class="summary-card"><div class="value">${filtered.length}</div><div class="label">Shows</div></div>
-      ${isAdmin ? `<div class="summary-card"><div class="value">${totalSeats}</div><div class="label">Total Seats</div></div>
-      <div class="summary-card highlight"><div class="value">${totalBooked}</div><div class="label">Booked</div></div>
-      <div class="summary-card"><div class="value">${totalAvailable}</div><div class="label">Available</div></div>
-      <div class="summary-card highlight"><div class="value">${overallPercent}%</div><div class="label">Booking %</div></div>` : ''}
-    </div>
-  `;
+  const summaryBar = document.getElementById('summaryBar');
+  if (summaryBar && isAdmin) {
+    const movieName = seatData ? seatData.movie : 'Ustaad Bhagat Singh - Telugu';
+    summaryBar.innerHTML = `
+      <div class="summary-row-top">
+        <div class="top-movie-name">${escapeHtml(movieName)}</div>
+        ${countdownHtml}
+      </div>
+      <div class="summary-row-stats">
+        <div class="summary-card"><div class="value">${filtered.length}</div><div class="label">Shows</div></div>
+        <div class="summary-card"><div class="value">${totalSeats}</div><div class="label">Total Seats</div></div>
+        <div class="summary-card highlight"><div class="value">${totalBooked}</div><div class="label">Booked</div></div>
+        <div class="summary-card"><div class="value">${totalAvailable}</div><div class="label">Available</div></div>
+        <div class="summary-card highlight"><div class="value">${overallPercent}%</div><div class="label">Booking %</div></div>
+      </div>
+    `;
+  }
 
   const showList = document.getElementById('showList');
   showList.innerHTML = '';

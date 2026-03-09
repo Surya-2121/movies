@@ -32,6 +32,7 @@
           <p><strong>Production:</strong> Mythri Movie Makers</p>
         </div>
         <div class="mp-dates">Premiering in Germany: March 18 – 23, 2026</div>
+        <div class="mp-countdown" id="countdownBox"></div>
         <div class="mp-hero-buttons">
           <button id="interestedBtn" class="mp-interested-btn" onclick="toggleInterest()">
             <span class="mp-thumbsup">&#128077;</span>
@@ -145,6 +146,21 @@
     };
 
     loadCount();
+  </script>
+
+  <script>
+    (function() {
+      const premiere = new Date('2026-03-18T00:00:00');
+      const now = new Date();
+      const diffMs = premiere - now;
+      const box = document.getElementById('countdownBox');
+      if (diffMs <= 0) {
+        box.innerHTML = '<span class="mp-countdown-label">Now Showing!</span>';
+      } else {
+        const days = Math.ceil(diffMs / 86400000);
+        box.innerHTML = '<span class="mp-countdown-num">' + days + '</span><span class="mp-countdown-label"> Days to Premiere</span>';
+      }
+    })();
   </script>
 
   <!-- Footer -->

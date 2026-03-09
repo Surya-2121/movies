@@ -1088,8 +1088,41 @@ main {
   font-size: 1rem;
   color: #f0ad4e;
   font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.mp-countdown {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: linear-gradient(135deg, #1a1a2e, #16213e);
+  border: 1px solid #f0ad4e;
+  border-radius: 10px;
+  padding: 10px 20px;
   margin-bottom: 16px;
 }
+
+.mp-countdown-num {
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: #f0ad4e;
+}
+
+.mp-countdown-label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #ccc;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.light-theme .mp-countdown {
+  background: #fff;
+  border-color: #d4880f;
+}
+
+.light-theme .mp-countdown-num { color: #d4880f; }
+.light-theme .mp-countdown-label { color: #555; }
 
 .mp-hero-buttons {
   display: flex;
