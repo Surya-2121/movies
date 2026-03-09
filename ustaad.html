@@ -40,7 +40,7 @@
         <div class="st-dates" id="stDates"></div>
         <div class="st-shows" id="stShows"></div>
 
-        <div class="filter-bar" id="adminFilter" style="display:none;">
+        <div class="filter-bar">
           <select id="dateFilter">
             <option value="all">All Dates</option>
           </select>
@@ -141,10 +141,6 @@
         renderStShows();
       });
 
-    // Show admin filter only in admin mode
-    if (new URLSearchParams(window.location.search).get('admin') === 'true') {
-      document.getElementById('adminFilter').style.display = '';
-    }
   </script>
   <script src="app.js"></script>
 </body>
