@@ -898,11 +898,11 @@ main {
   gap: 10px;
   background: #1a1a2e;
   border: 2px solid #2a2a4a;
-  border-radius: 12px;
-  padding: 14px 28px;
+  border-radius: 8px;
+  padding: 10px 20px;
   color: #ccc;
-  font-size: 1.05rem;
-  font-weight: 600;
+  font-size: 0.95rem;
+  font-weight: 700;
   cursor: pointer;
   transition: border-color 0.2s, background 0.2s, transform 0.2s;
   font-family: inherit;
