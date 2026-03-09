@@ -163,9 +163,7 @@
     window.selectCinema = function(c) { selectedCinema = c; renderStDates(); renderStShows(); };
 
     // Heidelberg (no seat data available - different platform)
-    const extraShows = [
-      { city: "Heidelberg", cinema: "LUXOR FILM PALAST", date: "2026-03-18", time: "20:30", prices: '', url: "https://heidelberg.luxor-kino.de/en/program/1848405" }
-    ];
+    const extraShows = [];
 
     function initShowtimes(data) {
       stShows = data.shows.map(s => {
