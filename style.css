@@ -805,6 +805,87 @@ main {
 }
 
 /* Movies Section Layout */
+/* Search */
+.search-section {
+  max-width: 600px;
+  margin: -28px auto 0;
+  padding: 0 32px;
+  position: relative;
+  z-index: 10;
+}
+
+.search-wrapper {
+  position: relative;
+}
+
+.search-input {
+  width: 100%;
+  padding: 14px 20px;
+  font-size: 1rem;
+  font-family: inherit;
+  background: #1a1a2e;
+  border: 2px solid #2a2a4a;
+  border-radius: 12px;
+  color: #fff;
+  outline: none;
+  transition: border-color 0.2s;
+  box-sizing: border-box;
+}
+
+.search-input::placeholder { color: #666; }
+.search-input:focus { border-color: #f0ad4e; }
+
+.search-results {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: #1a1a2e;
+  border: 1px solid #2a2a4a;
+  border-radius: 0 0 12px 12px;
+  margin-top: -2px;
+  overflow: hidden;
+  z-index: 20;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+}
+
+.search-item {
+  display: block;
+  padding: 12px 20px;
+  text-decoration: none;
+  color: #fff;
+  border-bottom: 1px solid #2a2a4a;
+  transition: background 0.15s;
+}
+
+.search-item:last-child { border-bottom: none; }
+.search-item:hover { background: #222244; }
+
+.search-item-name {
+  font-weight: 700;
+  font-size: 0.95rem;
+}
+
+.search-item-meta {
+  font-size: 0.8rem;
+  color: #888;
+  margin-top: 2px;
+}
+
+.search-empty {
+  color: #666;
+  cursor: default;
+}
+
+.light-theme .search-input { background: #fff; border-color: #ddd; color: #222; }
+.light-theme .search-input::placeholder { color: #999; }
+.light-theme .search-input:focus { border-color: #d4880f; }
+.light-theme .search-results { background: #fff; border-color: #ddd; box-shadow: 0 8px 24px rgba(0,0,0,0.1); }
+.light-theme .search-item { color: #222; border-color: #eee; }
+.light-theme .search-item:hover { background: #f9f3e8; }
+.light-theme .search-item-meta { color: #666; }
+
 .movies-section {
   max-width: 1100px;
   margin: 0 auto;
