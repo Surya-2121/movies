@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 160">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 150">
   <defs>
     <linearGradient id="gold" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" style="stop-color:#f0ad4e"/>
@@ -7,14 +7,15 @@
     </linearGradient>
   </defs>
 
-  <!-- GERMANY -->
-  <text x="240" y="62" text-anchor="middle" font-family="'Cinzel', 'Impact', 'Arial Black', sans-serif" font-weight="900" font-size="62" fill="url(#gold)" letter-spacing="4" font-style="italic">GERMANY</text>
-  <!-- TELUGU -->
-  <text x="240" y="118" text-anchor="middle" font-family="'Cinzel', 'Impact', 'Arial Black', sans-serif" font-weight="900" font-size="62" fill="url(#gold)" letter-spacing="2" font-style="italic">TELUGU</text>
+  <!-- "Germany" small italic script -->
+  <text x="108" y="42" font-family="'Georgia', 'Times New Roman', serif" font-weight="400" font-size="28" fill="#ffffff" font-style="italic" letter-spacing="1">Germany</text>
 
-  <!-- Thin line -->
-  <line x1="20" y1="128" x2="460" y2="128" stroke="url(#gold)" stroke-width="1.5" opacity="0.5"/>
+  <!-- "TELUGU" large bold -->
+  <text x="100" y="100" font-family="'Impact', 'Arial Black', sans-serif" font-weight="900" font-size="78" fill="url(#gold)" letter-spacing="3">TELUGU</text>
 
-  <!-- MOVIES -->
-  <text x="240" y="150" text-anchor="middle" font-family="'Cinzel', 'Impact', 'Arial Black', sans-serif" font-weight="900" font-size="26" fill="#888" letter-spacing="16" font-style="italic">M O V I E S</text>
+  <!-- Accent underline -->
+  <rect x="100" y="108" width="290" height="3" rx="1.5" fill="url(#gold)" opacity="0.6"/>
+
+  <!-- "MOVIES" spaced out below -->
+  <text x="245" y="138" text-anchor="middle" font-family="'Arial', 'Helvetica', sans-serif" font-weight="700" font-size="22" fill="#888888" letter-spacing="14">MOVIES</text>
 </svg>
