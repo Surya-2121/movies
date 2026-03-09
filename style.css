@@ -1243,6 +1243,120 @@ main {
   font-weight: 700;
 }
 
+/* ===== Showtimes Section ===== */
+.st-tabs {
+  display: flex;
+  gap: 0;
+  margin-bottom: 20px;
+}
+
+.st-tab {
+  padding: 10px 20px;
+  background: #1a1a2e;
+  border: 1px solid #2a2a4a;
+  color: #888;
+  font-size: 0.9rem;
+  font-weight: 700;
+  cursor: pointer;
+  font-family: inherit;
+  transition: background 0.2s, color 0.2s;
+}
+
+.st-tab:first-child { border-radius: 8px 0 0 8px; }
+.st-tab:last-child { border-radius: 0 8px 8px 0; }
+
+.st-tab-active {
+  background: #f0ad4e;
+  color: #000;
+  border-color: #f0ad4e;
+}
+
+.st-dates {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  padding-bottom: 8px;
+  margin-bottom: 20px;
+}
+
+.st-date-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 12px 18px;
+  background: #1a1a2e;
+  border: 2px solid #2a2a4a;
+  border-radius: 10px;
+  cursor: pointer;
+  min-width: 70px;
+  font-family: inherit;
+  transition: border-color 0.2s, background 0.2s;
+  color: #ccc;
+}
+
+.st-date-card:hover { border-color: #f0ad4e; }
+
+.st-date-active {
+  border-color: #f0ad4e;
+  background: #f0ad4e;
+  color: #000;
+}
+
+.st-date-day { font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; }
+.st-date-num { font-size: 1.4rem; font-weight: 800; }
+.st-date-month { font-size: 0.7rem; font-weight: 600; text-transform: uppercase; }
+
+.st-cinema-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 12px 18px;
+  background: #1a1a2e;
+  border: 2px solid #2a2a4a;
+  border-radius: 10px;
+  cursor: pointer;
+  min-width: 120px;
+  font-family: inherit;
+  transition: border-color 0.2s, background 0.2s;
+  color: #ccc;
+}
+
+.st-cinema-card:hover { border-color: #f0ad4e; }
+.st-cinema-name { font-size: 0.95rem; font-weight: 700; }
+.st-cinema-hall { font-size: 0.75rem; color: #888; margin-top: 2px; }
+.st-date-active .st-cinema-hall { color: #333; }
+
+.st-show-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #1a1a2e;
+  border: 1px solid #2a2a4a;
+  border-radius: 12px;
+  padding: 18px 20px;
+  margin-bottom: 12px;
+}
+
+.st-show-cinema { font-size: 1rem; font-weight: 700; color: #fff; }
+.st-show-city { font-size: 0.85rem; color: #f0ad4e; font-weight: 600; margin-top: 2px; }
+.st-show-details { font-size: 0.8rem; color: #888; margin-top: 6px; }
+
+.st-book-btn {
+  display: inline-block;
+  padding: 10px 24px;
+  margin-top: 0;
+  flex-shrink: 0;
+}
+
+/* Light theme showtimes */
+.light-theme .st-tab { background: #f0f0f0; border-color: #ddd; color: #666; }
+.light-theme .st-tab-active { background: #d4880f; color: #fff; border-color: #d4880f; }
+.light-theme .st-date-card, .light-theme .st-cinema-card { background: #fff; border-color: #ddd; color: #333; }
+.light-theme .st-date-active { background: #d4880f; border-color: #d4880f; color: #fff; }
+.light-theme .st-show-card { background: #fff; border-color: #ddd; }
+.light-theme .st-show-cinema { color: #222; }
+.light-theme .st-show-city { color: #d4880f; }
+
 /* Landing page responsive */
 @media (max-width: 768px) {
   .hero-title { font-size: 2.4rem; }
