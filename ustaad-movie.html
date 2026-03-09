@@ -72,110 +72,11 @@
       </div>
     </section>
 
-    <!-- Showtimes -->
-    <section class="mp-section">
-      <h2 class="mp-section-title">Showtimes</h2>
-      <div class="st-tabs">
-        <button class="st-tab st-tab-active" onclick="switchTab('day')">Shows By Day</button>
-        <button class="st-tab" onclick="switchTab('cinema')">Shows By Cinema</button>
-      </div>
-      <div class="st-dates" id="stDates"></div>
-      <div class="st-shows" id="stShows"></div>
+    <!-- Book Tickets CTA -->
+    <section class="mp-section mp-cta-section">
+      <a href="ustaad.html" class="book-btn mp-book-btn-large">Book Tickets Now &rarr;</a>
     </section>
   </main>
-
-  <script>
-    let shows = [];
-    let currentTab = 'day';
-    let selectedDate = null;
-    let selectedCinema = null;
-
-    function formatDate(dateStr) {
-      const d = new Date(dateStr + 'T00:00:00');
-      const days = ['SUN','MON','TUE','WED','THU','FRI','SAT'];
-      const months = ['JAN','FEB','MAR','APR','MAY','JUN','JUL','AUG','SEP','OCT','NOV','DEC'];
-      return { day: days[d.getDay()], date: d.getDate(), month: months[d.getMonth()], full: dateStr };
-    }
-
-    function switchTab(tab) {
-      currentTab = tab;
-      selectedDate = null;
-      selectedCinema = null;
-      document.querySelectorAll('.st-tab').forEach((t, i) => {
-        t.classList.toggle('st-tab-active', (i === 0 && tab === 'day') || (i === 1 && tab === 'cinema'));
-      });
-      renderDates();
-      renderShows();
-    }
-
-    function renderDates() {
-      const container = document.getElementById('stDates');
-      if (currentTab === 'day') {
-        const dates = [...new Set(shows.map(s => s.date))].sort();
-        if (!selectedDate) selectedDate = dates[0];
-        container.innerHTML = dates.map(d => {
-          const f = formatDate(d);
-          return `<button class="st-date-card ${d === selectedDate ? 'st-date-active' : ''}" onclick="selectDate('${d}')">
-            <span class="st-date-day">${f.day}</span>
-            <span class="st-date-num">${f.date}</span>
-            <span class="st-date-month">${f.month}</span>
-          </button>`;
-        }).join('');
-      } else {
-        const cinemas = [...new Set(shows.map(s => s.cinema))];
-        if (!selectedCinema) selectedCinema = cinemas[0];
-        container.innerHTML = cinemas.map(c => {
-          const city = shows.find(s => s.cinema === c).city;
-          return `<button class="st-cinema-card ${c === selectedCinema ? 'st-date-active' : ''}" onclick="selectCinema('${c.replace(/'/g, "\\'")}')">
-            <span class="st-cinema-name">${city}</span>
-            <span class="st-cinema-hall">${c}</span>
-          </button>`;
-        }).join('');
-      }
-    }
-
-    function renderShows() {
-      const container = document.getElementById('stShows');
-      const filtered = currentTab === 'day'
-        ? shows.filter(s => s.date === selectedDate)
-        : shows.filter(s => s.cinema === selectedCinema);
-
-      container.innerHTML = filtered.map(s => {
-        const f = formatDate(s.date);
-        return `<div class="st-show-card">
-          <div class="st-show-info">
-            <div class="st-show-cinema">${s.cinema}</div>
-            <div class="st-show-city">${s.city}</div>
-            <div class="st-show-details">${f.day} ${f.date} ${f.month} &bull; ${s.time} &bull; ${s.prices}</div>
-          </div>
-          <a href="${s.url}" target="_blank" rel="noopener" class="book-btn st-book-btn">Book</a>
-        </div>`;
-      }).join('');
-    }
-
-    window.switchTab = switchTab;
-    window.selectDate = function(d) { selectedDate = d; renderDates(); renderShows(); };
-    window.selectCinema = function(c) { selectedCinema = c; renderDates(); renderShows(); };
-
-    // Load shows from seat_data.json (auto-updated by GitHub Actions)
-    fetch('seat_data.json')
-      .then(r => r.json())
-      .then(data => {
-        shows = data.shows.map(s => {
-          const prices = [...new Set(Object.values(s.rowPrices))].sort((a,b) => a-b).map(p => '€' + p).join(' / ');
-          // Build booking URL from show ID, time and date
-          const timeParam = encodeURIComponent(s.dateText.split(' - ')[1] || s.time);
-          const mdate = btoa(s.date);
-          const url = `https://www.getmyticket.de/showbookings.php?id=${s.showId}&time=${timeParam}&mdate=${mdate}`;
-          return { city: s.city, cinema: s.cinema, date: s.date, time: s.time, prices, url };
-        });
-        renderDates();
-        renderShows();
-      })
-      .catch(() => {
-        document.getElementById('stShows').innerHTML = '<p style="color:#888;">Showtimes loading failed. Please try again later.</p>';
-      });
-  </script>
 
   <script type="module">
     import { initializeApp } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-app.js";
