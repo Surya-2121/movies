@@ -12,6 +12,93 @@ body {
 }
 
 /* ===== Hamburger Menu Button ===== */
+.search-btn {
+  position: fixed;
+  top: 16px;
+  right: 62px;
+  z-index: 1000;
+  background: rgba(15,15,26,0.85);
+  border: 1px solid #2a2a4a;
+  border-radius: 8px;
+  padding: 8px 10px;
+  cursor: pointer;
+  backdrop-filter: blur(8px);
+  color: #f0ad4e;
+  font-size: 18px;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.search-btn:hover { border-color: #f0ad4e; }
+
+.search-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0,0,0,0.85);
+  z-index: 2000;
+  justify-content: center;
+  padding-top: 120px;
+  backdrop-filter: blur(4px);
+}
+
+.search-overlay-open { display: flex; }
+
+.search-overlay-box {
+  width: 90%;
+  max-width: 500px;
+  position: relative;
+}
+
+.search-overlay-close {
+  position: absolute;
+  top: -40px;
+  right: 0;
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 1.8rem;
+  cursor: pointer;
+}
+
+.search-overlay-input {
+  width: 100%;
+  padding: 14px 20px;
+  font-size: 1rem;
+  font-family: inherit;
+  background: #1a1a2e;
+  border: 2px solid #f0ad4e;
+  border-radius: 12px;
+  color: #fff;
+  outline: none;
+  box-sizing: border-box;
+}
+
+.search-overlay-input::placeholder { color: #666; }
+
+.search-overlay-results {
+  background: #1a1a2e;
+  border: 1px solid #2a2a4a;
+  border-radius: 0 0 12px 12px;
+  margin-top: -2px;
+  overflow: hidden;
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+.light-theme .search-btn { background: rgba(255,255,255,0.9); border-color: #ddd; color: #d4880f; }
+.light-theme .search-btn:hover { border-color: #d4880f; }
+.light-theme .search-overlay { background: rgba(255,255,255,0.9); }
+.light-theme .search-overlay-close { color: #222; }
+.light-theme .search-overlay-input { background: #fff; border-color: #d4880f; color: #222; }
+.light-theme .search-overlay-input::placeholder { color: #999; }
+.light-theme .search-overlay-results { background: #fff; border-color: #ddd; }
+
 .menu-btn {
   position: fixed;
   top: 16px;

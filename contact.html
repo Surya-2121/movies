@@ -22,7 +22,9 @@
     </button>
   </nav>
   <div class="nav-overlay" id="navOverlay" onclick="toggleMenu()"></div>
-  <button class="menu-btn" id="menuBtn" onclick="toggleMenu()">
+  <button class="search-btn" onclick="toggleSearch()">&#128269;</button>
+<div class="search-overlay" id="searchOverlay"><div class="search-overlay-box"><button class="search-overlay-close" onclick="toggleSearch()">&times;</button><input type="text" class="search-overlay-input" placeholder="Search for a movie..." oninput="handleSearchInput(event)" autocomplete="off"><div class="search-overlay-results" id="searchOverlayResults"></div></div></div>
+<button class="menu-btn" id="menuBtn" onclick="toggleMenu()">
     <span></span><span></span><span></span>
   </button>
 
