@@ -234,7 +234,7 @@ body {
 }
 
 .light-theme .hero-overlay {
-  background: radial-gradient(ellipse at center, rgba(245,245,245,0.4) 0%, rgba(245,245,245,0.92) 75%);
+  background: radial-gradient(ellipse at center, rgba(245,245,245,0.15) 0%, rgba(245,245,245,0.75) 75%);
 }
 
 .light-theme .hero-tagline { color: #555; }
