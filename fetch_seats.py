@@ -25,7 +25,9 @@ THREEALMS_URL = "https://3realmsentertainment.com/movie/39/"
 def fetch_html(url):
     """Fetch HTML page."""
     req = urllib.request.Request(url)
-    req.add_header("User-Agent", "Mozilla/5.0")
+    req.add_header("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36")
+    req.add_header("Accept", "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8")
+    req.add_header("Accept-Language", "en-US,en;q=0.5")
     req.add_header("Referer", "https://www.getmyticket.de/")
     try:
         resp = urllib.request.urlopen(req, timeout=15)
