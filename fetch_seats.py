@@ -186,22 +186,109 @@ def count_seats(html):
     }
 
 
+# ─── kinotickets.express (Capitol Kornwestheim) ─────────
+
+CAPITOL_SHOWS = [
+    {
+        "city": "Stuttgart",
+        "cinema": "Capital Kornwestheim",
+        "bookingId": 25577,
+        "date": "2026-03-18",
+        "time": "19:30",
+        "dateText": "Wed 18 Mar 2026 - 07:30 PM",
+        "url": "https://capitol-kornwestheim.de/film/ustaad-bhagat-singh-malayalam-mit-englischen-untertiteln",
+    },
+    {
+        "city": "Stuttgart",
+        "cinema": "Capital Kornwestheim",
+        "bookingId": 25582,
+        "date": "2026-03-21",
+        "time": "21:15",
+        "dateText": "Sat 21 Mar 2026 - 09:15 PM",
+        "url": "https://capitol-kornwestheim.de/film/ustaad-bhagat-singh-malayalam-mit-englischen-untertiteln",
+    },
+]
+
+
+def fetch_capitol_seats(booking_id):
+    """Fetch seat data from kinotickets.express booking page."""
+    url = f"https://kinotickets.express/kornwestheim-capitol/booking/{booking_id}"
+    html = fetch_html(url)
+    if not html:
+        return None
+
+    # Seats are <button id="seat-..."> with SVG <use href="#bg-...-free-N"/> or <use href="#bg-...-sold-N"/>
+    seat_refs = re.findall(r'id="seat-[^"]*"[^>]*>.*?href="#([^"]*)"', html, re.DOTALL)
+
+    total = len(seat_refs)
+    sold = sum(1 for ref in seat_refs if "sold" in ref or "occupied" in ref or "reserved" in ref)
+    available = total - sold
+
+    return {
+        "totalSeats": total,
+        "sold": sold,
+        "available": available,
+    }
+
+
+def fetch_capitol_shows():
+    """Fetch all Capitol Kornwestheim shows."""
+    print("\n[Capitol Kornwestheim] Fetching seat counts...")
+    results = []
+
+    for i, show in enumerate(CAPITOL_SHOWS, 1):
+        sys.stdout.write(f"  [{i}/{len(CAPITOL_SHOWS)}] {show['city']}...")
+        sys.stdout.flush()
+
+        counts = fetch_capitol_seats(show["bookingId"])
+
+        if counts and counts["totalSeats"] > 0:
+            pct = round(counts["sold"] / counts["totalSeats"] * 100, 1)
+            print(f"\r  [{i}/{len(CAPITOL_SHOWS)}] {show['city']} - {show['cinema']}")
+            print(f"           Seats: {counts['totalSeats']} | Sold: {counts['sold']} | Available: {counts['available']} | {pct}%")
+
+            results.append({
+                "showId": f"capitol-{show['bookingId']}",
+                "city": show["city"],
+                "cinema": show["cinema"],
+                "date": show["date"],
+                "time": show["time"],
+                "dateText": show["dateText"],
+                "totalSeats": counts["totalSeats"],
+                "sold": counts["sold"],
+                "available": counts["available"],
+                "unavailable": 0,
+                "revenue": 0,
+                "soldByPrice": {},
+                "rowPrices": {},
+                "source": "kinotickets.express",
+                "bookingUrl": show["url"],
+            })
+        else:
+            print(f"\r  [{i}/{len(CAPITOL_SHOWS)}] {show['city']} - Failed or no seats")
+
+        time.sleep(0.5)
+
+    return results
+
+
 def main():
     print("=" * 55)
-    print("  getmyticket.de - Seat Count Fetcher")
+    print("  Seat Count Fetcher (getmyticket + Capitol)")
     print("=" * 55)
     print()
 
-    # Step 1: Auto-discover shows
+    # Step 1: Auto-discover shows from getmyticket.de
     shows, movie_title = discover_shows()
     if not shows:
-        print("  No shows found. Exiting.")
-        return
+        print("  No getmyticket shows found.")
+        shows = []
+        movie_title = "Ustaad Bhagat Singh - Telugu"
 
     print()
 
-    # Step 2: Fetch seat counts for each show
-    print(f"[2/2] Fetching seat counts for {len(shows)} show(s)...")
+    # Step 2: Fetch seat counts for getmyticket shows
+    print(f"[2/3] Fetching getmyticket seat counts for {len(shows)} show(s)...")
     results = []
     total_seats = 0
     total_booked = 0
@@ -259,6 +346,15 @@ def main():
 
         time.sleep(0.5)
 
+    # Step 3: Fetch Capitol Kornwestheim shows
+    print()
+    print(f"[3/3] Fetching Capitol Kornwestheim shows...")
+    capitol_results = fetch_capitol_shows()
+    for r in capitol_results:
+        results.append(r)
+        total_seats += r["totalSeats"]
+        total_booked += r["sold"]
+
     # Save JSON
     total_revenue = sum(r.get("revenue", 0) for r in results)
     output = {
@@ -306,13 +402,15 @@ def main():
                 f"'row{k}': {v}" for k, v in sorted(r["rowPrices"].items(), key=lambda x: int(x[0]))
             )
             # Find matching show to get booking URL
-            matching = [s for s in shows if s['showId'] == r['showId']]
-            booking_url = ""
-            if matching:
-                s = matching[0]
-                booking_url = f"https://www.getmyticket.de/showbookings.php?id={s['showId']}&time={urllib.request.quote(s['timeParam'])}&mdate={s['mdate']}"
+            booking_url = r.get("bookingUrl", "")
+            if not booking_url:
+                matching = [s for s in shows if s['showId'] == r['showId']]
+                if matching:
+                    s = matching[0]
+                    booking_url = f"https://www.getmyticket.de/showbookings.php?id={s['showId']}&time={urllib.request.quote(s['timeParam'])}&mdate={s['mdate']}"
+            show_id = json.dumps(r['showId']) if isinstance(r['showId'], str) else str(r['showId'])
             shows_js += f"""  {{
-    id: {r['showId']},
+    id: {show_id},
     city: {json.dumps(r['city'])},
     cinema: {json.dumps(r['cinema'])},
     date: {json.dumps(r['date'])},
