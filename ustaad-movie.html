@@ -85,12 +85,7 @@
   </main>
 
   <script>
-    const shows = [
-      { city: "Nürnberg", cinema: "Cinecittà Kino 6", date: "2026-03-18", time: "19:30", prices: "€18 / €22", url: "https://www.getmyticket.de/showbookings.php?id=168&time=07%3A30%20PM&mdate=MjAyNi0wMy0xOA==" },
-      { city: "Dusseldorf", cinema: "UFA Palast Kino 9", date: "2026-03-18", time: "19:30", prices: "€19 / €21", url: "https://www.getmyticket.de/showbookings.php?id=169&time=07%3A30%20PM&mdate=MjAyNi0wMy0xOA==" },
-      { city: "Erlangen", cinema: "LammKino Screen 1", date: "2026-03-22", time: "11:00", prices: "€15 / €16 / €18", url: "https://www.getmyticket.de/showbookings.php?id=170&time=11%20AM&mdate=MjAyNi0wMy0yMg==" },
-    ];
-
+    let shows = [];
     let currentTab = 'day';
     let selectedDate = null;
     let selectedCinema = null;
@@ -162,8 +157,24 @@
     window.selectDate = function(d) { selectedDate = d; renderDates(); renderShows(); };
     window.selectCinema = function(c) { selectedCinema = c; renderDates(); renderShows(); };
 
-    renderDates();
-    renderShows();
+    // Load shows from seat_data.json (auto-updated by GitHub Actions)
+    fetch('seat_data.json')
+      .then(r => r.json())
+      .then(data => {
+        shows = data.shows.map(s => {
+          const prices = [...new Set(Object.values(s.rowPrices))].sort((a,b) => a-b).map(p => '€' + p).join(' / ');
+          // Build booking URL from show ID, time and date
+          const timeParam = encodeURIComponent(s.dateText.split(' - ')[1] || s.time);
+          const mdate = btoa(s.date);
+          const url = `https://www.getmyticket.de/showbookings.php?id=${s.showId}&time=${timeParam}&mdate=${mdate}`;
+          return { city: s.city, cinema: s.cinema, date: s.date, time: s.time, prices, url };
+        });
+        renderDates();
+        renderShows();
+      })
+      .catch(() => {
+        document.getElementById('stShows').innerHTML = '<p style="color:#888;">Showtimes loading failed. Please try again later.</p>';
+      });
   </script>
 
   <script type="module">
