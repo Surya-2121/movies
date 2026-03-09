@@ -162,6 +162,13 @@
     window.selectDate = function(d) { selectedDate = d; renderStDates(); renderStShows(); };
     window.selectCinema = function(c) { selectedCinema = c; renderStDates(); renderStShows(); };
 
+    // Extra shows from other booking platforms
+    const extraShows = [
+      { city: 'Stuttgart', cinema: 'Capital Kornwestheim', date: '2026-03-18', time: '7:30 PM', prices: '', url: 'https://capitol-kornwestheim.de/film/ustaad-bhagat-singh-malayalam-mit-englischen-untertiteln' },
+      { city: 'Stuttgart', cinema: 'Capital Kornwestheim', date: '2026-03-21', time: '9:15 PM', prices: '', url: 'https://capitol-kornwestheim.de/film/ustaad-bhagat-singh-malayalam-mit-englischen-untertiteln' },
+      { city: 'Heidelberg', cinema: 'LUXOR FILM PALAST', date: '2026-03-18', time: '8:30 PM', prices: '', url: 'https://heidelberg.luxor-kino.de/en/program/1848405' },
+    ];
+
     function initShowtimes(data) {
       stShows = data.shows.map(s => {
         const prices = [...new Set(Object.values(s.rowPrices))].sort((a,b) => a-b).map(p => '€' + p).join(' / ');
@@ -170,6 +177,7 @@
         const url = `https://www.getmyticket.de/showbookings.php?id=${s.showId}&time=${timeParam}&mdate=${mdate}`;
         return { city: s.city, cinema: s.cinema, date: s.date, time: s.time, prices, url };
       });
+      stShows = stShows.concat(extraShows);
       renderStDates();
       renderStShows();
     }
