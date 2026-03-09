@@ -23,7 +23,7 @@ const showsData = [
     time: "19:30",
     language: "Telugu",
     totalSeats: 222,
-    ticketsBooked: 41,
+    ticketsBooked: 47,
     bookingUrl: "https://www.getmyticket.de/showbookings.php?id=169&time=07%3A30%20PM&mdate=MjAyNi0wMy0xOA==",
     prices: { 'row1': 19, 'row2': 19, 'row3': 19, 'row4': 21, 'row5': 21, 'row6': 21, 'row7': 21, 'row8': 21, 'row9': 21, 'row10': 21, 'row11': 21, 'row12': 21, 'row13': 21, 'row14': 21, 'row15': 21 },
   },
@@ -46,9 +46,9 @@ const showsData = [
     date: "2026-03-18",
     time: "19:30",
     language: "Telugu",
-    totalSeats: 145,
+    totalSeats: 144,
     ticketsBooked: 0,
-    bookingUrl: "https://capitol-kornwestheim.de/film/ustaad-bhagat-singh-malayalam-mit-englischen-untertiteln",
+    bookingUrl: "https://kinotickets.express/kornwestheim-capitol/sale/seats/25577",
     prices: {  },
   },
   {
@@ -60,12 +60,12 @@ const showsData = [
     language: "Telugu",
     totalSeats: 145,
     ticketsBooked: 0,
-    bookingUrl: "https://capitol-kornwestheim.de/film/ustaad-bhagat-singh-malayalam-mit-englischen-untertiteln",
+    bookingUrl: "https://kinotickets.express/kornwestheim-capitol/sale/seats/25582",
     prices: {  },
   },
 ]// Embedded real seat data (auto-injected by fetch_seats.py)
 // SEAT_DATA_START
-const seatData = {"fetchedAt": "2026-03-09T13:42:41Z", "movie": "Ustaad Bhagat Singh - Telugu", "totalShows": 5, "totalSeats": 732, "totalBooked": 41, "totalAvailable": 691, "overallBookingPercent": 5.6, "totalRevenue": 861, "shows": [{"showId": 168, "city": "Nürnberg", "cinema": "Cinecittà Kino 6", "date": "2026-03-18", "time": "19:30", "dateText": "Wed 18 Mar 2026 - 07:30 PM", "totalSeats": 103, "sold": 0, "available": 103, "unavailable": 0, "revenue": 0, "soldByPrice": {}, "rowPrices": {"1": 18, "2": 18, "3": 18, "4": 22, "5": 22, "6": 22, "7": 22, "8": 22, "9": 22, "10": 22}}, {"showId": 169, "city": "Dusseldorf", "cinema": "UFA Palast Kino 9", "date": "2026-03-18", "time": "19:30", "dateText": "Wed 18 Mar 2026 - 07:30 PM", "totalSeats": 222, "sold": 41, "available": 181, "unavailable": 0, "revenue": 861, "soldByPrice": {"21": 41}, "rowPrices": {"1": 19, "2": 19, "3": 19, "4": 21, "5": 21, "6": 21, "7": 21, "8": 21, "9": 21, "10": 21, "11": 21, "12": 21, "13": 21, "14": 21, "15": 21}}, {"showId": 170, "city": "Erlangen", "cinema": "Erlangen LammKino Screen 1", "date": "2026-03-22", "time": "11 AM", "dateText": "Sun 22 Mar 2026 - 11 AM", "totalSeats": 117, "sold": 0, "available": 117, "unavailable": 0, "revenue": 0, "soldByPrice": {}, "rowPrices": {"1": 15, "2": 15, "3": 15, "4": 16, "5": 16, "6": 16, "7": 16, "8": 16, "9": 18, "10": 18, "11": 18, "12": 18, "13": 18, "14": 18, "15": 18, "16": 18}}, {"showId": "capitol-25577", "city": "Stuttgart", "cinema": "Capital Kornwestheim", "date": "2026-03-18", "time": "19:30", "dateText": "Wed 18 Mar 2026 - 07:30 PM", "totalSeats": 145, "sold": 0, "available": 145, "unavailable": 0, "revenue": 0, "soldByPrice": {}, "rowPrices": {}, "source": "kinotickets.express", "bookingUrl": "https://capitol-kornwestheim.de/film/ustaad-bhagat-singh-malayalam-mit-englischen-untertiteln"}, {"showId": "capitol-25582", "city": "Stuttgart", "cinema": "Capital Kornwestheim", "date": "2026-03-21", "time": "21:15", "dateText": "Sat 21 Mar 2026 - 09:15 PM", "totalSeats": 145, "sold": 0, "available": 145, "unavailable": 0, "revenue": 0, "soldByPrice": {}, "rowPrices": {}, "source": "kinotickets.express", "bookingUrl": "https://capitol-kornwestheim.de/film/ustaad-bhagat-singh-malayalam-mit-englischen-untertiteln"}]};
+const seatData = {"fetchedAt": "2026-03-09T14:39:35Z", "movie": "Ustaad Bhagat Singh - Telugu", "totalShows": 5, "totalSeats": 731, "totalBooked": 47, "totalAvailable": 684, "overallBookingPercent": 6.4, "totalRevenue": 987, "shows": [{"showId": 168, "city": "Nürnberg", "cinema": "Cinecittà Kino 6", "date": "2026-03-18", "time": "19:30", "dateText": "Wed 18 Mar 2026 - 07:30 PM", "totalSeats": 103, "sold": 0, "available": 103, "unavailable": 0, "revenue": 0, "soldByPrice": {}, "rowPrices": {"1": 18, "2": 18, "3": 18, "4": 22, "5": 22, "6": 22, "7": 22, "8": 22, "9": 22, "10": 22}}, {"showId": 169, "city": "Dusseldorf", "cinema": "UFA Palast Kino 9", "date": "2026-03-18", "time": "19:30", "dateText": "Wed 18 Mar 2026 - 07:30 PM", "totalSeats": 222, "sold": 47, "available": 175, "unavailable": 0, "revenue": 987, "soldByPrice": {"21": 47}, "rowPrices": {"1": 19, "2": 19, "3": 19, "4": 21, "5": 21, "6": 21, "7": 21, "8": 21, "9": 21, "10": 21, "11": 21, "12": 21, "13": 21, "14": 21, "15": 21}}, {"showId": 170, "city": "Erlangen", "cinema": "Erlangen LammKino Screen 1", "date": "2026-03-22", "time": "11 AM", "dateText": "Sun 22 Mar 2026 - 11 AM", "totalSeats": 117, "sold": 0, "available": 117, "unavailable": 0, "revenue": 0, "soldByPrice": {}, "rowPrices": {"1": 15, "2": 15, "3": 15, "4": 16, "5": 16, "6": 16, "7": 16, "8": 16, "9": 18, "10": 18, "11": 18, "12": 18, "13": 18, "14": 18, "15": 18, "16": 18}}, {"showId": "capitol-25577", "city": "Stuttgart", "cinema": "Capital Kornwestheim", "date": "2026-03-18", "time": "19:30", "dateText": "Wed 18 Mar 2026 - 07:30 PM", "totalSeats": 144, "sold": 0, "available": 144, "unavailable": 0, "revenue": 0, "soldByPrice": {}, "rowPrices": {}, "source": "kinotickets.express", "bookingUrl": "https://kinotickets.express/kornwestheim-capitol/sale/seats/25577"}, {"showId": "capitol-25582", "city": "Stuttgart", "cinema": "Capital Kornwestheim", "date": "2026-03-21", "time": "21:15", "dateText": "Sat 21 Mar 2026 - 09:15 PM", "totalSeats": 145, "sold": 0, "available": 145, "unavailable": 0, "revenue": 0, "soldByPrice": {}, "rowPrices": {}, "source": "kinotickets.express", "bookingUrl": "https://kinotickets.express/kornwestheim-capitol/sale/seats/25582"}]};
 // SEAT_DATA_END
 
 function loadShows() {
@@ -253,7 +253,7 @@ function renderRevenueTable() {
 
     grandTotalSeats += show.totalSeats;
     grandTotalSold += show.ticketsBooked;
-    grandTotalRevenue += revenue;
+    grandTotalRevenue += revenue > 0 ? revenue : show.ticketsBooked * 21;
 
     rows += `
       <tr>
@@ -262,7 +262,7 @@ function renderRevenueTable() {
         <td>${show.totalSeats}</td>
         <td>${show.ticketsBooked}</td>
         <td>${uniquePrices || '-'}</td>
-        <td class="amount">€${revenue.toLocaleString()}</td>
+        <td class="amount">€${(revenue > 0 ? revenue : show.ticketsBooked * 21).toLocaleString()}</td>
       </tr>
     `;
   });
