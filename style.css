@@ -182,6 +182,8 @@ body {
 .light-theme .mp-crew { color: #555; }
 .light-theme .mp-crew strong { color: #d4880f; }
 .light-theme .mp-meta span { background: #f0f0f0; border-color: #ddd; color: #555; }
+.light-theme .mp-song-card { color: #222; }
+.light-theme .mp-song-icon { color: #d4880f; }
 
 .light-theme .site-footer { border-top-color: #ddd; }
 .light-theme .footer-location, .light-theme .footer-instagram { color: #666; }
