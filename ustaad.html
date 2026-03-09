@@ -161,18 +161,30 @@
     window.selectDate = function(d) { selectedDate = d; renderStDates(); renderStShows(); };
     window.selectCinema = function(c) { selectedCinema = c; renderStDates(); renderStShows(); };
 
+    function initShowtimes(data) {
+      stShows = data.shows.map(s => {
+        const prices = [...new Set(Object.values(s.rowPrices))].sort((a,b) => a-b).map(p => '€' + p).join(' / ');
+        const timeParam = encodeURIComponent(s.dateText.split(' - ')[1] || s.time);
+        const mdate = btoa(s.date);
+        const url = `https://www.getmyticket.de/showbookings.php?id=${s.showId}&time=${timeParam}&mdate=${mdate}`;
+        return { city: s.city, cinema: s.cinema, date: s.date, time: s.time, prices, url };
+      });
+      renderStDates();
+      renderStShows();
+    }
+
+    // Try fetch first, fallback to embedded seatData from app.js
     fetch('seat_data.json')
       .then(r => r.json())
-      .then(data => {
-        stShows = data.shows.map(s => {
-          const prices = [...new Set(Object.values(s.rowPrices))].sort((a,b) => a-b).map(p => '€' + p).join(' / ');
-          const timeParam = encodeURIComponent(s.dateText.split(' - ')[1] || s.time);
-          const mdate = btoa(s.date);
-          const url = `https://www.getmyticket.de/showbookings.php?id=${s.showId}&time=${timeParam}&mdate=${mdate}`;
-          return { city: s.city, cinema: s.cinema, date: s.date, time: s.time, prices, url };
-        });
-        renderStDates();
-        renderStShows();
+      .then(data => initShowtimes(data))
+      .catch(() => {
+        // Fallback: wait for app.js to load seatData
+        const checkData = setInterval(() => {
+          if (typeof seatData !== 'undefined' && seatData) {
+            clearInterval(checkData);
+            initShowtimes(seatData);
+          }
+        }, 100);
       });
 
   </script>
