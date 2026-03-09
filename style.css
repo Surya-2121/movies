@@ -684,6 +684,33 @@ main {
   align-items: center;
 }
 
+/* Slider Dots */
+.cs-dots {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 16px;
+}
+
+.cs-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #2a2a4a;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s;
+}
+
+.cs-dot:hover {
+  background: #888;
+  transform: scale(1.2);
+}
+
+.cs-dot-active {
+  background: #f0ad4e;
+  transform: scale(1.2);
+}
+
 /* Footer */
 .site-footer {
   border-top: 2px solid #2a2a4a;
