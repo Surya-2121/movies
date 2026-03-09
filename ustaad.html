@@ -173,21 +173,13 @@
       renderStShows();
     }
 
-    // Try fetch first, fallback to embedded seatData from app.js
-    fetch('seat_data.json')
-      .then(r => r.json())
-      .then(data => initShowtimes(data))
-      .catch(() => {
-        // Fallback: wait for app.js to load seatData
-        const checkData = setInterval(() => {
-          if (typeof seatData !== 'undefined' && seatData) {
-            clearInterval(checkData);
-            initShowtimes(seatData);
-          }
-        }, 100);
-      });
-
   </script>
   <script src="app.js"></script>
+  <script>
+    // Initialize showtimes from embedded seatData in app.js
+    if (typeof seatData !== 'undefined' && seatData) {
+      initShowtimes(seatData);
+    }
+  </script>
 </body>
 </html>
