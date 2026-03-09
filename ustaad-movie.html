@@ -64,11 +64,55 @@
       </div>
     </section>
 
+    <!-- Interested Button -->
+    <section class="mp-section mp-cta-section">
+      <button id="interestedBtn" class="mp-interested-btn" onclick="toggleInterest()">
+        <span class="mp-thumbsup">&#128077;</span>
+        <span id="interestedText">I'm Interested</span>
+        <span id="interestedCount" class="mp-interested-count">0</span>
+      </button>
+    </section>
+
     <!-- Book Tickets CTA -->
     <section class="mp-section mp-cta-section">
       <a href="ustaad.html" class="book-btn mp-book-btn-large">Book Tickets Now &rarr;</a>
     </section>
   </main>
+
+  <script>
+    const STORAGE_KEY = 'ustaad_interested';
+    const BASE_COUNT = 124;
+
+    function getState() {
+      const saved = localStorage.getItem(STORAGE_KEY);
+      return saved ? JSON.parse(saved) : { clicked: false };
+    }
+
+    function updateUI() {
+      const state = getState();
+      const btn = document.getElementById('interestedBtn');
+      const text = document.getElementById('interestedText');
+      const count = document.getElementById('interestedCount');
+      const num = BASE_COUNT + (state.clicked ? 1 : 0);
+      count.textContent = num;
+      if (state.clicked) {
+        btn.classList.add('mp-interested-active');
+        text.textContent = 'Interested';
+      } else {
+        btn.classList.remove('mp-interested-active');
+        text.textContent = "I'm Interested";
+      }
+    }
+
+    function toggleInterest() {
+      const state = getState();
+      state.clicked = !state.clicked;
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+      updateUI();
+    }
+
+    updateUI();
+  </script>
 
   <!-- Footer -->
   <footer class="site-footer">
