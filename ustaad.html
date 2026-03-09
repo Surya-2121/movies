@@ -110,17 +110,51 @@
         ? stShows.filter(s => s.date === selectedDate)
         : stShows.filter(s => s.cinema === selectedCinema);
 
-      container.innerHTML = filtered.map(s => {
-        const f = formatDate(s.date);
-        return `<div class="st-show-card">
-          <div class="st-show-info">
-            <div class="st-show-cinema">${s.cinema}</div>
-            <div class="st-show-city">${s.city}</div>
-            <div class="st-show-details">${f.day} ${f.date} ${f.month} &bull; ${s.time} &bull; ${s.prices}</div>
+      if (currentTab === 'day') {
+        // Group by cinema
+        const grouped = {};
+        filtered.forEach(s => {
+          if (!grouped[s.cinema]) grouped[s.cinema] = { city: s.city, cinema: s.cinema, shows: [] };
+          grouped[s.cinema].shows.push(s);
+        });
+
+        container.innerHTML = Object.values(grouped).map(g => `
+          <div class="st-venue">
+            <div class="st-venue-header">
+              <div class="st-venue-info">
+                <div class="st-venue-city">${g.city}</div>
+                <div class="st-venue-name">${g.cinema}</div>
+              </div>
+            </div>
+            <div class="st-venue-times">
+              ${g.shows.map(s => `
+                <a href="${s.url}" target="_blank" rel="noopener" class="st-time-card">
+                  <div class="st-time-value">${s.time}</div>
+                  <div class="st-time-price">${s.prices}</div>
+                </a>
+              `).join('')}
+            </div>
           </div>
-          <a href="${s.url}" target="_blank" rel="noopener" class="book-btn st-book-btn">Book</a>
-        </div>`;
-      }).join('');
+        `).join('');
+      } else {
+        // Shows By Cinema — show dates for that cinema
+        container.innerHTML = filtered.map(s => {
+          const f = formatDate(s.date);
+          return `<div class="st-venue">
+            <div class="st-venue-header">
+              <div class="st-venue-info">
+                <div class="st-venue-date">${f.day} ${f.date} ${f.month}</div>
+              </div>
+            </div>
+            <div class="st-venue-times">
+              <a href="${s.url}" target="_blank" rel="noopener" class="st-time-card">
+                <div class="st-time-value">${s.time}</div>
+                <div class="st-time-price">${s.prices}</div>
+              </a>
+            </div>
+          </div>`;
+        }).join('');
+      }
     }
 
     window.switchTab = switchTab;
