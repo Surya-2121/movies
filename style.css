@@ -792,14 +792,18 @@ main {
   margin-bottom: 16px;
 }
 
-.mp-hero-info .mp-interested-btn {
-  margin-bottom: 16px;
+.mp-hero-buttons {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  margin-top: 20px;
 }
 
 .mp-book-btn {
   display: inline-block;
   padding: 12px 28px;
-  font-size: 1rem;
+  font-size: 0.95rem;
+  margin-top: 0;
 }
 
 .mp-section {
@@ -900,14 +904,13 @@ main {
   background: #1a1a2e;
   border: 2px solid #f0ad4e;
   border-radius: 8px;
-  padding: 12px 28px;
+  padding: 10px 20px;
   color: #f0ad4e;
   font-size: 0.95rem;
   font-weight: 700;
   cursor: pointer;
   transition: border-color 0.2s, background 0.2s, transform 0.2s;
   font-family: inherit;
-  box-sizing: border-box;
 }
 
 .mp-interested-btn:hover {
