@@ -587,6 +587,40 @@ def main():
         print(f"  [Showtime-only] {s['city']} - {s['cinema']} ({s.get('date','')}) — no seat data")
         # These appear in showtimes but not in seat/revenue tracking
 
+    # If getmyticket failed, preserve previous getmyticket shows from existing data
+    if not gmt_shows:
+        try:
+            with open(APP_JS, "r", encoding="utf-8") as f:
+                code = f.read()
+            m = re.search(r'const seatData = ({.*?});', code, re.DOTALL)
+            if m:
+                prev_data = json.loads(m.group(1))
+                prev_shows = [s for s in prev_data.get("shows", []) if not str(s.get("showId", "")).startswith("capitol-")]
+                if prev_shows:
+                    print(f"\n  [Fallback] Preserving {len(prev_shows)} previous getmyticket show(s)")
+                    for ps in prev_shows:
+                        # Check not already in results
+                        if not any(r["showId"] == ps["showId"] for r in results):
+                            results.insert(0, ps)
+                            total_seats += ps.get("totalSeats", 0)
+                            total_booked += ps.get("sold", 0)
+        except Exception as ex:
+            print(f"  [Fallback] Could not load previous data: {ex}")
+
+    # If 3realms failed, preserve Luxor from existing extraShows in HTML
+    if not unique_extra:
+        try:
+            with open(DASHBOARD_HTML, "r", encoding="utf-8") as f:
+                html_code = f.read()
+            m = re.search(r'const extraShows = (\[.*?\]);', html_code, re.DOTALL)
+            if m:
+                prev_extra = json.loads(m.group(1))
+                if prev_extra:
+                    unique_extra = prev_extra
+                    print(f"  [Fallback] Preserving {len(prev_extra)} previous extra show(s)")
+        except Exception:
+            pass
+
     # Save JSON
     total_revenue = sum(r.get("revenue", 0) for r in results)
     output = {
