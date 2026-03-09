@@ -222,7 +222,7 @@ def discover_capitol_shows():
 
 
 def discover_3realms_shows():
-    """Discover extra shows from 3realmsentertainment.com (Luxor etc.)."""
+    """Discover extra shows from 3realmsentertainment.com."""
     print("[3Realms] Fetching shows page...")
     html = fetch_html(THREEALMS_URL)
     if not html:
@@ -231,11 +231,10 @@ def discover_3realms_shows():
 
     shows = []
 
-    # Look for luxor links (seat data not available — showtime only)
+    # Look for Luxor Heidelberg links
     luxor_links = re.findall(
-        r'href="(https://heidelberg\.luxor-kino\.de/[^"]+)"', html
+        r'href="(https://(?:heidelberg\.luxor-kino\.de|ticket-cloud\.de/Luxor[^"]*)/[^"]+)"', html
     )
-
     if luxor_links:
         print(f"  Found Luxor Heidelberg: {luxor_links[0]}")
         shows.append({
@@ -247,14 +246,82 @@ def discover_3realms_shows():
             "bookingUrl": luxor_links[0],
         })
 
-    # Look for any other non-getmyticket, non-capitol links we might have missed
-    # (future-proofing for new venues)
-    other_links = re.findall(
-        r'href="(https?://(?!getmyticket\.de|capitol-kornwestheim\.de|heidelberg\.luxor-kino\.de)[^"]+booking[^"]*)"',
-        html, re.IGNORECASE
+    # Look for CinemaxX links — pattern: cinemaxx.de/kinoprogramm/CITY
+    # The page structure has theater blocks with city, time, and booking link
+    # Find all CinemaxX entries
+    cinemaxx_blocks = re.finditer(
+        r'(?:CinemaxX|cinemaxx)[^<]*?'
+        r'(?:<[^>]*>)*\s*'
+        r'(?P<city>[A-ZÄÖÜa-zäöü][A-Za-zÄÖÜäöüß\s\-\(\)]+?)\s*'
+        r'(?:<[^>]*>)*\s*'
+        r'(?:March|Mar\.?)\s*(\d{1,2}),?\s*2026\s*'
+        r'(?:at\s*)?(\d{1,2}:\d{2}\s*(?:a\.m\.|p\.m\.|AM|PM))',
+        html, re.IGNORECASE | re.DOTALL
     )
-    if other_links:
-        print(f"  Found {len(other_links)} other booking link(s): {other_links}")
+
+    # More reliable approach: find cinemaxx.de links with city info
+    cinemaxx_links = re.findall(
+        r'href="(https?://(?:www\.)?cinemaxx\.de/kinoprogramm/([^"/]+)/[^"]*)"', html
+    )
+
+    if cinemaxx_links:
+        # Get unique cities
+        seen_cities = set()
+        for url, city_slug in cinemaxx_links:
+            if city_slug in seen_cities:
+                continue
+            seen_cities.add(city_slug)
+
+            # Map slug to display city name
+            city_map = {
+                "bielefeld": "Bielefeld",
+                "bremen": "Bremen",
+                "essen": "Essen",
+                "hamburg-harburg": "Hamburg-Harburg",
+                "hannover": "Hannover",
+                "magdeburg": "Magdeburg",
+                "offenbach": "Frankfurt (Offenbach)",
+                "regensburg": "Regensburg",
+                "trier": "Trier",
+            }
+            city_name = city_map.get(city_slug, city_slug.replace("-", " ").title())
+            cinema_name = "CinemaxX"
+
+            # Try to extract time from nearby text
+            # Look for time CLOSE to this URL (within same theater block)
+            url_pos = html.find(url)
+            if url_pos >= 0:
+                context = html[max(0, url_pos - 200):url_pos + 200]
+                # Match "7:30 p.m." or "7 p.m." (no minutes)
+                time_match = re.search(r'(\d{1,2})(?::(\d{2}))?\s*(p\.m\.|a\.m\.|PM|AM)', context, re.IGNORECASE)
+                if time_match:
+                    h = int(time_match.group(1))
+                    m = time_match.group(2) or "00"
+                    ampm = time_match.group(3).replace(".", "").upper()
+                    if ampm == "PM" and h != 12:
+                        h += 12
+                    elif ampm == "AM" and h == 12:
+                        h = 0
+                    show_time = f"{h:02d}:{m}"
+                else:
+                    show_time = "19:30"  # Default
+
+                # Extract date
+                date_match = re.search(r'March\s*(\d{1,2})', context, re.IGNORECASE)
+                show_date = f"2026-03-{int(date_match.group(1)):02d}" if date_match else "2026-03-18"
+            else:
+                show_time = "19:30"
+                show_date = "2026-03-18"
+
+            print(f"  Found CinemaxX {city_name}: {show_date} {show_time}")
+            shows.append({
+                "source": "cinemaxx",
+                "city": city_name,
+                "cinema": cinema_name,
+                "date": show_date,
+                "time": show_time,
+                "bookingUrl": url,
+            })
 
     print(f"  Found {len(shows)} extra show(s) from 3realms")
     return shows
