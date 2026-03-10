@@ -789,6 +789,58 @@ def fetch_all_capitol_seats(capitol_shows):
     return results
 
 
+# ─── TicketVerz (Berlin Cineplex) ──────────────────────
+
+
+def fetch_ticketverz_seats(movie_id):
+    """Fetch seat data from ticketverz.com API."""
+    print(f"\n[TicketVerz] Fetching seat data for movie {movie_id}...")
+    url = f"https://api.ticketverz.com/api/org/getMovieTicket?movie_id={movie_id}"
+    data, _ = fetch_json(url)
+    if not data or data.get("status") != "Available":
+        print("  ERROR: Could not get ticket data")
+        return None
+
+    tickets = data.get("ticketsWithFees", [])
+    if not tickets:
+        print("  ERROR: No tickets found")
+        return None
+
+    total_seats = 0
+    sold = 0
+    revenue = 0
+    prices = {}
+    sold_by_price = {}
+
+    for t in tickets:
+        total_qty = t.get("total_quantity", 0)
+        avail_qty = t.get("available_quantity", 0)
+        price = t.get("final_price", 0)
+        ticket_sold = total_qty - avail_qty
+
+        total_seats += total_qty
+        sold += ticket_sold
+        revenue += round(ticket_sold * price)
+        prices[price] = prices.get(price, 0) + total_qty
+        if ticket_sold > 0:
+            sold_by_price[str(price)] = ticket_sold
+
+        print(f"  {t.get('ticket_name', '?')}: {total_qty} total, {avail_qty} avail, {ticket_sold} sold @ €{price}")
+
+    available = total_seats - sold
+    pct = round(sold / total_seats * 100, 1) if total_seats > 0 else 0
+    print(f"  Total: {total_seats} seats | Sold: {sold} | Available: {available} | {pct}% | Revenue: €{revenue}")
+
+    return {
+        "totalSeats": total_seats,
+        "sold": sold,
+        "available": available,
+        "revenue": revenue,
+        "prices": prices,
+        "soldByPrice": sold_by_price,
+    }
+
+
 # ─── Luxor Heidelberg (ticket-cloud.de) ────────────────
 
 
@@ -1150,12 +1202,70 @@ def main():
             remaining_extra.append(s)
             print(f"  [Luxor] Failed to get seat data, keeping as showtime-only")
 
+    # Step 8: Fetch TicketVerz seat data (Berlin Cineplex etc.)
+    ticketverz_entries = [s for s in remaining_extra if s.get("source") == "ticketverz"]
+    final_extra = [s for s in remaining_extra if s.get("source") != "ticketverz"]
+
+    for s in ticketverz_entries:
+        # Extract movie_id from booking URL
+        import re as _re
+        mid_match = _re.search(r'/([a-f0-9]{10})$', s.get("bookingUrl", ""))
+        if mid_match:
+            movie_id = mid_match.group(1)
+            tv_data = fetch_ticketverz_seats(movie_id)
+            if tv_data and tv_data["totalSeats"] > 0:
+                show_date = s.get("date", "")
+                show_time = s.get("time", "")
+                if show_date:
+                    from datetime import datetime as _dt3
+                    try:
+                        dt = _dt3.strptime(show_date, "%Y-%m-%d")
+                        h, m = show_time.split(":") if show_time else ("0", "00")
+                        h = int(h)
+                        ampm = "AM" if h < 12 else "PM"
+                        h12 = h if h <= 12 else h - 12
+                        if h12 == 0:
+                            h12 = 12
+                        date_text = f"{dt.strftime('%a')} {dt.day} {dt.strftime('%b')} {dt.year} - {h12:02d}:{m} {ampm}"
+                    except Exception:
+                        date_text = f"{show_date} - {show_time}"
+                else:
+                    date_text = ""
+
+                row_prices = {}
+                for i, (price, count) in enumerate(sorted(tv_data["prices"].items())):
+                    row_prices[str(i)] = price
+
+                results.append({
+                    "showId": f"ticketverz-{movie_id}",
+                    "city": s["city"],
+                    "cinema": s["cinema"],
+                    "date": show_date,
+                    "time": show_time,
+                    "dateText": date_text,
+                    "totalSeats": tv_data["totalSeats"],
+                    "sold": tv_data["sold"],
+                    "available": tv_data["available"],
+                    "unavailable": 0,
+                    "revenue": tv_data["revenue"],
+                    "soldByPrice": tv_data["soldByPrice"],
+                    "rowPrices": row_prices,
+                    "source": "ticketverz",
+                    "bookingUrl": s.get("bookingUrl", ""),
+                })
+                total_seats += tv_data["totalSeats"]
+                total_booked += tv_data["sold"]
+            else:
+                final_extra.append(s)
+        else:
+            final_extra.append(s)
+
     # Remaining showtime-only entries
-    for s in remaining_extra:
+    for s in final_extra:
         print(f"  [Showtime-only] {s['city']} - {s['cinema']} ({s.get('date','')}) — no seat data")
 
-    # Update other_extra to remaining_extra for extraShows in HTML
-    other_extra = remaining_extra
+    # Update other_extra to final_extra for extraShows in HTML
+    other_extra = final_extra
 
     # If getmyticket failed, preserve previous getmyticket shows from existing data
     if not gmt_shows:
