@@ -82,6 +82,7 @@
     function renderStDates() {
       const container = document.getElementById('stDates');
       if (currentTab === 'day') {
+        container.classList.add('st-dates--days');
         const dates = [...new Set(stShows.map(s => s.date))].sort();
         if (!selectedDate) selectedDate = dates[0];
         container.innerHTML = dates.map(d => {
@@ -93,7 +94,14 @@
           </button>`;
         }).join('');
       } else {
+        container.classList.remove('st-dates--days');
         const cinemas = [...new Set(stShows.map(s => s.cinema))];
+        // Sort cinemas alphabetically by city name
+        cinemas.sort((a, b) => {
+          const cityA = stShows.find(s => s.cinema === a).city.toLowerCase();
+          const cityB = stShows.find(s => s.cinema === b).city.toLowerCase();
+          return cityA.localeCompare(cityB);
+        });
         if (!selectedCinema) selectedCinema = cinemas[0];
         container.innerHTML = cinemas.map(c => {
           const city = stShows.find(s => s.cinema === c).city;
@@ -119,7 +127,7 @@
           grouped[s.cinema].shows.push(s);
         });
 
-        container.innerHTML = Object.values(grouped).map(g => `
+        container.innerHTML = Object.values(grouped).sort((a, b) => a.city.localeCompare(b.city)).map(g => `
           <div class="st-venue">
             <div class="st-venue-header">
               <div class="st-venue-info">
@@ -163,18 +171,7 @@
     window.selectCinema = function(c) { selectedCinema = c; renderStDates(); renderStShows(); };
 
     // Heidelberg (no seat data available - different platform)
-    const extraShows = [
-      { city: "Heidelberg", cinema: "LUXOR FILM PALAST", date: "2026-03-18", time: "20:30", prices: '', url: "https://ticket-cloud.de/Luxor-Heidelberg/Show/2331133" },
-      { city: "Bielefeld", cinema: "CinemaxX Bielefeld", date: "2026-03-18", time: "19:30", prices: '', url: "https://www.cinemaxx.de/kinoprogramm/bielefeld/film/ustaad-bhagat-singh" },
-      { city: "Bremen", cinema: "CinemaxX Bremen", date: "2026-03-18", time: "19:00", prices: '', url: "https://www.cinemaxx.de/kinoprogramm/bremen/film/ustaad-bhagat-singh" },
-      { city: "Essen", cinema: "CinemaxX Essen", date: "2026-03-18", time: "19:30", prices: '', url: "https://www.cinemaxx.de/kinoprogramm/essen/film/ustaad-bhagat-singh" },
-      { city: "Hamburg-Harburg", cinema: "CinemaxX Hamburg-Harburg", date: "2026-03-18", time: "19:30", prices: '', url: "https://www.cinemaxx.de/kinoprogramm/hamburg-harburg/film/ustaad-bhagat-singh" },
-      { city: "Hannover", cinema: "CinemaxX Hannover", date: "2026-03-18", time: "19:30", prices: '', url: "https://www.cinemaxx.de/kinoprogramm/hannover/film/ustaad-bhagat-singh" },
-      { city: "Magdeburg", cinema: "CinemaxX Magdeburg", date: "2026-03-18", time: "19:20", prices: '', url: "https://www.cinemaxx.de/kinoprogramm/magdeburg/film/ustaad-bhagat-singh" },
-      { city: "Frankfurt (Offenbach)", cinema: "CinemaxX Frankfurt (Offenbach)", date: "2026-03-18", time: "19:00", prices: '', url: "https://www.cinemaxx.de/kinoprogramm/offenbach/film/ustaad-bhagat-singh" },
-      { city: "Regensburg", cinema: "CinemaxX Regensburg", date: "2026-03-18", time: "19:00", prices: '', url: "https://www.cinemaxx.de/kinoprogramm/regensburg/film/ustaad-bhagat-singh" },
-      { city: "Trier", cinema: "CinemaxX Trier", date: "2026-03-18", time: "19:15", prices: '', url: "https://www.cinemaxx.de/kinoprogramm/trier/film/ustaad-bhagat-singh" }
-    ];
+    const extraShows = [];
 
     function initShowtimes(data) {
       stShows = data.shows.map(s => {
@@ -193,7 +190,7 @@
     }
 
   </script>
-  <script src="app.js"></script>
+  <script src="app.js?v=2"></script>
   <script>
     // Initialize showtimes from embedded seatData in app.js
     if (typeof seatData !== 'undefined' && seatData) {

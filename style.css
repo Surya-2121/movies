@@ -1474,13 +1474,17 @@ main {
 }
 
 .st-dates {
-  display: flex;
-  gap: 10px;
-  overflow-x: auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
+  gap: 8px;
   padding-bottom: 10px;
   margin-bottom: 20px;
-  justify-content: center;
+}
+.st-dates.st-dates--days {
+  display: flex;
   flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
 }
 
 .st-date-card {
@@ -1519,22 +1523,24 @@ main {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 14px 20px;
+  justify-content: center;
+  padding: 8px 6px;
   background: #1a1a2e;
   border: 2px solid #2a2a4a;
-  border-radius: 12px;
+  border-radius: 10px;
   cursor: pointer;
-  min-width: 120px;
   font-family: inherit;
   transition: border-color 0.2s, background 0.2s, transform 0.15s;
   color: #ccc;
+  overflow: hidden;
+  text-align: center;
 }
 
 .st-cinema-card:hover { transform: translateY(-2px); }
 
 .st-cinema-card:hover { border-color: #f0ad4e; }
-.st-cinema-name { font-size: 0.95rem; font-weight: 700; }
-.st-cinema-hall { font-size: 0.75rem; color: #888; margin-top: 2px; }
+.st-cinema-name { font-size: 0.75rem; font-weight: 700; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 100%; }
+.st-cinema-hall { font-size: 0.6rem; color: #888; margin-top: 2px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 100%; }
 .st-date-active .st-cinema-hall { color: #333; }
 
 .st-venue {
@@ -1658,9 +1664,12 @@ main {
 
   /* Showtimes responsive */
   .st-tab { padding: 10px 20px; font-size: 0.85rem; }
-  .st-dates { justify-content: center; }
   .st-date-card { padding: 10px 14px; min-width: 60px; }
   .st-date-num { font-size: 1.2rem; }
+  .st-dates { grid-template-columns: repeat(auto-fill, minmax(75px, 1fr)); }
+  .st-cinema-card { padding: 6px 4px; }
+  .st-cinema-name { font-size: 0.68rem; }
+  .st-cinema-hall { font-size: 0.55rem; }
   .st-venue-city { font-size: 1.1rem; }
   .st-time-card { min-width: 100px; padding: 10px 16px; }
 }
