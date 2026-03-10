@@ -222,6 +222,50 @@ def discover_capitol_shows():
     return shows
 
 
+def _extract_date_time(html, url, url_pos):
+    """Extract date and time from context around a booking URL."""
+    # Prefer text AFTER the URL (the <li> text), fall back to before
+    after = html[url_pos:url_pos + 200]
+    before = html[max(0, url_pos - 300):url_pos]
+
+    # Search after first (date/time is usually in the link text)
+    for context in [after, before]:
+        date_match = re.search(r'March\s*(\d{1,2})', context, re.IGNORECASE)
+        time_match = re.search(r'(\d{1,2})(?::(\d{2}))?\s*(p\.m\.|a\.m\.|PM|AM)', context, re.IGNORECASE)
+        if date_match and time_match:
+            show_date = f"2026-03-{int(date_match.group(1)):02d}"
+            h = int(time_match.group(1))
+            m = time_match.group(2) or "00"
+            ampm = time_match.group(3).replace(".", "").upper()
+            if ampm == "PM" and h != 12:
+                h += 12
+            elif ampm == "AM" and h == 12:
+                h = 0
+            return show_date, f"{h:02d}:{m}"
+
+    # Partial matches
+    show_date = ""
+    show_time = ""
+    for context in [after, before]:
+        if not show_date:
+            dm = re.search(r'March\s*(\d{1,2})', context, re.IGNORECASE)
+            if dm:
+                show_date = f"2026-03-{int(dm.group(1)):02d}"
+        if not show_time:
+            tm = re.search(r'(\d{1,2})(?::(\d{2}))?\s*(p\.m\.|a\.m\.|PM|AM)', context, re.IGNORECASE)
+            if tm:
+                h = int(tm.group(1))
+                m = tm.group(2) or "00"
+                ampm = tm.group(3).replace(".", "").upper()
+                if ampm == "PM" and h != 12:
+                    h += 12
+                elif ampm == "AM" and h == 12:
+                    h = 0
+                show_time = f"{h:02d}:{m}"
+
+    return show_date, show_time
+
+
 def discover_3realms_shows():
     """Discover extra shows from 3realmsentertainment.com."""
     print("[3Realms] Fetching shows page...")
@@ -231,98 +275,124 @@ def discover_3realms_shows():
         return []
 
     shows = []
+    seen_urls = set()
 
-    # Look for Luxor Heidelberg links
-    luxor_links = re.findall(
-        r'href="(https://(?:heidelberg\.luxor-kino\.de|ticket-cloud\.de/Luxor[^"]*)/[^"]+)"', html
-    )
-    if luxor_links:
-        print(f"  Found Luxor Heidelberg: {luxor_links[0]}")
+    # CinemaxX city slug to display name
+    cinemaxx_city_map = {
+        "bielefeld": "Bielefeld", "bremen": "Bremen", "essen": "Essen",
+        "hamburg-harburg": "Hamburg-Harburg", "hannover": "Hannover",
+        "magdeburg": "Magdeburg", "offenbach": "Frankfurt (Offenbach)",
+        "regensburg": "Regensburg", "trier": "Trier",
+        "munchen": "München", "dresden": "Dresden",
+        "berlin": "Berlin", "dortmund": "Dortmund",
+        "freiburg": "Freiburg", "halle": "Halle",
+        "krefeld": "Krefeld", "muelheim": "Mülheim",
+        "oldenburg": "Oldenburg", "wuppertal": "Wuppertal",
+    }
+
+    # ─── 1. Luxor Heidelberg (ticket-cloud.de) ───
+    for m in re.finditer(r'href="(https://ticket-cloud\.de/Luxor[^"]*?/Show/(\d+))"', html):
+        url, show_id = m.group(1), m.group(2)
+        if url in seen_urls:
+            continue
+        seen_urls.add(url)
+        url_pos = m.start()
+        show_date, show_time = _extract_date_time(html, url, url_pos)
+        print(f"  Found Luxor Heidelberg: {show_date} {show_time} (Show {show_id})")
         shows.append({
             "source": "luxor",
             "city": "Heidelberg",
             "cinema": "LUXOR FILM PALAST",
-            "date": "2026-03-18",
-            "time": "20:30",
-            "bookingUrl": luxor_links[0],
+            "date": show_date or "2026-03-18",
+            "time": show_time or "20:30",
+            "bookingUrl": url,
+            "_showId": show_id,
         })
 
-    # Look for CinemaxX links — pattern: cinemaxx.de/kinoprogramm/CITY
-    # The page structure has theater blocks with city, time, and booking link
-    # Find all CinemaxX entries
-    cinemaxx_blocks = re.finditer(
-        r'(?:CinemaxX|cinemaxx)[^<]*?'
-        r'(?:<[^>]*>)*\s*'
-        r'(?P<city>[A-ZÄÖÜa-zäöü][A-Za-zÄÖÜäöüß\s\-\(\)]+?)\s*'
-        r'(?:<[^>]*>)*\s*'
-        r'(?:March|Mar\.?)\s*(\d{1,2}),?\s*2026\s*'
-        r'(?:at\s*)?(\d{1,2}:\d{2}\s*(?:a\.m\.|p\.m\.|AM|PM))',
-        html, re.IGNORECASE | re.DOTALL
-    )
+    # ─── 2. CinemaxX (cinemaxx.de) ───
+    for m in re.finditer(r'href="(https?://(?:www\.)?cinemaxx\.de/kinoprogramm/([^"/]+)/[^"]*)"', html):
+        url, city_slug = m.group(1), m.group(2)
+        if url in seen_urls:
+            continue
+        seen_urls.add(url)
+        city_name = cinemaxx_city_map.get(city_slug, city_slug.replace("-", " ").title())
+        url_pos = m.start()
+        show_date, show_time = _extract_date_time(html, url, url_pos)
+        print(f"  Found CinemaxX {city_name}: {show_date} {show_time}")
+        shows.append({
+            "source": "cinemaxx",
+            "city": city_name,
+            "cinema": f"CinemaxX {city_name}",
+            "date": show_date or "2026-03-18",
+            "time": show_time or "19:30",
+            "bookingUrl": url,
+            "_slug": city_slug,
+        })
 
-    # More reliable approach: find cinemaxx.de links with city info
-    cinemaxx_links = re.findall(
-        r'href="(https?://(?:www\.)?cinemaxx\.de/kinoprogramm/([^"/]+)/[^"]*)"', html
-    )
+    # ─── 3. Berlin Cineplex / ticketverz.com ───
+    for m in re.finditer(r'href="(https?://(?:www\.)?ticketverz\.com/[^"]+)"', html):
+        url = m.group(1)
+        if url in seen_urls:
+            continue
+        seen_urls.add(url)
+        url_pos = m.start()
+        show_date, show_time = _extract_date_time(html, url, url_pos)
+        # Try to extract city from URL or nearby text
+        context = html[max(0, url_pos - 300):url_pos + 300]
+        city_match = re.search(r'Berlin|Neuköln|Neukölln|Neukoln', context, re.IGNORECASE)
+        city_name = "Berlin" if city_match else "Berlin"
+        cinema_match = re.search(r'Cineplex|Cinema', context, re.IGNORECASE)
+        cinema_name = cinema_match.group(0) if cinema_match else "Cineplex"
+        print(f"  Found {cinema_name} {city_name}: {show_date} {show_time}")
+        shows.append({
+            "source": "ticketverz",
+            "city": city_name,
+            "cinema": f"{cinema_name} {city_name}",
+            "date": show_date or "2026-03-18",
+            "time": show_time or "19:30",
+            "bookingUrl": url,
+        })
 
-    if cinemaxx_links:
-        # Get unique cities
-        seen_cities = set()
-        for url, city_slug in cinemaxx_links:
-            if city_slug in seen_cities:
-                continue
-            seen_cities.add(city_slug)
+    # ─── 4. Cincinnati Kino München (cincinnati-muenchen.de) ───
+    # Same URL can appear multiple times for different dates
+    seen_cincinnati = set()
+    for m in re.finditer(r'href="(https?://(?:www\.)?cincinnati-muenchen\.de/[^"]+)"', html):
+        url = m.group(1)
+        url_pos = m.start()
+        show_date, show_time = _extract_date_time(html, url, url_pos)
+        dedup = f"{show_date}|{show_time}"
+        if dedup in seen_cincinnati:
+            continue
+        seen_cincinnati.add(dedup)
+        print(f"  Found Cincinnati Kino München: {show_date} {show_time}")
+        shows.append({
+            "source": "cincinnati",
+            "city": "München",
+            "cinema": "Cincinnati Kino",
+            "date": show_date or "2026-03-19",
+            "time": show_time or "19:30",
+            "bookingUrl": url,
+        })
 
-            # Map slug to display city name
-            city_map = {
-                "bielefeld": "Bielefeld",
-                "bremen": "Bremen",
-                "essen": "Essen",
-                "hamburg-harburg": "Hamburg-Harburg",
-                "hannover": "Hannover",
-                "magdeburg": "Magdeburg",
-                "offenbach": "Frankfurt (Offenbach)",
-                "regensburg": "Regensburg",
-                "trier": "Trier",
-            }
-            city_name = city_map.get(city_slug, city_slug.replace("-", " ").title())
-            cinema_name = f"CinemaxX {city_name}"
-
-            # Try to extract time from nearby text
-            # Look for time CLOSE to this URL (within same theater block)
-            url_pos = html.find(url)
-            if url_pos >= 0:
-                context = html[max(0, url_pos - 200):url_pos + 200]
-                # Match "7:30 p.m." or "7 p.m." (no minutes)
-                time_match = re.search(r'(\d{1,2})(?::(\d{2}))?\s*(p\.m\.|a\.m\.|PM|AM)', context, re.IGNORECASE)
-                if time_match:
-                    h = int(time_match.group(1))
-                    m = time_match.group(2) or "00"
-                    ampm = time_match.group(3).replace(".", "").upper()
-                    if ampm == "PM" and h != 12:
-                        h += 12
-                    elif ampm == "AM" and h == 12:
-                        h = 0
-                    show_time = f"{h:02d}:{m}"
-                else:
-                    show_time = "19:30"  # Default
-
-                # Extract date
-                date_match = re.search(r'March\s*(\d{1,2})', context, re.IGNORECASE)
-                show_date = f"2026-03-{int(date_match.group(1)):02d}" if date_match else "2026-03-18"
-            else:
-                show_time = "19:30"
-                show_date = "2026-03-18"
-
-            print(f"  Found CinemaxX {city_name}: {show_date} {show_time}")
-            shows.append({
-                "source": "cinemaxx",
-                "city": city_name,
-                "cinema": cinema_name,
-                "date": show_date,
-                "time": show_time,
-                "bookingUrl": url,
-            })
+    # ─── 5. Any other booking links (generic catch-all) ───
+    # Catch kinoheld.de, kinopolis, UCI, etc. if they appear in future
+    for m in re.finditer(r'href="(https?://(?:www\.)?kinoheld\.de/[^"]+)"', html):
+        url = m.group(1)
+        if url in seen_urls:
+            continue
+        seen_urls.add(url)
+        url_pos = m.start()
+        show_date, show_time = _extract_date_time(html, url, url_pos)
+        context = html[max(0, url_pos - 300):url_pos + 300]
+        print(f"  Found kinoheld show: {show_date} {show_time} — {url}")
+        shows.append({
+            "source": "kinoheld",
+            "city": "Unknown",
+            "cinema": "Unknown",
+            "date": show_date or "2026-03-18",
+            "time": show_time or "19:30",
+            "bookingUrl": url,
+        })
 
     print(f"  Found {len(shows)} extra show(s) from 3realms")
     return shows
@@ -379,11 +449,14 @@ def fetch_cinemaxx_shows(cinemaxx_cities):
         print("  ERROR: Could not get cinema list")
         return []
 
-    # Build cinema lookup by city slug
+    # Build cinema lookup by city slug (normalized: no umlauts)
+    def _norm_slug(s):
+        return s.lower().replace(" ", "-").replace("ü", "u").replace("ö", "o").replace("ä", "a").replace("ß", "ss")
+
     cinema_lookup = {}
     for group in data.get("result", []):
         for c in group.get("cinemas", []):
-            slug = c.get("cinemaName", "").lower().replace(" ", "-")
+            slug = _norm_slug(c.get("cinemaName", ""))
             cinema_lookup[slug] = {
                 "cinemaId": c["cinemaId"],
                 "name": c.get("fullName", ""),
@@ -1000,15 +1073,14 @@ def main():
     other_extra = [s for s in unique_extra if s.get("source") != "cinemaxx"]
 
     if cinemaxx_entries:
-        # Add city slug for API lookup
-        slug_map = {
-            "Bielefeld": "bielefeld", "Bremen": "bremen", "Essen": "essen",
-            "Hamburg-Harburg": "hamburg-harburg", "Hannover": "hannover",
-            "Magdeburg": "magdeburg", "Frankfurt (Offenbach)": "offenbach",
-            "Regensburg": "regensburg", "Trier": "trier",
-        }
+        # Add city slug for API lookup (use _slug from discovery if available)
         for s in cinemaxx_entries:
-            s["_slug"] = slug_map.get(s["city"], s["city"].lower().replace(" ", "-"))
+            if "_slug" not in s:
+                slug_map = {
+                    "Frankfurt (Offenbach)": "offenbach",
+                    "München": "munchen",
+                }
+                s["_slug"] = slug_map.get(s["city"], s["city"].lower().replace(" ", "-").replace("ü", "u").replace("ö", "o").replace("ä", "a"))
 
         cinemaxx_results = fetch_cinemaxx_shows(cinemaxx_entries)
         for r in cinemaxx_results:
@@ -1021,7 +1093,8 @@ def main():
     remaining_extra = [s for s in other_extra if s.get("source") != "luxor"]
 
     for s in luxor_entries:
-        luxor_data = fetch_luxor_seats()
+        show_id = s.get("_showId", "2331133")
+        luxor_data = fetch_luxor_seats(show_id)
         if luxor_data and luxor_data["totalSeats"] > 0:
             # Build dateText
             show_date = s.get("date", "")
@@ -1054,7 +1127,7 @@ def main():
                     sold_by_price[str(avg_price)] = luxor_data["sold"]
 
             results.append({
-                "showId": "luxor-heidelberg",
+                "showId": f"luxor-{show_id}",
                 "city": s["city"],
                 "cinema": s["cinema"],
                 "date": show_date,
@@ -1221,7 +1294,7 @@ def main():
         extra_js_entries = []
         for s in other_extra:
             extra_js_entries.append(
-                f"      {{ city: {json.dumps(s['city'])}, cinema: {json.dumps(s['cinema'])}, "
+                f"      {{ city: {json.dumps(s['city'], ensure_ascii=False)}, cinema: {json.dumps(s['cinema'], ensure_ascii=False)}, "
                 f"date: {json.dumps(s.get('date', ''))}, time: {json.dumps(s.get('time', ''))}, "
                 f"prices: '', url: {json.dumps(s.get('bookingUrl', ''))} }}"
             )
