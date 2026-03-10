@@ -178,7 +178,9 @@
 
     function initShowtimes(data) {
       stShows = data.shows.map(s => {
-        const prices = [...new Set(Object.values(s.rowPrices || {}))].sort((a,b) => a-b).map(p => '€' + p).join(' / ');
+        let prices = [...new Set(Object.values(s.rowPrices || {}))].sort((a,b) => a-b).map(p => '€' + p).join(' / ');
+        if (!prices && s.ticketPrice) prices = '€' + s.ticketPrice;
+        if (!prices && s.source === 'kinotickets.express') prices = '€21';
         // Capitol shows have bookingUrl, getmyticket shows need URL built
         const url = s.bookingUrl || (() => {
           const timeParam = encodeURIComponent(s.dateText.split(' - ')[1] || s.time);
