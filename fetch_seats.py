@@ -8,6 +8,7 @@ import json
 import re
 import time
 import urllib.request
+import urllib.parse
 import base64
 import sys
 import os
@@ -715,6 +716,142 @@ def fetch_all_capitol_seats(capitol_shows):
     return results
 
 
+# ─── Luxor Heidelberg (ticket-cloud.de) ────────────────
+
+
+def fetch_luxor_seats(show_id="2331133"):
+    """Fetch seat data from ticket-cloud.de PlainSeatPlan for Luxor Heidelberg."""
+    print(f"\n[Luxor] Fetching seat data from ticket-cloud.de (Show {show_id})...")
+    connector_url = "https://ticket-cloud.de/modules/system/systemConnector.php"
+
+    # Step 1: Get the informationString and Plain params from the show page
+    page_url = f"https://ticket-cloud.de/Luxor-Heidelberg/Show/{show_id}"
+    req = urllib.request.Request(page_url)
+    req.add_header("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36")
+    try:
+        resp = urllib.request.urlopen(req, timeout=15)
+        page_html = resp.read().decode("utf-8", errors="replace")
+    except Exception as e:
+        print(f"  ERROR fetching Luxor show page: {e}")
+        return None
+
+    # Extract informationString
+    info_match = re.search(r"var informationString\s*=\s*'([^']+)'", page_html)
+    if not info_match:
+        print("  ERROR: Could not find informationString")
+        return None
+    info_str = info_match.group(1)
+
+    # Step 2: First call to get block plan (extracts Plain params + SiteID)
+    data = urllib.parse.urlencode({"information": info_str}).encode("utf-8")
+    req = urllib.request.Request(connector_url, data=data, method="POST")
+    req.add_header("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36")
+    req.add_header("Content-Type", "application/x-www-form-urlencoded")
+    req.add_header("Origin", "https://ticket-cloud.de")
+    req.add_header("Referer", page_url)
+    try:
+        resp = urllib.request.urlopen(req, timeout=30)
+        block_html = resp.read().decode("utf-8", errors="replace")
+    except Exception as e:
+        print(f"  ERROR fetching block plan: {e}")
+        return None
+
+    # Extract Plain value: "ShowID,AudiID,SeatVariantID,SiteID"
+    plain_match = re.search(r'id="Plain"\s+value="([^"]+)"', block_html)
+    site_match = re.search(r'id="SiteID"\s+value="([^"]+)"', block_html)
+    if not plain_match:
+        print("  ERROR: Could not find Plain params")
+        return None
+
+    plain_parts = plain_match.group(1).split(",")
+    if len(plain_parts) < 4:
+        print(f"  ERROR: Plain has unexpected format: {plain_match.group(1)}")
+        return None
+
+    show_id_p, audi_id, variant_id, site_id = plain_parts[0], plain_parts[1], plain_parts[2], plain_parts[3]
+
+    # Step 3: Fetch PlainSeatPlan
+    params = {
+        "information": info_str,
+        "PHPSESSIONID": "",
+        "ShowID": show_id_p,
+        "Method": "PlainSeatPlan",
+        "AudiID": audi_id,
+        "Center": site_id,
+        "SeatVariantID": variant_id,
+        "Width": "800",
+        "Height": "600",
+        "GetBlock": "",
+        "GetCategory": "",
+        "DeviceInfo": "Desktop",
+    }
+    data = urllib.parse.urlencode(params).encode("utf-8")
+    req = urllib.request.Request(connector_url, data=data, method="POST")
+    req.add_header("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36")
+    req.add_header("Content-Type", "application/x-www-form-urlencoded")
+    req.add_header("Origin", "https://ticket-cloud.de")
+    req.add_header("Referer", page_url)
+
+    try:
+        resp = urllib.request.urlopen(req, timeout=30)
+        html = resp.read().decode("utf-8", errors="replace")
+    except Exception as e:
+        print(f"  ERROR fetching PlainSeatPlan: {e}")
+        return None
+
+    if len(html) < 100:
+        print(f"  ERROR: Response too short ({len(html)} chars)")
+        return None
+
+    # Parse seats: count by image type
+    # Seat_Sold.png = sold, Seat_Loge/Parkett/Lounge.png = available
+    # data-blocked="1" = blocked/unavailable, Seat_UnAvailable = not for sale
+    from collections import Counter
+    seat_types = Counter(re.findall(r'Seat_(\w+)\.png', html))
+
+    sold = seat_types.get("Sold", 0)
+    # Available = all seat types except Sold, UnAvailable, Wheelchair variants
+    available_types = {k: v for k, v in seat_types.items()
+                       if k not in ("Sold", "UnAvailable") and "Wheelchair" not in k}
+    available = sum(available_types.values())
+    total = sold + available
+
+    # Also check data-blocked="1" for seats that aren't Seat_Sold but are blocked
+    blocked_1 = len(re.findall(r'data-blocked="1"', html))
+    # If blocked_1 > 0 and we didn't already count them as sold
+    # blocked seats with non-sold images might be reserved
+    if blocked_1 > 0 and blocked_1 > sold:
+        # Some blocked seats might be counted in available — adjust
+        pass  # The Seat_Sold image is the reliable indicator
+
+    # Extract prices from tooltips
+    prices = {}
+    for pm in re.finditer(r"(\d+),(\d{2})&nbsp;", html):
+        price = float(f"{pm.group(1)}.{pm.group(2)}")
+        prices[price] = prices.get(price, 0) + 1
+
+    # Calculate revenue: we need price per sold seat
+    # Since we can't tell which price a sold seat had, use average price
+    avg_price = sum(p * c for p, c in prices.items()) / sum(prices.values()) if prices else 0
+    revenue = round(sold * avg_price) if avg_price > 0 else 0
+
+    if total > 0:
+        pct = round(sold / total * 100, 1)
+        print(f"  Seats: {total} | Sold: {sold} | Available: {available} | {pct}%")
+        print(f"  Seat types: {dict(seat_types)}")
+        print(f"  Prices: {prices} | Revenue: ~€{revenue}")
+        return {
+            "totalSeats": total,
+            "sold": sold,
+            "available": available,
+            "revenue": revenue,
+            "prices": prices,
+        }
+
+    print("  ERROR: Could not parse any seats from seatplan")
+    return None
+
+
 def dedup_key(city, date, time_str):
     """Generate deduplication key from city+date+approximate time."""
     # Normalize city name
@@ -879,9 +1016,73 @@ def main():
             total_seats += r["totalSeats"]
             total_booked += r["sold"]
 
-    # Step 7: Add remaining showtime-only entries (Luxor etc.)
-    for s in other_extra:
+    # Step 7: Fetch Luxor Heidelberg seat data
+    luxor_entries = [s for s in other_extra if s.get("source") == "luxor"]
+    remaining_extra = [s for s in other_extra if s.get("source") != "luxor"]
+
+    for s in luxor_entries:
+        luxor_data = fetch_luxor_seats()
+        if luxor_data and luxor_data["totalSeats"] > 0:
+            # Build dateText
+            show_date = s.get("date", "")
+            show_time = s.get("time", "")
+            if show_date:
+                from datetime import datetime as _dt2
+                try:
+                    dt = _dt2.strptime(show_date, "%Y-%m-%d")
+                    h, m = show_time.split(":") if show_time else ("0", "00")
+                    h = int(h)
+                    ampm = "AM" if h < 12 else "PM"
+                    h12 = h if h <= 12 else h - 12
+                    if h12 == 0:
+                        h12 = 12
+                    date_text = f"{dt.strftime('%a')} {dt.day} {dt.strftime('%b')} {dt.year} - {h12:02d}:{m} {ampm}"
+                except Exception:
+                    date_text = f"{show_date} - {show_time}"
+            else:
+                date_text = ""
+
+            # Build row prices from Luxor price data
+            row_prices = {}
+            sold_by_price = {}
+            if luxor_data.get("prices"):
+                for i, (price, count) in enumerate(sorted(luxor_data["prices"].items())):
+                    row_prices[str(i)] = price
+                # For sold_by_price we need per-price sold counts — approximate with avg
+                avg_price = sum(p * c for p, c in luxor_data["prices"].items()) / sum(luxor_data["prices"].values())
+                if luxor_data["sold"] > 0:
+                    sold_by_price[str(avg_price)] = luxor_data["sold"]
+
+            results.append({
+                "showId": "luxor-heidelberg",
+                "city": s["city"],
+                "cinema": s["cinema"],
+                "date": show_date,
+                "time": show_time,
+                "dateText": date_text,
+                "totalSeats": luxor_data["totalSeats"],
+                "sold": luxor_data["sold"],
+                "available": luxor_data["available"],
+                "unavailable": 0,
+                "revenue": luxor_data["revenue"],
+                "soldByPrice": sold_by_price,
+                "rowPrices": row_prices,
+                "source": "luxor",
+                "bookingUrl": s.get("bookingUrl", ""),
+            })
+            total_seats += luxor_data["totalSeats"]
+            total_booked += luxor_data["sold"]
+        else:
+            # Failed — keep as showtime-only
+            remaining_extra.append(s)
+            print(f"  [Luxor] Failed to get seat data, keeping as showtime-only")
+
+    # Remaining showtime-only entries
+    for s in remaining_extra:
         print(f"  [Showtime-only] {s['city']} - {s['cinema']} ({s.get('date','')}) — no seat data")
+
+    # Update other_extra to remaining_extra for extraShows in HTML
+    other_extra = remaining_extra
 
     # If getmyticket failed, preserve previous getmyticket shows from existing data
     if not gmt_shows:
@@ -904,7 +1105,7 @@ def main():
             print(f"  [Fallback] Could not load previous data: {ex}")
 
     # If 3realms failed, preserve Luxor from existing extraShows in HTML
-    if not unique_extra:
+    if not unique_extra and not other_extra:
         try:
             with open(DASHBOARD_HTML, "r", encoding="utf-8") as f:
                 html_code = f.read()
@@ -1016,9 +1217,9 @@ def main():
             html_code,
         )
 
-        # Update extraShows array with showtime-only entries (Luxor etc.)
+        # Update extraShows array with showtime-only entries (those without seat data)
         extra_js_entries = []
-        for s in unique_extra:
+        for s in other_extra:
             extra_js_entries.append(
                 f"      {{ city: {json.dumps(s['city'])}, cinema: {json.dumps(s['cinema'])}, "
                 f"date: {json.dumps(s.get('date', ''))}, time: {json.dumps(s.get('time', ''))}, "
