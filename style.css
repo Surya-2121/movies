@@ -1475,7 +1475,7 @@ main {
 
 .st-dates {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
+  grid-template-columns: repeat(7, 1fr);
   gap: 8px;
   padding-bottom: 10px;
   margin-bottom: 20px;
@@ -1666,7 +1666,7 @@ main {
   .st-tab { padding: 10px 20px; font-size: 0.85rem; }
   .st-date-card { padding: 10px 14px; min-width: 60px; }
   .st-date-num { font-size: 1.2rem; }
-  .st-dates { grid-template-columns: repeat(auto-fill, minmax(75px, 1fr)); }
+  .st-dates { grid-template-columns: repeat(4, 1fr) !important; }
   .st-cinema-card { padding: 6px 4px; }
   .st-cinema-name { font-size: 0.68rem; }
   .st-cinema-hall { font-size: 0.55rem; }

@@ -102,6 +102,9 @@
           const cityB = stShows.find(s => s.cinema === b).city.toLowerCase();
           return cityA.localeCompare(cityB);
         });
+        // Set grid to exactly half per row (2 rows)
+        const cols = Math.ceil(cinemas.length / 2);
+        container.style.gridTemplateColumns = `repeat(${cols}, 1fr)`;
         if (!selectedCinema) selectedCinema = cinemas[0];
         container.innerHTML = cinemas.map(c => {
           const city = stShows.find(s => s.cinema === c).city;
