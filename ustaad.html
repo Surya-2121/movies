@@ -39,6 +39,10 @@
           <button class="st-tab" onclick="switchTab('cinema')">Shows By Cinema</button>
         </div>
         <div class="st-dates" id="stDates"></div>
+        <div class="st-search">
+          <svg class="search-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <input type="text" id="citySearch" class="city-search-input" placeholder="Search city..." oninput="filterByCity(this.value)" autocomplete="off">
+        </div>
         <div class="st-shows" id="stShows"></div>
 
         <div class="filter-bar" style="display:none;">
@@ -172,6 +176,18 @@
     window.switchTab = switchTab;
     window.selectDate = function(d) { selectedDate = d; renderStDates(); renderStShows(); };
     window.selectCinema = function(c) { selectedCinema = c; renderStDates(); renderStShows(); };
+
+    function filterByCity(query) {
+      const venues = document.querySelectorAll('.st-venue');
+      const q = query.trim().toLowerCase();
+      venues.forEach(v => {
+        const city = (v.querySelector('.st-venue-city') || v.querySelector('.st-venue-name') || v.querySelector('.st-venue-date') || {}).textContent || '';
+        const name = (v.querySelector('.st-venue-name') || {}).textContent || '';
+        const match = !q || city.toLowerCase().includes(q) || name.toLowerCase().includes(q);
+        v.style.display = match ? '' : 'none';
+      });
+    }
+    window.filterByCity = filterByCity;
 
     // Heidelberg (no seat data available - different platform)
     const extraShows = [
