@@ -174,10 +174,7 @@
     window.selectCinema = function(c) { selectedCinema = c; renderStDates(); renderStShows(); };
 
     // Heidelberg (no seat data available - different platform)
-    const extraShows = [
-      { city: "München", cinema: "Cincinnati Kino", date: "2026-03-19", time: "19:30", prices: '', url: "https://www.cincinnati-muenchen.de/en/program/1849694" },
-      { city: "München", cinema: "Cincinnati Kino", date: "2026-03-21", time: "11:00", prices: '', url: "https://www.cincinnati-muenchen.de/en/program/1849694" }
-    ];
+    const extraShows = [];
 
     function initShowtimes(data) {
       stShows = data.shows.map(s => {
