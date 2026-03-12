@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reviews & Ratings - Germany Telugu Movies</title>
+  <meta name="description" content="Read and write reviews for Telugu movies premiering in Germany.">
+  <link rel="icon" href="logo.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav class="nav-menu" id="navMenu">
+    <div class="nav-header">
+      <img src="logo.svg" alt="Logo" class="nav-logo">
+      <button class="nav-close" onclick="toggleMenu()">&times;</button>
+    </div>
+    <a href="index.html" class="nav-link">Home</a>
+    <a href="coming-soon.html" class="nav-link">Coming Soon</a>
+    <a href="reviews.html" class="nav-link nav-link-active">Reviews</a>
+    <a href="about.html" class="nav-link">About Us</a>
+    <a href="contact.html" class="nav-link">Contact</a>
+    <div class="nav-divider"></div>
+    <button class="nav-theme-btn" onclick="toggleTheme()">
+      <span id="themeIcon">&#9788;</span> <span id="themeText">Light Mode</span>
+    </button>
+  </nav>
+  <div class="nav-overlay" id="navOverlay" onclick="toggleMenu()"></div>
+  <button class="search-btn" onclick="toggleSearch()"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></button>
+  <div class="search-overlay" id="searchOverlay"><div class="search-overlay-box"><button class="search-overlay-close" onclick="toggleSearch()">&times;</button><input type="text" class="search-overlay-input" placeholder="Search for a movie..." oninput="handleSearchInput(event)" autocomplete="off"><div class="search-overlay-results" id="searchOverlayResults"></div></div></div>
+  <button class="menu-btn" id="menuBtn" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </button>
+
+  <header class="site-header">
+    <a href="index.html"><img src="logo.svg" alt="Germany Telugu Movies" class="header-logo"></a>
+  </header>
+
+  <main class="reviews-page">
+    <h1 class="page-title">Reviews & Ratings</h1>
+
+    <!-- Ustaad Bhagat Singh Reviews -->
+    <section class="rv-movie-section" id="ustaadReviews">
+      <div class="rv-movie-header">
+        <a href="ustaad-movie.html" class="rv-movie-link">
+          <img src="poster.jpg" alt="Ustaad Bhagat Singh" class="rv-movie-poster">
+          <div class="rv-movie-title-box">
+            <h2 class="rv-movie-name">Ustaad Bhagat Singh</h2>
+            <p class="rv-movie-meta">Telugu &bull; Action / Drama &bull; 2026</p>
+          </div>
+        </a>
+      </div>
+
+      <div id="reviewLocked" class="review-locked">
+        <div class="review-lock-icon">&#128274;</div>
+        <p class="review-lock-msg">Not Yet</p>
+        <p class="review-lock-sub">Reviews will open after the movie premieres. Come back to share your review!</p>
+      </div>
+
+      <div id="reviewUnlocked" style="display:none;">
+        <div class="review-summary" id="reviewSummary">
+          <div class="review-avg">
+            <span class="review-avg-num" id="avgRating">0</span>
+            <span class="review-avg-star">&#9733;</span>
+          </div>
+          <div class="review-avg-info">
+            <div class="review-avg-stars" id="avgStars">&#9734;&#9734;&#9734;&#9734;&#9734;</div>
+            <div class="review-avg-count" id="reviewCount">0 reviews</div>
+          </div>
+          <div class="review-bar-chart" id="ratingBars"></div>
+        </div>
+
+        <div class="review-form-box" id="reviewFormBox">
+          <h3 class="review-form-title">Write Your Review</h3>
+          <div class="review-stars-input" id="starInput">
+            <span class="review-star-btn" data-star="1">&#9734;</span>
+            <span class="review-star-btn" data-star="2">&#9734;</span>
+            <span class="review-star-btn" data-star="3">&#9734;</span>
+            <span class="review-star-btn" data-star="4">&#9734;</span>
+            <span class="review-star-btn" data-star="5">&#9734;</span>
+          </div>
+          <input type="text" id="reviewName" class="review-input" placeholder="Your name" maxlength="50">
+          <textarea id="reviewText" class="review-textarea" placeholder="Share your thoughts about the movie..." maxlength="500" rows="3"></textarea>
+          <button id="submitReview" class="book-btn" style="margin-top:12px;display:inline-block;">Submit Review</button>
+          <div id="reviewMsg" class="review-msg"></div>
+        </div>
+
+        <div class="review-list" id="reviewList">
+          <p style="color:#666;text-align:center;">No reviews yet. Be the first!</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-content">
+      <div class="footer-location">Germany</div>
+      <a href="mailto:info@germany-telugu-movies.com" class="footer-email">info@germany-telugu-movies.com</a>
+      <div class="footer-social">
+        <a href="https://www.instagram.com/germanytelugumovies?igsh=dmE4N2R5YWxqYWhm&utm_source=qr" target="_blank" rel="noopener" class="footer-instagram">
+          <svg style="width:18px;height:18px;vertical-align:middle;margin-right:6px;" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 1.17.054 1.97.24 2.43.403a4.08 4.08 0 011.47.958c.453.453.78.898.958 1.47.163.46.35 1.26.404 2.43.058 1.266.07 1.646.07 4.85s-.012 3.584-.07 4.85c-.054 1.17-.24 1.97-.404 2.43a4.08 4.08 0 01-.958 1.47 4.08 4.08 0 01-1.47.958c-.46.163-1.26.35-2.43.404-1.266.058-1.646.07-4.85.07s-3.584-.012-4.85-.07c-1.17-.054-1.97-.24-2.43-.404a4.08 4.08 0 01-1.47-.958 4.08 4.08 0 01-.958-1.47c-.163-.46-.35-1.26-.404-2.43C2.175 15.584 2.163 15.204 2.163 12s.012-3.584.07-4.85c.054-1.17.24-1.97.404-2.43a4.08 4.08 0 01.958-1.47 4.08 4.08 0 011.47-.958c.46-.163 1.26-.35 2.43-.404C8.416 2.175 8.796 2.163 12 2.163M12 0C8.741 0 8.333.014 7.053.072 5.775.13 4.902.333 4.14.63a6.21 6.21 0 00-2.245 1.462A6.21 6.21 0 00.433 4.337C.136 5.1-.067 5.973.01 7.25.068 8.53.082 8.938.082 12.197c0 3.259.014 3.668.072 4.948.058 1.277.261 2.15.558 2.913a6.21 6.21 0 001.462 2.245 6.21 6.21 0 002.245 1.462c.763.297 1.636.5 2.913.558C8.333 23.986 8.741 24 12 24s3.668-.014 4.948-.072c1.277-.058 2.15-.261 2.913-.558a6.21 6.21 0 002.245-1.462 6.21 6.21 0 001.462-2.245c.297-.763.5-1.636.558-2.913.058-1.28.072-1.689.072-4.948s-.014-3.668-.072-4.948c-.058-1.277-.261-2.15-.558-2.913a6.21 6.21 0 00-1.462-2.245A6.21 6.21 0 0019.861.633C19.1.336 18.225.133 16.948.075 15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+          @germanytelugumovies
+        </a>
+      </div>
+      <div class="footer-copy">&copy; 2026 Germany Telugu Movies</div>
+    </div>
+  </footer>
+
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-app.js";
+    import { getDatabase, ref, get, runTransaction, push, onValue } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-database.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyDmGjpEbIo3YupHpWSc8rgzXWESF5-IPCQ",
+      authDomain: "gtm-counter.firebaseapp.com",
+      databaseURL: "https://gtm-counter-default-rtdb.europe-west1.firebasedatabase.app",
+      projectId: "gtm-counter",
+      storageBucket: "gtm-counter.firebasestorage.app",
+      messagingSenderId: "424507047798",
+      appId: "1:424507047798:web:ab288d3575e67917abc457"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const db = getDatabase(app);
+
+    const REVIEW_UNLOCK = new Date('2026-03-18T21:00:00+01:00');
+    const MOVIE_KEY = 'ustaad';
+    const reviewsRef = ref(db, 'reviews/' + MOVIE_KEY);
+    const REVIEW_STORAGE = MOVIE_KEY + '_reviewed';
+
+    let selectedRating = 0;
+
+    function checkReviewUnlock() {
+      const now = new Date();
+      const locked = document.getElementById('reviewLocked');
+      const unlocked = document.getElementById('reviewUnlocked');
+      if (now >= REVIEW_UNLOCK) {
+        locked.style.display = 'none';
+        unlocked.style.display = 'block';
+        loadReviews();
+      } else {
+        locked.style.display = 'block';
+        unlocked.style.display = 'none';
+      }
+    }
+
+    document.querySelectorAll('.review-star-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        selectedRating = parseInt(btn.dataset.star);
+        document.querySelectorAll('.review-star-btn').forEach((s, i) => {
+          s.innerHTML = i < selectedRating ? '&#9733;' : '&#9734;';
+          s.classList.toggle('star-active', i < selectedRating);
+        });
+      });
+      btn.addEventListener('mouseenter', () => {
+        const hover = parseInt(btn.dataset.star);
+        document.querySelectorAll('.review-star-btn').forEach((s, i) => {
+          s.innerHTML = i < hover ? '&#9733;' : '&#9734;';
+        });
+      });
+    });
+    document.getElementById('starInput').addEventListener('mouseleave', () => {
+      document.querySelectorAll('.review-star-btn').forEach((s, i) => {
+        s.innerHTML = i < selectedRating ? '&#9733;' : '&#9734;';
+      });
+    });
+
+    document.getElementById('submitReview').addEventListener('click', async () => {
+      const name = document.getElementById('reviewName').value.trim();
+      const text = document.getElementById('reviewText').value.trim();
+      const msg = document.getElementById('reviewMsg');
+
+      if (!selectedRating) { msg.textContent = 'Please select a star rating.'; msg.className = 'review-msg review-msg-err'; return; }
+      if (!name) { msg.textContent = 'Please enter your name.'; msg.className = 'review-msg review-msg-err'; return; }
+      if (!text) { msg.textContent = 'Please write a review.'; msg.className = 'review-msg review-msg-err'; return; }
+
+      if (localStorage.getItem(REVIEW_STORAGE)) {
+        msg.textContent = 'You have already submitted a review.'; msg.className = 'review-msg review-msg-err'; return;
+      }
+
+      const btn = document.getElementById('submitReview');
+      btn.disabled = true; btn.textContent = 'Submitting...';
+
+      try {
+        await push(reviewsRef, { name, rating: selectedRating, text, timestamp: Date.now() });
+        localStorage.setItem(REVIEW_STORAGE, 'true');
+        msg.textContent = 'Thank you for your review!'; msg.className = 'review-msg review-msg-ok';
+        document.getElementById('reviewFormBox').style.display = 'none';
+      } catch {
+        msg.textContent = 'Error submitting review. Please try again.'; msg.className = 'review-msg review-msg-err';
+        btn.disabled = false; btn.textContent = 'Submit Review';
+      }
+    });
+
+    function loadReviews() {
+      if (localStorage.getItem(REVIEW_STORAGE)) {
+        document.getElementById('reviewFormBox').style.display = 'none';
+        document.getElementById('reviewMsg').textContent = 'You have already submitted your review.';
+        document.getElementById('reviewMsg').className = 'review-msg review-msg-ok';
+      }
+
+      onValue(reviewsRef, (snapshot) => {
+        const data = snapshot.val();
+        const list = document.getElementById('reviewList');
+        const reviews = [];
+        if (data) Object.values(data).forEach(r => reviews.push(r));
+
+        if (reviews.length === 0) {
+          list.innerHTML = '<p style="color:#666;text-align:center;">No reviews yet. Be the first!</p>';
+          updateSummary(reviews);
+          return;
+        }
+
+        reviews.sort((a, b) => (b.timestamp || 0) - (a.timestamp || 0));
+        updateSummary(reviews);
+
+        list.innerHTML = reviews.map(r => {
+          const stars = '&#9733;'.repeat(r.rating) + '&#9734;'.repeat(5 - r.rating);
+          const date = r.timestamp ? new Date(r.timestamp).toLocaleDateString('en-DE', { day: 'numeric', month: 'short', year: 'numeric' }) : '';
+          const safeName = escapeText(r.name);
+          const safeText = escapeText(r.text);
+          return '<div class="review-card"><div class="review-card-header"><span class="review-card-name">' + safeName + '</span><span class="review-card-date">' + date + '</span></div><div class="review-card-stars">' + stars + '</div><p class="review-card-text">' + safeText + '</p></div>';
+        }).join('');
+      });
+    }
+
+    function escapeText(str) {
+      const d = document.createElement('div');
+      d.textContent = str || '';
+      return d.innerHTML;
+    }
+
+    function updateSummary(reviews) {
+      const count = reviews.length;
+      document.getElementById('reviewCount').textContent = count + ' review' + (count !== 1 ? 's' : '');
+      if (count === 0) {
+        document.getElementById('avgRating').textContent = '0';
+        document.getElementById('avgStars').innerHTML = '&#9734;&#9734;&#9734;&#9734;&#9734;';
+        document.getElementById('ratingBars').innerHTML = '';
+        return;
+      }
+      const sum = reviews.reduce((a, r) => a + r.rating, 0);
+      const avg = (sum / count).toFixed(1);
+      document.getElementById('avgRating').textContent = avg;
+      const rounded = Math.round(sum / count);
+      document.getElementById('avgStars').innerHTML = '&#9733;'.repeat(rounded) + '&#9734;'.repeat(5 - rounded);
+
+      const dist = [0, 0, 0, 0, 0];
+      reviews.forEach(r => { if (r.rating >= 1 && r.rating <= 5) dist[r.rating - 1]++; });
+      const maxCount = Math.max(...dist, 1);
+      document.getElementById('ratingBars').innerHTML = [5, 4, 3, 2, 1].map(star => {
+        const c = dist[star - 1];
+        const pct = Math.round((c / maxCount) * 100);
+        return '<div class="rating-bar-row"><span class="rating-bar-label">' + star + '&#9733;</span><div class="rating-bar-track"><div class="rating-bar-fill" style="width:' + pct + '%"></div></div><span class="rating-bar-count">' + c + '</span></div>';
+      }).join('');
+    }
+
+    checkReviewUnlock();
+  </script>
+  <script src="nav.js"></script>
+</body>
+</html>

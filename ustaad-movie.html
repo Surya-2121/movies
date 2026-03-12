@@ -9,7 +9,7 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <nav class="nav-menu" id="navMenu"><div class="nav-header"><img src="logo.svg" alt="Logo" class="nav-logo"><button class="nav-close" onclick="toggleMenu()">&times;</button></div><a href="index.html" class="nav-link">Home</a><a href="coming-soon.html" class="nav-link">Coming Soon</a><a href="#reviewSection" class="nav-link">Reviews</a><a href="about.html" class="nav-link">About Us</a><a href="contact.html" class="nav-link">Contact</a><div class="nav-divider"></div><button class="nav-theme-btn" onclick="toggleTheme()"><span id="themeIcon">&#9788;</span> <span id="themeText">Light Mode</span></button></nav><div class="nav-overlay" id="navOverlay" onclick="toggleMenu()"></div><button class="search-btn" onclick="toggleSearch()"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></button>
+  <nav class="nav-menu" id="navMenu"><div class="nav-header"><img src="logo.svg" alt="Logo" class="nav-logo"><button class="nav-close" onclick="toggleMenu()">&times;</button></div><a href="index.html" class="nav-link">Home</a><a href="coming-soon.html" class="nav-link">Coming Soon</a><a href="reviews.html" class="nav-link">Reviews</a><a href="about.html" class="nav-link">About Us</a><a href="contact.html" class="nav-link">Contact</a><div class="nav-divider"></div><button class="nav-theme-btn" onclick="toggleTheme()"><span id="themeIcon">&#9788;</span> <span id="themeText">Light Mode</span></button></nav><div class="nav-overlay" id="navOverlay" onclick="toggleMenu()"></div><button class="search-btn" onclick="toggleSearch()"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></button>
 <div class="search-overlay" id="searchOverlay"><div class="search-overlay-box"><button class="search-overlay-close" onclick="toggleSearch()">&times;</button><input type="text" class="search-overlay-input" placeholder="Search for a movie..." oninput="handleSearchInput(event)" autocomplete="off"><div class="search-overlay-results" id="searchOverlayResults"></div></div></div>
 <button class="menu-btn" id="menuBtn" onclick="toggleMenu()"><span></span><span></span><span></span></button>
   <header class="site-header">
@@ -80,54 +80,6 @@
     </section>
 
     <!-- Reviews & Ratings -->
-    <section class="mp-section" id="reviewSection">
-      <h2 class="mp-section-title">Reviews & Ratings</h2>
-
-      <!-- Locked state (before unlock time) -->
-      <div id="reviewLocked" class="review-locked">
-        <div class="review-lock-icon">&#128274;</div>
-        <p class="review-lock-msg">Not Yet</p>
-        <p class="review-lock-sub">Reviews will open after the movie premieres. Come back to share your review!</p>
-      </div>
-
-      <!-- Unlocked state -->
-      <div id="reviewUnlocked" style="display:none;">
-        <!-- Average Rating Summary -->
-        <div class="review-summary" id="reviewSummary">
-          <div class="review-avg">
-            <span class="review-avg-num" id="avgRating">0</span>
-            <span class="review-avg-star">&#9733;</span>
-          </div>
-          <div class="review-avg-info">
-            <div class="review-avg-stars" id="avgStars">&#9734;&#9734;&#9734;&#9734;&#9734;</div>
-            <div class="review-avg-count" id="reviewCount">0 reviews</div>
-          </div>
-          <div class="review-bar-chart" id="ratingBars"></div>
-        </div>
-
-        <!-- Review Form -->
-        <div class="review-form-box" id="reviewFormBox">
-          <h3 class="review-form-title">Write Your Review</h3>
-          <div class="review-stars-input" id="starInput">
-            <span class="review-star-btn" data-star="1">&#9734;</span>
-            <span class="review-star-btn" data-star="2">&#9734;</span>
-            <span class="review-star-btn" data-star="3">&#9734;</span>
-            <span class="review-star-btn" data-star="4">&#9734;</span>
-            <span class="review-star-btn" data-star="5">&#9734;</span>
-          </div>
-          <input type="text" id="reviewName" class="review-input" placeholder="Your name" maxlength="50">
-          <textarea id="reviewText" class="review-textarea" placeholder="Share your thoughts about the movie..." maxlength="500" rows="3"></textarea>
-          <button id="submitReview" class="book-btn" style="margin-top:12px;display:inline-block;">Submit Review</button>
-          <div id="reviewMsg" class="review-msg"></div>
-        </div>
-
-        <!-- Reviews List -->
-        <div class="review-list" id="reviewList">
-          <p style="color:#666;text-align:center;">No reviews yet. Be the first!</p>
-        </div>
-      </div>
-    </section>
-
     <!-- Book Tickets CTA -->
     <section class="mp-section mp-cta-section">
       <a href="ustaad.html" class="book-btn mp-book-btn-large">Book Tickets Now &rarr;</a>
@@ -136,7 +88,7 @@
 
   <script type="module">
     import { initializeApp } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-app.js";
-    import { getDatabase, ref, get, set, runTransaction, push, onValue, query, orderByChild } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-database.js";
+    import { getDatabase, ref, get, runTransaction } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-database.js";
 
     const firebaseConfig = {
       apiKey: "AIzaSyDmGjpEbIo3YupHpWSc8rgzXWESF5-IPCQ",
@@ -201,174 +153,6 @@
     };
 
     loadCount();
-
-    // ===== Reviews & Ratings System =====
-    const REVIEW_UNLOCK = new Date('2026-03-18T21:00:00+01:00');
-    const MOVIE_KEY = 'ustaad';
-    const reviewsRef = ref(db, 'reviews/' + MOVIE_KEY);
-    const REVIEW_STORAGE = MOVIE_KEY + '_reviewed';
-
-    let selectedRating = 0;
-
-    function checkReviewUnlock() {
-      const now = new Date();
-      const locked = document.getElementById('reviewLocked');
-      const unlocked = document.getElementById('reviewUnlocked');
-
-      if (now >= REVIEW_UNLOCK) {
-        locked.style.display = 'none';
-        unlocked.style.display = 'block';
-        loadReviews();
-      } else {
-        locked.style.display = 'block';
-        unlocked.style.display = 'none';
-      }
-    }
-
-    // Star input
-    document.querySelectorAll('.review-star-btn').forEach(btn => {
-      btn.addEventListener('click', () => {
-        selectedRating = parseInt(btn.dataset.star);
-        document.querySelectorAll('.review-star-btn').forEach((s, i) => {
-          s.innerHTML = i < selectedRating ? '&#9733;' : '&#9734;';
-          s.classList.toggle('star-active', i < selectedRating);
-        });
-      });
-      btn.addEventListener('mouseenter', () => {
-        const hover = parseInt(btn.dataset.star);
-        document.querySelectorAll('.review-star-btn').forEach((s, i) => {
-          s.innerHTML = i < hover ? '&#9733;' : '&#9734;';
-        });
-      });
-    });
-    document.getElementById('starInput').addEventListener('mouseleave', () => {
-      document.querySelectorAll('.review-star-btn').forEach((s, i) => {
-        s.innerHTML = i < selectedRating ? '&#9733;' : '&#9734;';
-      });
-    });
-
-    // Submit review
-    document.getElementById('submitReview').addEventListener('click', async () => {
-      const name = document.getElementById('reviewName').value.trim();
-      const text = document.getElementById('reviewText').value.trim();
-      const msg = document.getElementById('reviewMsg');
-
-      if (!selectedRating) { msg.textContent = 'Please select a star rating.'; msg.className = 'review-msg review-msg-err'; return; }
-      if (!name) { msg.textContent = 'Please enter your name.'; msg.className = 'review-msg review-msg-err'; return; }
-      if (!text) { msg.textContent = 'Please write a review.'; msg.className = 'review-msg review-msg-err'; return; }
-
-      if (localStorage.getItem(REVIEW_STORAGE)) {
-        msg.textContent = 'You have already submitted a review.';
-        msg.className = 'review-msg review-msg-err';
-        return;
-      }
-
-      const btn = document.getElementById('submitReview');
-      btn.disabled = true;
-      btn.textContent = 'Submitting...';
-
-      try {
-        await push(reviewsRef, {
-          name: name,
-          rating: selectedRating,
-          text: text,
-          timestamp: Date.now()
-        });
-        localStorage.setItem(REVIEW_STORAGE, 'true');
-        msg.textContent = 'Thank you for your review!';
-        msg.className = 'review-msg review-msg-ok';
-        document.getElementById('reviewFormBox').style.display = 'none';
-      } catch (e) {
-        msg.textContent = 'Error submitting review. Please try again.';
-        msg.className = 'review-msg review-msg-err';
-        btn.disabled = false;
-        btn.textContent = 'Submit Review';
-      }
-    });
-
-    function loadReviews() {
-      // Hide form if already reviewed
-      if (localStorage.getItem(REVIEW_STORAGE)) {
-        document.getElementById('reviewFormBox').style.display = 'none';
-        document.getElementById('reviewMsg').textContent = 'You have already submitted your review.';
-        document.getElementById('reviewMsg').className = 'review-msg review-msg-ok';
-      }
-
-      onValue(reviewsRef, (snapshot) => {
-        const data = snapshot.val();
-        const list = document.getElementById('reviewList');
-        const reviews = [];
-
-        if (data) {
-          Object.values(data).forEach(r => reviews.push(r));
-        }
-
-        if (reviews.length === 0) {
-          list.innerHTML = '<p style="color:#666;text-align:center;">No reviews yet. Be the first!</p>';
-          updateSummary(reviews);
-          return;
-        }
-
-        reviews.sort((a, b) => (b.timestamp || 0) - (a.timestamp || 0));
-        updateSummary(reviews);
-
-        list.innerHTML = reviews.map(r => {
-          const stars = '&#9733;'.repeat(r.rating) + '&#9734;'.repeat(5 - r.rating);
-          const date = r.timestamp ? new Date(r.timestamp).toLocaleDateString('en-DE', { day: 'numeric', month: 'short', year: 'numeric' }) : '';
-          const safeName = escapeText(r.name);
-          const safeText = escapeText(r.text);
-          return '<div class="review-card">' +
-            '<div class="review-card-header">' +
-              '<span class="review-card-name">' + safeName + '</span>' +
-              '<span class="review-card-date">' + date + '</span>' +
-            '</div>' +
-            '<div class="review-card-stars">' + stars + '</div>' +
-            '<p class="review-card-text">' + safeText + '</p>' +
-          '</div>';
-        }).join('');
-      });
-    }
-
-    function escapeText(str) {
-      const d = document.createElement('div');
-      d.textContent = str || '';
-      return d.innerHTML;
-    }
-
-    function updateSummary(reviews) {
-      const count = reviews.length;
-      document.getElementById('reviewCount').textContent = count + ' review' + (count !== 1 ? 's' : '');
-
-      if (count === 0) {
-        document.getElementById('avgRating').textContent = '0';
-        document.getElementById('avgStars').innerHTML = '&#9734;&#9734;&#9734;&#9734;&#9734;';
-        document.getElementById('ratingBars').innerHTML = '';
-        return;
-      }
-
-      const sum = reviews.reduce((a, r) => a + r.rating, 0);
-      const avg = (sum / count).toFixed(1);
-      document.getElementById('avgRating').textContent = avg;
-
-      const rounded = Math.round(sum / count);
-      document.getElementById('avgStars').innerHTML = '&#9733;'.repeat(rounded) + '&#9734;'.repeat(5 - rounded);
-
-      // Rating distribution bars
-      const dist = [0, 0, 0, 0, 0];
-      reviews.forEach(r => { if (r.rating >= 1 && r.rating <= 5) dist[r.rating - 1]++; });
-      const maxCount = Math.max(...dist, 1);
-      document.getElementById('ratingBars').innerHTML = [5, 4, 3, 2, 1].map(star => {
-        const c = dist[star - 1];
-        const pct = Math.round((c / maxCount) * 100);
-        return '<div class="rating-bar-row">' +
-          '<span class="rating-bar-label">' + star + '&#9733;</span>' +
-          '<div class="rating-bar-track"><div class="rating-bar-fill" style="width:' + pct + '%"></div></div>' +
-          '<span class="rating-bar-count">' + c + '</span>' +
-        '</div>';
-      }).join('');
-    }
-
-    checkReviewUnlock();
   </script>
 
   <script>
