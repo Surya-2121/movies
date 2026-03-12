@@ -2187,6 +2187,82 @@ main {
 .rv-user-review:last-child { border-bottom: none; }
 .light-theme .rv-user-review { border-bottom-color: #eee; }
 
+/* Prediction Game */
+.predict-section { margin-bottom: 32px; }
+.predict-banner {
+  text-align: center;
+  background: linear-gradient(135deg, #1a1a2e 0%, #2a1a3e 100%);
+  border: 1px solid #f0ad4e;
+  border-radius: 12px;
+  padding: 24px 20px;
+  margin-bottom: 16px;
+}
+.predict-trophy { font-size: 2.5rem; margin-bottom: 8px; }
+.predict-title { font-size: 1.4rem; font-weight: 800; color: #f0ad4e; margin: 0 0 8px; }
+.predict-desc { color: #ccc; font-size: 0.95rem; margin: 0 0 12px; line-height: 1.5; }
+.predict-countdown { margin-top: 8px; }
+.predict-cd-num { font-size: 1.8rem; font-weight: 800; color: #f0ad4e; }
+.predict-cd-label { font-size: 0.95rem; color: #aaa; }
+.predict-form-box {
+  background: #1a1a2e;
+  border: 1px solid #2a2a4a;
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.predict-submit-btn { margin-top: 4px; display: inline-block; }
+.predict-done { color: #4caf50; font-weight: 700; text-align: center; padding: 16px 0; margin: 0; }
+.predict-list-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 12px;
+}
+.predict-list-icon { font-size: 1.3rem; }
+.predict-total {
+  background: #f0ad4e;
+  color: #000;
+  font-size: 0.8rem;
+  font-weight: 800;
+  padding: 2px 8px;
+  border-radius: 10px;
+}
+.predict-item {
+  background: #1a1a2e;
+  border: 1px solid #2a2a4a;
+  border-radius: 10px;
+  padding: 14px 18px;
+  margin-bottom: 10px;
+}
+.predict-item-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 6px;
+}
+.predict-item-name { font-weight: 700; color: #fff; }
+.predict-item-rating { font-weight: 700; color: #f0ad4e; }
+.predict-item-line { color: #aaa; font-style: italic; margin: 0; font-size: 0.93rem; }
+
+/* Light theme prediction */
+.light-theme .predict-banner { background: linear-gradient(135deg, #fff8ed 0%, #fff3e0 100%); border-color: #d4880f; }
+.light-theme .predict-title { color: #d4880f; }
+.light-theme .predict-desc { color: #555; }
+.light-theme .predict-cd-num { color: #d4880f; }
+.light-theme .predict-cd-label { color: #777; }
+.light-theme .predict-form-box { background: #fff; border-color: #ddd; }
+.light-theme .predict-list-header { color: #222; }
+.light-theme .predict-item { background: #fff; border-color: #ddd; }
+.light-theme .predict-item-name { color: #222; }
+.light-theme .predict-item-rating { color: #d4880f; }
+.light-theme .predict-item-line { color: #666; }
+
 /* Reviews auto-slider on index */
 .rv-auto-slider {
   display: block;
