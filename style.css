@@ -2176,7 +2176,7 @@ main {
   padding: 14px 20px;
   margin-bottom: 16px;
 }
-.rv-bar-movie { font-size: 1.05rem; font-weight: 700; color: #fff; flex: 1; min-width: 120px; }
+.rv-bar-movie { font-size: 1.05rem; font-weight: 700; color: #fff; width: 250px; flex-shrink: 0; }
 .rv-single-bar .rv-bar-value { font-size: 1.1rem; font-weight: 700; color: #f0ad4e; }
 .rv-single-bar .rv-add-review-btn { flex-shrink: 0; }
 .light-theme .rv-single-bar { background: #fff; border-color: #ddd; }
