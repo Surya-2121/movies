@@ -2261,6 +2261,21 @@ main {
 .light-theme .predict-item { background: #fff; border-color: #ddd; }
 .light-theme .predict-item-name { color: #222; }
 .light-theme .predict-item-rating { color: #d4880f; }
+.predict-rules {
+  background: #1a1a2e;
+  border: 1px solid #2a2a4a;
+  border-radius: 12px;
+  padding: 20px 24px;
+  margin-bottom: 16px;
+}
+.predict-rules-title { font-size: 1.1rem; font-weight: 800; color: #f0ad4e; margin: 0 0 12px; }
+.predict-rules-list { margin: 0; padding-left: 20px; color: #ccc; font-size: 0.93rem; line-height: 1.7; }
+.predict-rules-list li { margin-bottom: 6px; }
+.predict-rules-list a { color: #f0ad4e; text-decoration: underline; }
+.light-theme .predict-rules { background: #fff; border-color: #ddd; }
+.light-theme .predict-rules-title { color: #d4880f; }
+.light-theme .predict-rules-list { color: #555; }
+.light-theme .predict-rules-list a { color: #d4880f; }
 .light-theme .predict-item-line { color: #666; }
 
 /* Predict & Win button on homepage */
