@@ -2187,39 +2187,39 @@ main {
 .rv-user-review:last-child { border-bottom: none; }
 .light-theme .rv-user-review { border-bottom-color: #eee; }
 
-/* Reviews Slider on index */
-.rv-slider {
+/* Reviews scroll block on index */
+.rv-scroll-block {
+  display: block;
+  background: #1a1a2e;
+  border: 1px solid #2a2a4a;
+  border-radius: 12px;
+  padding: 16px 20px;
+  text-decoration: none;
+  color: inherit;
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
   scrollbar-width: none;
+  transition: border-color 0.2s;
 }
-.rv-slider::-webkit-scrollbar { display: none; }
-.rv-slider-track {
+.rv-scroll-block::-webkit-scrollbar { display: none; }
+.rv-scroll-block:hover { border-color: #f0ad4e; }
+.rv-scroll-track {
   display: flex;
-  gap: 14px;
-  padding: 4px 0;
+  gap: 28px;
+  white-space: nowrap;
 }
-.rv-slider-card {
+.rv-scroll-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
   flex-shrink: 0;
-  background: #1a1a2e;
-  border: 1px solid #2a2a4a;
-  border-radius: 10px;
-  padding: 14px 20px;
-  text-decoration: none;
-  color: inherit;
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-  min-width: 180px;
-  transition: border-color 0.2s, transform 0.2s;
 }
-.rv-slider-card:hover { border-color: #f0ad4e; transform: translateY(-2px); }
-.rv-slider-name { font-size: 0.95rem; font-weight: 700; color: #fff; }
-.rv-slider-rating { font-size: 1.1rem; font-weight: 700; color: #f0ad4e; }
-.light-theme .rv-slider-card { background: #fff; border-color: #ddd; }
-.light-theme .rv-slider-card:hover { border-color: #d4880f; }
-.light-theme .rv-slider-name { color: #222; }
-.light-theme .rv-slider-rating { color: #d4880f; }
+.rv-scroll-name { font-size: 0.95rem; font-weight: 700; color: #fff; }
+.rv-scroll-rating { font-size: 1rem; font-weight: 700; color: #f0ad4e; }
+.light-theme .rv-scroll-block { background: #fff; border-color: #ddd; }
+.light-theme .rv-scroll-block:hover { border-color: #d4880f; }
+.light-theme .rv-scroll-name { color: #222; }
+.light-theme .rv-scroll-rating { color: #d4880f; }
 .light-theme .rv-bar-movie { color: #222; }
 .light-theme .rv-bar-value { color: #d4880f; }
 .rv-movie-link-plain { cursor: default; }
