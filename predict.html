@@ -61,6 +61,10 @@
           <li>Once verified, your <strong>&euro;5 refund</strong> will be processed.</li>
         </ul>
       </div>
+      <div class="predict-share">
+        <button class="book-btn predict-share-btn" onclick="copyPredictLink()">Share with Friends</button>
+        <span id="shareMsg" class="predict-share-msg"></span>
+      </div>
       <div id="predictFormBox" class="predict-form-box">
         <input type="text" id="predictName" class="review-input" placeholder="Your name" maxlength="50">
         <input type="email" id="predictEmail" class="review-input" placeholder="Your email (to contact winner)" maxlength="100">
@@ -91,6 +95,21 @@
     </div>
   </footer>
 
+  <script>
+    function copyPredictLink() {
+      const url = 'https://surya-2121.github.io/movies/predict.html';
+      const text = 'Predict the story of Ustaad Bhagat Singh in one line & win €5 cashback! ' + url;
+      if (navigator.share) {
+        navigator.share({ title: 'Predict & Win!', text: text, url: url }).catch(() => {});
+      } else {
+        navigator.clipboard.writeText(text).then(() => {
+          const msg = document.getElementById('shareMsg');
+          msg.textContent = 'Link copied!';
+          setTimeout(() => { msg.textContent = ''; }, 2000);
+        });
+      }
+    }
+  </script>
   <script type="module">
     import { initializeApp } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-app.js";
     import { getDatabase, ref, push, onValue } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-database.js";

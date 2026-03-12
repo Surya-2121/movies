@@ -2276,6 +2276,9 @@ main {
 .light-theme .predict-rules-title { color: #d4880f; }
 .light-theme .predict-rules-list { color: #555; }
 .light-theme .predict-rules-list a { color: #d4880f; }
+.predict-share { text-align: center; margin-bottom: 16px; }
+.predict-share-btn { display: inline-block; margin-top: 0; }
+.predict-share-msg { color: #4caf50; font-weight: 700; margin-left: 12px; font-size: 0.9rem; }
 .light-theme .predict-item-line { color: #666; }
 
 /* Predict & Win button on homepage */
