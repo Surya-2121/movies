@@ -2165,6 +2165,9 @@ main {
   transition: border-color 0.2s;
 }
 .rv-movie-link:hover { border-color: #f0ad4e; }
+.rv-movie-link-plain { cursor: default; }
+.rv-movie-section + .rv-movie-section { margin-top: 48px; padding-top: 48px; border-top: 1px solid #2a2a4a; }
+.light-theme .rv-movie-section + .rv-movie-section { border-top-color: #ddd; }
 .rv-movie-poster { width: 60px; border-radius: 8px; }
 .rv-movie-name { font-size: 1.2rem; font-weight: 700; color: #fff; margin: 0; }
 .rv-movie-meta { font-size: 0.85rem; color: #888; margin: 4px 0 0; }

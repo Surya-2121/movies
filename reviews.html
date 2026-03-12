@@ -38,8 +38,8 @@
   <main class="reviews-page">
     <h1 class="page-title">Reviews & Ratings</h1>
 
-    <!-- Ustaad Bhagat Singh Reviews -->
-    <section class="rv-movie-section" id="ustaadReviews">
+    <!-- Ustaad Bhagat Singh -->
+    <section class="rv-movie-section" data-movie="ustaad" data-mz="2.75">
       <div class="rv-movie-header">
         <a href="ustaad-movie.html" class="rv-movie-link">
           <img src="poster.jpg" alt="Ustaad Bhagat Singh" class="rv-movie-poster">
@@ -49,8 +49,6 @@
           </div>
         </a>
       </div>
-
-      <!-- Featured Rating -->
       <div class="review-card rv-featured-card">
         <div class="review-card-header">
           <span class="review-card-name">Mana Shankara Vara Prasad Garu</span>
@@ -62,35 +60,123 @@
           <span class="rv-rating-stars">&#9733;&#9733;&#9733;&#9734;&#9734;</span>
         </div>
       </div>
-
-      <!-- Average of all ratings -->
-      <div class="review-summary" id="ratingSummary">
-        <div class="review-avg">
-          <span class="review-avg-num" id="avgRating">0</span>
-          <span class="review-avg-star">&#9733;</span>
-        </div>
-        <div class="review-avg-info">
-          <div class="review-avg-stars" id="avgStars">&#9734;&#9734;&#9734;&#9734;&#9734;</div>
-          <div class="review-avg-count" id="ratingCount">0 ratings</div>
-        </div>
-      </div>
-
-      <!-- Rate Form -->
-      <div class="review-form-box" id="rateFormBox">
+      <div class="review-summary rv-summary"></div>
+      <div class="review-form-box rv-rate-form">
         <h3 class="review-form-title">Rate this Movie</h3>
-        <input type="text" id="rateName" class="review-input" placeholder="Your name" maxlength="50">
+        <input type="text" class="review-input rv-name-input" placeholder="Your name" maxlength="50">
         <div class="rv-rate-row">
-          <input type="number" id="rateValue" class="review-input rv-rate-input" placeholder="Rating" min="0" max="5" step="0.25">
+          <input type="number" class="review-input rv-rate-input rv-value-input" placeholder="Rating" min="0" max="5" step="0.25">
           <span class="rv-rate-label">/ 5</span>
         </div>
-        <button id="submitRating" class="book-btn" style="margin-top:12px;display:inline-block;">Submit Rating</button>
-        <div id="rateMsg" class="review-msg"></div>
+        <button class="book-btn rv-submit-btn" style="margin-top:12px;display:inline-block;">Submit Rating</button>
+        <div class="review-msg rv-msg"></div>
       </div>
+      <div class="review-list rv-rating-list"><p style="color:#666;text-align:center;">No ratings yet. Be the first!</p></div>
+    </section>
 
-      <!-- All Ratings List -->
-      <div class="review-list" id="ratingList">
-        <p style="color:#666;text-align:center;">No ratings yet. Be the first!</p>
+    <!-- The Raja Saab -->
+    <section class="rv-movie-section" data-movie="raja-saab" data-mz="1">
+      <div class="rv-movie-header">
+        <div class="rv-movie-link rv-movie-link-plain">
+          <div class="rv-movie-title-box">
+            <h2 class="rv-movie-name">The Raja Saab</h2>
+            <p class="rv-movie-meta">Telugu &bull; 2025</p>
+          </div>
+        </div>
       </div>
+      <div class="review-card rv-featured-card">
+        <div class="review-card-header">
+          <span class="review-card-name">Mana Shankara Vara Prasad Garu</span>
+          <span class="rv-featured-badge">MZ Rating</span>
+        </div>
+        <div class="rv-rating-display">
+          <span class="rv-rating-num">1.00</span>
+          <span class="rv-rating-out">/ 5</span>
+          <span class="rv-rating-stars">&#9733;&#9734;&#9734;&#9734;&#9734;</span>
+        </div>
+      </div>
+      <div class="review-summary rv-summary"></div>
+      <div class="review-form-box rv-rate-form">
+        <h3 class="review-form-title">Rate this Movie</h3>
+        <input type="text" class="review-input rv-name-input" placeholder="Your name" maxlength="50">
+        <div class="rv-rate-row">
+          <input type="number" class="review-input rv-rate-input rv-value-input" placeholder="Rating" min="0" max="5" step="0.25">
+          <span class="rv-rate-label">/ 5</span>
+        </div>
+        <button class="book-btn rv-submit-btn" style="margin-top:12px;display:inline-block;">Submit Rating</button>
+        <div class="review-msg rv-msg"></div>
+      </div>
+      <div class="review-list rv-rating-list"><p style="color:#666;text-align:center;">No ratings yet. Be the first!</p></div>
+    </section>
+
+    <!-- Anaganaga Oka Raju -->
+    <section class="rv-movie-section" data-movie="anaganaga-oka-raju" data-mz="2.5">
+      <div class="rv-movie-header">
+        <div class="rv-movie-link rv-movie-link-plain">
+          <div class="rv-movie-title-box">
+            <h2 class="rv-movie-name">Anaganaga Oka Raju</h2>
+            <p class="rv-movie-meta">Telugu &bull; 2025</p>
+          </div>
+        </div>
+      </div>
+      <div class="review-card rv-featured-card">
+        <div class="review-card-header">
+          <span class="review-card-name">Mana Shankara Vara Prasad Garu</span>
+          <span class="rv-featured-badge">MZ Rating</span>
+        </div>
+        <div class="rv-rating-display">
+          <span class="rv-rating-num">2.50</span>
+          <span class="rv-rating-out">/ 5</span>
+          <span class="rv-rating-stars">&#9733;&#9733;&#9734;&#9734;&#9734;</span>
+        </div>
+      </div>
+      <div class="review-summary rv-summary"></div>
+      <div class="review-form-box rv-rate-form">
+        <h3 class="review-form-title">Rate this Movie</h3>
+        <input type="text" class="review-input rv-name-input" placeholder="Your name" maxlength="50">
+        <div class="rv-rate-row">
+          <input type="number" class="review-input rv-rate-input rv-value-input" placeholder="Rating" min="0" max="5" step="0.25">
+          <span class="rv-rate-label">/ 5</span>
+        </div>
+        <button class="book-btn rv-submit-btn" style="margin-top:12px;display:inline-block;">Submit Rating</button>
+        <div class="review-msg rv-msg"></div>
+      </div>
+      <div class="review-list rv-rating-list"><p style="color:#666;text-align:center;">No ratings yet. Be the first!</p></div>
+    </section>
+
+    <!-- Nari Nari Naduma Murari -->
+    <section class="rv-movie-section" data-movie="nari-nari-naduma-murari" data-mz="2.75">
+      <div class="rv-movie-header">
+        <div class="rv-movie-link rv-movie-link-plain">
+          <div class="rv-movie-title-box">
+            <h2 class="rv-movie-name">Nari Nari Naduma Murari</h2>
+            <p class="rv-movie-meta">Telugu &bull; 2025</p>
+          </div>
+        </div>
+      </div>
+      <div class="review-card rv-featured-card">
+        <div class="review-card-header">
+          <span class="review-card-name">Mana Shankara Vara Prasad Garu</span>
+          <span class="rv-featured-badge">MZ Rating</span>
+        </div>
+        <div class="rv-rating-display">
+          <span class="rv-rating-num">2.75</span>
+          <span class="rv-rating-out">/ 5</span>
+          <span class="rv-rating-stars">&#9733;&#9733;&#9733;&#9734;&#9734;</span>
+        </div>
+      </div>
+      <div class="review-summary rv-summary"></div>
+      <div class="review-form-box rv-rate-form">
+        <h3 class="review-form-title">Rate this Movie</h3>
+        <input type="text" class="review-input rv-name-input" placeholder="Your name" maxlength="50">
+        <div class="rv-rate-row">
+          <input type="number" class="review-input rv-rate-input rv-value-input" placeholder="Rating" min="0" max="5" step="0.25">
+          <span class="rv-rate-label">/ 5</span>
+        </div>
+        <button class="book-btn rv-submit-btn" style="margin-top:12px;display:inline-block;">Submit Rating</button>
+        <div class="review-msg rv-msg"></div>
+      </div>
+      <div class="review-list rv-rating-list"><p style="color:#666;text-align:center;">No ratings yet. Be the first!</p></div>
     </section>
   </main>
 
@@ -125,44 +211,11 @@
     const app = initializeApp(firebaseConfig);
     const db = getDatabase(app);
 
-    const MOVIE_KEY = 'ustaad';
-    const ratingsRef = ref(db, 'ratings/' + MOVIE_KEY);
-    const RATE_STORAGE = MOVIE_KEY + '_rated';
-
-    // Featured rating included in average
-    const FEATURED_RATING = { name: 'Mana Shankara Vara Prasad Garu', rating: 2.75 };
-
-    // Hide form if already rated
-    if (localStorage.getItem(RATE_STORAGE)) {
-      document.getElementById('rateFormBox').style.display = 'none';
+    function escapeText(str) {
+      const d = document.createElement('div');
+      d.textContent = str || '';
+      return d.innerHTML;
     }
-
-    // Submit rating
-    document.getElementById('submitRating').addEventListener('click', async () => {
-      const name = document.getElementById('rateName').value.trim();
-      const value = parseFloat(document.getElementById('rateValue').value);
-      const msg = document.getElementById('rateMsg');
-
-      if (!name) { msg.textContent = 'Please enter your name.'; msg.className = 'review-msg review-msg-err'; return; }
-      if (isNaN(value) || value < 0 || value > 5) { msg.textContent = 'Please enter a rating between 0 and 5.'; msg.className = 'review-msg review-msg-err'; return; }
-
-      if (localStorage.getItem(RATE_STORAGE)) {
-        msg.textContent = 'You have already submitted a rating.'; msg.className = 'review-msg review-msg-err'; return;
-      }
-
-      const btn = document.getElementById('submitRating');
-      btn.disabled = true; btn.textContent = 'Submitting...';
-
-      try {
-        await push(ratingsRef, { name, rating: value, timestamp: Date.now() });
-        localStorage.setItem(RATE_STORAGE, 'true');
-        msg.textContent = 'Thank you for your rating!'; msg.className = 'review-msg review-msg-ok';
-        document.getElementById('rateFormBox').style.display = 'none';
-      } catch {
-        msg.textContent = 'Error submitting. Please try again.'; msg.className = 'review-msg review-msg-err';
-        btn.disabled = false; btn.textContent = 'Submit Rating';
-      }
-    });
 
     function renderStars(rating) {
       const full = Math.floor(rating);
@@ -172,54 +225,84 @@
       return '&#9733;'.repeat(filled) + (half ? '&#11240;' : '') + '&#9734;'.repeat(5 - filled - half);
     }
 
-    // Load ratings
-    onValue(ratingsRef, (snapshot) => {
-      const data = snapshot.val();
-      const list = document.getElementById('ratingList');
-      const ratings = [];
-      if (data) Object.values(data).forEach(r => ratings.push(r));
+    // Initialize each movie section
+    document.querySelectorAll('.rv-movie-section').forEach(section => {
+      const movieKey = section.dataset.movie;
+      const mzRating = parseFloat(section.dataset.mz);
+      const ratingsRef = ref(db, 'ratings/' + movieKey);
+      const storageKey = movieKey + '_rated';
 
-      // Include featured in average
-      const allRatings = [FEATURED_RATING, ...ratings];
-      updateSummary(allRatings);
+      const form = section.querySelector('.rv-rate-form');
+      const nameInput = section.querySelector('.rv-name-input');
+      const valueInput = section.querySelector('.rv-value-input');
+      const submitBtn = section.querySelector('.rv-submit-btn');
+      const msg = section.querySelector('.rv-msg');
+      const summaryEl = section.querySelector('.rv-summary');
+      const listEl = section.querySelector('.rv-rating-list');
 
-      if (ratings.length === 0) {
-        list.innerHTML = '<p style="color:#666;text-align:center;">No ratings yet. Be the first!</p>';
-        return;
+      // Hide form if already rated
+      if (localStorage.getItem(storageKey)) {
+        form.style.display = 'none';
       }
 
-      ratings.sort((a, b) => (b.timestamp || 0) - (a.timestamp || 0));
+      // Submit
+      submitBtn.addEventListener('click', async () => {
+        const name = nameInput.value.trim();
+        const value = parseFloat(valueInput.value);
 
-      list.innerHTML = ratings.map(r => {
-        const date = r.timestamp ? new Date(r.timestamp).toLocaleDateString('en-DE', { day: 'numeric', month: 'short', year: 'numeric' }) : '';
-        const safeName = escapeText(r.name);
-        return '<div class="review-card">' +
-          '<div class="review-card-header"><span class="review-card-name">' + safeName + '</span><span class="review-card-date">' + date + '</span></div>' +
-          '<div class="rv-rating-display rv-rating-small"><span class="rv-rating-num">' + r.rating.toFixed(2) + '</span><span class="rv-rating-out">/ 5</span><span class="rv-rating-stars">' + renderStars(r.rating) + '</span></div>' +
-        '</div>';
-      }).join('');
+        if (!name) { msg.textContent = 'Please enter your name.'; msg.className = 'review-msg review-msg-err'; return; }
+        if (isNaN(value) || value < 0 || value > 5) { msg.textContent = 'Please enter a rating between 0 and 5.'; msg.className = 'review-msg review-msg-err'; return; }
+
+        if (localStorage.getItem(storageKey)) {
+          msg.textContent = 'You have already submitted a rating.'; msg.className = 'review-msg review-msg-err'; return;
+        }
+
+        submitBtn.disabled = true; submitBtn.textContent = 'Submitting...';
+
+        try {
+          await push(ratingsRef, { name, rating: value, timestamp: Date.now() });
+          localStorage.setItem(storageKey, 'true');
+          msg.textContent = 'Thank you for your rating!'; msg.className = 'review-msg review-msg-ok';
+          form.style.display = 'none';
+        } catch {
+          msg.textContent = 'Error submitting. Please try again.'; msg.className = 'review-msg review-msg-err';
+          submitBtn.disabled = false; submitBtn.textContent = 'Submit Rating';
+        }
+      });
+
+      // Load ratings
+      onValue(ratingsRef, (snapshot) => {
+        const data = snapshot.val();
+        const ratings = [];
+        if (data) Object.values(data).forEach(r => ratings.push(r));
+
+        // Average including MZ rating
+        const allRatings = [{ rating: mzRating }, ...ratings];
+        const count = allRatings.length;
+        const sum = allRatings.reduce((a, r) => a + r.rating, 0);
+        const avg = (sum / count).toFixed(2);
+        const rounded = Math.round(sum / count);
+
+        summaryEl.innerHTML =
+          '<div class="review-avg"><span class="review-avg-num">' + avg + '</span><span class="review-avg-star">&#9733;</span></div>' +
+          '<div class="review-avg-info"><div class="review-avg-stars">' + '&#9733;'.repeat(rounded) + '&#9734;'.repeat(5 - rounded) + '</div>' +
+          '<div class="review-avg-count">' + count + ' rating' + (count !== 1 ? 's' : '') + '</div></div>';
+
+        if (ratings.length === 0) {
+          listEl.innerHTML = '<p style="color:#666;text-align:center;">No ratings yet. Be the first!</p>';
+          return;
+        }
+
+        ratings.sort((a, b) => (b.timestamp || 0) - (a.timestamp || 0));
+
+        listEl.innerHTML = ratings.map(r => {
+          const date = r.timestamp ? new Date(r.timestamp).toLocaleDateString('en-DE', { day: 'numeric', month: 'short', year: 'numeric' }) : '';
+          const safeName = escapeText(r.name);
+          return '<div class="review-card"><div class="review-card-header"><span class="review-card-name">' + safeName + '</span><span class="review-card-date">' + date + '</span></div>' +
+            '<div class="rv-rating-display rv-rating-small"><span class="rv-rating-num">' + r.rating.toFixed(2) + '</span><span class="rv-rating-out">/ 5</span><span class="rv-rating-stars">' + renderStars(r.rating) + '</span></div></div>';
+        }).join('');
+      });
     });
-
-    function escapeText(str) {
-      const d = document.createElement('div');
-      d.textContent = str || '';
-      return d.innerHTML;
-    }
-
-    function updateSummary(allRatings) {
-      const count = allRatings.length;
-      document.getElementById('ratingCount').textContent = count + ' rating' + (count !== 1 ? 's' : '');
-      if (count === 0) {
-        document.getElementById('avgRating').textContent = '0';
-        document.getElementById('avgStars').innerHTML = '&#9734;&#9734;&#9734;&#9734;&#9734;';
-        return;
-      }
-      const sum = allRatings.reduce((a, r) => a + r.rating, 0);
-      const avg = (sum / count).toFixed(2);
-      document.getElementById('avgRating').textContent = avg;
-      const rounded = Math.round(sum / count);
-      document.getElementById('avgStars').innerHTML = '&#9733;'.repeat(rounded) + '&#9734;'.repeat(5 - rounded);
-    }
   </script>
   <script src="nav.js"></script>
 </body>
