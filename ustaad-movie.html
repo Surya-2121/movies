@@ -86,9 +86,8 @@
       <!-- Locked state (before unlock time) -->
       <div id="reviewLocked" class="review-locked">
         <div class="review-lock-icon">&#128274;</div>
-        <p class="review-lock-msg">Reviews will open on <strong>18 March 2026 at 21:00 CET</strong></p>
-        <p class="review-lock-sub">Come back after watching the movie to share your review!</p>
-        <div class="review-countdown" id="reviewCountdown"></div>
+        <p class="review-lock-msg">Not Yet</p>
+        <p class="review-lock-sub">Reviews will open after the movie premieres. Come back to share your review!</p>
       </div>
 
       <!-- Unlocked state -->
@@ -223,27 +222,7 @@
       } else {
         locked.style.display = 'block';
         unlocked.style.display = 'none';
-        updateReviewCountdown();
-        setInterval(updateReviewCountdown, 60000);
       }
-    }
-
-    function updateReviewCountdown() {
-      const now = new Date();
-      const diff = REVIEW_UNLOCK - now;
-      const el = document.getElementById('reviewCountdown');
-      if (diff <= 0) {
-        location.reload();
-        return;
-      }
-      const days = Math.floor(diff / 86400000);
-      const hrs = Math.floor((diff % 86400000) / 3600000);
-      const mins = Math.floor((diff % 3600000) / 60000);
-      let parts = [];
-      if (days > 0) parts.push(days + 'd');
-      if (hrs > 0) parts.push(hrs + 'h');
-      parts.push(mins + 'm');
-      el.textContent = parts.join(' ') + ' until reviews open';
     }
 
     // Star input
