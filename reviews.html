@@ -38,12 +38,35 @@
   <main class="reviews-page">
     <h1 class="page-title">Reviews & Ratings</h1>
 
-    <!-- Ustaad Bhagat Singh -->
-    <section class="rv-movie-section">
+    <!-- Ustaad Bhagat Singh - Prediction Game -->
+    <section class="predict-section">
       <div class="rv-single-bar">
         <span class="rv-bar-movie">Ustaad Bhagat Singh</span>
         <span class="rv-bar-value rv-mz-value" style="color:#888;">Coming Soon</span>
       </div>
+      <div class="predict-banner">
+        <div class="predict-trophy">&#127942;</div>
+        <h2 class="predict-title">Predict & Win!</h2>
+        <p class="predict-desc">Predict the rating for <strong>Ustaad Bhagat Singh</strong> in one line. The closest prediction wins <strong>&euro;5 off</strong> on the next premiere ticket!</p>
+        <div class="predict-countdown" id="predictCountdown"></div>
+      </div>
+      <div id="predictFormBox" class="predict-form-box">
+        <input type="text" id="predictName" class="review-input" placeholder="Your name" maxlength="50">
+        <input type="email" id="predictEmail" class="review-input" placeholder="Your email (to contact winner)" maxlength="100">
+        <div class="rv-rate-row">
+          <input type="number" id="predictRating" class="review-input rv-rate-input" placeholder="Your predicted rating" min="0" max="5" step="any">
+          <span class="rv-rate-label">/ 5</span>
+        </div>
+        <input type="text" id="predictOneliner" class="review-input" placeholder="Your one-liner prediction (e.g. Blockbuster hit!)" maxlength="150">
+        <button id="predictSubmit" class="book-btn predict-submit-btn">Submit Prediction</button>
+        <div id="predictMsg" class="review-msg"></div>
+      </div>
+      <div class="predict-list-header">
+        <span class="predict-list-icon">&#128202;</span>
+        <span>Predictions So Far</span>
+        <span id="predictTotal" class="predict-total">0</span>
+      </div>
+      <div id="predictList" class="predict-list"></div>
     </section>
 
     <!-- Mana Shankara Vara Prasad Garu -->
@@ -244,6 +267,87 @@
             safeText + '</div>';
         }).join('');
       });
+    });
+
+    // ===== Prediction Game =====
+    const PREDICT_KEY = 'ustaad_predicted';
+    const predictRef = ref(db, 'predictions/ustaad');
+
+    // Countdown to premiere
+    (function() {
+      const premiere = new Date('2026-03-18T00:00:00');
+      const now = new Date();
+      const diffMs = premiere - now;
+      const box = document.getElementById('predictCountdown');
+      if (diffMs <= 0) {
+        box.innerHTML = '<span class="predict-cd-label">Predictions closed!</span>';
+        document.getElementById('predictFormBox').style.display = 'none';
+      } else {
+        const days = Math.ceil(diffMs / 86400000);
+        box.innerHTML = '<span class="predict-cd-num">' + days + '</span><span class="predict-cd-label"> days left to predict</span>';
+      }
+    })();
+
+    // Hide form if already predicted
+    if (localStorage.getItem(PREDICT_KEY)) {
+      const fb = document.getElementById('predictFormBox');
+      fb.innerHTML = '<p class="predict-done">&#10003; Your prediction is locked in. Good luck!</p>';
+    }
+
+    // Submit prediction
+    document.getElementById('predictSubmit')?.addEventListener('click', async () => {
+      const name = document.getElementById('predictName').value.trim();
+      const email = document.getElementById('predictEmail').value.trim();
+      const rating = parseFloat(document.getElementById('predictRating').value);
+      const oneliner = document.getElementById('predictOneliner').value.trim();
+      const msg = document.getElementById('predictMsg');
+
+      if (!name) { msg.textContent = 'Please enter your name.'; msg.className = 'review-msg review-msg-err'; return; }
+      if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { msg.textContent = 'Please enter a valid email.'; msg.className = 'review-msg review-msg-err'; return; }
+      if (isNaN(rating) || rating < 0 || rating > 5) { msg.textContent = 'Rating must be between 0 and 5.'; msg.className = 'review-msg review-msg-err'; return; }
+      if (!oneliner) { msg.textContent = 'Please add your one-liner prediction.'; msg.className = 'review-msg review-msg-err'; return; }
+
+      if (localStorage.getItem(PREDICT_KEY)) {
+        msg.textContent = 'You already submitted a prediction!'; msg.className = 'review-msg review-msg-err'; return;
+      }
+
+      const btn = document.getElementById('predictSubmit');
+      btn.disabled = true; btn.textContent = 'Submitting...';
+
+      try {
+        await push(predictRef, { name, email, rating, oneliner, timestamp: Date.now() });
+        localStorage.setItem(PREDICT_KEY, 'true');
+        msg.textContent = 'Prediction locked in! Good luck!'; msg.className = 'review-msg review-msg-ok';
+        setTimeout(() => {
+          document.getElementById('predictFormBox').innerHTML = '<p class="predict-done">&#10003; Your prediction is locked in. Good luck!</p>';
+        }, 1500);
+      } catch {
+        msg.textContent = 'Error submitting. Please try again.'; msg.className = 'review-msg review-msg-err';
+        btn.disabled = false; btn.textContent = 'Submit Prediction';
+      }
+    });
+
+    // Load predictions
+    onValue(predictRef, (snapshot) => {
+      const data = snapshot.val();
+      const preds = [];
+      if (data) Object.values(data).forEach(p => preds.push(p));
+      document.getElementById('predictTotal').textContent = preds.length;
+
+      const listEl = document.getElementById('predictList');
+      if (preds.length === 0) {
+        listEl.innerHTML = '<p style="color:#666;text-align:center;">No predictions yet. Be the first!</p>';
+        return;
+      }
+
+      preds.sort((a, b) => (b.timestamp || 0) - (a.timestamp || 0));
+      listEl.innerHTML = preds.map(p => {
+        const safeName = escapeText(p.name);
+        const safeLine = escapeText(p.oneliner);
+        return '<div class="predict-item">' +
+          '<div class="predict-item-top"><span class="predict-item-name">' + safeName + '</span><span class="predict-item-rating">' + p.rating.toFixed(2) + ' / 5</span></div>' +
+          '<p class="predict-item-line">"' + safeLine + '"</p></div>';
+      }).join('');
     });
   </script>
   <script src="nav.js"></script>
