@@ -2165,6 +2165,15 @@ main {
   transition: border-color 0.2s;
 }
 .rv-movie-link:hover { border-color: #f0ad4e; }
+.rv-summary-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-bottom: 8px;
+}
+.rv-summary-row .review-summary { margin-bottom: 0; flex: 1; min-width: 150px; }
+.rv-summary-row .rv-add-review-btn { flex-shrink: 0; }
 .rv-movie-link-plain { cursor: default; }
 .rv-movie-section + .rv-movie-section { margin-top: 48px; padding-top: 48px; border-top: 1px solid #2a2a4a; }
 .light-theme .rv-movie-section + .rv-movie-section { border-top-color: #ddd; }
