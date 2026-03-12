@@ -174,7 +174,6 @@
       const reviewText = section.querySelector('.rv-review-text');
       const submitBtn = section.querySelector('.rv-submit-btn');
       const msg = section.querySelector('.rv-msg');
-      const avgEl = section.querySelector('.rv-avg-value');
       const listEl = section.querySelector('.rv-rating-list');
 
       // Hide button if already rated
@@ -220,13 +219,6 @@
         const ratings = [];
         if (data) Object.values(data).forEach(r => ratings.push(r));
 
-        // Average including MZ rating
-        const allRatings = [{ rating: mzRating }, ...ratings];
-        const count = allRatings.length;
-        const sum = allRatings.reduce((a, r) => a + r.rating, 0);
-        const avg = (sum / count).toFixed(2);
-        avgEl.textContent = avg + ' / 5 (' + count + ')';
-
         if (ratings.length === 0) {
           listEl.innerHTML = '<p style="color:#666;text-align:center;">No reviews yet. Be the first!</p>';
           return;
@@ -238,7 +230,7 @@
           const date = r.timestamp ? new Date(r.timestamp).toLocaleDateString('en-DE', { day: 'numeric', month: 'short', year: 'numeric' }) : '';
           const safeName = escapeText(r.name);
           const safeText = r.text ? '<p class="review-card-text">' + escapeText(r.text) + '</p>' : '';
-          return '<div class="review-card"><div class="review-card-header"><span class="review-card-name">' + safeName + '</span><span class="review-card-date">' + date + '</span></div>' +
+          return '<div class="rv-user-review"><div class="review-card-header"><span class="review-card-name">' + safeName + '</span><span class="review-card-date">' + date + '</span></div>' +
             '<div class="rv-rating-display rv-rating-small"><span class="rv-rating-num">' + r.rating.toFixed(2) + '</span><span class="rv-rating-out">/ 5</span></div>' +
             safeText + '</div>';
         }).join('');

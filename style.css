@@ -2180,6 +2180,12 @@ main {
 .rv-single-bar .rv-bar-value { font-size: 1.1rem; font-weight: 700; color: #f0ad4e; }
 .rv-single-bar .rv-add-review-btn { flex-shrink: 0; }
 .light-theme .rv-single-bar { background: #fff; border-color: #ddd; }
+.rv-user-review {
+  padding: 12px 0;
+  border-bottom: 1px solid #2a2a4a;
+}
+.rv-user-review:last-child { border-bottom: none; }
+.light-theme .rv-user-review { border-bottom-color: #eee; }
 .light-theme .rv-bar-movie { color: #222; }
 .light-theme .rv-bar-value { color: #d4880f; }
 .rv-movie-link-plain { cursor: default; }
