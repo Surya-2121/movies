@@ -1709,6 +1709,110 @@ main {
   .st-time-card { min-width: 100px; padding: 10px 16px; }
 }
 
+/* ===== Notify Me Button ===== */
+.mp-notify-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background: #1a1a2e;
+  border: 2px solid #4fc3f7;
+  border-radius: 8px;
+  padding: 10px 20px;
+  color: #4fc3f7;
+  font-size: 0.95rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: border-color 0.2s, background 0.2s, transform 0.2s;
+  font-family: inherit;
+}
+
+.mp-notify-btn:hover {
+  border-color: #4fc3f7;
+  transform: translateY(-2px);
+}
+
+.mp-bell {
+  font-size: 1.2rem;
+}
+
+.mp-notify-count {
+  background: #2a2a4a;
+  padding: 4px 12px;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  color: #aaa;
+}
+
+.mp-notify-active {
+  border-color: #4fc3f7;
+  background: linear-gradient(135deg, #1a1a2e, #0a2a3e);
+  color: #4fc3f7;
+}
+
+.mp-notify-active .mp-notify-count {
+  background: #4fc3f7;
+  color: #000;
+  font-weight: 700;
+}
+
+.notify-form {
+  margin-top: 16px;
+  background: #1a1a2e;
+  border: 1px solid #2a2a4a;
+  border-radius: 12px;
+  padding: 20px;
+}
+
+.notify-form-text {
+  font-size: 0.9rem;
+  color: #ccc;
+  margin-bottom: 12px;
+}
+
+.notify-form-row {
+  display: flex;
+  gap: 10px;
+}
+
+.notify-input {
+  flex: 1;
+  padding: 10px 16px;
+  background: #0f0f1a;
+  border: 1px solid #2a2a4a;
+  border-radius: 8px;
+  color: #e0e0e0;
+  font-size: 0.95rem;
+  font-family: inherit;
+  outline: none;
+  transition: border-color 0.2s;
+  box-sizing: border-box;
+}
+
+.notify-input:focus {
+  border-color: #4fc3f7;
+}
+
+.notify-submit-btn {
+  margin-top: 0;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+/* Light theme notify */
+.light-theme .mp-notify-btn { background: #f0f0f0; border-color: #0288d1; color: #0288d1; }
+.light-theme .mp-notify-count { background: #ddd; color: #555; }
+.light-theme .mp-notify-active .mp-notify-count { background: #0288d1; color: #fff; }
+.light-theme .mp-notify-active { background: #e3f2fd; }
+.light-theme .notify-form { background: #fff; border-color: #ddd; }
+.light-theme .notify-form-text { color: #555; }
+.light-theme .notify-input { background: #f5f5f5; border-color: #ddd; color: #222; }
+.light-theme .notify-input:focus { border-color: #0288d1; }
+
+@media (max-width: 480px) {
+  .notify-form-row { flex-direction: column; }
+}
+
 /* ===== Reviews & Ratings ===== */
 .review-locked {
   text-align: center;
