@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin - Revenue Dashboard</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="icon" href="logo.svg" type="image/svg+xml">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #0a0a1a; color: #fff; padding: 20px; }
+    h1 { font-size: 1.5rem; margin-bottom: 6px; }
+    .updated { color: #888; font-size: 0.85rem; margin-bottom: 20px; }
+    .summary { display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 24px; }
+    .summary-card { background: #1a1a2e; border: 1px solid #2a2a4a; border-radius: 12px; padding: 16px 24px; text-align: center; flex: 1; min-width: 140px; }
+    .summary-num { font-size: 1.8rem; font-weight: 800; color: #f0ad4e; }
+    .summary-label { font-size: 0.85rem; color: #aaa; margin-top: 4px; }
+    table { width: 100%; border-collapse: collapse; background: #1a1a2e; border-radius: 12px; overflow: hidden; }
+    th { background: #2a2a4a; text-align: left; padding: 12px 16px; font-size: 0.85rem; color: #aaa; text-transform: uppercase; letter-spacing: 0.5px; }
+    td { padding: 12px 16px; border-bottom: 1px solid #2a2a4a; font-size: 0.93rem; }
+    tr:last-child td { border-bottom: none; }
+    tr:hover td { background: #22223a; }
+    .num { text-align: right; font-variant-numeric: tabular-nums; }
+    .revenue { color: #4caf50; font-weight: 700; }
+    .pct { color: #f0ad4e; }
+    .city-group { background: #12122a; }
+    .city-group td { font-weight: 700; color: #f0ad4e; border-top: 2px solid #f0ad4e33; }
+    .totals-row td { font-weight: 800; background: #2a2a4a; color: #f0ad4e; border-top: 2px solid #f0ad4e; }
+    .refresh-btn { background: #f0ad4e; color: #000; border: none; padding: 8px 20px; border-radius: 8px; font-weight: 700; cursor: pointer; margin-bottom: 20px; }
+    .refresh-btn:hover { background: #ec971f; }
+    @media (max-width: 600px) {
+      th, td { padding: 8px 10px; font-size: 0.8rem; }
+      .summary-card { padding: 12px 16px; }
+      .summary-num { font-size: 1.3rem; }
+    }
+  </style>
+</head>
+<body>
+  <h1>Revenue Dashboard - Ustaad Bhagat Singh</h1>
+  <div class="updated" id="updated"></div>
+  <button class="refresh-btn" onclick="loadData()">Refresh</button>
+  <div class="summary" id="summary"></div>
+  <table>
+    <thead>
+      <tr>
+        <th>City</th>
+        <th>Cinema</th>
+        <th>Date & Time</th>
+        <th class="num">Total Seats</th>
+        <th class="num">Booked</th>
+        <th class="num">Available</th>
+        <th class="num">Booked %</th>
+        <th class="num">Revenue</th>
+      </tr>
+    </thead>
+    <tbody id="tableBody"></tbody>
+  </table>
+
+  <script>
+    async function loadData() {
+      try {
+        const resp = await fetch('seat_data.json?t=' + Date.now());
+        const data = await resp.json();
+
+        document.getElementById('updated').textContent = 'Last updated: ' + new Date(data.fetchedAt).toLocaleString('en-DE');
+
+        document.getElementById('summary').innerHTML =
+          '<div class="summary-card"><div class="summary-num">' + data.totalShows + '</div><div class="summary-label">Total Shows</div></div>' +
+          '<div class="summary-card"><div class="summary-num">' + data.totalSeats.toLocaleString() + '</div><div class="summary-label">Total Seats</div></div>' +
+          '<div class="summary-card"><div class="summary-num">' + data.totalBooked.toLocaleString() + '</div><div class="summary-label">Tickets Booked</div></div>' +
+          '<div class="summary-card"><div class="summary-num">' + data.overallBookingPercent + '%</div><div class="summary-label">Booking %</div></div>' +
+          '<div class="summary-card"><div class="summary-num revenue">&euro;' + data.totalRevenue.toLocaleString() + '</div><div class="summary-label">Total Revenue</div></div>';
+
+        // Group by city
+        const cityMap = {};
+        data.shows.forEach(s => {
+          if (!cityMap[s.city]) cityMap[s.city] = [];
+          cityMap[s.city].push(s);
+        });
+
+        const cities = Object.keys(cityMap).sort();
+        let html = '';
+
+        cities.forEach(city => {
+          const shows = cityMap[city];
+          const citySeats = shows.reduce((a, s) => a + s.totalSeats, 0);
+          const citySold = shows.reduce((a, s) => a + s.sold, 0);
+          const cityAvail = shows.reduce((a, s) => a + s.available, 0);
+          const cityRev = shows.reduce((a, s) => a + s.revenue, 0);
+          const cityPct = citySeats > 0 ? ((citySold / citySeats) * 100).toFixed(1) : '0.0';
+
+          if (shows.length > 1) {
+            html += '<tr class="city-group"><td>' + city + '</td><td>' + shows.length + ' shows</td><td></td>' +
+              '<td class="num">' + citySeats + '</td><td class="num">' + citySold + '</td><td class="num">' + cityAvail + '</td>' +
+              '<td class="num pct">' + cityPct + '%</td><td class="num revenue">&euro;' + cityRev + '</td></tr>';
+          }
+
+          shows.forEach(s => {
+            const pct = s.totalSeats > 0 ? ((s.sold / s.totalSeats) * 100).toFixed(1) : '0.0';
+            html += '<tr><td>' + s.city + '</td><td>' + s.cinema + '</td><td>' + s.dateText + '</td>' +
+              '<td class="num">' + s.totalSeats + '</td><td class="num">' + s.sold + '</td><td class="num">' + s.available + '</td>' +
+              '<td class="num pct">' + pct + '%</td><td class="num revenue">&euro;' + s.revenue + '</td></tr>';
+          });
+        });
+
+        // Totals row
+        html += '<tr class="totals-row"><td>TOTAL</td><td>' + data.totalShows + ' shows</td><td></td>' +
+          '<td class="num">' + data.totalSeats.toLocaleString() + '</td><td class="num">' + data.totalBooked + '</td><td class="num">' + data.totalAvailable + '</td>' +
+          '<td class="num">' + data.overallBookingPercent + '%</td><td class="num">&euro;' + data.totalRevenue.toLocaleString() + '</td></tr>';
+
+        document.getElementById('tableBody').innerHTML = html;
+      } catch (e) {
+        document.getElementById('tableBody').innerHTML = '<tr><td colspan="8" style="text-align:center;color:red;">Error loading data: ' + e.message + '</td></tr>';
+      }
+    }
+    loadData();
+  </script>
+</body>
+</html>
