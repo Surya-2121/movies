@@ -150,12 +150,12 @@
   <!-- Reviews & Ratings Slider -->
   <section class="movies-section">
     <h2 class="section-title">Reviews & Ratings</h2>
-    <a href="reviews.html" class="rv-scroll-block">
-      <div class="rv-scroll-track">
-        <div class="rv-scroll-item"><span class="rv-scroll-name">Mana Shankara Vara Prasad Garu</span><span class="rv-scroll-rating">2.75 / 5</span></div>
-        <div class="rv-scroll-item"><span class="rv-scroll-name">The Raja Saab</span><span class="rv-scroll-rating">1.00 / 5</span></div>
-        <div class="rv-scroll-item"><span class="rv-scroll-name">Anaganaga Oka Raju</span><span class="rv-scroll-rating">2.50 / 5</span></div>
-        <div class="rv-scroll-item"><span class="rv-scroll-name">Nari Nari Naduma Murari</span><span class="rv-scroll-rating">2.75 / 5</span></div>
+    <a href="reviews.html" class="rv-auto-slider">
+      <div class="rv-auto-track" id="rvTrack">
+        <div class="rv-auto-item"><span class="rv-auto-name">Mana Shankara Vara Prasad Garu</span><span class="rv-auto-rating">2.75 / 5</span></div>
+        <div class="rv-auto-item"><span class="rv-auto-name">The Raja Saab</span><span class="rv-auto-rating">1.00 / 5</span></div>
+        <div class="rv-auto-item"><span class="rv-auto-name">Anaganaga Oka Raju</span><span class="rv-auto-rating">2.50 / 5</span></div>
+        <div class="rv-auto-item"><span class="rv-auto-name">Nari Nari Naduma Murari</span><span class="rv-auto-rating">2.75 / 5</span></div>
       </div>
     </a>
   </section>
@@ -242,6 +242,17 @@
     searchInput.addEventListener('focus', function() {
       if (this.value.trim()) searchResults.style.display = 'block';
     });
+  </script>
+  <script>
+    (function() {
+      const track = document.getElementById('rvTrack');
+      const items = track.querySelectorAll('.rv-auto-item');
+      let cur = 0;
+      setInterval(() => {
+        cur = (cur + 1) % items.length;
+        track.style.transform = 'translateX(-' + (cur * 100) + '%)';
+      }, 3000);
+    })();
   </script>
   <script src="nav.js"></script>
 

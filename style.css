@@ -2187,8 +2187,8 @@ main {
 .rv-user-review:last-child { border-bottom: none; }
 .light-theme .rv-user-review { border-bottom-color: #eee; }
 
-/* Reviews scroll block on index */
-.rv-scroll-block {
+/* Reviews auto-slider on index */
+.rv-auto-slider {
   display: block;
   background: #1a1a2e;
   border: 1px solid #2a2a4a;
@@ -2196,30 +2196,28 @@ main {
   padding: 16px 20px;
   text-decoration: none;
   color: inherit;
-  overflow-x: auto;
-  -webkit-overflow-scrolling: touch;
-  scrollbar-width: none;
+  overflow: hidden;
   transition: border-color 0.2s;
 }
-.rv-scroll-block::-webkit-scrollbar { display: none; }
-.rv-scroll-block:hover { border-color: #f0ad4e; }
-.rv-scroll-track {
+.rv-auto-slider:hover { border-color: #f0ad4e; }
+.rv-auto-track {
   display: flex;
-  gap: 28px;
-  white-space: nowrap;
+  transition: transform 0.5s ease;
 }
-.rv-scroll-item {
+.rv-auto-item {
+  min-width: 100%;
+  flex-shrink: 0;
   display: flex;
   align-items: center;
-  gap: 10px;
-  flex-shrink: 0;
+  justify-content: center;
+  gap: 12px;
 }
-.rv-scroll-name { font-size: 0.95rem; font-weight: 700; color: #fff; }
-.rv-scroll-rating { font-size: 1rem; font-weight: 700; color: #f0ad4e; }
-.light-theme .rv-scroll-block { background: #fff; border-color: #ddd; }
-.light-theme .rv-scroll-block:hover { border-color: #d4880f; }
-.light-theme .rv-scroll-name { color: #222; }
-.light-theme .rv-scroll-rating { color: #d4880f; }
+.rv-auto-name { font-size: 1rem; font-weight: 700; color: #fff; }
+.rv-auto-rating { font-size: 1.1rem; font-weight: 700; color: #f0ad4e; }
+.light-theme .rv-auto-slider { background: #fff; border-color: #ddd; }
+.light-theme .rv-auto-slider:hover { border-color: #d4880f; }
+.light-theme .rv-auto-name { color: #222; }
+.light-theme .rv-auto-rating { color: #d4880f; }
 .light-theme .rv-bar-movie { color: #222; }
 .light-theme .rv-bar-value { color: #d4880f; }
 .rv-movie-link-plain { cursor: default; }
