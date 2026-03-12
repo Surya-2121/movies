@@ -2168,17 +2168,16 @@ main {
 .rv-single-bar {
   display: flex;
   align-items: center;
-  gap: 20px;
-  flex-wrap: wrap;
+  gap: 16px;
   background: #1a1a2e;
   border: 1px solid #2a2a4a;
   border-radius: 12px;
   padding: 14px 20px;
   margin-bottom: 16px;
 }
-.rv-bar-movie { font-size: 1.05rem; font-weight: 700; color: #fff; width: 250px; flex-shrink: 0; }
-.rv-single-bar .rv-bar-value { font-size: 1.1rem; font-weight: 700; color: #f0ad4e; }
-.rv-single-bar .rv-add-review-btn { flex-shrink: 0; }
+.rv-bar-movie { font-size: 1.05rem; font-weight: 700; color: #fff; flex: 1; }
+.rv-single-bar .rv-bar-value { font-size: 1.1rem; font-weight: 700; color: #f0ad4e; flex-shrink: 0; }
+.rv-single-bar .rv-add-review-btn { flex-shrink: 0; margin-left: auto; }
 .light-theme .rv-single-bar { background: #fff; border-color: #ddd; }
 .rv-user-review {
   padding: 12px 0;
