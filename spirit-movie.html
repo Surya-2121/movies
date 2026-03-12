@@ -40,17 +40,12 @@
             <span id="interestedText">I'm Interested</span>
             <span id="interestedCount" class="mp-interested-count">0</span>
           </button>
-          <button id="notifyBtn" class="mp-notify-btn" onclick="toggleNotifyForm()">
-            <span class="mp-bell">&#128276;</span>
-            <span id="notifyBtnText">Notify Me</span>
-            <span id="notifyCount" class="mp-notify-count">0</span>
-          </button>
         </div>
-        <div id="notifyForm" class="notify-form" style="display:none;">
-          <p class="notify-form-text">Get notified when tickets go on sale in Germany!</p>
+        <div class="notify-inline" id="notifyBox">
+          <p class="notify-inline-text">&#128276; Get notified when tickets go on sale</p>
           <div class="notify-form-row">
-            <input type="email" id="notifyEmail" class="notify-input" placeholder="Your email address">
-            <button id="notifySubmit" class="book-btn notify-submit-btn">Subscribe</button>
+            <input type="email" id="notifyEmail" class="notify-input" placeholder="Enter your email">
+            <button id="notifySubmit" class="book-btn notify-submit-btn">Notify Me</button>
           </div>
           <div id="notifyMsg" class="review-msg"></div>
         </div>
@@ -135,64 +130,32 @@
 
     loadCount();
 
-    // ===== Notify Me System =====
+    // ===== Notify Me =====
     const NOTIFY_KEY = 'spirit';
     const notifyRef = ref(db, 'notify/' + NOTIFY_KEY);
     const NOTIFY_STORAGE = NOTIFY_KEY + '_notified';
 
-    function loadNotifyCount() {
-      onValue(ref(db, 'notify_count/' + NOTIFY_KEY), (snap) => {
-        const c = snap.val() || 0;
-        document.getElementById('notifyCount').textContent = c;
-      });
+    if (localStorage.getItem(NOTIFY_STORAGE)) {
+      document.getElementById('notifyBox').innerHTML = '<p class="notify-done-text">&#9989; We will notify you when tickets go live!</p>';
     }
 
-    window.toggleNotifyForm = function() {
-      const form = document.getElementById('notifyForm');
-      form.style.display = form.style.display === 'none' ? 'block' : 'none';
-    };
-
-    document.getElementById('notifySubmit').addEventListener('click', async () => {
+    document.getElementById('notifySubmit')?.addEventListener('click', async () => {
       const email = document.getElementById('notifyEmail').value.trim();
       const msg = document.getElementById('notifyMsg');
       if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-        msg.textContent = 'Please enter a valid email address.';
-        msg.className = 'review-msg review-msg-err';
-        return;
-      }
-      if (localStorage.getItem(NOTIFY_STORAGE)) {
-        msg.textContent = 'You are already subscribed!';
-        msg.className = 'review-msg review-msg-ok';
-        return;
+        msg.textContent = 'Please enter a valid email.'; msg.className = 'review-msg review-msg-err'; return;
       }
       const btn = document.getElementById('notifySubmit');
-      btn.disabled = true;
-      btn.textContent = 'Subscribing...';
+      btn.disabled = true; btn.textContent = 'Saving...';
       try {
-        await push(notifyRef, { email: email, timestamp: Date.now() });
-        await runTransaction(ref(db, 'notify_count/' + NOTIFY_KEY), c => (c || 0) + 1);
+        await push(notifyRef, { email, timestamp: Date.now() });
         localStorage.setItem(NOTIFY_STORAGE, 'true');
-        msg.textContent = 'You will be notified when tickets go live!';
-        msg.className = 'review-msg review-msg-ok';
-        document.getElementById('notifyEmail').disabled = true;
-        btn.textContent = 'Subscribed';
-        const nbtn = document.getElementById('notifyBtn');
-        nbtn.classList.add('mp-notify-active');
-        document.getElementById('notifyBtnText').textContent = 'Subscribed';
+        document.getElementById('notifyBox').innerHTML = '<p class="notify-done-text">&#9989; We will notify you when tickets go live!</p>';
       } catch {
-        msg.textContent = 'Error subscribing. Please try again.';
-        msg.className = 'review-msg review-msg-err';
-        btn.disabled = false;
-        btn.textContent = 'Subscribe';
+        msg.textContent = 'Something went wrong. Try again.'; msg.className = 'review-msg review-msg-err';
+        btn.disabled = false; btn.textContent = 'Notify Me';
       }
     });
-
-    // Check if already subscribed
-    if (localStorage.getItem(NOTIFY_STORAGE)) {
-      document.getElementById('notifyBtn').classList.add('mp-notify-active');
-      document.getElementById('notifyBtnText').textContent = 'Subscribed';
-    }
-    loadNotifyCount();
   </script>
   <script src="nav.js"></script>
 </body>
