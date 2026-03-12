@@ -2176,8 +2176,8 @@ main {
   margin-bottom: 16px;
 }
 .rv-bar-movie { font-size: 1.05rem; font-weight: 700; color: #fff; flex: 1; }
-.rv-single-bar .rv-bar-value { font-size: 1.1rem; font-weight: 700; color: #f0ad4e; flex-shrink: 0; }
-.rv-single-bar .rv-add-review-btn { flex-shrink: 0; margin-left: auto; }
+.rv-single-bar .rv-bar-value { font-size: 1.1rem; font-weight: 700; color: #f0ad4e; flex: 1; text-align: center; }
+.rv-single-bar .rv-add-review-btn { flex-shrink: 0; }
 .light-theme .rv-single-bar { background: #fff; border-color: #ddd; }
 .rv-user-review {
   padding: 12px 0;
