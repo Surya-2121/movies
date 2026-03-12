@@ -1,12 +1,12 @@
 {
-  "fetchedAt": "2026-03-11T12:25:30Z",
+  "fetchedAt": "2026-03-12T22:32:57Z",
   "movie": "Ustaad Bhagat Singh - Telugu",
-  "totalShows": 20,
-  "totalSeats": 3621,
-  "totalBooked": 122,
-  "totalAvailable": 3499,
-  "overallBookingPercent": 3.4,
-  "totalRevenue": 2471,
+  "totalShows": 21,
+  "totalSeats": 3750,
+  "totalBooked": 163,
+  "totalAvailable": 3587,
+  "overallBookingPercent": 4.3,
+  "totalRevenue": 3123,
   "shows": [
     {
       "showId": 168,
@@ -16,12 +16,12 @@
       "time": "19:30",
       "dateText": "Wed 18 Mar 2026 - 07:30 PM",
       "totalSeats": 103,
-      "sold": 19,
-      "available": 84,
+      "sold": 22,
+      "available": 81,
       "unavailable": 0,
-      "revenue": 418,
+      "revenue": 484,
       "soldByPrice": {
-        "22": 19
+        "22": 22
       },
       "rowPrices": {
         "1": 18,
@@ -67,6 +67,30 @@
         "13": 21,
         "14": 21,
         "15": 21
+      }
+    },
+    {
+      "showId": 171,
+      "city": "Dusseldorf",
+      "cinema": "UFA-Palast Dus Kino 2",
+      "date": "2026-03-22",
+      "time": "11:30",
+      "dateText": "Sun 22 Mar 2026 - 11:30 AM",
+      "totalSeats": 127,
+      "sold": 0,
+      "available": 127,
+      "unavailable": 0,
+      "revenue": 0,
+      "soldByPrice": {},
+      "rowPrices": {
+        "1": 16,
+        "2": 16,
+        "3": 18,
+        "4": 18,
+        "5": 18,
+        "6": 18,
+        "7": 18,
+        "8": 18
       }
     },
     {
@@ -199,11 +223,13 @@
       "time": "19:30",
       "dateText": "Wed 18 Mar 2026 - 07:30 PM",
       "totalSeats": 65,
-      "sold": 0,
-      "available": 61,
+      "sold": 8,
+      "available": 53,
       "unavailable": 0,
-      "revenue": 0,
-      "soldByPrice": {},
+      "revenue": 128,
+      "soldByPrice": {
+        "15.99": 8
+      },
       "rowPrices": {},
       "source": "cinemaxx",
       "bookingUrl": "https://www.cinemaxx.de/kinoprogramm/hamburg-harburg/film/ustaad-bhagat-singh",
@@ -217,12 +243,12 @@
       "time": "19:30",
       "dateText": "Wed 18 Mar 2026 - 07:30 PM",
       "totalSeats": 224,
-      "sold": 2,
-      "available": 218,
+      "sold": 8,
+      "available": 212,
       "unavailable": 0,
-      "revenue": 30,
+      "revenue": 120,
       "soldByPrice": {
-        "14.99": 2
+        "14.99": 8
       },
       "rowPrices": {},
       "source": "cinemaxx",
@@ -237,12 +263,12 @@
       "time": "19:20",
       "dateText": "Wed 18 Mar 2026 - 07:20 PM",
       "totalSeats": 112,
-      "sold": 2,
-      "available": 106,
+      "sold": 6,
+      "available": 102,
       "unavailable": 0,
-      "revenue": 32,
+      "revenue": 96,
       "soldByPrice": {
-        "15.99": 2
+        "15.99": 6
       },
       "rowPrices": {},
       "source": "cinemaxx",
@@ -315,12 +341,12 @@
       "time": "19:20",
       "dateText": "Wed 18 Mar 2026 - 07:20 PM",
       "totalSeats": 121,
-      "sold": 13,
-      "available": 104,
+      "sold": 35,
+      "available": 82,
       "unavailable": 0,
-      "revenue": 208,
+      "revenue": 560,
       "soldByPrice": {
-        "15.99": 13
+        "15.99": 35
       },
       "rowPrices": {},
       "source": "cinemaxx",
@@ -335,12 +361,12 @@
       "time": "19:15",
       "dateText": "Wed 18 Mar 2026 - 07:15 PM",
       "totalSeats": 262,
-      "sold": 6,
-      "available": 252,
+      "sold": 7,
+      "available": 251,
       "unavailable": 0,
-      "revenue": 96,
+      "revenue": 112,
       "soldByPrice": {
-        "15.99": 6
+        "15.99": 7
       },
       "rowPrices": {},
       "source": "cinemaxx",
@@ -354,13 +380,13 @@
       "date": "2026-03-18",
       "time": "20:30",
       "dateText": "Wed 18 Mar 2026 - 08:30 PM",
-      "totalSeats": 123,
-      "sold": 12,
-      "available": 111,
+      "totalSeats": 125,
+      "sold": 6,
+      "available": 119,
       "unavailable": 0,
-      "revenue": 273,
+      "revenue": 137,
       "soldByPrice": {
-        "22.782608695652176": 12
+        "22.782608695652176": 6
       },
       "rowPrices": {
         "0": 22.0,
@@ -417,12 +443,12 @@
       "time": "19:30",
       "dateText": "Wed 18 Mar 2026 - 07:30 PM",
       "totalSeats": 550,
-      "sold": 7,
-      "available": 543,
+      "sold": 10,
+      "available": 540,
       "unavailable": 0,
-      "revenue": 168,
+      "revenue": 240,
       "soldByPrice": {
-        "24": 7
+        "24": 10
       },
       "rowPrices": {
         "0": 20.99,
