@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contact - Germany Telugu Movies</title>
+  <title>Coming Soon - Germany Telugu Movies</title>
+  <meta name="description" content="Upcoming Telugu movie premieres in Germany. Peddi, The Paradise, Vishwambhara, Varanasi, Spirit and more.">
   <link rel="icon" href="logo.svg" type="image/svg+xml">
   <link rel="stylesheet" href="style.css">
 </head>
@@ -14,9 +15,9 @@
       <button class="nav-close" onclick="toggleMenu()">&times;</button>
     </div>
     <a href="index.html" class="nav-link">Home</a>
-    <a href="coming-soon.html" class="nav-link">Coming Soon</a>
+    <a href="coming-soon.html" class="nav-link nav-link-active">Coming Soon</a>
     <a href="about.html" class="nav-link">About Us</a>
-    <a href="contact.html" class="nav-link nav-link-active">Contact</a>
+    <a href="contact.html" class="nav-link">Contact</a>
     <div class="nav-divider"></div>
     <button class="nav-theme-btn" onclick="toggleTheme()">
       <span id="themeIcon">&#9788;</span> <span id="themeText">Light Mode</span>
@@ -24,8 +25,8 @@
   </nav>
   <div class="nav-overlay" id="navOverlay" onclick="toggleMenu()"></div>
   <button class="search-btn" onclick="toggleSearch()"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></button>
-<div class="search-overlay" id="searchOverlay"><div class="search-overlay-box"><button class="search-overlay-close" onclick="toggleSearch()">&times;</button><input type="text" class="search-overlay-input" placeholder="Search for a movie..." oninput="handleSearchInput(event)" autocomplete="off"><div class="search-overlay-results" id="searchOverlayResults"></div></div></div>
-<button class="menu-btn" id="menuBtn" onclick="toggleMenu()">
+  <div class="search-overlay" id="searchOverlay"><div class="search-overlay-box"><button class="search-overlay-close" onclick="toggleSearch()">&times;</button><input type="text" class="search-overlay-input" placeholder="Search for a movie..." oninput="handleSearchInput(event)" autocomplete="off"><div class="search-overlay-results" id="searchOverlayResults"></div></div></div>
+  <button class="menu-btn" id="menuBtn" onclick="toggleMenu()">
     <span></span><span></span><span></span>
   </button>
 
@@ -33,34 +34,61 @@
     <a href="index.html"><img src="logo.svg" alt="Germany Telugu Movies" class="header-logo"></a>
   </header>
 
-  <main class="page-content">
-    <h1 class="page-title">Contact Us</h1>
-    <div class="page-text">
-      <p>Have a question, suggestion, or want to screen a Telugu movie in your city? Get in touch!</p>
+  <main class="cs-page">
+    <h1 class="page-title">Coming Soon</h1>
+    <p class="cs-page-sub">Upcoming Telugu movies premiering in Germany</p>
+
+    <div class="cs-grid">
+      <a href="peddi-movie.html" class="cs-movie-card">
+        <img src="peddi.jpg" alt="Peddi" class="cs-movie-poster">
+        <div class="cs-movie-info">
+          <h2 class="cs-movie-name">Peddi</h2>
+          <p class="cs-movie-cast">Ram Charan, Janhvi Kapoor, Shiva Rajkumar</p>
+          <p class="cs-movie-meta">Action / Drama</p>
+          <p class="cs-movie-date">Release: 30 April 2026</p>
+        </div>
+      </a>
+
+      <a href="paradise-movie.html" class="cs-movie-card">
+        <img src="https://image.tmdb.org/t/p/w300/smghVMoMWSIFi5dgIz4w1UIcEcY.jpg" alt="The Paradise" class="cs-movie-poster">
+        <div class="cs-movie-info">
+          <h2 class="cs-movie-name">The Paradise</h2>
+          <p class="cs-movie-cast">Nani, Raghav Juyal, Easwari Rao</p>
+          <p class="cs-movie-meta">Period Action-Drama</p>
+          <p class="cs-movie-date">Coming Soon</p>
+        </div>
+      </a>
+
+      <a href="vishwambhara-movie.html" class="cs-movie-card">
+        <img src="https://image.tmdb.org/t/p/w300/ygmxv156YvURmnFN6eG3i2dIg4U.jpg" alt="Vishwambhara" class="cs-movie-poster">
+        <div class="cs-movie-info">
+          <h2 class="cs-movie-name">Vishwambhara</h2>
+          <p class="cs-movie-cast">Chiranjeevi, Trisha Krishnan, Kunal Kapoor</p>
+          <p class="cs-movie-meta">Fantasy / Mythology</p>
+          <p class="cs-movie-date">Coming Soon</p>
+        </div>
+      </a>
+
+      <a href="varanasi-movie.html" class="cs-movie-card">
+        <img src="varanasi.jpg" alt="Varanasi" class="cs-movie-poster">
+        <div class="cs-movie-info">
+          <h2 class="cs-movie-name">Varanasi</h2>
+          <p class="cs-movie-cast">Mahesh Babu, Priyanka Chopra, Prithviraj Sukumaran</p>
+          <p class="cs-movie-meta">Action / Fantasy</p>
+          <p class="cs-movie-date">Release: 7 April 2027</p>
+        </div>
+      </a>
+
+      <a href="spirit-movie.html" class="cs-movie-card">
+        <img src="spirit.webp" alt="Spirit" class="cs-movie-poster">
+        <div class="cs-movie-info">
+          <h2 class="cs-movie-name">Spirit</h2>
+          <p class="cs-movie-cast">Prabhas, Triptii Dimri, Vivek Oberoi</p>
+          <p class="cs-movie-meta">Action / Crime</p>
+          <p class="cs-movie-date">Coming Soon</p>
+        </div>
+      </a>
     </div>
-    <form class="contact-form" action="https://formsubmit.co/info@germany-telugu-movies.com" method="POST">
-      <input type="hidden" name="_subject" value="New contact from Germany Telugu Movies">
-      <input type="hidden" name="_captcha" value="false">
-      <input type="hidden" name="_next" value="https://germany-telugu-movies.com/contact.html?sent=true">
-      <div class="form-group">
-        <label for="name">Name</label>
-        <input type="text" id="name" name="name" required>
-      </div>
-      <div class="form-group">
-        <label for="email">Email</label>
-        <input type="email" id="email" name="email" required>
-      </div>
-      <div class="form-group">
-        <label for="city">City in Germany</label>
-        <input type="text" id="city" name="city">
-      </div>
-      <div class="form-group">
-        <label for="message">Message</label>
-        <textarea id="message" name="message" rows="5" required></textarea>
-      </div>
-      <button type="submit" class="book-btn" style="border:none;width:100%;">Send Message</button>
-    </form>
-    <div id="sentMsg" class="sent-msg" style="display:none;">Thank you! Your message has been sent.</div>
   </main>
 
   <footer class="site-footer">
@@ -77,11 +105,5 @@
     </div>
   </footer>
   <script src="nav.js"></script>
-  <script>
-    if (window.location.search.includes('sent=true')) {
-      document.querySelector('.contact-form').style.display = 'none';
-      document.getElementById('sentMsg').style.display = 'block';
-    }
-  </script>
 </body>
 </html>
