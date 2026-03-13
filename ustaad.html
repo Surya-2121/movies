@@ -143,7 +143,6 @@
               ${g.shows.map(s => `
                 <a href="${s.url}" target="_blank" rel="noopener" class="st-time-card">
                   <div class="st-time-value">${s.time}</div>
-                  <div class="st-time-price">${s.prices}</div>
                 </a>
               `).join('')}
             </div>
@@ -162,7 +161,6 @@
             <div class="st-venue-times">
               <a href="${s.url}" target="_blank" rel="noopener" class="st-time-card">
                 <div class="st-time-value">${s.time}</div>
-                <div class="st-time-price">${s.prices}</div>
               </a>
             </div>
           </div>`;
@@ -194,16 +192,13 @@
 
     function initShowtimes(data) {
       stShows = data.shows.map(s => {
-        let prices = [...new Set(Object.values(s.rowPrices || {}))].sort((a,b) => a-b).map(p => '€' + p).join(' / ');
-        if (!prices && s.ticketPrice) prices = '€' + s.ticketPrice;
-        if (!prices && s.source === 'kinotickets.express') prices = '€21';
         // Capitol shows have bookingUrl, getmyticket shows need URL built
         const url = s.bookingUrl || (() => {
           const timeParam = encodeURIComponent(s.dateText.split(' - ')[1] || s.time);
           const mdate = btoa(s.date);
           return `https://www.getmyticket.de/showbookings.php?id=${s.showId}&time=${timeParam}&mdate=${mdate}`;
         })();
-        return { city: s.city, cinema: s.cinema, date: s.date, time: s.time, prices, url };
+        return { city: s.city, cinema: s.cinema, date: s.date, time: s.time, url };
       });
       stShows = stShows.concat(extraShows);
       renderStDates();

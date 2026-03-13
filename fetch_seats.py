@@ -1304,7 +1304,7 @@ def main():
     # Save JSON — strip revenue and sold data from output
     clean_results = []
     for r in results:
-        clean_r = {k: v for k, v in r.items() if k not in ("sold", "available", "unavailable", "revenue", "soldByPrice")}
+        clean_r = {k: v for k, v in r.items() if k not in ("sold", "available", "unavailable", "revenue", "soldByPrice", "rowPrices", "ticketPrice")}
         clean_results.append(clean_r)
 
     output = {
@@ -1341,9 +1341,6 @@ def main():
         shows_end = shows_start + _m.end() if _m else code.index("]", shows_start + 20) + 1
         shows_js = "const showsData = [\n"
         for r in results:
-            prices_obj = ", ".join(
-                f"'row{k}': {v}" for k, v in sorted(r["rowPrices"].items(), key=lambda x: int(x[0]))
-            )
             # Find matching show to get booking URL
             booking_url = r.get("bookingUrl", "")
             if not booking_url:
@@ -1361,7 +1358,6 @@ def main():
     language: "Telugu",
     totalSeats: {r['totalSeats']},
     bookingUrl: {json.dumps(booking_url)},
-    prices: {{ {prices_obj} }},
   }},
 """
         shows_js += "]"
