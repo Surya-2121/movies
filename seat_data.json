@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-03-13T01:13:24Z",
+  "fetchedAt": "2026-03-13T04:05:44Z",
   "movie": "Ustaad Bhagat Singh - Telugu",
   "totalShows": 21,
   "totalSeats": 3750,
@@ -9,31 +9,121 @@
   "totalRevenue": 3123,
   "shows": [
     {
-      "showId": 168,
-      "city": "Nürnberg",
-      "cinema": "Cinecittà Kino 6",
-      "date": "2026-03-18",
-      "time": "19:30",
-      "dateText": "Wed 18 Mar 2026 - 07:30 PM",
-      "totalSeats": 103,
-      "sold": 22,
-      "available": 81,
+      "showId": "luxor-2334535",
+      "city": "Heidelberg",
+      "cinema": "LUXOR FILM PALAST",
+      "date": "2026-03-22",
+      "time": "16:00",
+      "dateText": "Sun 22 Mar 2026 - 04:00 PM",
+      "totalSeats": 123,
+      "sold": 0,
+      "available": 123,
       "unavailable": 0,
-      "revenue": 484,
+      "revenue": 0,
+      "soldByPrice": {},
+      "rowPrices": {
+        "0": 18.0,
+        "1": 23.0
+      },
+      "source": "luxor",
+      "bookingUrl": "https://ticket-cloud.de/Luxor-Heidelberg/Show/2334535"
+    },
+    {
+      "showId": "luxor-2334534",
+      "city": "Heidelberg",
+      "cinema": "LUXOR FILM PALAST",
+      "date": "2026-03-21",
+      "time": "16:00",
+      "dateText": "Sat 21 Mar 2026 - 04:00 PM",
+      "totalSeats": 123,
+      "sold": 0,
+      "available": 123,
+      "unavailable": 0,
+      "revenue": 0,
+      "soldByPrice": {},
+      "rowPrices": {
+        "0": 18.0,
+        "1": 23.0
+      },
+      "source": "luxor",
+      "bookingUrl": "https://ticket-cloud.de/Luxor-Heidelberg/Show/2334534"
+    },
+    {
+      "showId": "luxor-2331133",
+      "city": "Heidelberg",
+      "cinema": "LUXOR FILM PALAST",
+      "date": "2026-03-18",
+      "time": "20:30",
+      "dateText": "Wed 18 Mar 2026 - 08:30 PM",
+      "totalSeats": 125,
+      "sold": 6,
+      "available": 119,
+      "unavailable": 0,
+      "revenue": 137,
       "soldByPrice": {
-        "22": 22
+        "22.782608695652176": 6
       },
       "rowPrices": {
-        "1": 18,
-        "2": 18,
+        "0": 22.0,
+        "1": 29.0
+      },
+      "source": "luxor",
+      "bookingUrl": "https://ticket-cloud.de/Luxor-Heidelberg/Show/2331133"
+    },
+    {
+      "showId": 170,
+      "city": "Erlangen",
+      "cinema": "Erlangen LammKino Screen 1",
+      "date": "2026-03-22",
+      "time": "11 AM",
+      "dateText": "Sun 22 Mar 2026 - 11 AM",
+      "totalSeats": 112,
+      "sold": 0,
+      "available": 112,
+      "unavailable": 0,
+      "revenue": 0,
+      "soldByPrice": {},
+      "rowPrices": {
+        "1": 15,
+        "2": 15,
+        "3": 15,
+        "4": 16,
+        "5": 16,
+        "6": 16,
+        "7": 16,
+        "8": 16,
+        "9": 18,
+        "10": 18,
+        "11": 18,
+        "12": 18,
+        "13": 18,
+        "14": 18,
+        "15": 18,
+        "16": 18
+      }
+    },
+    {
+      "showId": 171,
+      "city": "Dusseldorf",
+      "cinema": "UFA-Palast Dus Kino 2",
+      "date": "2026-03-22",
+      "time": "11:30",
+      "dateText": "Sun 22 Mar 2026 - 11:30 AM",
+      "totalSeats": 127,
+      "sold": 0,
+      "available": 127,
+      "unavailable": 0,
+      "revenue": 0,
+      "soldByPrice": {},
+      "rowPrices": {
+        "1": 16,
+        "2": 16,
         "3": 18,
-        "4": 22,
-        "5": 22,
-        "6": 22,
-        "7": 22,
-        "8": 22,
-        "9": 22,
-        "10": 22
+        "4": 18,
+        "5": 18,
+        "6": 18,
+        "7": 18,
+        "8": 18
       }
     },
     {
@@ -70,59 +160,31 @@
       }
     },
     {
-      "showId": 171,
-      "city": "Dusseldorf",
-      "cinema": "UFA-Palast Dus Kino 2",
-      "date": "2026-03-22",
-      "time": "11:30",
-      "dateText": "Sun 22 Mar 2026 - 11:30 AM",
-      "totalSeats": 127,
-      "sold": 0,
-      "available": 127,
+      "showId": 168,
+      "city": "Nürnberg",
+      "cinema": "Cinecittà Kino 6",
+      "date": "2026-03-18",
+      "time": "19:30",
+      "dateText": "Wed 18 Mar 2026 - 07:30 PM",
+      "totalSeats": 103,
+      "sold": 22,
+      "available": 81,
       "unavailable": 0,
-      "revenue": 0,
-      "soldByPrice": {},
+      "revenue": 484,
+      "soldByPrice": {
+        "22": 22
+      },
       "rowPrices": {
-        "1": 16,
-        "2": 16,
+        "1": 18,
+        "2": 18,
         "3": 18,
-        "4": 18,
-        "5": 18,
-        "6": 18,
-        "7": 18,
-        "8": 18
-      }
-    },
-    {
-      "showId": 170,
-      "city": "Erlangen",
-      "cinema": "Erlangen LammKino Screen 1",
-      "date": "2026-03-22",
-      "time": "11 AM",
-      "dateText": "Sun 22 Mar 2026 - 11 AM",
-      "totalSeats": 112,
-      "sold": 0,
-      "available": 112,
-      "unavailable": 0,
-      "revenue": 0,
-      "soldByPrice": {},
-      "rowPrices": {
-        "1": 15,
-        "2": 15,
-        "3": 15,
-        "4": 16,
-        "5": 16,
-        "6": 16,
-        "7": 16,
-        "8": 16,
-        "9": 18,
-        "10": 18,
-        "11": 18,
-        "12": 18,
-        "13": 18,
-        "14": 18,
-        "15": 18,
-        "16": 18
+        "4": 22,
+        "5": 22,
+        "6": 22,
+        "7": 22,
+        "8": 22,
+        "9": 22,
+        "10": 22
       }
     },
     {
@@ -372,68 +434,6 @@
       "source": "cinemaxx",
       "bookingUrl": "https://www.cinemaxx.de/kinoprogramm/dresden/film/ustaad-bhagat-singh",
       "ticketPrice": 15.99
-    },
-    {
-      "showId": "luxor-2331133",
-      "city": "Heidelberg",
-      "cinema": "LUXOR FILM PALAST",
-      "date": "2026-03-18",
-      "time": "20:30",
-      "dateText": "Wed 18 Mar 2026 - 08:30 PM",
-      "totalSeats": 125,
-      "sold": 6,
-      "available": 119,
-      "unavailable": 0,
-      "revenue": 137,
-      "soldByPrice": {
-        "22.782608695652176": 6
-      },
-      "rowPrices": {
-        "0": 22.0,
-        "1": 29.0
-      },
-      "source": "luxor",
-      "bookingUrl": "https://ticket-cloud.de/Luxor-Heidelberg/Show/2331133"
-    },
-    {
-      "showId": "luxor-2334534",
-      "city": "Heidelberg",
-      "cinema": "LUXOR FILM PALAST",
-      "date": "2026-03-21",
-      "time": "16:00",
-      "dateText": "Sat 21 Mar 2026 - 04:00 PM",
-      "totalSeats": 123,
-      "sold": 0,
-      "available": 123,
-      "unavailable": 0,
-      "revenue": 0,
-      "soldByPrice": {},
-      "rowPrices": {
-        "0": 18.0,
-        "1": 23.0
-      },
-      "source": "luxor",
-      "bookingUrl": "https://ticket-cloud.de/Luxor-Heidelberg/Show/2334534"
-    },
-    {
-      "showId": "luxor-2334535",
-      "city": "Heidelberg",
-      "cinema": "LUXOR FILM PALAST",
-      "date": "2026-03-22",
-      "time": "16:00",
-      "dateText": "Sun 22 Mar 2026 - 04:00 PM",
-      "totalSeats": 123,
-      "sold": 0,
-      "available": 123,
-      "unavailable": 0,
-      "revenue": 0,
-      "soldByPrice": {},
-      "rowPrices": {
-        "0": 18.0,
-        "1": 23.0
-      },
-      "source": "luxor",
-      "bookingUrl": "https://ticket-cloud.de/Luxor-Heidelberg/Show/2334535"
     },
     {
       "showId": "ticketverz-8bae530abf",
