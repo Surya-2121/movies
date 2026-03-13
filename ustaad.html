@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ustaad Bhagat Singh - Telugu - Ticket Dashboard</title>
+  <title>Ustaad Bhagat Singh - Ticket Dashboard</title>
   <link rel="icon" href="logo.svg" type="image/svg+xml">
   <link rel="stylesheet" href="style.css">
 </head>
@@ -18,7 +18,7 @@
     <div class="main-layout">
       <div class="side-panel">
         <img src="poster.jpg" alt="Movie Poster" class="side-poster">
-        <h1 class="movie-title">Ustaad Bhagat Singh - Telugu</h1>
+        <h1 class="movie-title">Ustaad Bhagat Singh</h1>
         <p class="subtitle">Premieres on 18th March 2026</p>
         <table class="movie-info">
           <tr><td>Directed by</td><td>Harish Shankar</td></tr>
@@ -184,21 +184,11 @@
     }
     window.filterByCity = filterByCity;
 
-    // Heidelberg (no seat data available - different platform)
-    const extraShows = [
-      { city: "München", cinema: "Cincinnati Kino", date: "2026-03-19", time: "19:30", prices: '', url: "https://www.cincinnati-muenchen.de/en/program/1849694" },
-      { city: "München", cinema: "Cincinnati Kino", date: "2026-03-21", time: "11:00", prices: '', url: "https://www.cincinnati-muenchen.de/en/program/1849694" }
-    ];
+    const extraShows = [];
 
     function initShowtimes(data) {
       stShows = data.shows.map(s => {
-        // Capitol shows have bookingUrl, getmyticket shows need URL built
-        const url = s.bookingUrl || (() => {
-          const timeParam = encodeURIComponent(s.dateText.split(' - ')[1] || s.time);
-          const mdate = btoa(s.date);
-          return `https://www.getmyticket.de/showbookings.php?id=${s.showId}&time=${timeParam}&mdate=${mdate}`;
-        })();
-        return { city: s.city, cinema: s.cinema, date: s.date, time: s.time, url };
+        return { city: s.city, cinema: s.cinema, date: s.date, time: s.time, url: s.bookingUrl || '' };
       });
       stShows = stShows.concat(extraShows);
       renderStDates();
