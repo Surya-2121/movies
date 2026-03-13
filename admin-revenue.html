@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Admin - Revenue Dashboard</title>
+  <title>Admin - Shows Dashboard</title>
   <meta name="robots" content="noindex, nofollow">
   <link rel="icon" href="logo.svg" type="image/svg+xml">
   <style>
@@ -22,8 +22,6 @@
     tr:last-child td { border-bottom: none; }
     tr:hover td { background: #22223a; }
     .num { text-align: right; font-variant-numeric: tabular-nums; }
-    .revenue { color: #4caf50; font-weight: 700; }
-    .pct { color: #f0ad4e; }
     .totals-row td { font-weight: 800; background: #2a2a4a; color: #f0ad4e; border-top: 2px solid #f0ad4e; }
     .refresh-btn { background: #f0ad4e; color: #000; border: none; padding: 8px 20px; border-radius: 8px; font-weight: 700; cursor: pointer; margin-bottom: 20px; }
     .refresh-btn:hover { background: #ec971f; }
@@ -39,7 +37,7 @@
   </style>
 </head>
 <body>
-  <h1>Revenue Dashboard - Ustaad Bhagat Singh</h1>
+  <h1>Shows Dashboard - Ustaad Bhagat Singh</h1>
   <div class="updated" id="updated"></div>
   <button class="refresh-btn" onclick="loadData()">Refresh</button>
   <div class="summary" id="summary"></div>
@@ -57,10 +55,6 @@
           <th>Cinema</th>
           <th>Time</th>
           <th class="num">Total Seats</th>
-          <th class="num">Booked</th>
-          <th class="num">Available</th>
-          <th class="num">Booked %</th>
-          <th class="num">Revenue</th>
         </tr>
       </thead>
       <tbody id="table18"></tbody>
@@ -79,10 +73,6 @@
           <th>Cinema</th>
           <th>Date & Time</th>
           <th class="num">Total Seats</th>
-          <th class="num">Booked</th>
-          <th class="num">Available</th>
-          <th class="num">Booked %</th>
-          <th class="num">Revenue</th>
         </tr>
       </thead>
       <tbody id="tableAll"></tbody>
@@ -106,34 +96,24 @@
 
     function buildRows(shows) {
       let html = '';
-      let totSeats = 0, totSold = 0, totAvail = 0, totRev = 0;
+      let totSeats = 0;
 
       shows.sort((a, b) => a.city.localeCompare(b.city));
       shows.forEach(s => {
-        const pct = s.totalSeats > 0 ? ((s.sold / s.totalSeats) * 100).toFixed(1) : '0.0';
         html += '<tr><td>' + s.city + '</td><td>' + s.cinema + '</td><td>' + s.dateText + '</td>' +
-          '<td class="num">' + s.totalSeats + '</td><td class="num">' + s.sold + '</td><td class="num">' + s.available + '</td>' +
-          '<td class="num pct">' + pct + '%</td><td class="num revenue">&euro;' + s.revenue + '</td></tr>';
+          '<td class="num">' + s.totalSeats + '</td></tr>';
         totSeats += s.totalSeats;
-        totSold += s.sold;
-        totAvail += s.available;
-        totRev += s.revenue;
       });
 
-      const totPct = totSeats > 0 ? ((totSold / totSeats) * 100).toFixed(1) : '0.0';
       html += '<tr class="totals-row"><td>TOTAL</td><td>' + shows.length + ' shows</td><td></td>' +
-        '<td class="num">' + totSeats + '</td><td class="num">' + totSold + '</td><td class="num">' + totAvail + '</td>' +
-        '<td class="num">' + totPct + '%</td><td class="num">&euro;' + totRev + '</td></tr>';
+        '<td class="num">' + totSeats + '</td></tr>';
 
-      return { html, totSeats, totSold, totAvail, totRev, totPct };
+      return { html, totSeats, shows: shows.length };
     }
 
     function summaryHTML(label, data) {
       return '<div class="summary-card"><div class="summary-num">' + data.shows + '</div><div class="summary-label">Shows</div></div>' +
-        '<div class="summary-card"><div class="summary-num">' + data.seats.toLocaleString() + '</div><div class="summary-label">Seats</div></div>' +
-        '<div class="summary-card"><div class="summary-num">' + data.sold.toLocaleString() + '</div><div class="summary-label">Booked</div></div>' +
-        '<div class="summary-card"><div class="summary-num">' + data.pct + '%</div><div class="summary-label">Booking %</div></div>' +
-        '<div class="summary-card"><div class="summary-num revenue">&euro;' + data.rev.toLocaleString() + '</div><div class="summary-label">Revenue</div></div>';
+        '<div class="summary-card"><div class="summary-num">' + data.seats.toLocaleString() + '</div><div class="summary-label">Seats</div></div>';
     }
 
     async function loadData() {
@@ -145,8 +125,7 @@
 
         // Overall summary
         document.getElementById('summary').innerHTML = summaryHTML('All', {
-          shows: data.totalShows, seats: data.totalSeats, sold: data.totalBooked,
-          pct: data.overallBookingPercent, rev: data.totalRevenue
+          shows: data.totalShows, seats: data.totalSeats
         });
 
         // Split shows: March 18 vs all
@@ -157,8 +136,7 @@
         const r18 = buildRows(shows18);
         document.getElementById('table18').innerHTML = r18.html;
         document.getElementById('summary18').innerHTML = summaryHTML('Mar 18', {
-          shows: shows18.length, seats: r18.totSeats, sold: r18.totSold,
-          pct: r18.totPct, rev: r18.totRev
+          shows: shows18.length, seats: r18.totSeats
         });
 
         // All shows table
@@ -166,7 +144,7 @@
         document.getElementById('tableAll').innerHTML = rAll.html;
 
       } catch (e) {
-        document.getElementById('tableAll').innerHTML = '<tr><td colspan="8" style="text-align:center;color:red;">Error loading data: ' + e.message + '</td></tr>';
+        document.getElementById('tableAll').innerHTML = '<tr><td colspan="4" style="text-align:center;color:red;">Error loading data: ' + e.message + '</td></tr>';
       }
     }
     loadData();

@@ -1,12 +1,8 @@
 {
-  "fetchedAt": "2026-03-13T08:30:45Z",
+  "fetchedAt": "2026-03-13T09:20:19Z",
   "movie": "Ustaad Bhagat Singh - Telugu",
   "totalShows": 21,
   "totalSeats": 3750,
-  "totalBooked": 163,
-  "totalAvailable": 3587,
-  "overallBookingPercent": 4.3,
-  "totalRevenue": 3123,
   "shows": [
     {
       "showId": 168,
@@ -16,13 +12,6 @@
       "time": "19:30",
       "dateText": "Wed 18 Mar 2026 - 07:30 PM",
       "totalSeats": 103,
-      "sold": 22,
-      "available": 81,
-      "unavailable": 0,
-      "revenue": 484,
-      "soldByPrice": {
-        "22": 22
-      },
       "rowPrices": {
         "1": 18,
         "2": 18,
@@ -44,13 +33,6 @@
       "time": "19:30",
       "dateText": "Wed 18 Mar 2026 - 07:30 PM",
       "totalSeats": 222,
-      "sold": 54,
-      "available": 168,
-      "unavailable": 0,
-      "revenue": 1134,
-      "soldByPrice": {
-        "21": 54
-      },
       "rowPrices": {
         "1": 19,
         "2": 19,
@@ -77,11 +59,6 @@
       "time": "11:30",
       "dateText": "Sun 22 Mar 2026 - 11:30 AM",
       "totalSeats": 127,
-      "sold": 0,
-      "available": 127,
-      "unavailable": 0,
-      "revenue": 0,
-      "soldByPrice": {},
       "rowPrices": {
         "1": 16,
         "2": 16,
@@ -101,11 +78,6 @@
       "time": "11 AM",
       "dateText": "Sun 22 Mar 2026 - 11 AM",
       "totalSeats": 112,
-      "sold": 0,
-      "available": 112,
-      "unavailable": 0,
-      "revenue": 0,
-      "soldByPrice": {},
       "rowPrices": {
         "1": 15,
         "2": 15,
@@ -133,11 +105,6 @@
       "time": "19:30",
       "dateText": "Wed 18 Mar 2026 - 07:30 PM",
       "totalSeats": 145,
-      "sold": 0,
-      "available": 145,
-      "unavailable": 0,
-      "revenue": 0,
-      "soldByPrice": {},
       "rowPrices": {},
       "source": "kinotickets.express",
       "bookingUrl": "https://kinotickets.express/kornwestheim-capitol/sale/seats/25577"
@@ -150,11 +117,6 @@
       "time": "21:15",
       "dateText": "Sat 21 Mar 2026 - 09:15 PM",
       "totalSeats": 144,
-      "sold": 0,
-      "available": 144,
-      "unavailable": 0,
-      "revenue": 0,
-      "soldByPrice": {},
       "rowPrices": {},
       "source": "kinotickets.express",
       "bookingUrl": "https://kinotickets.express/kornwestheim-capitol/sale/seats/25582"
@@ -167,11 +129,6 @@
       "time": "19:30",
       "dateText": "Wed 18 Mar 2026 - 07:30 PM",
       "totalSeats": 110,
-      "sold": 0,
-      "available": 106,
-      "unavailable": 0,
-      "revenue": 0,
-      "soldByPrice": {},
       "rowPrices": {},
       "source": "cinemaxx",
       "bookingUrl": "https://www.cinemaxx.de/kinoprogramm/bielefeld/film/ustaad-bhagat-singh",
@@ -185,11 +142,6 @@
       "time": "19:00",
       "dateText": "Wed 18 Mar 2026 - 07:00 PM",
       "totalSeats": 145,
-      "sold": 0,
-      "available": 141,
-      "unavailable": 0,
-      "revenue": 0,
-      "soldByPrice": {},
       "rowPrices": {},
       "source": "cinemaxx",
       "bookingUrl": "https://www.cinemaxx.de/kinoprogramm/bremen/film/ustaad-bhagat-singh",
@@ -203,13 +155,6 @@
       "time": "19:30",
       "dateText": "Wed 18 Mar 2026 - 07:30 PM",
       "totalSeats": 453,
-      "sold": 1,
-      "available": 448,
-      "unavailable": 0,
-      "revenue": 16,
-      "soldByPrice": {
-        "15.99": 1
-      },
       "rowPrices": {},
       "source": "cinemaxx",
       "bookingUrl": "https://www.cinemaxx.de/kinoprogramm/essen/film/ustaad-bhagat-singh",
@@ -223,13 +168,6 @@
       "time": "19:30",
       "dateText": "Wed 18 Mar 2026 - 07:30 PM",
       "totalSeats": 65,
-      "sold": 8,
-      "available": 53,
-      "unavailable": 0,
-      "revenue": 128,
-      "soldByPrice": {
-        "15.99": 8
-      },
       "rowPrices": {},
       "source": "cinemaxx",
       "bookingUrl": "https://www.cinemaxx.de/kinoprogramm/hamburg-harburg/film/ustaad-bhagat-singh",
@@ -243,13 +181,6 @@
       "time": "19:30",
       "dateText": "Wed 18 Mar 2026 - 07:30 PM",
       "totalSeats": 224,
-      "sold": 8,
-      "available": 212,
-      "unavailable": 0,
-      "revenue": 120,
-      "soldByPrice": {
-        "14.99": 8
-      },
       "rowPrices": {},
       "source": "cinemaxx",
       "bookingUrl": "https://www.cinemaxx.de/kinoprogramm/hannover/film/ustaad-bhagat-singh",
@@ -263,13 +194,6 @@
       "time": "19:20",
       "dateText": "Wed 18 Mar 2026 - 07:20 PM",
       "totalSeats": 112,
-      "sold": 6,
-      "available": 102,
-      "unavailable": 0,
-      "revenue": 96,
-      "soldByPrice": {
-        "15.99": 6
-      },
       "rowPrices": {},
       "source": "cinemaxx",
       "bookingUrl": "https://www.cinemaxx.de/kinoprogramm/magdeburg/film/ustaad-bhagat-singh",
@@ -283,13 +207,6 @@
       "time": "19:00",
       "dateText": "Wed 18 Mar 2026 - 07:00 PM",
       "totalSeats": 171,
-      "sold": 1,
-      "available": 166,
-      "unavailable": 0,
-      "revenue": 16,
-      "soldByPrice": {
-        "15.99": 1
-      },
       "rowPrices": {},
       "source": "cinemaxx",
       "bookingUrl": "https://www.cinemaxx.de/kinoprogramm/offenbach/film/ustaad-bhagat-singh",
@@ -303,13 +220,6 @@
       "time": "19:00",
       "dateText": "Wed 18 Mar 2026 - 07:00 PM",
       "totalSeats": 131,
-      "sold": 5,
-      "available": 122,
-      "unavailable": 0,
-      "revenue": 80,
-      "soldByPrice": {
-        "15.99": 5
-      },
       "rowPrices": {},
       "source": "cinemaxx",
       "bookingUrl": "https://www.cinemaxx.de/kinoprogramm/regensburg/film/ustaad-bhagat-singh",
@@ -323,11 +233,6 @@
       "time": "19:15",
       "dateText": "Wed 18 Mar 2026 - 07:15 PM",
       "totalSeats": 182,
-      "sold": 0,
-      "available": 178,
-      "unavailable": 0,
-      "revenue": 0,
-      "soldByPrice": {},
       "rowPrices": {},
       "source": "cinemaxx",
       "bookingUrl": "https://www.cinemaxx.de/kinoprogramm/trier/film/ustaad-bhagat-singh",
@@ -341,13 +246,6 @@
       "time": "19:20",
       "dateText": "Wed 18 Mar 2026 - 07:20 PM",
       "totalSeats": 121,
-      "sold": 35,
-      "available": 82,
-      "unavailable": 0,
-      "revenue": 560,
-      "soldByPrice": {
-        "15.99": 35
-      },
       "rowPrices": {},
       "source": "cinemaxx",
       "bookingUrl": "https://www.cinemaxx.de/kinoprogramm/munchen/film/ustaad-bhagat-singh",
@@ -361,13 +259,6 @@
       "time": "19:15",
       "dateText": "Wed 18 Mar 2026 - 07:15 PM",
       "totalSeats": 262,
-      "sold": 7,
-      "available": 251,
-      "unavailable": 0,
-      "revenue": 112,
-      "soldByPrice": {
-        "15.99": 7
-      },
       "rowPrices": {},
       "source": "cinemaxx",
       "bookingUrl": "https://www.cinemaxx.de/kinoprogramm/dresden/film/ustaad-bhagat-singh",
@@ -381,13 +272,6 @@
       "time": "20:30",
       "dateText": "Wed 18 Mar 2026 - 08:30 PM",
       "totalSeats": 125,
-      "sold": 6,
-      "available": 119,
-      "unavailable": 0,
-      "revenue": 137,
-      "soldByPrice": {
-        "22.782608695652176": 6
-      },
       "rowPrices": {
         "0": 22.0,
         "1": 29.0
@@ -403,11 +287,6 @@
       "time": "16:00",
       "dateText": "Sat 21 Mar 2026 - 04:00 PM",
       "totalSeats": 123,
-      "sold": 0,
-      "available": 123,
-      "unavailable": 0,
-      "revenue": 0,
-      "soldByPrice": {},
       "rowPrices": {
         "0": 18.0,
         "1": 23.0
@@ -423,11 +302,6 @@
       "time": "16:00",
       "dateText": "Sun 22 Mar 2026 - 04:00 PM",
       "totalSeats": 123,
-      "sold": 0,
-      "available": 123,
-      "unavailable": 0,
-      "revenue": 0,
-      "soldByPrice": {},
       "rowPrices": {
         "0": 18.0,
         "1": 23.0
@@ -443,13 +317,6 @@
       "time": "19:30",
       "dateText": "Wed 18 Mar 2026 - 07:30 PM",
       "totalSeats": 550,
-      "sold": 10,
-      "available": 540,
-      "unavailable": 0,
-      "revenue": 240,
-      "soldByPrice": {
-        "24": 10
-      },
       "rowPrices": {
         "0": 20.99,
         "1": 24

@@ -1301,20 +1301,18 @@ def main():
         except Exception:
             pass
 
-    # Save JSON
-    total_revenue = sum(r.get("revenue", 0) for r in results)
+    # Save JSON — strip revenue and sold data from output
+    clean_results = []
+    for r in results:
+        clean_r = {k: v for k, v in r.items() if k not in ("sold", "available", "unavailable", "revenue", "soldByPrice")}
+        clean_results.append(clean_r)
+
     output = {
         "fetchedAt": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()),
         "movie": movie_title,
         "totalShows": len(results),
         "totalSeats": total_seats,
-        "totalBooked": total_booked,
-        "totalAvailable": total_seats - total_booked,
-        "overallBookingPercent": (
-            round(total_booked / total_seats * 100, 1) if total_seats > 0 else 0
-        ),
-        "totalRevenue": total_revenue,
-        "shows": results,
+        "shows": clean_results,
     }
 
     with open(OUTPUT_FILE, "w", encoding="utf-8") as f:
@@ -1362,7 +1360,6 @@ def main():
     time: {json.dumps(r['time'])},
     language: "Telugu",
     totalSeats: {r['totalSeats']},
-    ticketsBooked: {r['sold']},
     bookingUrl: {json.dumps(booking_url)},
     prices: {{ {prices_obj} }},
   }},
@@ -1429,13 +1426,6 @@ def main():
     print(f"  Movie: {movie_title}")
     print(f"  Total Shows: {len(results)}")
     print(f"  Total Seats: {total_seats}")
-    print(f"  Total Booked: {total_booked}")
-    print(f"  Total Available: {total_seats - total_booked}")
-    print(f"  Total Revenue: €{total_revenue}")
-    if total_seats > 0:
-        print(
-            f"  Overall Booking: {round(total_booked / total_seats * 100, 1)}%"
-        )
     print("=" * 55)
 
     # Open in browser (skip in CI)
