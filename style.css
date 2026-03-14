@@ -860,7 +860,15 @@ main {
 .hero-logo-wrap {
   display: flex;
   align-items: center;
-  gap: 20px;
+  justify-content: center;
+  gap: 16px;
+}
+
+.hero-gtm-icon {
+  width: 100px;
+  height: 100px;
+  object-fit: contain;
+  filter: drop-shadow(0 4px 16px rgba(240,173,78,0.3));
 }
 
 .hero-logo {
@@ -1665,6 +1673,8 @@ main {
 @media (max-width: 768px) {
   .hero-title { font-size: 2.4rem; }
   .hero-logo { width: 300px; max-width: 80%; display: block; margin: 0 auto; }
+  .hero-gtm-icon { width: 70px; height: 70px; }
+  .hero-logo-wrap { flex-direction: row; justify-content: center; }
   .hero-poster-grid { grid-template-columns: repeat(5, 1fr); gap: 3px; }
   .movies-section { padding: 32px 16px 48px; }
   .movies-layout { flex-direction: column; gap: 32px; }
@@ -2433,6 +2443,7 @@ main {
   .hero-title { font-size: 1.8rem; }
   .hero-tagline { font-size: 0.95rem; }
   .hero-logo { width: 240px; max-width: 85%; display: block; margin: 0 auto; }
+  .hero-gtm-icon { width: 55px; height: 55px; }
   .hero-poster-grid { grid-template-columns: repeat(4, 1fr); gap: 2px; }
   .movies-layout { flex-direction: column; }
   .np-poster { width: 80px; }
