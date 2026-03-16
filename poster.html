@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Germany Theater List - 18th March</title>
+  <meta name="robots" content="noindex, nofollow">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&family=Anton&display=swap');
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      background: #000;
+    }
+
+    .poster {
+      position: relative;
+      width: 900px;
+      height: 1350px;
+      overflow: hidden;
+      font-family: 'Oswald', sans-serif;
+    }
+
+    .poster img.bg {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+    }
+
+    /* ── Theater list ── */
+    .theater-bg {
+      position: absolute;
+      top: 10px;
+      left: 0;
+      right: 0;
+      text-align: center;
+      z-index: 5;
+      padding: 0 30px;
+    }
+
+    .theater-bg .title {
+      font-family: 'Anton', sans-serif;
+      font-size: 32px;
+      color: rgba(212, 165, 86, 0.9);
+      text-transform: uppercase;
+      letter-spacing: 6px;
+      margin-bottom: 6px;
+      text-shadow: 2px 2px 8px rgba(0,0,0,0.9);
+    }
+
+    .theater-bg .date-line {
+      font-family: 'Oswald', sans-serif;
+      font-size: 18px;
+      font-weight: 400;
+      color: rgba(255, 255, 255, 0.8);
+      letter-spacing: 4px;
+      margin-bottom: 14px;
+      text-shadow: 1px 1px 6px rgba(0,0,0,0.9);
+    }
+
+    .theater-bg .list {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3px 24px;
+      max-width: 720px;
+      margin: 0 auto;
+    }
+
+    .theater-bg .entry {
+      font-family: 'Oswald', sans-serif;
+      font-size: 17px;
+      font-weight: 600;
+      color: rgba(255, 255, 255, 0.75);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      padding: 3px 0;
+      line-height: 1.3;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .theater-bg .entry .time {
+      font-weight: 400;
+      margin-left: 8px;
+      white-space: nowrap;
+      color: rgba(212, 165, 86, 0.95);
+    }
+
+    /* ── Gradient to fade list into person ── */
+    .fg-gradient {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="poster">
+    <!-- Background image -->
+    <img class="bg" src="../Desktop/usb.jpg" alt="Background">
+
+    <!-- Theater list -->
+    <div class="theater-bg">
+      <div class="title">GERMANY THEATER LIST</div>
+      <div class="date-line">18TH MARCH 2026 · WEDNESDAY</div>
+      <div class="list">
+        <div class="entry"><span>BERLIN – CINEPLEX</span><span class="time">19:30</span></div>
+        <div class="entry"><span>BIELEFELD – CINEMAXX</span><span class="time">19:30</span></div>
+        <div class="entry"><span>BREMEN – CINEMAXX</span><span class="time">19:00</span></div>
+        <div class="entry"><span>DRESDEN – CINEMAXX</span><span class="time">19:15</span></div>
+        <div class="entry"><span>DÜSSELDORF – UFA PALAST</span><span class="time">19:30</span></div>
+        <div class="entry"><span>ESSEN – CINEMAXX</span><span class="time">19:30</span></div>
+        <div class="entry"><span>FRANKFURT – CINEMAXX</span><span class="time">19:00</span></div>
+        <div class="entry"><span>HAMBURG – CINEMAXX</span><span class="time">19:30</span></div>
+        <div class="entry"><span>HANNOVER – CINEMAXX</span><span class="time">19:30</span></div>
+        <div class="entry"><span>HEIDELBERG – LUXOR</span><span class="time">20:30</span></div>
+        <div class="entry"><span>MAGDEBURG – CINEMAXX</span><span class="time">19:20</span></div>
+        <div class="entry"><span>MÜNCHEN – CINEMAXX</span><span class="time">19:20</span></div>
+        <div class="entry"><span>MÜNCHEN – CINCINNATI</span><span class="time">19:30</span></div>
+        <div class="entry"><span>NÜRNBERG – CINECITTÀ</span><span class="time">19:30</span></div>
+        <div class="entry"><span>REGENSBURG – CINEMAXX</span><span class="time">19:00</span></div>
+        <div class="entry"><span>STUTTGART – CAPITOL</span><span class="time">19:30</span></div>
+        <div class="entry"><span>TRIER – CINEMAXX</span><span class="time">19:15</span></div>
+      </div>
+    </div>
+
+    <!-- Gradient to fade list into person -->
+    <div class="fg-gradient"></div>
+  </div>
+</body>
+</html>

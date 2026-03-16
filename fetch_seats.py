@@ -112,7 +112,7 @@ def discover_shows():
         context = html[max(0, url_pos - 500):url_pos + 300]
         # Extract city from nearby text
         city = "Unknown"
-        for c in ["Düsseldorf", "Dusseldorf", "Nürnberg", "Erlangen"]:
+        for c in ["Düsseldorf", "Dusseldorf", "Nürnberg", "Erlangen", "Frankfurt", "Karben", "Hamburg"]:
             if c.lower() in context.lower():
                 city = c
                 break
@@ -122,7 +122,13 @@ def discover_shows():
             "Dusseldorf": "UFA Palast",
             "Nürnberg": "Cinecitta",
             "Erlangen": "LammKino",
+            "Frankfurt": "Frankfurt (Karben)",
+            "Karben": "Frankfurt (Karben)",
+            "Hamburg": "Hansa Filmstudios",
         }
+        # Normalize Karben/Frankfurt to Frankfurt (Karben)
+        if city in ("Karben", "Frankfurt"):
+            city = "Frankfurt (Karben)"
         cinema = city_cinema_map.get(city, city)
         print(f"  Found {city} ({cinema}): {show_date} {show_time}")
         shows.append({
