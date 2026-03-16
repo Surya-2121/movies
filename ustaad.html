@@ -132,12 +132,20 @@
           grouped[s.cinema].shows.push(s);
         });
 
-        container.innerHTML = Object.values(grouped).sort((a, b) => a.city.localeCompare(b.city)).map(g => `
+        container.innerHTML = Object.values(grouped).sort((a, b) => a.city.localeCompare(b.city)).map(g => {
+          const mapsQuery = encodeURIComponent(g.cinema + ', ' + g.city + ', Germany');
+          return `
           <div class="st-venue">
             <div class="st-venue-header">
               <div class="st-venue-info">
                 <div class="st-venue-city">${g.city}</div>
                 <div class="st-venue-name">${g.cinema}</div>
+              </div>
+              <div style="display:flex;align-items:center;gap:8px;">
+                <span class="st-weather" data-city="${g.city}" data-date="${g.shows[0].date}" data-time="${g.shows[0].time}" style="font-size:0.85rem;color:#aaa;"></span>
+                <a href="https://www.google.com/maps/dir/?api=1&destination=${mapsQuery}" target="_blank" rel="noopener" class="st-directions-btn" title="Get directions">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+                </a>
               </div>
             </div>
             <div class="st-venue-times">
@@ -147,8 +155,9 @@
                 </a>
               `).join('')}
             </div>
-          </div>
-        `).join('');
+          </div>`;
+        }).join('');
+        loadWeather();
       } else {
         // Shows By Cinema — show dates for that cinema
         container.innerHTML = filtered.map(s => {
@@ -158,6 +167,7 @@
               <div class="st-venue-info">
                 <div class="st-venue-date">${f.day} ${f.date} ${f.month}</div>
               </div>
+              <span class="st-weather" data-city="${s.city}" data-date="${s.date}" data-time="${s.time}" style="font-size:0.85rem;color:#aaa;"></span>
             </div>
             <div class="st-venue-times">
               <a href="${s.url}" target="_blank" rel="noopener" class="st-time-card">
@@ -166,6 +176,7 @@
             </div>
           </div>`;
         }).join('');
+        loadWeather();
       }
     }
 
@@ -186,6 +197,101 @@
     window.filterByCity = filterByCity;
 
     const extraShows = [];
+
+    // City coordinates for weather
+    const cityCoords = {
+      "berlin": { lat: 52.52, lon: 13.41 },
+      "dusseldorf": { lat: 51.23, lon: 6.78 },
+      "düsseldorf": { lat: 51.23, lon: 6.78 },
+      "nürnberg": { lat: 49.45, lon: 11.08 },
+      "frankfurt (karben)": { lat: 50.23, lon: 8.77 },
+      "frankfurt (offenbach)": { lat: 50.10, lon: 8.76 },
+      "hamburg": { lat: 53.55, lon: 9.99 },
+      "hamburg-harburg": { lat: 53.46, lon: 9.98 },
+      "münchen": { lat: 48.14, lon: 11.58 },
+      "heidelberg": { lat: 49.40, lon: 8.69 },
+      "stuttgart": { lat: 48.78, lon: 9.18 },
+      "bremen": { lat: 53.08, lon: 8.80 },
+      "essen": { lat: 51.46, lon: 7.01 },
+      "hannover": { lat: 52.37, lon: 9.74 },
+      "magdeburg": { lat: 52.13, lon: 11.63 },
+      "regensburg": { lat: 49.01, lon: 12.10 },
+      "trier": { lat: 49.76, lon: 6.64 },
+      "dresden": { lat: 51.05, lon: 13.74 },
+      "bielefeld": { lat: 52.03, lon: 8.53 },
+      "erlangen": { lat: 49.59, lon: 11.00 },
+    };
+
+    function weatherIcon(code) {
+      if (code === 0) return { icon: "☀️", desc: "Clear" };
+      if (code <= 3) return { icon: "⛅", desc: "Partly cloudy" };
+      if (code <= 48) return { icon: "🌫️", desc: "Foggy" };
+      if (code <= 55) return { icon: "🌦️", desc: "Drizzle" };
+      if (code <= 65) return { icon: "🌧️", desc: "Rain" };
+      if (code <= 67) return { icon: "🌧️", desc: "Freezing rain" };
+      if (code <= 77) return { icon: "🌨️", desc: "Snow" };
+      if (code <= 82) return { icon: "🌧️", desc: "Showers" };
+      if (code <= 86) return { icon: "🌨️", desc: "Snow showers" };
+      if (code <= 99) return { icon: "⛈️", desc: "Thunderstorm" };
+      return { icon: "🌡️", desc: "" };
+    }
+
+    const weatherCache = {};
+    async function fetchWeatherForCity(city, date, time) {
+      const coords = cityCoords[city.toLowerCase()];
+      if (!coords) return null;
+      const key = `${coords.lat},${coords.lon},${date}`;
+      if (!weatherCache[key]) {
+        try {
+          const resp = await fetch(`https://api.open-meteo.com/v1/forecast?latitude=${coords.lat}&longitude=${coords.lon}&hourly=temperature_2m,weather_code&start_date=${date}&end_date=${date}&timezone=Europe/Berlin`);
+          weatherCache[key] = await resp.json();
+        } catch(e) { return null; }
+      }
+      const data = weatherCache[key];
+      if (!data || !data.hourly) return null;
+      const hour = parseInt(time.split(":")[0]);
+      const idx = data.hourly.time.findIndex(t => t.endsWith(`T${String(hour).padStart(2,'0')}:00`));
+      if (idx === -1) return null;
+      const temp = Math.round(data.hourly.temperature_2m[idx]);
+      const info = weatherIcon(data.hourly.weather_code[idx]);
+      return { temp, icon: info.icon, desc: info.desc };
+    }
+
+    async function loadWeather() {
+      const badges = document.querySelectorAll('.st-weather');
+      // Deduplicate: fetch unique city+date combos first, then apply
+      const unique = {};
+      badges.forEach(b => {
+        const city = b.dataset.city;
+        const date = b.dataset.date;
+        const key = city.toLowerCase() + '|' + date;
+        if (!unique[key]) unique[key] = { city, date, time: b.dataset.time };
+      });
+      // Fetch sequentially to avoid rate limiting
+      for (const entry of Object.values(unique)) {
+        try {
+          await fetchWeatherForCity(entry.city, entry.date, entry.time);
+        } catch(e) { console.error('Weather fetch error for', entry.city, e); }
+      }
+      // Now apply cached results to all badges
+      badges.forEach(badge => {
+        const city = badge.dataset.city;
+        const date = badge.dataset.date;
+        const time = badge.dataset.time;
+        const coords = cityCoords[city.toLowerCase()];
+        if (!coords) return;
+        const key = `${coords.lat},${coords.lon},${date}`;
+        const data = weatherCache[key];
+        if (!data || !data.hourly) return;
+        const hour = parseInt(time.split(":")[0]);
+        const idx = data.hourly.time.findIndex(t => t.endsWith(`T${String(hour).padStart(2,'0')}:00`));
+        if (idx === -1) return;
+        const temp = Math.round(data.hourly.temperature_2m[idx]);
+        const info = weatherIcon(data.hourly.weather_code[idx]);
+        badge.innerHTML = `${info.icon} ${temp}°C`;
+        badge.title = info.desc;
+      });
+    }
 
     function initShowtimes(data) {
       stShows = data.shows.map(s => {
