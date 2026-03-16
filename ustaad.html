@@ -223,17 +223,17 @@
     };
 
     function weatherIcon(code) {
-      if (code === 0) return { icon: "☀️", desc: "Clear" };
-      if (code <= 3) return { icon: "⛅", desc: "Partly cloudy" };
-      if (code <= 48) return { icon: "🌫️", desc: "Foggy" };
-      if (code <= 55) return { icon: "🌦️", desc: "Drizzle" };
-      if (code <= 65) return { icon: "🌧️", desc: "Rain" };
-      if (code <= 67) return { icon: "🌧️", desc: "Freezing rain" };
-      if (code <= 77) return { icon: "🌨️", desc: "Snow" };
-      if (code <= 82) return { icon: "🌧️", desc: "Showers" };
-      if (code <= 86) return { icon: "🌨️", desc: "Snow showers" };
-      if (code <= 99) return { icon: "⛈️", desc: "Thunderstorm" };
-      return { icon: "🌡️", desc: "" };
+      if (code === 0) return { icon: "☀️", desc: "Clear", tip: "Sunscreen is a must!" };
+      if (code <= 3) return { icon: "⛅", desc: "Partly cloudy", tip: "Perfect movie weather!" };
+      if (code <= 48) return { icon: "🌫️", desc: "Foggy", tip: "Drive safe, it's foggy!" };
+      if (code <= 55) return { icon: "🌦️", desc: "Drizzle", tip: "A light jacket will do" };
+      if (code <= 65) return { icon: "🌧️", desc: "Rain", tip: "Don't forget your umbrella!" };
+      if (code <= 67) return { icon: "🌧️", desc: "Freezing rain", tip: "Stay warm & watch your step!" };
+      if (code <= 77) return { icon: "🌨️", desc: "Snow", tip: "Bundle up, it's snowy!" };
+      if (code <= 82) return { icon: "🌧️", desc: "Showers", tip: "Grab that umbrella!" };
+      if (code <= 86) return { icon: "🌨️", desc: "Snow showers", tip: "Warm boots recommended!" };
+      if (code <= 99) return { icon: "⛈️", desc: "Thunderstorm", tip: "Stay cozy inside the cinema!" };
+      return { icon: "🌡️", desc: "", tip: "" };
     }
 
     const weatherCache = {};
@@ -288,7 +288,7 @@
         if (idx === -1) return;
         const temp = Math.round(data.hourly.temperature_2m[idx]);
         const info = weatherIcon(data.hourly.weather_code[idx]);
-        badge.innerHTML = `${info.icon} ${temp}°C`;
+        badge.innerHTML = `${info.icon} ${temp}°C <span style="font-size:0.75rem;color:#e8a800;margin-left:4px;">${info.tip}</span>`;
         badge.title = info.desc;
       });
     }
