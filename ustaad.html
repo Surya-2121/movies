@@ -147,7 +147,7 @@
                 <div class="st-venue-city">${g.city}</div>
                 <div class="st-venue-name">${g.cinema}</div>
               </div>
-              <div style="display:flex;align-items:center;gap:8px;">
+              <div class="st-venue-right" style="display:flex;align-items:center;gap:8px;">
                 <span class="st-weather" data-city="${g.city}" data-date="${g.shows[0].date}" data-time="${g.shows[0].time}" style="font-size:0.85rem;color:#aaa;"></span>
                 <a href="https://www.google.com/maps/dir/?api=1&destination=${mapsQuery}" target="_blank" rel="noopener" class="st-directions-btn" title="Get directions">
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
@@ -238,7 +238,9 @@
             if (!badge) {
               badge = document.createElement('span');
               badge.className = 'st-dist-badge';
-              v.querySelector('.st-venue-header').appendChild(badge);
+              const right = v.querySelector('.st-venue-right');
+              if (right) right.appendChild(badge);
+              else v.querySelector('.st-venue-header').appendChild(badge);
             }
             badge.textContent = dist < 1 ? '<1 km away' : Math.round(dist) + ' km away';
           } else {
