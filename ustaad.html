@@ -40,9 +40,15 @@
           <button class="st-tab" onclick="switchTab('cinema')">Shows By Cinema</button>
         </div>
         <div class="st-dates" id="stDates"></div>
-        <div class="st-search">
-          <svg class="search-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-          <input type="text" id="citySearch" class="city-search-input" placeholder="Search city..." oninput="filterByCity(this.value)" autocomplete="off">
+        <div class="st-search-row">
+          <div class="st-search">
+            <svg class="search-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            <input type="text" id="citySearch" class="city-search-input" placeholder="Search city..." oninput="filterByCity(this.value)" autocomplete="off">
+          </div>
+          <button class="st-nearme-btn" onclick="sortByNearMe()" title="Find nearest cinema">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            Near Me
+          </button>
         </div>
         <div class="st-shows" id="stShows"></div>
 
@@ -195,6 +201,61 @@
       });
     }
     window.filterByCity = filterByCity;
+
+    function haversine(lat1, lon1, lat2, lon2) {
+      const R = 6371;
+      const dLat = (lat2 - lat1) * Math.PI / 180;
+      const dLon = (lon2 - lon1) * Math.PI / 180;
+      const a = Math.sin(dLat/2)**2 + Math.cos(lat1*Math.PI/180) * Math.cos(lat2*Math.PI/180) * Math.sin(dLon/2)**2;
+      return R * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+    }
+
+    function sortByNearMe() {
+      const btn = document.querySelector('.st-nearme-btn');
+      btn.textContent = 'Locating...';
+      btn.disabled = true;
+      if (!navigator.geolocation) {
+        alert('Geolocation is not supported by your browser');
+        btn.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg> Near Me';
+        btn.disabled = false;
+        return;
+      }
+      navigator.geolocation.getCurrentPosition(pos => {
+        const uLat = pos.coords.latitude;
+        const uLon = pos.coords.longitude;
+        const container = document.getElementById('stShows');
+        const venues = Array.from(container.querySelectorAll('.st-venue'));
+        venues.forEach(v => {
+          const cityEl = v.querySelector('.st-venue-city');
+          if (!cityEl) return;
+          const city = cityEl.textContent.toLowerCase();
+          const coords = cityCoords[city];
+          if (coords) {
+            const dist = haversine(uLat, uLon, coords.lat, coords.lon);
+            v.dataset.dist = dist;
+            // Add distance badge
+            let badge = v.querySelector('.st-dist-badge');
+            if (!badge) {
+              badge = document.createElement('span');
+              badge.className = 'st-dist-badge';
+              v.querySelector('.st-venue-header').appendChild(badge);
+            }
+            badge.textContent = dist < 1 ? '<1 km away' : Math.round(dist) + ' km away';
+          } else {
+            v.dataset.dist = 99999;
+          }
+        });
+        venues.sort((a, b) => parseFloat(a.dataset.dist) - parseFloat(b.dataset.dist));
+        venues.forEach(v => container.appendChild(v));
+        btn.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg> Near Me';
+        btn.disabled = false;
+      }, err => {
+        alert('Could not get your location. Please allow location access.');
+        btn.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg> Near Me';
+        btn.disabled = false;
+      });
+    }
+    window.sortByNearMe = sortByNearMe;
 
     const extraShows = [];
 

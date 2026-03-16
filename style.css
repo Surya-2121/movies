@@ -1487,9 +1487,46 @@ main {
   gap: 8px;
 }
 
-.st-search {
+.st-search-row {
+  display: flex;
+  gap: 10px;
   margin-bottom: 16px;
+  align-items: center;
+}
+
+.st-search {
+  flex: 1;
   position: relative;
+}
+
+.st-nearme-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 16px;
+  border: 1px solid #444;
+  border-radius: 8px;
+  background: var(--card-bg);
+  color: var(--text);
+  font-size: 14px;
+  font-family: inherit;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: border-color 0.2s, background 0.2s;
+}
+.st-nearme-btn:hover {
+  border-color: var(--accent);
+  background: #e8a80015;
+}
+.st-nearme-btn:disabled {
+  opacity: 0.6;
+  cursor: wait;
+}
+
+.st-dist-badge {
+  font-size: 0.75rem;
+  color: #e8a800;
+  white-space: nowrap;
 }
 
 .st-search .search-icon {
