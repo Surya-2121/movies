@@ -1760,10 +1760,13 @@ main {
 }
 
 .st-venue-city {
-  font-size: 1.3rem;
+  font-size: 1rem;
   font-weight: 800;
-  color: #fff;
-  text-shadow: 2px 2px 0 #1a1a2e, 4px 4px 0 rgba(0,0,0,0.3);
+  color: #000;
+  background: #e8a800;
+  display: inline-block;
+  padding: 4px 14px;
+  border-radius: 6px;
   letter-spacing: 0.5px;
 }
 
