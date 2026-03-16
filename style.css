@@ -1559,6 +1559,65 @@ main {
   color: var(--text-muted);
 }
 
+.st-share-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #e8a800;
+  color: #000;
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.st-share-btn:hover {
+  background: #ffc107;
+}
+
+.st-share-popup {
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 10px;
+  background: #1a1a2e;
+  border: 1px solid #444;
+  border-radius: 12px;
+  padding: 12px 16px;
+  z-index: 1000;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.5);
+}
+
+.st-share-option {
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-family: inherit;
+  cursor: pointer;
+  text-decoration: none;
+  text-align: center;
+  border: none;
+}
+
+.st-share-wa {
+  background: #25D366;
+  color: #fff;
+}
+.st-share-wa:hover {
+  background: #1ebe57;
+}
+
+.st-share-copy {
+  background: #333;
+  color: #fff;
+}
+.st-share-copy:hover {
+  background: #444;
+}
+
 .st-date-card {
   display: flex;
   flex-direction: column;
