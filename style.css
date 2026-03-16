@@ -1004,6 +1004,29 @@ main {
   display: inline-block;
 }
 
+.section-title-link {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  color: inherit;
+  width: fit-content;
+}
+.section-title-link .section-title {
+  margin-bottom: 0;
+}
+.section-title-link {
+  margin-bottom: 28px;
+}
+.section-title-arrow {
+  font-size: 1.4rem;
+  color: #f0ad4e;
+  transition: transform 0.2s;
+}
+.section-title-link:hover .section-title-arrow {
+  transform: translateX(5px);
+}
+
 .now-playing-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
