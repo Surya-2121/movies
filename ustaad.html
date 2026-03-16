@@ -152,6 +152,9 @@
                 <a href="https://www.google.com/maps/dir/?api=1&destination=${mapsQuery}" target="_blank" rel="noopener" class="st-directions-btn" title="Get directions">
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
                 </a>
+                <button class="st-share-btn" onclick="shareShow('${g.city}', '${g.cinema.replace(/'/g, "\\'")}', '${g.shows.map(s=>s.time).join(', ')}', '${g.shows[0].date}')" title="Share">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+                </button>
               </div>
             </div>
             <div class="st-venue-times">
@@ -201,6 +204,28 @@
       });
     }
     window.filterByCity = filterByCity;
+
+    function shareShow(city, cinema, times, date) {
+      const f = formatDate(date);
+      const text = `🎬 Ustaad Bhagat Singh\n📍 ${cinema}, ${city}\n📅 ${f.day} ${f.date} ${f.month}\n🕐 ${times}\n\nBook now: https://germany-telugu-movies.com/ustaad.html`;
+      if (navigator.share) {
+        navigator.share({ title: 'Ustaad Bhagat Singh - ' + city, text: text }).catch(() => {});
+      } else {
+        // Fallback: show popup with WhatsApp + Copy
+        const existing = document.querySelector('.st-share-popup');
+        if (existing) existing.remove();
+        const popup = document.createElement('div');
+        popup.className = 'st-share-popup';
+        const waUrl = 'https://wa.me/?text=' + encodeURIComponent(text);
+        popup.innerHTML = `
+          <a href="${waUrl}" target="_blank" rel="noopener" class="st-share-option st-share-wa">WhatsApp</a>
+          <button class="st-share-option st-share-copy" onclick="navigator.clipboard.writeText(\`${text.replace(/`/g,'\\`')}\`);this.textContent='Copied!';setTimeout(()=>this.closest('.st-share-popup').remove(),1000)">Copy Link</button>
+        `;
+        document.body.appendChild(popup);
+        setTimeout(() => { document.addEventListener('click', function handler(e) { if (!popup.contains(e.target)) { popup.remove(); document.removeEventListener('click', handler); } }, { once: true }); }, 10);
+      }
+    }
+    window.shareShow = shareShow;
 
     function haversine(lat1, lon1, lat2, lon2) {
       const R = 6371;
