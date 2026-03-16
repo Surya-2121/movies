@@ -1762,11 +1762,14 @@ main {
 .st-venue-city {
   font-size: 1rem;
   font-weight: 800;
-  color: #000;
-  background: #e8a800;
-  display: inline-block;
-  padding: 4px 14px;
-  border-radius: 6px;
+  color: #ccc;
+  background: #1a1a2e;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 18px;
+  border: 2px solid #2a2a4a;
+  border-radius: 12px;
   letter-spacing: 0.5px;
 }
 
@@ -1825,7 +1828,7 @@ main {
 .light-theme .st-date-card, .light-theme .st-cinema-card { background: #fff; border-color: #ddd; color: #333; }
 .light-theme .st-date-active { background: #d4880f; border-color: #d4880f; color: #fff; }
 .light-theme .st-venue { border-color: #ddd; }
-.light-theme .st-venue-city { color: #222; }
+.light-theme .st-venue-city { color: #222; background: #fff; border-color: #ddd; }
 .light-theme .st-venue-name { color: #666; }
 .light-theme .st-venue-date { color: #222; }
 .light-theme .st-time-card { background: #fff; border-color: #ddd; border-left-color: #d4880f; }
