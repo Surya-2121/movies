@@ -1763,6 +1763,8 @@ main {
   font-size: 1.3rem;
   font-weight: 800;
   color: #fff;
+  text-shadow: 2px 2px 0 #1a1a2e, 4px 4px 0 rgba(0,0,0,0.3);
+  letter-spacing: 0.5px;
 }
 
 .st-venue-name {
