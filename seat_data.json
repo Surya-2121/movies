@@ -1,7 +1,7 @@
 {
   "fetchedAt": "2026-03-17T19:49:33Z",
   "movie": "Ustaad Bhagat Singh",
-  "totalShows": 14,
+  "totalShows": 17,
   "shows": [
     {
       "city": "Dusseldorf",
@@ -100,6 +100,27 @@
       "date": "2026-03-21",
       "time": "11:00",
       "bookingUrl": "https://www.cincinnati-muenchen.de/en/program/1655865"
+    },
+    {
+      "city": "Essen",
+      "cinema": "CinemaxX Essen",
+      "date": "2026-03-18",
+      "time": "19:30",
+      "bookingUrl": "https://www.cinemaxx.de/kinoprogramm/essen/film/ustaad-bhagat-singh"
+    },
+    {
+      "city": "München",
+      "cinema": "CinemaxX München",
+      "date": "2026-03-18",
+      "time": "19:20",
+      "bookingUrl": "https://www.cinemaxx.de/kinoprogramm/munchen/film/ustaad-bhagat-singh"
+    },
+    {
+      "city": "Berlin",
+      "cinema": "CinemaxX Berlin",
+      "date": "2026-03-18",
+      "time": "19:30",
+      "bookingUrl": "https://www.cinemaxx.de/kinoprogramm/berlin/film/ustaad-bhagat-singh"
     }
   ]
 }
