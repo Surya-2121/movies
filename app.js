@@ -102,15 +102,6 @@ const showsData = [
   },
   {
     id: 12,
-    city: "Bielefeld",
-    cinema: "CinemaxX Bielefeld",
-    date: "2026-03-18",
-    time: "19:30",
-    language: "Telugu",
-    bookingUrl: "https://www.cinemaxx.de/kinoprogramm/bielefeld/film/ustaad-bhagat-singh",
-  },
-  {
-    id: 13,
     city: "Bremen",
     cinema: "CinemaxX Bremen",
     date: "2026-03-18",
@@ -119,7 +110,7 @@ const showsData = [
     bookingUrl: "https://www.cinemaxx.de/kinoprogramm/bremen/film/ustaad-bhagat-singh",
   },
   {
-    id: 14,
+    id: 13,
     city: "Essen",
     cinema: "CinemaxX Essen",
     date: "2026-03-18",
@@ -128,7 +119,7 @@ const showsData = [
     bookingUrl: "https://www.cinemaxx.de/kinoprogramm/essen/film/ustaad-bhagat-singh",
   },
   {
-    id: 15,
+    id: 14,
     city: "Hamburg-Harburg",
     cinema: "CinemaxX Hamburg-Harburg",
     date: "2026-03-18",
@@ -137,7 +128,7 @@ const showsData = [
     bookingUrl: "https://www.cinemaxx.de/kinoprogramm/hamburg-harburg/film/ustaad-bhagat-singh",
   },
   {
-    id: 16,
+    id: 15,
     city: "Hannover",
     cinema: "CinemaxX Hannover",
     date: "2026-03-18",
@@ -146,7 +137,7 @@ const showsData = [
     bookingUrl: "https://www.cinemaxx.de/kinoprogramm/hannover/film/ustaad-bhagat-singh",
   },
   {
-    id: 17,
+    id: 16,
     city: "Magdeburg",
     cinema: "CinemaxX Magdeburg",
     date: "2026-03-18",
@@ -155,7 +146,7 @@ const showsData = [
     bookingUrl: "https://www.cinemaxx.de/kinoprogramm/magdeburg/film/ustaad-bhagat-singh",
   },
   {
-    id: 18,
+    id: 17,
     city: "Frankfurt (Offenbach)",
     cinema: "CinemaxX Frankfurt (Offenbach)",
     date: "2026-03-18",
@@ -164,7 +155,7 @@ const showsData = [
     bookingUrl: "https://www.cinemaxx.de/kinoprogramm/offenbach/film/ustaad-bhagat-singh",
   },
   {
-    id: 19,
+    id: 18,
     city: "Regensburg",
     cinema: "CinemaxX Regensburg",
     date: "2026-03-18",
@@ -173,16 +164,7 @@ const showsData = [
     bookingUrl: "https://www.cinemaxx.de/kinoprogramm/regensburg/film/ustaad-bhagat-singh",
   },
   {
-    id: 20,
-    city: "Trier",
-    cinema: "CinemaxX Trier",
-    date: "2026-03-18",
-    time: "19:15",
-    language: "Telugu",
-    bookingUrl: "https://www.cinemaxx.de/kinoprogramm/trier/film/ustaad-bhagat-singh",
-  },
-  {
-    id: 21,
+    id: 19,
     city: "M\u00fcnchen",
     cinema: "CinemaxX M\u00fcnchen",
     date: "2026-03-18",
@@ -191,7 +173,7 @@ const showsData = [
     bookingUrl: "https://www.cinemaxx.de/kinoprogramm/munchen/film/ustaad-bhagat-singh",
   },
   {
-    id: 22,
+    id: 20,
     city: "Dresden",
     cinema: "CinemaxX Dresden",
     date: "2026-03-18",
@@ -200,7 +182,7 @@ const showsData = [
     bookingUrl: "https://www.cinemaxx.de/kinoprogramm/dresden/film/ustaad-bhagat-singh",
   },
   {
-    id: 23,
+    id: 21,
     city: "Stuttgart",
     cinema: "Capital Kornwestheim",
     date: "2026-03-18",
@@ -209,7 +191,7 @@ const showsData = [
     bookingUrl: "https://capitol-kornwestheim.de/film/ustaad-bhagat-singh-malayalam-mit-englischen-untertiteln",
   },
   {
-    id: 24,
+    id: 22,
     city: "Berlin",
     cinema: "Cineplex Berlin",
     date: "2026-03-18",
@@ -218,7 +200,7 @@ const showsData = [
     bookingUrl: "https://ticketverz.com/movieselection/ustaad-bhagat-singh-berlin/8bae530abf",
   },
   {
-    id: 25,
+    id: 23,
     city: "M\u00fcnchen",
     cinema: "Cincinnati Kino",
     date: "2026-03-19",
@@ -227,7 +209,7 @@ const showsData = [
     bookingUrl: "https://www.cincinnati-muenchen.de/en/program/1655865",
   },
   {
-    id: 26,
+    id: 24,
     city: "M\u00fcnchen",
     cinema: "Cincinnati Kino",
     date: "2026-03-21",
@@ -237,7 +219,7 @@ const showsData = [
   },
 ]// Embedded real seat data (auto-injected by fetch_seats.py)
 // SEAT_DATA_START
-const seatData = {"fetchedAt": "2026-03-17T10:40:53Z", "movie": "Ustaad Bhagat Singh", "totalShows": 26, "shows": [{"city": "Dusseldorf", "cinema": "UFA Palast", "date": "2026-03-18", "time": "20:00", "bookingUrl": "https://getmyticket.de/showbookings.php?id=169&amp;time=07:30%20PM&amp;mdate=MjAyNi0wMy0xOA=="}, {"city": "Dusseldorf", "cinema": "UFA Palast", "date": "2026-03-22", "time": "20:00", "bookingUrl": "https://getmyticket.de/showbookings.php?id=171&amp;time=11:30%20AM&amp;mdate=MjAyNi0wMy0yMg=="}, {"city": "Nürnberg", "cinema": "Cinecitta", "date": "2026-03-18", "time": "20:00", "bookingUrl": "https://getmyticket.de/showbookings.php?id=168&amp;time=07:30%20PM&amp;mdate=MjAyNi0wMy0xOA=="}, {"city": "Frankfurt (Karben)", "cinema": "Frankfurt (Karben)", "date": "2026-03-18", "time": "20:00", "bookingUrl": "https://getmyticket.de/showbookings.php?id=172&amp;time=07:30%20PM&amp;mdate=MjAyNi0wMy0xOA=="}, {"city": "Frankfurt (Karben)", "cinema": "Frankfurt (Karben)", "date": "2026-03-21", "time": "20:00", "bookingUrl": "https://getmyticket.de/showbookings.php?id=173&amp;time=11:30%20AM&amp;mdate=MjAyNi0wMy0yMQ=="}, {"city": "Hamburg", "cinema": "Hansa Filmstudios", "date": "2026-03-19", "time": "20:00", "bookingUrl": "https://getmyticket.de/showbookings.php?id=174&amp;time=07:30%20PM&amp;mdate=MjAyNi0wMy0xOQ=="}, {"city": "Erlangen", "cinema": "LammKino", "date": "2026-03-20", "time": "20:00", "bookingUrl": "https://getmyticket.de/showbookings.php?id=175&amp;time=07:30%20PM&amp;mdate=MjAyNi0wMy0yMA=="}, {"city": "Erlangen", "cinema": "LammKino", "date": "2026-03-22", "time": "20:00", "bookingUrl": "https://getmyticket.de/showbookings.php?id=170&amp;time=11%20AM&amp;mdate=MjAyNi0wMy0yMg=="}, {"city": "Heidelberg", "cinema": "LUXOR FILM PALAST", "date": "2026-03-18", "time": "20:30", "bookingUrl": "https://ticket-cloud.de/Luxor-Heidelberg/Show/2331133"}, {"city": "Heidelberg", "cinema": "LUXOR FILM PALAST", "date": "2026-03-21", "time": "16:00", "bookingUrl": "https://ticket-cloud.de/Luxor-Heidelberg/Show/2334534"}, {"city": "Heidelberg", "cinema": "LUXOR FILM PALAST", "date": "2026-03-22", "time": "16:00", "bookingUrl": "https://ticket-cloud.de/Luxor-Heidelberg/Show/2334535"}, {"city": "Bielefeld", "cinema": "CinemaxX Bielefeld", "date": "2026-03-18", "time": "19:30", "bookingUrl": "https://www.cinemaxx.de/kinoprogramm/bielefeld/film/ustaad-bhagat-singh"}, {"city": "Bremen", "cinema": "CinemaxX Bremen", "date": "2026-03-18", "time": "19:00", "bookingUrl": "https://www.cinemaxx.de/kinoprogramm/bremen/film/ustaad-bhagat-singh"}, {"city": "Essen", "cinema": "CinemaxX Essen", "date": "2026-03-18", "time": "19:30", "bookingUrl": "https://www.cinemaxx.de/kinoprogramm/essen/film/ustaad-bhagat-singh"}, {"city": "Hamburg-Harburg", "cinema": "CinemaxX Hamburg-Harburg", "date": "2026-03-18", "time": "19:30", "bookingUrl": "https://www.cinemaxx.de/kinoprogramm/hamburg-harburg/film/ustaad-bhagat-singh"}, {"city": "Hannover", "cinema": "CinemaxX Hannover", "date": "2026-03-18", "time": "19:30", "bookingUrl": "https://www.cinemaxx.de/kinoprogramm/hannover/film/ustaad-bhagat-singh"}, {"city": "Magdeburg", "cinema": "CinemaxX Magdeburg", "date": "2026-03-18", "time": "19:20", "bookingUrl": "https://www.cinemaxx.de/kinoprogramm/magdeburg/film/ustaad-bhagat-singh"}, {"city": "Frankfurt (Offenbach)", "cinema": "CinemaxX Frankfurt (Offenbach)", "date": "2026-03-18", "time": "19:00", "bookingUrl": "https://www.cinemaxx.de/kinoprogramm/offenbach/film/ustaad-bhagat-singh"}, {"city": "Regensburg", "cinema": "CinemaxX Regensburg", "date": "2026-03-18", "time": "19:00", "bookingUrl": "https://www.cinemaxx.de/kinoprogramm/regensburg/film/ustaad-bhagat-singh"}, {"city": "Trier", "cinema": "CinemaxX Trier", "date": "2026-03-18", "time": "19:15", "bookingUrl": "https://www.cinemaxx.de/kinoprogramm/trier/film/ustaad-bhagat-singh"}, {"city": "München", "cinema": "CinemaxX München", "date": "2026-03-18", "time": "19:20", "bookingUrl": "https://www.cinemaxx.de/kinoprogramm/munchen/film/ustaad-bhagat-singh"}, {"city": "Dresden", "cinema": "CinemaxX Dresden", "date": "2026-03-18", "time": "19:15", "bookingUrl": "https://www.cinemaxx.de/kinoprogramm/dresden/film/ustaad-bhagat-singh"}, {"city": "Stuttgart", "cinema": "Capital Kornwestheim", "date": "2026-03-18", "time": "19:30", "bookingUrl": "https://capitol-kornwestheim.de/film/ustaad-bhagat-singh-malayalam-mit-englischen-untertiteln"}, {"city": "Berlin", "cinema": "Cineplex Berlin", "date": "2026-03-18", "time": "19:30", "bookingUrl": "https://ticketverz.com/movieselection/ustaad-bhagat-singh-berlin/8bae530abf"}, {"city": "München", "cinema": "Cincinnati Kino", "date": "2026-03-19", "time": "19:30", "bookingUrl": "https://www.cincinnati-muenchen.de/en/program/1655865"}, {"city": "München", "cinema": "Cincinnati Kino", "date": "2026-03-21", "time": "11:00", "bookingUrl": "https://www.cincinnati-muenchen.de/en/program/1655865"}]};
+const seatData = {"fetchedAt": "2026-03-17T12:46:09Z", "movie": "Ustaad Bhagat Singh", "totalShows": 24, "shows": [{"city": "Dusseldorf", "cinema": "UFA Palast", "date": "2026-03-18", "time": "20:00", "bookingUrl": "https://getmyticket.de/showbookings.php?id=169&amp;time=07:30%20PM&amp;mdate=MjAyNi0wMy0xOA=="}, {"city": "Dusseldorf", "cinema": "UFA Palast", "date": "2026-03-22", "time": "20:00", "bookingUrl": "https://getmyticket.de/showbookings.php?id=171&amp;time=11:30%20AM&amp;mdate=MjAyNi0wMy0yMg=="}, {"city": "Nürnberg", "cinema": "Cinecitta", "date": "2026-03-18", "time": "20:00", "bookingUrl": "https://getmyticket.de/showbookings.php?id=168&amp;time=07:30%20PM&amp;mdate=MjAyNi0wMy0xOA=="}, {"city": "Frankfurt (Karben)", "cinema": "Frankfurt (Karben)", "date": "2026-03-18", "time": "20:00", "bookingUrl": "https://getmyticket.de/showbookings.php?id=172&amp;time=07:30%20PM&amp;mdate=MjAyNi0wMy0xOA=="}, {"city": "Frankfurt (Karben)", "cinema": "Frankfurt (Karben)", "date": "2026-03-21", "time": "20:00", "bookingUrl": "https://getmyticket.de/showbookings.php?id=173&amp;time=11:30%20AM&amp;mdate=MjAyNi0wMy0yMQ=="}, {"city": "Hamburg", "cinema": "Hansa Filmstudios", "date": "2026-03-19", "time": "20:00", "bookingUrl": "https://getmyticket.de/showbookings.php?id=174&amp;time=07:30%20PM&amp;mdate=MjAyNi0wMy0xOQ=="}, {"city": "Erlangen", "cinema": "LammKino", "date": "2026-03-20", "time": "20:00", "bookingUrl": "https://getmyticket.de/showbookings.php?id=175&amp;time=07:30%20PM&amp;mdate=MjAyNi0wMy0yMA=="}, {"city": "Erlangen", "cinema": "LammKino", "date": "2026-03-22", "time": "20:00", "bookingUrl": "https://getmyticket.de/showbookings.php?id=170&amp;time=11%20AM&amp;mdate=MjAyNi0wMy0yMg=="}, {"city": "Heidelberg", "cinema": "LUXOR FILM PALAST", "date": "2026-03-18", "time": "20:30", "bookingUrl": "https://ticket-cloud.de/Luxor-Heidelberg/Show/2331133"}, {"city": "Heidelberg", "cinema": "LUXOR FILM PALAST", "date": "2026-03-21", "time": "16:00", "bookingUrl": "https://ticket-cloud.de/Luxor-Heidelberg/Show/2334534"}, {"city": "Heidelberg", "cinema": "LUXOR FILM PALAST", "date": "2026-03-22", "time": "16:00", "bookingUrl": "https://ticket-cloud.de/Luxor-Heidelberg/Show/2334535"}, {"city": "Bremen", "cinema": "CinemaxX Bremen", "date": "2026-03-18", "time": "19:00", "bookingUrl": "https://www.cinemaxx.de/kinoprogramm/bremen/film/ustaad-bhagat-singh"}, {"city": "Essen", "cinema": "CinemaxX Essen", "date": "2026-03-18", "time": "19:30", "bookingUrl": "https://www.cinemaxx.de/kinoprogramm/essen/film/ustaad-bhagat-singh"}, {"city": "Hamburg-Harburg", "cinema": "CinemaxX Hamburg-Harburg", "date": "2026-03-18", "time": "19:30", "bookingUrl": "https://www.cinemaxx.de/kinoprogramm/hamburg-harburg/film/ustaad-bhagat-singh"}, {"city": "Hannover", "cinema": "CinemaxX Hannover", "date": "2026-03-18", "time": "19:30", "bookingUrl": "https://www.cinemaxx.de/kinoprogramm/hannover/film/ustaad-bhagat-singh"}, {"city": "Magdeburg", "cinema": "CinemaxX Magdeburg", "date": "2026-03-18", "time": "19:20", "bookingUrl": "https://www.cinemaxx.de/kinoprogramm/magdeburg/film/ustaad-bhagat-singh"}, {"city": "Frankfurt (Offenbach)", "cinema": "CinemaxX Frankfurt (Offenbach)", "date": "2026-03-18", "time": "19:00", "bookingUrl": "https://www.cinemaxx.de/kinoprogramm/offenbach/film/ustaad-bhagat-singh"}, {"city": "Regensburg", "cinema": "CinemaxX Regensburg", "date": "2026-03-18", "time": "19:00", "bookingUrl": "https://www.cinemaxx.de/kinoprogramm/regensburg/film/ustaad-bhagat-singh"}, {"city": "München", "cinema": "CinemaxX München", "date": "2026-03-18", "time": "19:20", "bookingUrl": "https://www.cinemaxx.de/kinoprogramm/munchen/film/ustaad-bhagat-singh"}, {"city": "Dresden", "cinema": "CinemaxX Dresden", "date": "2026-03-18", "time": "19:15", "bookingUrl": "https://www.cinemaxx.de/kinoprogramm/dresden/film/ustaad-bhagat-singh"}, {"city": "Stuttgart", "cinema": "Capital Kornwestheim", "date": "2026-03-18", "time": "19:30", "bookingUrl": "https://capitol-kornwestheim.de/film/ustaad-bhagat-singh-malayalam-mit-englischen-untertiteln"}, {"city": "Berlin", "cinema": "Cineplex Berlin", "date": "2026-03-18", "time": "19:30", "bookingUrl": "https://ticketverz.com/movieselection/ustaad-bhagat-singh-berlin/8bae530abf"}, {"city": "München", "cinema": "Cincinnati Kino", "date": "2026-03-19", "time": "19:30", "bookingUrl": "https://www.cincinnati-muenchen.de/en/program/1655865"}, {"city": "München", "cinema": "Cincinnati Kino", "date": "2026-03-21", "time": "11:00", "bookingUrl": "https://www.cincinnati-muenchen.de/en/program/1655865"}]};
 // SEAT_DATA_END
 
 let shows = JSON.parse(JSON.stringify(showsData));
