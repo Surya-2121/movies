@@ -161,22 +161,10 @@ def discover_shows():
         url = m.group(1)
         seen_urls.add(url)  # mark as seen so catch-all doesn't pick them up
 
-    # ─── 4. Capitol Kornwestheim / Stuttgart ───
+    # ─── 4. Capitol Kornwestheim / Stuttgart — SKIPPED: 404 page ───
     for m in re.finditer(r'href="(https?://(?:www\.)?(?:capitol-kornwestheim\.de|kinotickets\.express/kornwestheim)[^"]*)"', html):
         url = m.group(1)
-        if url in seen_urls:
-            continue
-        seen_urls.add(url)
-        url_pos = m.start()
-        show_date, show_time = _extract_date_time(html, url, url_pos)
-        print(f"  Found Capitol Stuttgart: {show_date} {show_time}")
-        shows.append({
-            "city": "Stuttgart",
-            "cinema": "Capital Kornwestheim",
-            "date": show_date or "2026-03-18",
-            "time": show_time or "19:30",
-            "bookingUrl": url,
-        })
+        seen_urls.add(url)  # mark as seen so catch-all doesn't pick them up
 
     # ─── 5. Berlin Cineplex / ticketverz.com ───
     for m in re.finditer(r'href="(https?://(?:www\.)?ticketverz\.com/[^"]+)"', html):
