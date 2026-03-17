@@ -156,23 +156,10 @@ def discover_shows():
             "bookingUrl": url,
         })
 
-    # ─── 3. CinemaxX (cinemaxx.de) ───
+    # ─── 3. CinemaxX (cinemaxx.de) — SKIPPED: no actual showtimes available ───
     for m in re.finditer(r'href="(https?://(?:www\.)?cinemaxx\.de/kinoprogramm/([^"/]+)/[^"]*)"', html):
-        url, city_slug = m.group(1), m.group(2)
-        if url in seen_urls:
-            continue
-        seen_urls.add(url)
-        city_name = cinemaxx_city_map.get(city_slug, city_slug.replace("-", " ").title())
-        url_pos = m.start()
-        show_date, show_time = _extract_date_time(html, url, url_pos)
-        print(f"  Found CinemaxX {city_name}: {show_date} {show_time}")
-        shows.append({
-            "city": city_name,
-            "cinema": f"CinemaxX {city_name}",
-            "date": show_date or "2026-03-18",
-            "time": show_time or "19:30",
-            "bookingUrl": url,
-        })
+        url = m.group(1)
+        seen_urls.add(url)  # mark as seen so catch-all doesn't pick them up
 
     # ─── 4. Capitol Kornwestheim / Stuttgart ───
     for m in re.finditer(r'href="(https?://(?:www\.)?(?:capitol-kornwestheim\.de|kinotickets\.express/kornwestheim)[^"]*)"', html):
