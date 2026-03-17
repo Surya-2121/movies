@@ -1,7 +1,7 @@
 {
-  "fetchedAt": "2026-03-17T10:40:53Z",
+  "fetchedAt": "2026-03-17T12:46:09Z",
   "movie": "Ustaad Bhagat Singh",
-  "totalShows": 26,
+  "totalShows": 24,
   "shows": [
     {
       "city": "Dusseldorf",
@@ -81,13 +81,6 @@
       "bookingUrl": "https://ticket-cloud.de/Luxor-Heidelberg/Show/2334535"
     },
     {
-      "city": "Bielefeld",
-      "cinema": "CinemaxX Bielefeld",
-      "date": "2026-03-18",
-      "time": "19:30",
-      "bookingUrl": "https://www.cinemaxx.de/kinoprogramm/bielefeld/film/ustaad-bhagat-singh"
-    },
-    {
       "city": "Bremen",
       "cinema": "CinemaxX Bremen",
       "date": "2026-03-18",
@@ -135,13 +128,6 @@
       "date": "2026-03-18",
       "time": "19:00",
       "bookingUrl": "https://www.cinemaxx.de/kinoprogramm/regensburg/film/ustaad-bhagat-singh"
-    },
-    {
-      "city": "Trier",
-      "cinema": "CinemaxX Trier",
-      "date": "2026-03-18",
-      "time": "19:15",
-      "bookingUrl": "https://www.cinemaxx.de/kinoprogramm/trier/film/ustaad-bhagat-singh"
     },
     {
       "city": "München",
