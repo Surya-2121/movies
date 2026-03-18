@@ -1,7 +1,7 @@
 {
   "fetchedAt": "2026-03-18T14:16:06Z",
   "movie": "Ustaad Bhagat Singh",
-  "totalShows": 15,
+  "totalShows": 17,
   "shows": [
     {
       "city": "Dusseldorf",
@@ -71,7 +71,7 @@
       "cinema": "CinemaxX Essen",
       "date": "2026-03-18",
       "time": "19:30",
-      "bookingUrl": "https://www.cinemaxx.de/kinoprogramm/essen/film/ustaad-bhagat-singh"
+      "bookingUrl": "https://www.cinemaxx.de/buchtickets/zusammenfassung/1431/HO00001339/40039"
     },
     {
       "city": "München",
@@ -107,6 +107,20 @@
       "date": "2026-03-18",
       "time": "19:15",
       "bookingUrl": "https://www.cinemaxx.de/buchtickets/zusammenfassung/1011/HO00001339/17641"
+    },
+    {
+      "city": "Magdeburg",
+      "cinema": "CinemaxX Magdeburg",
+      "date": "2026-03-18",
+      "time": "19:20",
+      "bookingUrl": "https://www.cinemaxx.de/buchtickets/zusammenfassung/1391/HO00001339/33511"
+    },
+    {
+      "city": "Regensburg",
+      "cinema": "CinemaxX Regensburg",
+      "date": "2026-03-18",
+      "time": "19:00",
+      "bookingUrl": "https://www.cinemaxx.de/buchtickets/zusammenfassung/1931/HO00001339/15538"
     }
   ]
 }
