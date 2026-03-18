@@ -1,7 +1,7 @@
 {
-  "fetchedAt": "2026-03-18T07:51:52Z",
+  "fetchedAt": "2026-03-18T09:42:54Z",
   "movie": "Ustaad Bhagat Singh",
-  "totalShows": 16,
+  "totalShows": 13,
   "shows": [
     {
       "city": "Dusseldorf",
@@ -41,23 +41,9 @@
     {
       "city": "Hamburg",
       "cinema": "Hansa Filmstudios",
-      "date": "2026-03-19",
-      "time": "20:00",
-      "bookingUrl": "https://getmyticket.de/showbookings.php?id=174&amp;time=07:30%20PM&amp;mdate=MjAyNi0wMy0xOQ=="
-    },
-    {
-      "city": "Erlangen",
-      "cinema": "LammKino",
       "date": "2026-03-20",
       "time": "20:00",
       "bookingUrl": "https://getmyticket.de/showbookings.php?id=175&amp;time=07:30%20PM&amp;mdate=MjAyNi0wMy0yMA=="
-    },
-    {
-      "city": "Erlangen",
-      "cinema": "LammKino",
-      "date": "2026-03-22",
-      "time": "20:00",
-      "bookingUrl": "https://getmyticket.de/showbookings.php?id=170&amp;time=11%20AM&amp;mdate=MjAyNi0wMy0yMg=="
     },
     {
       "city": "Heidelberg",
@@ -100,13 +86,6 @@
       "date": "2026-03-18",
       "time": "19:30",
       "bookingUrl": "https://ticketverz.com/movieselection/ustaad-bhagat-singh-berlin/8bae530abf"
-    },
-    {
-      "city": "München",
-      "cinema": "Cincinnati Kino",
-      "date": "2026-03-19",
-      "time": "19:30",
-      "bookingUrl": "https://www.cincinnati-muenchen.de/en/program/1655865"
     },
     {
       "city": "München",
