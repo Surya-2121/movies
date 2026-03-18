@@ -157,7 +157,7 @@ def discover_shows():
         })
 
     # ─── 3. CinemaxX (cinemaxx.de) — only allow Essen, München, Berlin ───
-    cinemaxx_allowed = {"essen", "munchen", "berlin"}
+    cinemaxx_allowed = {"essen", "munchen", "berlin", "dresden"}
     for m in re.finditer(r'href="(https?://(?:www\.)?cinemaxx\.de/kinoprogramm/([^"/]+)/[^"]*)"', html):
         url, city_slug = m.group(1), m.group(2)
         if url in seen_urls:
