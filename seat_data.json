@@ -1,7 +1,7 @@
 {
   "fetchedAt": "2026-03-18T14:16:06Z",
   "movie": "Ustaad Bhagat Singh",
-  "totalShows": 13,
+  "totalShows": 15,
   "shows": [
     {
       "city": "Dusseldorf",
@@ -93,6 +93,20 @@
       "date": "2026-03-21",
       "time": "11:00",
       "bookingUrl": "https://www.cincinnati-muenchen.de/en/program/1655865"
+    },
+    {
+      "city": "Berlin",
+      "cinema": "CinemaxX Berlin",
+      "date": "2026-03-18",
+      "time": "19:30",
+      "bookingUrl": "https://www.cinemaxx.de/buchtickets/zusammenfassung/1107/HO00001339/52378"
+    },
+    {
+      "city": "Dresden",
+      "cinema": "CinemaxX Dresden",
+      "date": "2026-03-18",
+      "time": "19:15",
+      "bookingUrl": "https://www.cinemaxx.de/buchtickets/zusammenfassung/1011/HO00001339/17641"
     }
   ]
 }
