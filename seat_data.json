@@ -1,7 +1,7 @@
 {
   "fetchedAt": "2026-03-18T14:16:06Z",
   "movie": "Ustaad Bhagat Singh",
-  "totalShows": 17,
+  "totalShows": 18,
   "shows": [
     {
       "city": "Dusseldorf",
@@ -121,6 +121,13 @@
       "date": "2026-03-18",
       "time": "19:00",
       "bookingUrl": "https://www.cinemaxx.de/buchtickets/zusammenfassung/1931/HO00001339/15538"
+    },
+    {
+      "city": "Stuttgart",
+      "cinema": "Capital Kornwestheim",
+      "date": "2026-03-18",
+      "time": "19:30",
+      "bookingUrl": "https://kinotickets.express/kornwestheim-capitol/sale/seats/25577"
     }
   ]
 }
