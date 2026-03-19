@@ -259,6 +259,12 @@ def main():
 
     shows, movie_title = discover_shows()
 
+    # Filter out past dates
+    from datetime import datetime, timezone
+    today = datetime.now(timezone.utc).strftime("%Y-%m-%d")
+    shows = [s for s in shows if s.get("date", "") >= today]
+    print(f"  After filtering past dates: {len(shows)} show(s)")
+
     if not shows:
         print("  No shows found!")
         return
