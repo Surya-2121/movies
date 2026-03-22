@@ -21,7 +21,7 @@ const showsData = [
   },
 ]// Embedded real seat data (auto-injected by fetch_seats.py)
 // SEAT_DATA_START
-const seatData = {"fetchedAt": "2026-03-22T04:10:52Z", "movie": "Ustaad Bhagat Singh", "totalShows": 2, "shows": [{"city": "Dusseldorf", "cinema": "UFA Palast", "date": "2026-03-22", "time": "20:00", "bookingUrl": "https://getmyticket.de/showbookings.php?id=171&amp;time=11:30%20AM&amp;mdate=MjAyNi0wMy0yMg=="}, {"city": "Heidelberg", "cinema": "LUXOR FILM PALAST", "date": "2026-03-22", "time": "16:00", "bookingUrl": "https://ticket-cloud.de/Luxor-Heidelberg/Show/2334535"}]};
+const seatData = {"fetchedAt": "2026-03-22T05:46:17Z", "movie": "Ustaad Bhagat Singh", "totalShows": 2, "shows": [{"city": "Dusseldorf", "cinema": "UFA Palast", "date": "2026-03-22", "time": "20:00", "bookingUrl": "https://getmyticket.de/showbookings.php?id=171&amp;time=11:30%20AM&amp;mdate=MjAyNi0wMy0yMg=="}, {"city": "Heidelberg", "cinema": "LUXOR FILM PALAST", "date": "2026-03-22", "time": "16:00", "bookingUrl": "https://ticket-cloud.de/Luxor-Heidelberg/Show/2334535"}]};
 // SEAT_DATA_END
 
 let shows = JSON.parse(JSON.stringify(showsData));
