@@ -12,24 +12,6 @@ const showsData = [
   },
   {
     id: 2,
-    city: "Frankfurt (Karben)",
-    cinema: "Frankfurt (Karben)",
-    date: "2026-03-21",
-    time: "20:00",
-    language: "Telugu",
-    bookingUrl: "https://getmyticket.de/showbookings.php?id=173&amp;time=11:30%20AM&amp;mdate=MjAyNi0wMy0yMQ==",
-  },
-  {
-    id: 3,
-    city: "Heidelberg",
-    cinema: "LUXOR FILM PALAST",
-    date: "2026-03-21",
-    time: "16:00",
-    language: "Telugu",
-    bookingUrl: "https://ticket-cloud.de/Luxor-Heidelberg/Show/2334534",
-  },
-  {
-    id: 4,
     city: "Heidelberg",
     cinema: "LUXOR FILM PALAST",
     date: "2026-03-22",
@@ -37,27 +19,9 @@ const showsData = [
     language: "Telugu",
     bookingUrl: "https://ticket-cloud.de/Luxor-Heidelberg/Show/2334535",
   },
-  {
-    id: 5,
-    city: "Stuttgart",
-    cinema: "Capital Kornwestheim",
-    date: "2026-03-21",
-    time: "21:15",
-    language: "Telugu",
-    bookingUrl: "https://capitol-kornwestheim.de/film/ustaad-bhagat-singh-malayalam-mit-englischen-untertiteln",
-  },
-  {
-    id: 6,
-    city: "M\u00fcnchen",
-    cinema: "Cincinnati Kino",
-    date: "2026-03-21",
-    time: "11:00",
-    language: "Telugu",
-    bookingUrl: "https://www.cincinnati-muenchen.de/en/program/1655865",
-  },
 ]// Embedded real seat data (auto-injected by fetch_seats.py)
 // SEAT_DATA_START
-const seatData = {"fetchedAt": "2026-03-21T23:16:02Z", "movie": "Ustaad Bhagat Singh", "totalShows": 6, "shows": [{"city": "Dusseldorf", "cinema": "UFA Palast", "date": "2026-03-22", "time": "20:00", "bookingUrl": "https://getmyticket.de/showbookings.php?id=171&amp;time=11:30%20AM&amp;mdate=MjAyNi0wMy0yMg=="}, {"city": "Frankfurt (Karben)", "cinema": "Frankfurt (Karben)", "date": "2026-03-21", "time": "20:00", "bookingUrl": "https://getmyticket.de/showbookings.php?id=173&amp;time=11:30%20AM&amp;mdate=MjAyNi0wMy0yMQ=="}, {"city": "Heidelberg", "cinema": "LUXOR FILM PALAST", "date": "2026-03-21", "time": "16:00", "bookingUrl": "https://ticket-cloud.de/Luxor-Heidelberg/Show/2334534"}, {"city": "Heidelberg", "cinema": "LUXOR FILM PALAST", "date": "2026-03-22", "time": "16:00", "bookingUrl": "https://ticket-cloud.de/Luxor-Heidelberg/Show/2334535"}, {"city": "Stuttgart", "cinema": "Capital Kornwestheim", "date": "2026-03-21", "time": "21:15", "bookingUrl": "https://capitol-kornwestheim.de/film/ustaad-bhagat-singh-malayalam-mit-englischen-untertiteln"}, {"city": "München", "cinema": "Cincinnati Kino", "date": "2026-03-21", "time": "11:00", "bookingUrl": "https://www.cincinnati-muenchen.de/en/program/1655865"}]};
+const seatData = {"fetchedAt": "2026-03-22T01:17:54Z", "movie": "Ustaad Bhagat Singh", "totalShows": 2, "shows": [{"city": "Dusseldorf", "cinema": "UFA Palast", "date": "2026-03-22", "time": "20:00", "bookingUrl": "https://getmyticket.de/showbookings.php?id=171&amp;time=11:30%20AM&amp;mdate=MjAyNi0wMy0yMg=="}, {"city": "Heidelberg", "cinema": "LUXOR FILM PALAST", "date": "2026-03-22", "time": "16:00", "bookingUrl": "https://ticket-cloud.de/Luxor-Heidelberg/Show/2334535"}]};
 // SEAT_DATA_END
 
 let shows = JSON.parse(JSON.stringify(showsData));
