@@ -12,9 +12,10 @@ import os
 import webbrowser
 
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
-OUTPUT_FILE = os.path.join(SCRIPT_DIR, "seat_data.json")
-APP_JS = os.path.join(SCRIPT_DIR, "app.js")
-DASHBOARD_HTML = os.path.join(SCRIPT_DIR, "ustaad.html")
+PROJECT_ROOT = os.path.dirname(SCRIPT_DIR)
+OUTPUT_FILE = os.path.join(PROJECT_ROOT, "data", "seat_data.json")
+APP_JS = os.path.join(PROJECT_ROOT, "js", "app.js")
+DASHBOARD_HTML = os.path.join(PROJECT_ROOT, "ustaad.html")
 
 THREEALMS_URL = "https://3realmsentertainment.com/movie/39/"
 
