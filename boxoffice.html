@@ -37,13 +37,8 @@
   </header>
 
   <main class="reviews-page">
-    <div class="bo-header">
-      <img src="images/poster.jpg" alt="Box Office" class="bo-header-poster">
-      <div class="bo-header-text">
-        <h1 class="page-title">Box Office</h1>
-        <p class="bo-subtitle">All-time premiere admissions for Telugu movies in Germany</p>
-      </div>
-    </div>
+    <h1 class="page-title">Box Office</h1>
+    <p class="bo-subtitle">All-time premiere admissions for Telugu movies in Germany</p>
 
     <!-- Movie list -->
     <div id="boList" class="bo-list">
@@ -228,7 +223,9 @@
         document.getElementById('boPoster').value = d.poster || '';
       } else {
         const names = { rrr: 'RRR', kalki: 'Kalki 2898 AD', og: 'They Call Him OG', devara: 'Devara', ustaad: 'Ustaad Bhagat Singh', peddi: 'Peddi', paradise: 'The Paradise', vishwambhara: 'Vishwambhara', varanasi: 'Varanasi', spirit: 'Spirit' };
+        const posters = { ustaad: 'images/poster.jpg', rrr: 'https://image.tmdb.org/t/p/w300/u0XUBNQWlOvrh0Gd97ARGpIkL0.jpg', kalki: 'https://image.tmdb.org/t/p/w300/rstcAnBeCkxNQjNp3YXrF6IP1tW.jpg', devara: 'https://image.tmdb.org/t/p/w300/7eO5iuvQjqHmqGwVoq7JPrWoXt6.jpg' };
         document.getElementById('boMovieName').value = names[key] || '';
+        document.getElementById('boPoster').value = posters[key] || '';
       }
     });
   </script>
