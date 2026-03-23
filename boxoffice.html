@@ -40,22 +40,6 @@
     <h1 class="page-title">Box Office</h1>
     <p class="bo-subtitle">All-time premiere admissions for Telugu movies in Germany</p>
 
-    <!-- Total stats -->
-    <div class="bo-total-bar">
-      <div class="bo-total-item">
-        <span class="bo-total-num" id="boTotalGross">€0</span>
-        <span class="bo-total-label">Total Gross</span>
-      </div>
-      <div class="bo-total-item">
-        <span class="bo-total-num" id="boTotalAdmits">0</span>
-        <span class="bo-total-label">Admissions</span>
-      </div>
-      <div class="bo-total-item">
-        <span class="bo-total-num" id="boTotalMovies">0</span>
-        <span class="bo-total-label">Movies</span>
-      </div>
-    </div>
-
     <!-- Movie list -->
     <div id="boList" class="bo-list">
       <p style="text-align:center;color:#666;">Loading...</p>
@@ -159,9 +143,6 @@
         totalGross += (e.gross || 0);
       });
 
-      document.getElementById('boTotalGross').textContent = '€' + totalGross.toLocaleString();
-      document.getElementById('boTotalAdmits').textContent = totalAdmits.toLocaleString();
-      document.getElementById('boTotalMovies').textContent = entries.length;
 
       const listEl = document.getElementById('boList');
       if (entries.length === 0) {
@@ -180,10 +161,10 @@
           <div class="bo-info">
             <h3 class="bo-movie-name">${esc(e.name)}</h3>
             <div class="bo-dates">${esc(e.dates || '')}</div>
-            <div class="bo-stats-row">
-              <div class="bo-stat"><span class="bo-stat-num">${gross}</span><span class="bo-stat-lbl">Gross</span></div>
-              <div class="bo-stat"><span class="bo-stat-num">${(e.admissions || 0).toLocaleString()}</span><span class="bo-stat-lbl">Admits</span></div>
-              ${e.shows ? `<div class="bo-stat"><span class="bo-stat-num">${e.shows}</span><span class="bo-stat-lbl">Shows</span></div>` : ''}
+            <div class="bo-admits-row">
+              <span class="bo-admits-num">${(e.admissions || 0).toLocaleString()}</span>
+              <span class="bo-admits-label">admits</span>
+              <span class="bo-gross-small">${gross}</span>
             </div>
             ${cities.length ? `<div class="bo-cities">${cities.map(c => `<span class="bo-city-tag">${esc(c)}</span>`).join('')}</div>` : ''}
           </div>

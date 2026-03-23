@@ -2548,28 +2548,29 @@ main {
   margin-bottom: 14px;
 }
 
-.bo-stats-row {
+.bo-admits-row {
   display: flex;
-  gap: 24px;
+  align-items: baseline;
+  gap: 6px;
   margin-bottom: 12px;
 }
 
-.bo-stat {
-  display: flex;
-  flex-direction: column;
-}
-
-.bo-stat-num {
-  font-size: 1.3rem;
+.bo-admits-num {
+  font-size: 1.5rem;
   font-weight: 800;
   color: #f0ad4e;
 }
 
-.bo-stat-lbl {
-  font-size: 0.7rem;
+.bo-admits-label {
+  font-size: 0.8rem;
   color: #888;
-  text-transform: uppercase;
-  letter-spacing: 0.3px;
+  margin-right: 8px;
+}
+
+.bo-gross-small {
+  font-size: 0.8rem;
+  color: #666;
+  font-weight: 600;
 }
 
 .bo-cities {
