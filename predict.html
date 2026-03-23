@@ -6,13 +6,13 @@
   <title>Predict & Win - Germany Telugu Movies</title>
   <meta name="robots" content="noindex, nofollow">
   <meta name="description" content="Predict the story of Ustaad Bhagat Singh in one line and win €5 off on the next premiere ticket!">
-  <link rel="icon" href="logo.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="images/logo.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
   <nav class="nav-menu" id="navMenu">
     <div class="nav-header">
-      <img src="logo.svg" alt="Logo" class="nav-logo">
+      <img src="images/logo.svg" alt="Logo" class="nav-logo">
       <button class="nav-close" onclick="toggleMenu()">&times;</button>
     </div>
     <a href="index.html" class="nav-link">Home</a>
@@ -34,7 +34,7 @@
   </button>
 
   <header class="site-header">
-    <a href="index.html"><img src="logo.svg" alt="Germany Telugu Movies" class="header-logo"></a>
+    <a href="index.html"><img src="images/logo.svg" alt="Germany Telugu Movies" class="header-logo"></a>
   </header>
 
   <main class="reviews-page">
@@ -97,14 +97,19 @@
   </footer>
 
   <script>
-    function copyPredictLink() {
-      const url = 'https://surya-2121.github.io/movies/predict.html';
-      const text = 'Predict the story of Ustaad Bhagat Singh in one line & win €5 cashback! ' + url;
+    async function copyPredictLink() {
+      const longUrl = 'https://germany-telugu-movies.com/predict.html';
+      const msg = document.getElementById('shareMsg');
+      let shortUrl = longUrl;
+      try {
+        const resp = await fetch('https://tinyurl.com/api-create.php?url=' + encodeURIComponent(longUrl));
+        if (resp.ok) shortUrl = await resp.text();
+      } catch {}
+      const text = 'Predict the story of Ustaad Bhagat Singh in one line & win €5 cashback! ' + shortUrl;
       if (navigator.share) {
-        navigator.share({ title: 'Predict & Win!', text: text, url: url }).catch(() => {});
+        navigator.share({ title: 'Predict & Win!', text: text, url: shortUrl }).catch(() => {});
       } else {
         navigator.clipboard.writeText(text).then(() => {
-          const msg = document.getElementById('shareMsg');
           msg.textContent = 'Link copied!';
           setTimeout(() => { msg.textContent = ''; }, 2000);
         });
@@ -212,6 +217,6 @@
       }).join('');
     });
   </script>
-  <script src="nav.js"></script>
+  <script src="js/nav.js"></script>
 </body>
 </html>

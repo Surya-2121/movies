@@ -982,7 +982,7 @@ main {
 .movies-layout {
   display: flex;
   gap: 40px;
-  align-items: flex-start;
+  align-items: stretch;
 }
 
 .movies-col {
