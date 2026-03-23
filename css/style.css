@@ -2535,8 +2535,8 @@ main {
 .bo-rank {
   color: #f0ad4e;
   font-weight: 800;
-  font-size: 0.9rem;
-  margin-right: 4px;
+  font-size: 1.3rem;
+  margin-right: 6px;
 }
 
 .bo-poster {
