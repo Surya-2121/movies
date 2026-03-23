@@ -1,6 +1,9 @@
 // Show data for Ustaad Bhagat Singh
 
-const showsData = [
+const showsData = [];
+
+/* Shows ended 2026-03-23
+const showsDataArchive = [
   {
     id: 1,
     city: "Dusseldorf",
@@ -19,9 +22,11 @@ const showsData = [
     language: "Telugu",
     bookingUrl: "https://ticket-cloud.de/Luxor-Heidelberg/Show/2334535",
   },
-]// Embedded real seat data (auto-injected by fetch_seats.py)
+];
+*/
+// Embedded real seat data (auto-injected by fetch_seats.py)
 // SEAT_DATA_START
-const seatData = {"fetchedAt": "2026-03-22T10:17:51Z", "movie": "Ustaad Bhagat Singh", "totalShows": 2, "shows": [{"city": "Dusseldorf", "cinema": "UFA Palast", "date": "2026-03-22", "time": "20:00", "bookingUrl": "https://getmyticket.de/showbookings.php?id=171&amp;time=11:30%20AM&amp;mdate=MjAyNi0wMy0yMg=="}, {"city": "Heidelberg", "cinema": "LUXOR FILM PALAST", "date": "2026-03-22", "time": "16:00", "bookingUrl": "https://ticket-cloud.de/Luxor-Heidelberg/Show/2334535"}]};
+const seatData = {"fetchedAt": "2026-03-23T00:00:00Z", "movie": "Ustaad Bhagat Singh", "totalShows": 0, "shows": []};
 // SEAT_DATA_END
 
 let shows = JSON.parse(JSON.stringify(showsData));
@@ -61,6 +66,11 @@ function render() {
 
   const showList = document.getElementById('showList');
   showList.innerHTML = '';
+
+  if (filtered.length === 0) {
+    showList.innerHTML = '<div class="show-card" style="text-align:center;padding:2rem;"><h3>No shows currently available</h3><p style="color:#999;margin-top:0.5rem;">All shows for this movie have ended. Check back for future screenings!</p></div>';
+    return;
+  }
 
   filtered.forEach(show => {
     const card = document.createElement('div');

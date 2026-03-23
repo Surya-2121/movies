@@ -6,21 +6,21 @@
   <title>Ustaad Bhagat Singh - Germany Telugu Movies</title>
   <link rel="canonical" href="https://germany-telugu-movies.com/ustaad-movie.html">
   <meta name="description" content="Ustaad Bhagat Singh - Telugu movie premiering in Germany. Watch teaser, songs, and book tickets.">
-  <link rel="icon" href="logo.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="images/logo.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-  <nav class="nav-menu" id="navMenu"><div class="nav-header"><img src="logo.svg" alt="Logo" class="nav-logo"><button class="nav-close" onclick="toggleMenu()">&times;</button></div><a href="index.html" class="nav-link">Home</a><a href="coming-soon.html" class="nav-link">Coming Soon</a><a href="reviews.html" class="nav-link">Reviews</a><a href="predict.html" class="nav-link">Predict &amp; Win</a><a href="about.html" class="nav-link">About Us</a><a href="contact.html" class="nav-link">Contact</a><div class="nav-divider"></div><button class="nav-theme-btn" onclick="toggleTheme()"><span id="themeIcon">&#9788;</span> <span id="themeText">Light Mode</span></button></nav><div class="nav-overlay" id="navOverlay" onclick="toggleMenu()"></div><button class="search-btn" onclick="toggleSearch()"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></button>
+  <nav class="nav-menu" id="navMenu"><div class="nav-header"><img src="images/logo.svg" alt="Logo" class="nav-logo"><button class="nav-close" onclick="toggleMenu()">&times;</button></div><a href="index.html" class="nav-link">Home</a><a href="coming-soon.html" class="nav-link">Coming Soon</a><a href="reviews.html" class="nav-link">Reviews</a><a href="predict.html" class="nav-link">Predict &amp; Win</a><a href="about.html" class="nav-link">About Us</a><a href="contact.html" class="nav-link">Contact</a><div class="nav-divider"></div><button class="nav-theme-btn" onclick="toggleTheme()"><span id="themeIcon">&#9788;</span> <span id="themeText">Light Mode</span></button></nav><div class="nav-overlay" id="navOverlay" onclick="toggleMenu()"></div><button class="search-btn" onclick="toggleSearch()"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></button>
 <div class="search-overlay" id="searchOverlay"><div class="search-overlay-box"><button class="search-overlay-close" onclick="toggleSearch()">&times;</button><input type="text" class="search-overlay-input" placeholder="Search for a movie..." oninput="handleSearchInput(event)" autocomplete="off"><div class="search-overlay-results" id="searchOverlayResults"></div></div></div>
 <button class="menu-btn" id="menuBtn" onclick="toggleMenu()"><span></span><span></span><span></span></button>
   <header class="site-header">
-    <a href="index.html"><img src="logo.svg" alt="Germany Telugu Movies" class="header-logo"></a>
+    <a href="index.html"><img src="images/logo.svg" alt="Germany Telugu Movies" class="header-logo"></a>
   </header>
 
   <main class="movie-page">
     <!-- Hero Banner -->
     <section class="mp-hero">
-      <img src="poster.jpg" alt="Ustaad Bhagat Singh" class="mp-poster">
+      <img src="images/poster.jpg" alt="Ustaad Bhagat Singh" class="mp-poster">
       <div class="mp-hero-info">
         <h1 class="mp-title">Ustaad Bhagat Singh</h1>
         <div class="mp-meta">
@@ -34,7 +34,7 @@
           <p><strong>Music:</strong> Devi Sri Prasad &bull; <strong>Score:</strong> Thaman S.</p>
           <p><strong>Production:</strong> Mythri Movie Makers</p>
         </div>
-        <div class="mp-dates">Premiering in Germany: March 18 – 23, 2026</div>
+        <div class="mp-dates">Premiered in Germany: March 18 – 23, 2026</div>
         <div class="mp-countdown" id="countdownBox"></div>
         <div class="mp-hero-buttons">
           <button id="interestedBtn" class="mp-interested-btn" onclick="toggleInterest()">
@@ -42,7 +42,6 @@
             <span id="interestedText">I'm Interested</span>
             <span id="interestedCount" class="mp-interested-count">0</span>
           </button>
-          <a href="ustaad.html" class="book-btn mp-book-btn">Book Tickets &rarr;</a>
         </div>
       </div>
     </section>
@@ -81,10 +80,6 @@
     </section>
 
     <!-- Reviews & Ratings -->
-    <!-- Book Tickets CTA -->
-    <section class="mp-section mp-cta-section">
-      <a href="ustaad.html" class="book-btn mp-book-btn-large">Book Tickets Now &rarr;</a>
-    </section>
   </main>
 
   <script type="module">
@@ -163,7 +158,7 @@
       const diffMs = premiere - now;
       const box = document.getElementById('countdownBox');
       if (diffMs <= 0) {
-        box.innerHTML = '<span class="mp-countdown-label">Now Showing!</span>';
+        box.innerHTML = '<span class="mp-countdown-label">Shows Ended</span>';
       } else {
         const days = Math.ceil(diffMs / 86400000);
         box.innerHTML = '<span class="mp-countdown-num">' + days + '</span><span class="mp-countdown-label"> Days to Premiere</span>';
@@ -185,6 +180,6 @@
       <div class="footer-copy">&copy; 2026 Germany Telugu Movies</div>
     </div>
   </footer>
-  <script src="nav.js"></script>
+  <script src="js/nav.js"></script>
 </body>
 </html>

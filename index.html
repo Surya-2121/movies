@@ -14,15 +14,15 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;900&display=swap" rel="stylesheet">
-  <link rel="icon" href="logo.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="images/logo.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body class="landing-page">
 
   <!-- Nav Menu -->
   <nav class="nav-menu" id="navMenu">
     <div class="nav-header">
-      <img src="logo.svg" alt="Logo" class="nav-logo">
+      <img src="images/logo.svg" alt="Logo" class="nav-logo">
       <button class="nav-close" onclick="toggleMenu()">&times;</button>
     </div>
     <a href="index.html" class="nav-link nav-link-active">Home</a>
@@ -84,7 +84,7 @@
     </div>
     <div class="hero-overlay"></div>
     <div class="hero-content">
-      <img src="logo.svg" alt="Germany Telugu Movies" class="hero-logo">
+      <img src="images/logo.svg" alt="Germany Telugu Movies" class="hero-logo">
       <p class="hero-tagline">Your home for Telugu cinema premieres across Germany</p>
     </div>
   </section>
@@ -103,17 +103,12 @@
       <!-- Movies -->
       <div class="movies-col">
         <h2 class="section-title">Movies</h2>
-        <a href="ustaad-movie.html" class="now-playing-card">
-          <div class="np-poster">
-            <img src="poster.jpg" alt="Ustaad Bhagat Singh">
+        <div class="now-playing-card no-shows-card">
+          <div class="np-info" style="text-align:center;padding:2rem 1rem;">
+            <h3 class="np-movie-name">No Current Shows</h3>
+            <p class="np-language">Stay tuned for upcoming Telugu movie premieres in Germany!</p>
           </div>
-          <div class="np-info">
-            <h3 class="np-movie-name">Ustaad Bhagat Singh</h3>
-            <p class="np-language">Telugu</p>
-            <p class="np-dates">March 18 – 23, 2026</p>
-            <span class="np-cta">Book Tickets &rarr;</span>
-          </div>
-        </a>
+        </div>
       </div>
 
       <!-- Coming Soon -->
@@ -125,7 +120,7 @@
         <div class="cs-slider">
           <div class="cs-track">
             <a href="peddi-movie.html" class="cs-card">
-              <img src="peddi.jpg" alt="Peddi">
+              <img src="images/peddi.jpg" alt="Peddi">
               <h3>Peddi</h3>
             </a>
             <a href="paradise-movie.html" class="cs-card">
@@ -137,11 +132,11 @@
               <h3>Vishwambhara</h3>
             </a>
             <a href="varanasi-movie.html" class="cs-card">
-              <img src="varanasi.jpg" alt="Varanasi">
+              <img src="images/varanasi.jpg" alt="Varanasi">
               <h3>Varanasi</h3>
             </a>
             <a href="spirit-movie.html" class="cs-card">
-              <img src="spirit.webp" alt="Spirit">
+              <img src="images/spirit.webp" alt="Spirit">
               <h3>Spirit</h3>
             </a>
           </div>
@@ -214,7 +209,7 @@
   </script>
   <script>
     const movies = [
-      { name: 'Ustaad Bhagat Singh', url: 'ustaad-movie.html', cast: 'Pawan Kalyan, Sreeleela, Raashii Khanna', status: 'Now Showing' },
+      { name: 'Ustaad Bhagat Singh', url: 'ustaad-movie.html', cast: 'Pawan Kalyan, Sreeleela, Raashii Khanna', status: 'Ended' },
       { name: 'Peddi', url: 'peddi-movie.html', cast: 'Ram Charan, Janhvi Kapoor', status: 'Coming Soon' },
       { name: 'The Paradise', url: 'paradise-movie.html', cast: 'Nani', status: 'Coming Soon' },
       { name: 'Vishwambhara', url: 'vishwambhara-movie.html', cast: 'Chiranjeevi', status: 'Coming Soon' },
@@ -263,7 +258,7 @@
       }, 3000);
     })();
   </script>
-  <script src="nav.js"></script>
+  <script src="js/nav.js"></script>
 
 </body>
 </html>
