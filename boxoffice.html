@@ -132,8 +132,28 @@
       }
     }
 
+    // Fix missing posters in existing Firebase data
+    async function fixPosters() {
+      const posterMap = {
+        ustaad: 'images/poster.jpg',
+        rrr: 'https://image.tmdb.org/t/p/w300/u0XUBNQWlOvrh0Gd97ARGpIkL0.jpg',
+        kalki: 'https://image.tmdb.org/t/p/w300/rstcAnBeCkxNQjNp3YXrF6IP1tW.jpg',
+        devara: 'https://image.tmdb.org/t/p/w300/7eO5iuvQjqHmqGwVoq7JPrWoXt6.jpg',
+        og: 'images/og.jpg',
+      };
+      const snap = await get(ref(db, 'boxoffice'));
+      const data = snap.val();
+      if (!data) return;
+      for (const [key, entry] of Object.entries(data)) {
+        if ((!entry.poster || !entry.poster.trim()) && posterMap[key]) {
+          await set(ref(db, 'boxoffice/' + key + '/poster'), posterMap[key]);
+        }
+      }
+    }
+
     async function loadBoxOffice() {
       await seedIfEmpty();
+      await fixPosters();
       const snap = await get(ref(db, 'boxoffice'));
       const data = snap.val() || {};
       const entries = Object.entries(data).map(([key, v]) => ({ key, ...v }));
@@ -163,7 +183,7 @@
       listEl.innerHTML = entries.map((e, i) => {
         const rank = i + 1;
         const cities = e.cities ? e.cities.split(',').map(c => c.trim()).filter(Boolean) : [];
-        const poster = e.poster || fallbackPosters[e.key] || '';
+        const poster = (e.poster && e.poster.trim()) ? e.poster : (fallbackPosters[e.key] || '');
         const gross = e.gross ? '€' + (e.gross).toLocaleString() : '—';
         return `<div class="bo-card">
           <div class="bo-rank">#${rank}</div>
