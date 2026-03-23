@@ -19,8 +19,11 @@ jobs:
         with:
           python-version: '3.12'
 
+      - name: Install dependencies
+        run: pip install requests beautifulsoup4
+
       - name: Fetch seat data
-        run: python fetch_seats.py
+        run: python scripts/fetch_seats.py
 
       - name: Commit and push if changed
         run: |
