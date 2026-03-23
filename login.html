@@ -43,7 +43,11 @@
         <div class="profile-avatar" id="profileAvatar">U</div>
         <h2 class="profile-name" id="profileName"></h2>
         <p class="profile-email" id="profileEmail"></p>
-        <div class="profile-badge">&#128276; Notifications enabled</div>
+        <div class="profile-badge" id="profileBadge">&#128276; Notifications enabled</div>
+        <div id="verifyNotice" class="verify-notice" style="display:none;">
+          <p>Please verify your email to receive notifications. Check your inbox!</p>
+          <button class="verify-resend-btn" onclick="resendVerification()">Resend verification email</button>
+        </div>
         <p class="profile-info">You'll receive an email when tickets go on sale for upcoming Telugu movies in Germany.</p>
         <button class="book-btn login-signout-btn" onclick="handleSignOut()">Sign Out</button>
       </div>
@@ -66,7 +70,7 @@
 
   <script type="module">
     import { initializeApp } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-app.js";
-    import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut, updateProfile } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-auth.js";
+    import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut, updateProfile, sendEmailVerification } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-auth.js";
     import { getDatabase, ref, set } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-database.js";
 
     const firebaseConfig = {
@@ -120,6 +124,11 @@
           const cred = await createUserWithEmailAndPassword(auth, email, password);
           await updateProfile(cred.user, { displayName: name });
           await set(ref(db, 'users/' + cred.user.uid), { name, email, notifyAll: true, createdAt: Date.now() });
+          // Send welcome/verification email
+          await sendEmailVerification(cred.user, {
+            url: 'https://germany-telugu-movies.com/login.html',
+            handleCodeInApp: false
+          });
         } else {
           await signInWithEmailAndPassword(auth, email, password);
         }
@@ -138,6 +147,20 @@
       await signOut(auth);
     };
 
+    window.resendVerification = async function() {
+      const user = auth.currentUser;
+      if (!user) return;
+      try {
+        await sendEmailVerification(user, {
+          url: 'https://germany-telugu-movies.com/login.html',
+          handleCodeInApp: false
+        });
+        document.getElementById('verifyNotice').querySelector('p').textContent = 'Verification email sent! Check your inbox.';
+      } catch {
+        document.getElementById('verifyNotice').querySelector('p').textContent = 'Please wait a moment before requesting another email.';
+      }
+    };
+
     onAuthStateChanged(auth, (user) => {
       const authForm = document.getElementById('authForm');
       const profileView = document.getElementById('profileView');
@@ -150,6 +173,19 @@
         document.getElementById('profileName').textContent = name;
         document.getElementById('profileEmail').textContent = user.email;
         if (navLink) { navLink.textContent = name; }
+        // Show verify notice if email not verified
+        const badge = document.getElementById('profileBadge');
+        const notice = document.getElementById('verifyNotice');
+        if (user.emailVerified) {
+          badge.style.display = 'inline-block';
+          notice.style.display = 'none';
+        } else {
+          badge.innerHTML = '&#9888; Email not verified';
+          badge.style.background = 'rgba(255,152,0,0.15)';
+          badge.style.borderColor = 'rgba(255,152,0,0.3)';
+          badge.style.color = '#ff9800';
+          notice.style.display = 'block';
+        }
       } else {
         authForm.style.display = 'block';
         profileView.style.display = 'none';

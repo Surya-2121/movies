@@ -2282,6 +2282,33 @@ main {
 .light-theme .profile-info { color: #888; }
 .light-theme .login-signout-btn { border-color: #ccc; color: #777; }
 
+.verify-notice {
+  background: rgba(255,152,0,0.08);
+  border: 1px solid rgba(255,152,0,0.2);
+  border-radius: 10px;
+  padding: 14px 18px;
+  margin-bottom: 16px;
+  font-size: 0.85rem;
+  color: #ff9800;
+  line-height: 1.5;
+}
+
+.verify-resend-btn {
+  margin-top: 8px;
+  background: none;
+  border: 1px solid #ff9800;
+  color: #ff9800;
+  padding: 6px 16px;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.verify-resend-btn:hover {
+  background: rgba(255,152,0,0.12);
+}
+
 @media (max-width: 480px) {
   .login-box { padding: 36px 24px; }
 }

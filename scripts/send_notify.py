@@ -113,6 +113,70 @@ https://germany-telugu-movies.com
     return msg
 
 
+def get_registered_users():
+    """Get all registered users (from Firebase Auth via users/ node)."""
+    ref = db.reference('users')
+    data = ref.get()
+    if not data:
+        return []
+    emails = []
+    for uid, user in data.items():
+        if isinstance(user, dict) and user.get('notifyAll') and 'email' in user:
+            emails.append({'email': user['email'], 'name': user.get('name', '')})
+    return emails
+
+
+def build_welcome_email(name, to_email):
+    msg = MIMEMultipart('alternative')
+    msg['Subject'] = 'Welcome to Germany Telugu Movies!'
+    msg['From'] = f'{FROM_NAME} <{FROM_EMAIL}>'
+    msg['To'] = to_email
+
+    greeting = f'Hi {name}!' if name else 'Hi there!'
+
+    text = f"""{greeting}
+
+Welcome to Germany Telugu Movies!
+
+Thank you for creating an account. You will now be notified via email whenever tickets go on sale for upcoming Telugu movie premieres in Germany.
+
+Stay tuned - we'll let you know as soon as the next movie tickets are live!
+
+Visit us: https://germany-telugu-movies.com
+
+- Germany Telugu Movies
+"""
+
+    html = f"""<div style="font-family:Segoe UI,sans-serif;max-width:600px;margin:0 auto;background:#0f0f1a;color:#e0e0e0;border-radius:12px;overflow:hidden;">
+  <div style="background:linear-gradient(135deg,#1a1a2e,#16213e);padding:28px 32px;border-bottom:3px solid #f0ad4e;text-align:center;">
+    <h1 style="color:#f0ad4e;margin:0;font-size:1.5rem;">Germany Telugu Movies</h1>
+  </div>
+  <div style="padding:32px;">
+    <h2 style="color:#fff;margin:0 0 16px;">Welcome! &#127916;</h2>
+    <p style="font-size:1.1rem;color:#ccc;line-height:1.6;">
+      {greeting} Thank you for joining <strong style="color:#f0ad4e;">Germany Telugu Movies</strong>!
+    </p>
+    <p style="font-size:1rem;color:#ccc;line-height:1.6;">
+      You will now be <strong>notified via email</strong> whenever tickets go on sale for upcoming Telugu movie premieres in Germany.
+    </p>
+    <div style="background:#1a1a2e;border:1px solid #2a2a4a;border-radius:10px;padding:20px;margin:24px 0;text-align:center;">
+      <p style="color:#4caf50;font-size:1rem;margin:0 0 4px;">&#128276; Notifications Enabled</p>
+      <p style="color:#888;font-size:0.85rem;margin:0;">We'll email you when the next movie tickets go live!</p>
+    </div>
+    <div style="text-align:center;margin:24px 0;">
+      <a href="https://germany-telugu-movies.com" style="display:inline-block;background:#f0ad4e;color:#000;padding:14px 40px;border-radius:8px;text-decoration:none;font-weight:700;font-size:1rem;">Visit Website</a>
+    </div>
+  </div>
+  <div style="padding:16px 32px;border-top:1px solid #2a2a4a;text-align:center;font-size:0.8rem;color:#555;">
+    Germany Telugu Movies &bull; <a href="https://germany-telugu-movies.com" style="color:#f0ad4e;text-decoration:none;">germany-telugu-movies.com</a>
+  </div>
+</div>"""
+
+    msg.attach(MIMEText(text, 'plain'))
+    msg.attach(MIMEText(html, 'html'))
+    return msg
+
+
 def send_emails(movie_key, booking_url):
     movie_name = MOVIE_NAMES.get(movie_key, movie_key.title())
 
@@ -122,13 +186,20 @@ def send_emails(movie_key, booking_url):
         sys.exit(1)
 
     init_firebase()
-    subscribers = get_subscribers(movie_key)
 
-    if not subscribers:
+    # Get per-movie subscribers
+    subscribers = get_subscribers(movie_key)
+    # Also get all registered users who opted for notifications
+    registered = get_registered_users()
+    reg_emails = [u['email'] for u in registered]
+    # Merge and deduplicate
+    all_emails = list(set(subscribers + reg_emails))
+
+    if not all_emails:
         print(f"No subscribers found for '{movie_key}'.")
         return
 
-    print(f"Found {len(subscribers)} subscriber(s) for {movie_name}.")
+    print(f"Found {len(all_emails)} recipient(s) for {movie_name} ({len(subscribers)} per-movie + {len(reg_emails)} registered users).")
     print(f"Sending notification emails...")
 
     sent = 0
@@ -138,7 +209,7 @@ def send_emails(movie_key, booking_url):
         server.starttls()
         server.login(SMTP_USER, SMTP_PASS)
 
-        for email in subscribers:
+        for email in all_emails:
             try:
                 msg = build_email(movie_name, booking_url, email)
                 server.sendmail(FROM_EMAIL, email, msg.as_string())
@@ -151,13 +222,56 @@ def send_emails(movie_key, booking_url):
     print(f"\nDone! Sent: {sent}, Failed: {failed}")
 
 
-if __name__ == '__main__':
-    if len(sys.argv) < 3:
-        print("Usage: python send_notify.py <movie_key> <booking_url>")
-        print("  movie_key: spirit, peddi, paradise, varanasi, vishwambhara")
-        print("  booking_url: full URL to the booking page")
-        print("\nExample:")
-        print("  python send_notify.py peddi https://germany-telugu-movies.com/peddi.html")
+def send_welcome(email, name=''):
+    """Send a welcome email to a newly registered user."""
+    if not SMTP_USER or not SMTP_PASS:
+        print("ERROR: Set SMTP_USER and SMTP_PASS environment variables.")
         sys.exit(1)
 
-    send_emails(sys.argv[1], sys.argv[2])
+    print(f"Sending welcome email to {email}...")
+
+    with smtplib.SMTP(SMTP_HOST, SMTP_PORT) as server:
+        server.starttls()
+        server.login(SMTP_USER, SMTP_PASS)
+        msg = build_welcome_email(name, email)
+        server.sendmail(FROM_EMAIL, email, msg.as_string())
+
+    print("Welcome email sent!")
+
+
+if __name__ == '__main__':
+    if len(sys.argv) < 2:
+        print("Usage:")
+        print("  python send_notify.py <movie_key> <booking_url>  - Send ticket notifications")
+        print("  python send_notify.py welcome <email> [name]     - Send welcome email")
+        print("  python send_notify.py welcome-all                - Send welcome to all registered users")
+        print("\nExamples:")
+        print("  python send_notify.py peddi https://germany-telugu-movies.com/peddi.html")
+        print("  python send_notify.py welcome user@example.com John")
+        print("  python send_notify.py welcome-all")
+        sys.exit(1)
+
+    if sys.argv[1] == 'welcome' and len(sys.argv) >= 3:
+        name = sys.argv[3] if len(sys.argv) > 3 else ''
+        send_welcome(sys.argv[2], name)
+    elif sys.argv[1] == 'welcome-all':
+        init_firebase()
+        users = get_registered_users()
+        if not users:
+            print("No registered users found.")
+        else:
+            print(f"Sending welcome emails to {len(users)} user(s)...")
+            with smtplib.SMTP(SMTP_HOST, SMTP_PORT) as server:
+                server.starttls()
+                server.login(SMTP_USER, SMTP_PASS)
+                for u in users:
+                    try:
+                        msg = build_welcome_email(u['name'], u['email'])
+                        server.sendmail(FROM_EMAIL, u['email'], msg.as_string())
+                        print(f"  Sent: {u['email']}")
+                    except Exception as e:
+                        print(f"  FAILED: {u['email']} - {e}")
+    elif len(sys.argv) >= 3:
+        send_emails(sys.argv[1], sys.argv[2])
+    else:
+        print("Invalid arguments. Run without args for usage.")
