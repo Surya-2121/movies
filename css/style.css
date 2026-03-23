@@ -11,6 +11,96 @@ body {
   min-height: 100vh;
 }
 
+/* ===== Netflix-style Search (Homepage) ===== */
+.nf-search {
+  position: fixed;
+  top: 16px;
+  right: 62px;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  flex-direction: row-reverse;
+}
+
+.nf-search-icon {
+  background: rgba(15,15,26,0.85);
+  border: 1px solid #2a2a4a;
+  border-radius: 8px;
+  padding: 8px 10px;
+  cursor: pointer;
+  backdrop-filter: blur(8px);
+  color: #f0ad4e;
+  font-size: 18px;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  z-index: 2;
+}
+
+.nf-search-icon:hover { border-color: #f0ad4e; }
+
+.nf-search-input {
+  width: 0;
+  padding: 0;
+  font-size: 0.9rem;
+  font-family: inherit;
+  background: rgba(15,15,26,0.95);
+  border: 1px solid #2a2a4a;
+  border-right: none;
+  border-radius: 8px 0 0 8px;
+  color: #fff;
+  outline: none;
+  opacity: 0;
+  transition: width 0.3s ease, padding 0.3s ease, opacity 0.3s ease;
+  backdrop-filter: blur(8px);
+}
+
+.nf-search-input::placeholder { color: #666; }
+
+.nf-search-open .nf-search-input {
+  width: 260px;
+  padding: 8px 14px;
+  opacity: 1;
+}
+
+.nf-search-open .nf-search-icon {
+  border-radius: 0 8px 8px 0;
+  border-left: none;
+  border-color: #f0ad4e;
+}
+
+.nf-search-open .nf-search-input {
+  border-color: #f0ad4e;
+}
+
+.nf-search-results {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  width: calc(260px + 40px);
+  background: #1a1a2e;
+  border: 1px solid #2a2a4a;
+  border-radius: 0 0 12px 12px;
+  margin-top: 2px;
+  overflow: hidden;
+  display: none;
+  z-index: 1001;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+}
+
+.nf-search-open .nf-search-results:not(:empty) {
+  display: block;
+}
+
+.light-theme .nf-search-icon { background: rgba(255,255,255,0.9); border-color: #ddd; color: #d4880f; }
+.light-theme .nf-search-icon:hover { border-color: #d4880f; }
+.light-theme .nf-search-input { background: rgba(255,255,255,0.95); border-color: #ddd; color: #222; }
+.light-theme .nf-search-open .nf-search-input { border-color: #d4880f; }
+.light-theme .nf-search-open .nf-search-icon { border-color: #d4880f; }
+.light-theme .nf-search-results { background: #fff; border-color: #ddd; }
+
 /* ===== Hamburger Menu Button ===== */
 .search-btn {
   position: fixed;

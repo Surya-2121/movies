@@ -38,14 +38,11 @@
   </nav>
   <div class="nav-overlay" id="navOverlay" onclick="toggleMenu()"></div>
 
-  <!-- Search Button -->
-  <button class="search-btn" onclick="toggleSearch()"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></button>
-  <div class="search-overlay" id="searchOverlay">
-    <div class="search-overlay-box">
-      <button class="search-overlay-close" onclick="toggleSearch()">&times;</button>
-      <input type="text" class="search-overlay-input" id="movieSearch" placeholder="Search for a movie..." oninput="handleHomeSearch(event)" autocomplete="off">
-      <div class="search-overlay-results" id="searchResults"></div>
-    </div>
+  <!-- Search Bar (Netflix-style expand left) -->
+  <div class="nf-search" id="nfSearch">
+    <button class="nf-search-icon" onclick="toggleSearch()"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></button>
+    <input type="text" class="nf-search-input" id="movieSearch" placeholder="Search for a movie..." oninput="handleHomeSearch(event)" autocomplete="off">
+    <div class="nf-search-results" id="searchResults"></div>
   </div>
 
   <!-- Menu Button -->
@@ -221,15 +218,26 @@
     ];
 
     function toggleSearch() {
-      const overlay = document.getElementById('searchOverlay');
-      const isOpen = overlay.classList.toggle('search-overlay-open');
-      if (isOpen) document.getElementById('movieSearch').focus();
+      const box = document.getElementById('nfSearch');
+      const isOpen = box.classList.toggle('nf-search-open');
+      const input = document.getElementById('movieSearch');
+      if (isOpen) { input.focus(); }
+      else { input.value = ''; document.getElementById('searchResults').innerHTML = ''; }
     }
+
+    document.addEventListener('click', function(e) {
+      const box = document.getElementById('nfSearch');
+      if (box.classList.contains('nf-search-open') && !e.target.closest('.nf-search')) {
+        box.classList.remove('nf-search-open');
+        document.getElementById('movieSearch').value = '';
+        document.getElementById('searchResults').innerHTML = '';
+      }
+    });
 
     function handleHomeSearch(e) {
       const q = e.target.value.trim().toLowerCase();
       const results = document.getElementById('searchResults');
-      if (!q) { results.innerHTML = ''; return; }
+      if (!q) { results.innerHTML = ''; results.style.display = 'none'; return; }
       const matches = movies.filter(m => m.name.toLowerCase().includes(q) || m.cast.toLowerCase().includes(q));
       if (matches.length === 0) {
         results.innerHTML = '<div class="search-item search-empty">No movies found</div>';
@@ -241,6 +249,7 @@
           </a>
         `).join('');
       }
+      results.style.display = 'block';
     }
   </script>
   <script>
