@@ -103,7 +103,7 @@
       <!-- Movies -->
       <div class="movies-col">
         <h2 class="section-title">Movies</h2>
-        <div class="now-playing-card no-shows-card" style="height:100%;align-items:center;justify-content:center;">
+        <div class="now-playing-card no-shows-card" id="noShowsCard" style="align-items:center;justify-content:center;">
           <div class="np-info" style="text-align:center;padding:2rem 1rem;">
             <h3 class="np-movie-name">No Current Shows</h3>
             <p class="np-language">Stay tuned for upcoming Telugu movie premieres in Germany!</p>
@@ -256,6 +256,20 @@
         cur = (cur + 1) % items.length;
         track.style.transform = 'translateX(-' + (cur * 100) + '%)';
       }, 3000);
+    })();
+  </script>
+  <script>
+    // Match No Current Shows card height to Coming Soon slider
+    (function() {
+      var card = document.getElementById('noShowsCard');
+      if (!card) return;
+      var csCard = document.querySelector('.cs-card');
+      if (!csCard) return;
+      var img = csCard.querySelector('img');
+      function sync() { card.style.height = csCard.offsetHeight + 'px'; }
+      if (img && img.complete) sync();
+      else if (img) img.addEventListener('load', sync);
+      window.addEventListener('resize', sync);
     })();
   </script>
   <script src="js/nav.js"></script>
