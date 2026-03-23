@@ -37,8 +37,13 @@
   </header>
 
   <main class="reviews-page">
-    <h1 class="page-title">Box Office</h1>
-    <p class="bo-subtitle">All-time premiere admissions for Telugu movies in Germany</p>
+    <div class="bo-header">
+      <img src="images/poster.jpg" alt="Box Office" class="bo-header-poster">
+      <div class="bo-header-text">
+        <h1 class="page-title">Box Office</h1>
+        <p class="bo-subtitle">All-time premiere admissions for Telugu movies in Germany</p>
+      </div>
+    </div>
 
     <!-- Movie list -->
     <div id="boList" class="bo-list">
@@ -52,6 +57,7 @@
       <div class="bo-admin-form">
         <select id="boMovieKey" class="login-input">
           <option value="">Select movie...</option>
+          <option value="rrr">RRR</option>
           <option value="kalki">Kalki 2898 AD</option>
           <option value="og">They Call Him OG</option>
           <option value="devara">Devara</option>
@@ -121,6 +127,7 @@
       const snap = await get(ref(db, 'boxoffice'));
       if (snap.val()) return;
       const seed = {
+        rrr: { name: 'RRR', dates: '2022', admissions: 1357, gross: 30290, shows: 0, cities: '', poster: 'https://image.tmdb.org/t/p/w300/u0XUBNQWlOvrh0Gd97ARGpIkL0.jpg' },
         kalki: { name: 'Kalki 2898 AD', dates: '2024', admissions: 1787, gross: 50013, shows: 0, cities: '', poster: 'https://image.tmdb.org/t/p/w300/rstcAnBeCkxNQjNp3YXrF6IP1tW.jpg' },
         og: { name: 'They Call Him OG', dates: '2025', admissions: 2038, gross: 49798, shows: 0, cities: '', poster: '' },
         devara: { name: 'Devara', dates: '2025', admissions: 1333, gross: 28000, shows: 0, cities: '', poster: 'https://image.tmdb.org/t/p/w300/7eO5iuvQjqHmqGwVoq7JPrWoXt6.jpg' },
@@ -220,7 +227,7 @@
         document.getElementById('boCities').value = d.cities || '';
         document.getElementById('boPoster').value = d.poster || '';
       } else {
-        const names = { kalki: 'Kalki 2898 AD', og: 'They Call Him OG', devara: 'Devara', ustaad: 'Ustaad Bhagat Singh', peddi: 'Peddi', paradise: 'The Paradise', vishwambhara: 'Vishwambhara', varanasi: 'Varanasi', spirit: 'Spirit' };
+        const names = { rrr: 'RRR', kalki: 'Kalki 2898 AD', og: 'They Call Him OG', devara: 'Devara', ustaad: 'Ustaad Bhagat Singh', peddi: 'Peddi', paradise: 'The Paradise', vishwambhara: 'Vishwambhara', varanasi: 'Varanasi', spirit: 'Spirit' };
         document.getElementById('boMovieName').value = names[key] || '';
       }
     });
