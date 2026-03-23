@@ -60,6 +60,46 @@ function handleSearchInput(e) {
   }
 }
 
+// Inject Login link into nav if not present
+(function() {
+  const nav = document.getElementById('navMenu');
+  if (!nav) return;
+  if (nav.querySelector('.nav-login-link')) return;
+  const divider = nav.querySelector('.nav-divider');
+  if (!divider) return;
+  const link = document.createElement('a');
+  link.href = 'login.html';
+  link.className = 'nav-link nav-login-link';
+  link.id = 'navLoginLink';
+  link.textContent = 'Login';
+  divider.insertAdjacentElement('afterend', link);
+})();
+
+// Update nav login link with Firebase auth state
+import("https://www.gstatic.com/firebasejs/11.4.0/firebase-app.js").then(({ initializeApp }) => {
+  import("https://www.gstatic.com/firebasejs/11.4.0/firebase-auth.js").then(({ getAuth, onAuthStateChanged }) => {
+    const app = initializeApp({
+      apiKey: "AIzaSyDmGjpEbIo3YupHpWSc8rgzXWESF5-IPCQ",
+      authDomain: "gtm-counter.firebaseapp.com",
+      databaseURL: "https://gtm-counter-default-rtdb.europe-west1.firebasedatabase.app",
+      projectId: "gtm-counter",
+      storageBucket: "gtm-counter.firebasestorage.app",
+      messagingSenderId: "424507047798",
+      appId: "1:424507047798:web:ab288d3575e67917abc457"
+    }, 'nav');
+    const auth = getAuth(app);
+    onAuthStateChanged(auth, (user) => {
+      const link = document.getElementById('navLoginLink');
+      if (!link) return;
+      if (user) {
+        link.textContent = user.displayName || 'Account';
+      } else {
+        link.textContent = 'Login';
+      }
+    });
+  });
+});
+
 window.toggleMenu = toggleMenu;
 window.toggleTheme = toggleTheme;
 window.toggleSearch = toggleSearch;

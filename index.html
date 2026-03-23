@@ -32,6 +32,7 @@
     <a href="about.html" class="nav-link">About Us</a>
     <a href="contact.html" class="nav-link">Contact</a>
     <div class="nav-divider"></div>
+    <a href="login.html" class="nav-link nav-login-link" id="navLoginLink">Login</a>
     <button class="nav-theme-btn" onclick="toggleTheme()">
       <span id="themeIcon">&#9788;</span> <span id="themeText">Light Mode</span>
     </button>
@@ -164,23 +165,6 @@
     </a>
   </section>
 
-  <!-- Get Notified -->
-  <section class="movies-section">
-    <div class="home-notify">
-      <div class="home-notify-icon">&#128276;</div>
-      <h2 class="section-title">Get Notified</h2>
-      <p class="home-notify-desc">Be the first to know when tickets go on sale for upcoming Telugu movies in Germany!</p>
-      <div class="home-notify-form" id="homeNotifyForm">
-        <div class="notify-form-row">
-          <input type="email" id="homeNotifyEmail" class="notify-input" placeholder="Your email address">
-          <button id="homeNotifySubmit" class="book-btn notify-submit-btn">Subscribe</button>
-        </div>
-        <div id="homeNotifyMsg" class="review-msg"></div>
-      </div>
-      <div class="home-notify-count"><span id="homeSubCount">0</span> subscribers</div>
-    </div>
-  </section>
-
   <!-- Footer -->
   <footer class="site-footer">
     <div class="footer-content">
@@ -293,61 +277,6 @@
       else if (img) img.addEventListener('load', sync);
       window.addEventListener('resize', sync);
     })();
-  </script>
-  <script type="module">
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-app.js";
-    import { getDatabase, ref, push, runTransaction, onValue } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-database.js";
-
-    const firebaseConfig = {
-      apiKey: "AIzaSyDmGjpEbIo3YupHpWSc8rgzXWESF5-IPCQ",
-      authDomain: "gtm-counter.firebaseapp.com",
-      databaseURL: "https://gtm-counter-default-rtdb.europe-west1.firebasedatabase.app",
-      projectId: "gtm-counter",
-      storageBucket: "gtm-counter.firebasestorage.app",
-      messagingSenderId: "424507047798",
-      appId: "1:424507047798:web:ab288d3575e67917abc457"
-    };
-
-    const app = initializeApp(firebaseConfig);
-    const db = getDatabase(app);
-    const notifyRef = ref(db, 'notify/all');
-    const countRef = ref(db, 'notify_count/all');
-    const STORAGE_KEY = 'gtm_notify_all';
-
-    // Show subscriber count
-    onValue(countRef, (snap) => {
-      document.getElementById('homeSubCount').textContent = snap.val() || 0;
-    });
-
-    // If already subscribed
-    if (localStorage.getItem(STORAGE_KEY)) {
-      const form = document.getElementById('homeNotifyForm');
-      form.innerHTML = '<p class="predict-done">&#10003; You are subscribed! We will notify you.</p>';
-    }
-
-    document.getElementById('homeNotifySubmit')?.addEventListener('click', async () => {
-      const email = document.getElementById('homeNotifyEmail').value.trim();
-      const msg = document.getElementById('homeNotifyMsg');
-      if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-        msg.textContent = 'Please enter a valid email address.'; msg.className = 'review-msg review-msg-err'; return;
-      }
-      if (localStorage.getItem(STORAGE_KEY)) {
-        msg.textContent = 'You are already subscribed!'; msg.className = 'review-msg review-msg-ok'; return;
-      }
-      const btn = document.getElementById('homeNotifySubmit');
-      btn.disabled = true; btn.textContent = 'Subscribing...';
-      try {
-        await push(notifyRef, { email, timestamp: Date.now() });
-        await runTransaction(countRef, c => (c || 0) + 1);
-        localStorage.setItem(STORAGE_KEY, 'true');
-        msg.textContent = 'Subscribed! You will be notified when tickets go live.'; msg.className = 'review-msg review-msg-ok';
-        document.getElementById('homeNotifyEmail').disabled = true;
-        btn.textContent = 'Subscribed';
-      } catch {
-        msg.textContent = 'Error subscribing. Please try again.'; msg.className = 'review-msg review-msg-err';
-        btn.disabled = false; btn.textContent = 'Subscribe';
-      }
-    });
   </script>
   <script src="js/nav.js"></script>
 

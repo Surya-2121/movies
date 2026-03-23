@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login - Germany Telugu Movies</title>
+  <meta name="description" content="Sign in to get notified when Telugu movie tickets go on sale in Germany.">
+  <link rel="icon" href="images/logo.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <nav class="nav-menu" id="navMenu"><div class="nav-header"><img src="images/logo.svg" alt="Logo" class="nav-logo"><button class="nav-close" onclick="toggleMenu()">&times;</button></div><a href="index.html" class="nav-link">Home</a><a href="coming-soon.html" class="nav-link">Coming Soon</a><a href="reviews.html" class="nav-link">Reviews</a><a href="predict.html" class="nav-link">Predict &amp; Win</a><a href="about.html" class="nav-link">About Us</a><a href="contact.html" class="nav-link">Contact</a><div class="nav-divider"></div><a href="login.html" class="nav-link nav-link-active nav-login-link" id="navLoginLink">Login</a><button class="nav-theme-btn" onclick="toggleTheme()"><span id="themeIcon">&#9788;</span> <span id="themeText">Light Mode</span></button></nav><div class="nav-overlay" id="navOverlay" onclick="toggleMenu()"></div><button class="search-btn" onclick="toggleSearch()"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></button>
+<div class="search-overlay" id="searchOverlay"><div class="search-overlay-box"><button class="search-overlay-close" onclick="toggleSearch()">&times;</button><input type="text" class="search-overlay-input" placeholder="Search for a movie..." oninput="handleSearchInput(event)" autocomplete="off"><div class="search-overlay-results" id="searchOverlayResults"></div></div></div>
+<button class="menu-btn" id="menuBtn" onclick="toggleMenu()"><span></span><span></span><span></span></button>
+
+  <header class="site-header">
+    <a href="index.html"><img src="images/logo.svg" alt="Germany Telugu Movies" class="header-logo"></a>
+  </header>
+
+  <main class="login-page">
+    <!-- Login/Signup Box -->
+    <div class="login-box" id="loginBox">
+      <div class="login-icon">&#127916;</div>
+      <h1 class="login-title" id="loginTitle">Sign In</h1>
+      <p class="login-desc">Get notified when Telugu movie tickets go on sale in Germany!</p>
+
+      <div id="authForm">
+        <input type="email" id="authEmail" class="login-input" placeholder="Email address" autocomplete="email">
+        <input type="password" id="authPassword" class="login-input" placeholder="Password" autocomplete="current-password">
+        <div id="authNameRow" class="login-name-row" style="display:none;">
+          <input type="text" id="authName" class="login-input" placeholder="Your name" maxlength="50">
+        </div>
+        <button id="authSubmit" class="book-btn login-submit-btn" onclick="handleAuth()">Sign In</button>
+        <div id="authMsg" class="review-msg"></div>
+        <p class="login-toggle">
+          <span id="toggleText">Don't have an account?</span>
+          <a href="#" id="toggleLink" onclick="toggleMode(event)">Sign Up</a>
+        </p>
+      </div>
+
+      <!-- Logged-in view -->
+      <div id="profileView" style="display:none;">
+        <div class="profile-avatar" id="profileAvatar">U</div>
+        <h2 class="profile-name" id="profileName"></h2>
+        <p class="profile-email" id="profileEmail"></p>
+        <div class="profile-badge">&#128276; Notifications enabled</div>
+        <p class="profile-info">You'll receive an email when tickets go on sale for upcoming Telugu movies in Germany.</p>
+        <button class="book-btn login-signout-btn" onclick="handleSignOut()">Sign Out</button>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-content">
+      <div class="footer-location">Germany</div>
+      <a href="mailto:info@germany-telugu-movies.com" class="footer-email">info@germany-telugu-movies.com</a>
+      <div class="footer-social">
+        <a href="https://www.instagram.com/germanytelugumovies?igsh=dmE4N2R5YWxqYWhm&utm_source=qr" target="_blank" rel="noopener" class="footer-instagram">
+          <svg style="width:18px;height:18px;vertical-align:middle;margin-right:6px;" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 1.17.054 1.97.24 2.43.403a4.08 4.08 0 011.47.958c.453.453.78.898.958 1.47.163.46.35 1.26.404 2.43.058 1.266.07 1.646.07 4.85s-.012 3.584-.07 4.85c-.054 1.17-.24 1.97-.404 2.43a4.08 4.08 0 01-.958 1.47 4.08 4.08 0 01-1.47.958c-.46.163-1.26.35-2.43.404-1.266.058-1.646.07-4.85.07s-3.584-.012-4.85-.07c-1.17-.054-1.97-.24-2.43-.404a4.08 4.08 0 01-1.47-.958 4.08 4.08 0 01-.958-1.47c-.163-.46-.35-1.26-.404-2.43C2.175 15.584 2.163 15.204 2.163 12s.012-3.584.07-4.85c.054-1.17.24-1.97.404-2.43a4.08 4.08 0 01.958-1.47 4.08 4.08 0 011.47-.958c.46-.163 1.26-.35 2.43-.404C8.416 2.175 8.796 2.163 12 2.163M12 0C8.741 0 8.333.014 7.053.072 5.775.13 4.902.333 4.14.63a6.21 6.21 0 00-2.245 1.462A6.21 6.21 0 00.433 4.337C.136 5.1-.067 5.973.01 7.25.068 8.53.082 8.938.082 12.197c0 3.259.014 3.668.072 4.948.058 1.277.261 2.15.558 2.913a6.21 6.21 0 001.462 2.245 6.21 6.21 0 002.245 1.462c.763.297 1.636.5 2.913.558C8.333 23.986 8.741 24 12 24s3.668-.014 4.948-.072c1.277-.058 2.15-.261 2.913-.558a6.21 6.21 0 002.245-1.462 6.21 6.21 0 001.462-2.245c.297-.763.5-1.636.558-2.913.058-1.28.072-1.689.072-4.948s-.014-3.668-.072-4.948c-.058-1.277-.261-2.15-.558-2.913a6.21 6.21 0 00-1.462-2.245A6.21 6.21 0 0019.861.633C19.1.336 18.225.133 16.948.075 15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+          @germanytelugumovies
+        </a>
+      </div>
+      <div class="footer-copy">&copy; 2026 Germany Telugu Movies</div>
+    </div>
+  </footer>
+
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-app.js";
+    import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut, updateProfile } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-auth.js";
+    import { getDatabase, ref, set } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-database.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyDmGjpEbIo3YupHpWSc8rgzXWESF5-IPCQ",
+      authDomain: "gtm-counter.firebaseapp.com",
+      databaseURL: "https://gtm-counter-default-rtdb.europe-west1.firebasedatabase.app",
+      projectId: "gtm-counter",
+      storageBucket: "gtm-counter.firebasestorage.app",
+      messagingSenderId: "424507047798",
+      appId: "1:424507047798:web:ab288d3575e67917abc457"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+    const db = getDatabase(app);
+
+    let isSignUp = false;
+
+    window.toggleMode = function(e) {
+      e.preventDefault();
+      isSignUp = !isSignUp;
+      document.getElementById('loginTitle').textContent = isSignUp ? 'Sign Up' : 'Sign In';
+      document.getElementById('authSubmit').textContent = isSignUp ? 'Create Account' : 'Sign In';
+      document.getElementById('toggleText').textContent = isSignUp ? 'Already have an account?' : "Don't have an account?";
+      document.getElementById('toggleLink').textContent = isSignUp ? 'Sign In' : 'Sign Up';
+      document.getElementById('authNameRow').style.display = isSignUp ? 'block' : 'none';
+      document.getElementById('authPassword').autocomplete = isSignUp ? 'new-password' : 'current-password';
+      document.getElementById('authMsg').textContent = '';
+    };
+
+    window.handleAuth = async function() {
+      const email = document.getElementById('authEmail').value.trim();
+      const password = document.getElementById('authPassword').value;
+      const msg = document.getElementById('authMsg');
+      const btn = document.getElementById('authSubmit');
+
+      if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+        msg.textContent = 'Please enter a valid email.'; msg.className = 'review-msg review-msg-err'; return;
+      }
+      if (password.length < 6) {
+        msg.textContent = 'Password must be at least 6 characters.'; msg.className = 'review-msg review-msg-err'; return;
+      }
+
+      btn.disabled = true;
+      btn.textContent = isSignUp ? 'Creating...' : 'Signing in...';
+
+      try {
+        if (isSignUp) {
+          const name = document.getElementById('authName').value.trim();
+          if (!name) { msg.textContent = 'Please enter your name.'; msg.className = 'review-msg review-msg-err'; btn.disabled = false; btn.textContent = 'Create Account'; return; }
+          const cred = await createUserWithEmailAndPassword(auth, email, password);
+          await updateProfile(cred.user, { displayName: name });
+          await set(ref(db, 'users/' + cred.user.uid), { name, email, notifyAll: true, createdAt: Date.now() });
+        } else {
+          await signInWithEmailAndPassword(auth, email, password);
+        }
+      } catch (err) {
+        let errMsg = 'Something went wrong. Please try again.';
+        if (err.code === 'auth/email-already-in-use') errMsg = 'This email is already registered. Try signing in.';
+        else if (err.code === 'auth/invalid-credential' || err.code === 'auth/wrong-password' || err.code === 'auth/user-not-found') errMsg = 'Invalid email or password.';
+        else if (err.code === 'auth/weak-password') errMsg = 'Password must be at least 6 characters.';
+        else if (err.code === 'auth/too-many-requests') errMsg = 'Too many attempts. Please try again later.';
+        msg.textContent = errMsg; msg.className = 'review-msg review-msg-err';
+        btn.disabled = false; btn.textContent = isSignUp ? 'Create Account' : 'Sign In';
+      }
+    };
+
+    window.handleSignOut = async function() {
+      await signOut(auth);
+    };
+
+    onAuthStateChanged(auth, (user) => {
+      const authForm = document.getElementById('authForm');
+      const profileView = document.getElementById('profileView');
+      const navLink = document.getElementById('navLoginLink');
+      if (user) {
+        authForm.style.display = 'none';
+        profileView.style.display = 'block';
+        const name = user.displayName || 'User';
+        document.getElementById('profileAvatar').textContent = name.charAt(0).toUpperCase();
+        document.getElementById('profileName').textContent = name;
+        document.getElementById('profileEmail').textContent = user.email;
+        if (navLink) { navLink.textContent = name; }
+      } else {
+        authForm.style.display = 'block';
+        profileView.style.display = 'none';
+        if (navLink) { navLink.textContent = 'Login'; }
+      }
+    });
+
+    // Enter key submits
+    document.querySelectorAll('.login-input').forEach(input => {
+      input.addEventListener('keydown', (e) => { if (e.key === 'Enter') handleAuth(); });
+    });
+  </script>
+  <script src="js/nav.js"></script>
+</body>
+</html>
