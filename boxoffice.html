@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Box Office - Germany Telugu Movies</title>
+  <meta name="description" content="All-time box office admissions for Telugu movie premieres in Germany.">
+  <link rel="icon" href="images/logo.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <nav class="nav-menu" id="navMenu">
+    <div class="nav-header">
+      <img src="images/logo.svg" alt="Logo" class="nav-logo">
+      <button class="nav-close" onclick="toggleMenu()">&times;</button>
+    </div>
+    <a href="index.html" class="nav-link">Home</a>
+    <a href="coming-soon.html" class="nav-link">Coming Soon</a>
+    <a href="boxoffice.html" class="nav-link nav-link-active">Box Office</a>
+    <a href="reviews.html" class="nav-link">Reviews</a>
+    <a href="predict.html" class="nav-link">Predict & Win</a>
+    <a href="about.html" class="nav-link">About Us</a>
+    <a href="contact.html" class="nav-link">Contact</a>
+    <div class="nav-divider"></div>
+    <a href="login.html" class="nav-link nav-login-link" id="navLoginLink">Login</a>
+    <button class="nav-theme-btn" onclick="toggleTheme()">
+      <span id="themeIcon">&#9788;</span> <span id="themeText">Light Mode</span>
+    </button>
+  </nav>
+  <div class="nav-overlay" id="navOverlay" onclick="toggleMenu()"></div>
+  <button class="search-btn" onclick="toggleSearch()"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></button>
+  <div class="search-overlay" id="searchOverlay"><div class="search-overlay-box"><button class="search-overlay-close" onclick="toggleSearch()">&times;</button><input type="text" class="search-overlay-input" placeholder="Search for a movie..." oninput="handleSearchInput(event)" autocomplete="off"><div class="search-overlay-results" id="searchOverlayResults"></div></div></div>
+  <button class="menu-btn" id="menuBtn" onclick="toggleMenu()"><span></span><span></span><span></span></button>
+
+  <header class="site-header">
+    <a href="index.html"><img src="images/logo.svg" alt="Germany Telugu Movies" class="header-logo"></a>
+  </header>
+
+  <main class="reviews-page">
+    <h1 class="page-title">Box Office</h1>
+    <p class="bo-subtitle">All-time premiere admissions for Telugu movies in Germany</p>
+
+    <!-- Total stats -->
+    <div class="bo-total-bar">
+      <div class="bo-total-item">
+        <span class="bo-total-num" id="boTotalAdmits">0</span>
+        <span class="bo-total-label">Total Admissions</span>
+      </div>
+      <div class="bo-total-item">
+        <span class="bo-total-num" id="boTotalMovies">0</span>
+        <span class="bo-total-label">Movies Premiered</span>
+      </div>
+      <div class="bo-total-item">
+        <span class="bo-total-num" id="boTotalShows">0</span>
+        <span class="bo-total-label">Total Shows</span>
+      </div>
+    </div>
+
+    <!-- Movie list -->
+    <div id="boList" class="bo-list">
+      <p style="text-align:center;color:#666;">Loading...</p>
+    </div>
+
+    <!-- Admin: Add entry (hidden for normal users) -->
+    <div id="boAdminSection" style="display:none;">
+      <div class="admin-divider"></div>
+      <h2 class="admin-title">Add / Edit Box Office Entry</h2>
+      <div class="bo-admin-form">
+        <select id="boMovieKey" class="login-input">
+          <option value="">Select movie...</option>
+          <option value="ustaad">Ustaad Bhagat Singh</option>
+          <option value="peddi">Peddi</option>
+          <option value="paradise">The Paradise</option>
+          <option value="vishwambhara">Vishwambhara</option>
+          <option value="varanasi">Varanasi</option>
+          <option value="spirit">Spirit</option>
+        </select>
+        <input type="text" id="boMovieName" class="login-input" placeholder="Display name (e.g. Ustaad Bhagat Singh)">
+        <input type="text" id="boDates" class="login-input" placeholder="Premiere dates (e.g. March 18-23, 2026)">
+        <input type="number" id="boAdmissions" class="login-input" placeholder="Total admissions">
+        <input type="number" id="boShows" class="login-input" placeholder="Number of shows">
+        <input type="text" id="boCities" class="login-input" placeholder="Cities (comma separated)">
+        <input type="text" id="boPoster" class="login-input" placeholder="Poster URL (optional)">
+        <button class="book-btn login-submit-btn" onclick="saveBoxOffice()">Save Entry</button>
+        <div id="boAdminMsg" class="review-msg"></div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-content">
+      <div class="footer-location">Germany</div>
+      <a href="mailto:info@germany-telugu-movies.com" class="footer-email">info@germany-telugu-movies.com</a>
+      <div class="footer-social">
+        <a href="https://www.instagram.com/germanytelugumovies?igsh=dmE4N2R5YWxqYWhm&utm_source=qr" target="_blank" rel="noopener" class="footer-instagram">
+          <svg style="width:18px;height:18px;vertical-align:middle;margin-right:6px;" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 1.17.054 1.97.24 2.43.403a4.08 4.08 0 011.47.958c.453.453.78.898.958 1.47.163.46.35 1.26.404 2.43.058 1.266.07 1.646.07 4.85s-.012 3.584-.07 4.85c-.054 1.17-.24 1.97-.404 2.43a4.08 4.08 0 01-.958 1.47 4.08 4.08 0 01-1.47.958c-.46.163-1.26.35-2.43.404-1.266.058-1.646.07-4.85.07s-3.584-.012-4.85-.07c-1.17-.054-1.97-.24-2.43-.404a4.08 4.08 0 01-1.47-.958 4.08 4.08 0 01-.958-1.47c-.163-.46-.35-1.26-.404-2.43C2.175 15.584 2.163 15.204 2.163 12s.012-3.584.07-4.85c.054-1.17.24-1.97.404-2.43a4.08 4.08 0 01.958-1.47 4.08 4.08 0 011.47-.958c.46-.163 1.26-.35 2.43-.404C8.416 2.175 8.796 2.163 12 2.163M12 0C8.741 0 8.333.014 7.053.072 5.775.13 4.902.333 4.14.63a6.21 6.21 0 00-2.245 1.462A6.21 6.21 0 00.433 4.337C.136 5.1-.067 5.973.01 7.25.068 8.53.082 8.938.082 12.197c0 3.259.014 3.668.072 4.948.058 1.277.261 2.15.558 2.913a6.21 6.21 0 001.462 2.245 6.21 6.21 0 002.245 1.462c.763.297 1.636.5 2.913.558C8.333 23.986 8.741 24 12 24s3.668-.014 4.948-.072c1.277-.058 2.15-.261 2.913-.558a6.21 6.21 0 002.245-1.462 6.21 6.21 0 001.462-2.245c.297-.763.5-1.636.558-2.913.058-1.28.072-1.689.072-4.948s-.014-3.668-.072-4.948c-.058-1.277-.261-2.15-.558-2.913a6.21 6.21 0 00-1.462-2.245A6.21 6.21 0 0019.861.633C19.1.336 18.225.133 16.948.075 15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+          @germanytelugumovies
+        </a>
+      </div>
+      <div class="footer-copy">&copy; 2026 Germany Telugu Movies</div>
+    </div>
+  </footer>
+
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-app.js";
+    import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-auth.js";
+    import { getDatabase, ref, get, set } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-database.js";
+
+    const ADMIN_EMAIL = 'suryasumanth001@gmail.com';
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyDmGjpEbIo3YupHpWSc8rgzXWESF5-IPCQ",
+      authDomain: "gtm-counter.firebaseapp.com",
+      databaseURL: "https://gtm-counter-default-rtdb.europe-west1.firebasedatabase.app",
+      projectId: "gtm-counter",
+      storageBucket: "gtm-counter.firebasestorage.app",
+      messagingSenderId: "424507047798",
+      appId: "1:424507047798:web:ab288d3575e67917abc457"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+    const db = getDatabase(app);
+
+    function esc(str) {
+      const d = document.createElement('div');
+      d.textContent = str || '';
+      return d.innerHTML;
+    }
+
+    async function loadBoxOffice() {
+      const snap = await get(ref(db, 'boxoffice'));
+      const data = snap.val() || {};
+      const entries = Object.entries(data).map(([key, v]) => ({ key, ...v }));
+      entries.sort((a, b) => (b.admissions || 0) - (a.admissions || 0));
+
+      let totalAdmits = 0, totalShows = 0;
+      entries.forEach(e => {
+        totalAdmits += (e.admissions || 0);
+        totalShows += (e.shows || 0);
+      });
+
+      document.getElementById('boTotalAdmits').textContent = totalAdmits.toLocaleString();
+      document.getElementById('boTotalMovies').textContent = entries.length;
+      document.getElementById('boTotalShows').textContent = totalShows;
+
+      const listEl = document.getElementById('boList');
+      if (entries.length === 0) {
+        listEl.innerHTML = '<p class="bo-empty">No box office data yet. Check back after premiere shows!</p>';
+        return;
+      }
+
+      listEl.innerHTML = entries.map((e, i) => {
+        const rank = i + 1;
+        const cities = e.cities ? e.cities.split(',').map(c => c.trim()) : [];
+        const poster = e.poster || '';
+        return `<div class="bo-card">
+          <div class="bo-rank">#${rank}</div>
+          ${poster ? `<img src="${esc(poster)}" alt="${esc(e.name)}" class="bo-poster">` : ''}
+          <div class="bo-info">
+            <h3 class="bo-movie-name">${esc(e.name)}</h3>
+            <div class="bo-dates">${esc(e.dates || '')}</div>
+            <div class="bo-stats-row">
+              <div class="bo-stat"><span class="bo-stat-num">${(e.admissions || 0).toLocaleString()}</span><span class="bo-stat-lbl">Admissions</span></div>
+              <div class="bo-stat"><span class="bo-stat-num">${e.shows || 0}</span><span class="bo-stat-lbl">Shows</span></div>
+              <div class="bo-stat"><span class="bo-stat-num">${cities.length}</span><span class="bo-stat-lbl">Cities</span></div>
+            </div>
+            ${cities.length ? `<div class="bo-cities">${cities.map(c => `<span class="bo-city-tag">${esc(c)}</span>`).join('')}</div>` : ''}
+          </div>
+        </div>`;
+      }).join('');
+    }
+
+    loadBoxOffice();
+
+    // Admin
+    onAuthStateChanged(auth, (user) => {
+      if (user && user.email === ADMIN_EMAIL) {
+        document.getElementById('boAdminSection').style.display = 'block';
+      }
+    });
+
+    window.saveBoxOffice = async function() {
+      const key = document.getElementById('boMovieKey').value;
+      const name = document.getElementById('boMovieName').value.trim();
+      const dates = document.getElementById('boDates').value.trim();
+      const admissions = parseInt(document.getElementById('boAdmissions').value) || 0;
+      const shows = parseInt(document.getElementById('boShows').value) || 0;
+      const cities = document.getElementById('boCities').value.trim();
+      const poster = document.getElementById('boPoster').value.trim();
+      const msg = document.getElementById('boAdminMsg');
+
+      if (!key || !name) {
+        msg.textContent = 'Select a movie and enter a name.'; msg.className = 'review-msg review-msg-err'; return;
+      }
+
+      try {
+        await set(ref(db, 'boxoffice/' + key), { name, dates, admissions, shows, cities, poster, updatedAt: Date.now() });
+        msg.textContent = 'Saved!'; msg.className = 'review-msg review-msg-ok';
+        loadBoxOffice();
+      } catch (err) {
+        msg.textContent = 'Error: ' + err.message; msg.className = 'review-msg review-msg-err';
+      }
+    };
+
+    // Prefill form when movie selected
+    document.getElementById('boMovieKey').addEventListener('change', async function() {
+      const key = this.value;
+      if (!key) return;
+      const snap = await get(ref(db, 'boxoffice/' + key));
+      const d = snap.val();
+      if (d) {
+        document.getElementById('boMovieName').value = d.name || '';
+        document.getElementById('boDates').value = d.dates || '';
+        document.getElementById('boAdmissions').value = d.admissions || '';
+        document.getElementById('boShows').value = d.shows || '';
+        document.getElementById('boCities').value = d.cities || '';
+        document.getElementById('boPoster').value = d.poster || '';
+      } else {
+        const names = { ustaad: 'Ustaad Bhagat Singh', peddi: 'Peddi', paradise: 'The Paradise', vishwambhara: 'Vishwambhara', varanasi: 'Varanasi', spirit: 'Spirit' };
+        document.getElementById('boMovieName').value = names[key] || '';
+      }
+    });
+  </script>
+  <script src="js/nav.js"></script>
+</body>
+</html>
