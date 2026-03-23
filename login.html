@@ -73,23 +73,23 @@
         </div>
 
         <div class="admin-section">
-          <h3 class="admin-section-title">Registered Users</h3>
-          <div id="adminUserList" class="admin-list"></div>
+          <h3 class="admin-section-title admin-toggle" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('admin-list-open')">Registered Users <span class="admin-arrow">&#9654;</span></h3>
+          <div id="adminUserList" class="admin-list admin-list-collapsed"></div>
         </div>
 
         <div class="admin-section">
-          <h3 class="admin-section-title">Per-Movie Subscribers</h3>
-          <div id="adminNotifyList" class="admin-list"></div>
+          <h3 class="admin-section-title admin-toggle" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('admin-list-open')">Per-Movie Subscribers <span class="admin-arrow">&#9654;</span></h3>
+          <div id="adminNotifyList" class="admin-list admin-list-collapsed"></div>
         </div>
 
         <div class="admin-section">
-          <h3 class="admin-section-title">Predictions (Ustaad)</h3>
-          <div id="adminPredictList" class="admin-list"></div>
+          <h3 class="admin-section-title admin-toggle" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('admin-list-open')">Predictions (Ustaad) <span class="admin-arrow">&#9654;</span></h3>
+          <div id="adminPredictList" class="admin-list admin-list-collapsed"></div>
         </div>
 
         <div class="admin-section">
-          <h3 class="admin-section-title">Interest Counts</h3>
-          <div id="adminInterestList" class="admin-list"></div>
+          <h3 class="admin-section-title admin-toggle" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('admin-list-open')">Interest Counts <span class="admin-arrow">&#9654;</span></h3>
+          <div id="adminInterestList" class="admin-list admin-list-collapsed"></div>
         </div>
 
         <div class="admin-section">
@@ -177,10 +177,16 @@
           await updateProfile(cred.user, { displayName: name });
           await set(ref(db, 'users/' + cred.user.uid), { name, email, notifyAll: true, createdAt: Date.now() });
           // Send welcome/verification email
-          await sendEmailVerification(cred.user, {
-            url: 'https://germany-telugu-movies.com/login.html',
-            handleCodeInApp: false
-          });
+          try {
+            await sendEmailVerification(cred.user, {
+              url: 'https://germany-telugu-movies.com/login.html',
+              handleCodeInApp: false
+            });
+          } catch (emailErr) {
+            console.warn('Verification email failed:', emailErr);
+          }
+          msg.textContent = 'Account created! Check your email for verification.';
+          msg.className = 'review-msg review-msg-ok';
         } else {
           await signInWithEmailAndPassword(auth, email, password);
         }

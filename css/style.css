@@ -2372,6 +2372,34 @@ main {
   border-bottom: 1px solid #2a2a4a;
 }
 
+.admin-toggle {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  user-select: none;
+}
+
+.admin-toggle:hover { color: #f0ad4e; }
+
+.admin-arrow {
+  font-size: 0.7rem;
+  transition: transform 0.2s;
+  color: #888;
+}
+
+.admin-toggle.open .admin-arrow {
+  transform: rotate(90deg);
+}
+
+.admin-list-collapsed {
+  display: none;
+}
+
+.admin-list-open {
+  display: block;
+}
+
 .admin-list {
   max-height: 240px;
   overflow-y: auto;
