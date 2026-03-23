@@ -2530,24 +2530,18 @@ main {
   border: 1px solid #2a2a4a;
   border-radius: 14px;
   overflow: hidden;
-  position: relative;
 }
 
 .bo-rank {
-  position: absolute;
-  top: 12px;
-  left: 12px;
-  background: rgba(240, 173, 78, 0.9);
-  color: #000;
+  color: #f0ad4e;
   font-weight: 800;
-  font-size: 0.8rem;
-  padding: 4px 10px;
-  border-radius: 6px;
-  z-index: 1;
+  font-size: 0.9rem;
+  margin-right: 4px;
 }
 
 .bo-poster {
   width: 120px;
+  height: 160px;
   flex-shrink: 0;
   object-fit: cover;
   display: block;
@@ -2555,6 +2549,7 @@ main {
 
 .bo-poster-placeholder {
   width: 120px;
+  height: 160px;
   flex-shrink: 0;
   background: #0f0f1a;
 }

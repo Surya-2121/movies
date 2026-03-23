@@ -186,10 +186,9 @@
         const poster = (e.poster && e.poster.trim()) ? e.poster : (fallbackPosters[e.key] || '');
         const gross = e.gross ? '€' + (e.gross).toLocaleString() : '—';
         return `<div class="bo-card">
-          <div class="bo-rank">#${rank}</div>
           ${poster ? `<img src="${esc(poster)}" alt="${esc(e.name)}" class="bo-poster">` : '<div class="bo-poster-placeholder"></div>'}
           <div class="bo-info">
-            <h3 class="bo-movie-name">${esc(e.name)}</h3>
+            <h3 class="bo-movie-name"><span class="bo-rank">#${rank}</span> ${esc(e.name)}</h3>
             <div class="bo-dates">${esc(e.dates || '')}</div>
             <div class="bo-admits-row">
               <span class="bo-admits-num">${(e.admissions || 0).toLocaleString()}</span>
