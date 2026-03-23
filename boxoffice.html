@@ -43,16 +43,16 @@
     <!-- Total stats -->
     <div class="bo-total-bar">
       <div class="bo-total-item">
+        <span class="bo-total-num" id="boTotalGross">€0</span>
+        <span class="bo-total-label">Total Gross</span>
+      </div>
+      <div class="bo-total-item">
         <span class="bo-total-num" id="boTotalAdmits">0</span>
-        <span class="bo-total-label">Total Admissions</span>
+        <span class="bo-total-label">Admissions</span>
       </div>
       <div class="bo-total-item">
         <span class="bo-total-num" id="boTotalMovies">0</span>
-        <span class="bo-total-label">Movies Premiered</span>
-      </div>
-      <div class="bo-total-item">
-        <span class="bo-total-num" id="boTotalShows">0</span>
-        <span class="bo-total-label">Total Shows</span>
+        <span class="bo-total-label">Movies</span>
       </div>
     </div>
 
@@ -68,6 +68,9 @@
       <div class="bo-admin-form">
         <select id="boMovieKey" class="login-input">
           <option value="">Select movie...</option>
+          <option value="kalki">Kalki 2898 AD</option>
+          <option value="og">They Call Him OG</option>
+          <option value="devara">Devara</option>
           <option value="ustaad">Ustaad Bhagat Singh</option>
           <option value="peddi">Peddi</option>
           <option value="paradise">The Paradise</option>
@@ -78,6 +81,7 @@
         <input type="text" id="boMovieName" class="login-input" placeholder="Display name (e.g. Ustaad Bhagat Singh)">
         <input type="text" id="boDates" class="login-input" placeholder="Premiere dates (e.g. March 18-23, 2026)">
         <input type="number" id="boAdmissions" class="login-input" placeholder="Total admissions">
+        <input type="number" id="boGross" class="login-input" placeholder="Gross revenue (€)">
         <input type="number" id="boShows" class="login-input" placeholder="Number of shows">
         <input type="text" id="boCities" class="login-input" placeholder="Cities (comma separated)">
         <input type="text" id="boPoster" class="login-input" placeholder="Poster URL (optional)">
@@ -128,21 +132,36 @@
       return d.innerHTML;
     }
 
+    // Seed data if boxoffice node is empty
+    async function seedIfEmpty() {
+      const snap = await get(ref(db, 'boxoffice'));
+      if (snap.val()) return;
+      const seed = {
+        kalki: { name: 'Kalki 2898 AD', dates: '2024', admissions: 1787, gross: 50013, shows: 0, cities: '', poster: 'https://image.tmdb.org/t/p/w300/rstcAnBeCkxNQjNp3YXrF6IP1tW.jpg' },
+        og: { name: 'They Call Him OG', dates: '2025', admissions: 2038, gross: 42798, shows: 0, cities: '', poster: '' },
+        devara: { name: 'Devara', dates: '2025', admissions: 1333, gross: 28000, shows: 0, cities: '', poster: 'https://image.tmdb.org/t/p/w300/7eO5iuvQjqHmqGwVoq7JPrWoXt6.jpg' },
+      };
+      for (const [k, v] of Object.entries(seed)) {
+        await set(ref(db, 'boxoffice/' + k), { ...v, updatedAt: Date.now() });
+      }
+    }
+
     async function loadBoxOffice() {
+      await seedIfEmpty();
       const snap = await get(ref(db, 'boxoffice'));
       const data = snap.val() || {};
       const entries = Object.entries(data).map(([key, v]) => ({ key, ...v }));
-      entries.sort((a, b) => (b.admissions || 0) - (a.admissions || 0));
+      entries.sort((a, b) => (b.gross || 0) - (a.gross || 0));
 
-      let totalAdmits = 0, totalShows = 0;
+      let totalAdmits = 0, totalGross = 0;
       entries.forEach(e => {
         totalAdmits += (e.admissions || 0);
-        totalShows += (e.shows || 0);
+        totalGross += (e.gross || 0);
       });
 
+      document.getElementById('boTotalGross').textContent = '€' + totalGross.toLocaleString();
       document.getElementById('boTotalAdmits').textContent = totalAdmits.toLocaleString();
       document.getElementById('boTotalMovies').textContent = entries.length;
-      document.getElementById('boTotalShows').textContent = totalShows;
 
       const listEl = document.getElementById('boList');
       if (entries.length === 0) {
@@ -152,18 +171,19 @@
 
       listEl.innerHTML = entries.map((e, i) => {
         const rank = i + 1;
-        const cities = e.cities ? e.cities.split(',').map(c => c.trim()) : [];
+        const cities = e.cities ? e.cities.split(',').map(c => c.trim()).filter(Boolean) : [];
         const poster = e.poster || '';
+        const gross = e.gross ? '€' + (e.gross).toLocaleString() : '—';
         return `<div class="bo-card">
           <div class="bo-rank">#${rank}</div>
-          ${poster ? `<img src="${esc(poster)}" alt="${esc(e.name)}" class="bo-poster">` : ''}
+          ${poster ? `<img src="${esc(poster)}" alt="${esc(e.name)}" class="bo-poster">` : '<div class="bo-poster-placeholder"></div>'}
           <div class="bo-info">
             <h3 class="bo-movie-name">${esc(e.name)}</h3>
             <div class="bo-dates">${esc(e.dates || '')}</div>
             <div class="bo-stats-row">
-              <div class="bo-stat"><span class="bo-stat-num">${(e.admissions || 0).toLocaleString()}</span><span class="bo-stat-lbl">Admissions</span></div>
-              <div class="bo-stat"><span class="bo-stat-num">${e.shows || 0}</span><span class="bo-stat-lbl">Shows</span></div>
-              <div class="bo-stat"><span class="bo-stat-num">${cities.length}</span><span class="bo-stat-lbl">Cities</span></div>
+              <div class="bo-stat"><span class="bo-stat-num">${gross}</span><span class="bo-stat-lbl">Gross</span></div>
+              <div class="bo-stat"><span class="bo-stat-num">${(e.admissions || 0).toLocaleString()}</span><span class="bo-stat-lbl">Admits</span></div>
+              ${e.shows ? `<div class="bo-stat"><span class="bo-stat-num">${e.shows}</span><span class="bo-stat-lbl">Shows</span></div>` : ''}
             </div>
             ${cities.length ? `<div class="bo-cities">${cities.map(c => `<span class="bo-city-tag">${esc(c)}</span>`).join('')}</div>` : ''}
           </div>
@@ -185,6 +205,7 @@
       const name = document.getElementById('boMovieName').value.trim();
       const dates = document.getElementById('boDates').value.trim();
       const admissions = parseInt(document.getElementById('boAdmissions').value) || 0;
+      const gross = parseInt(document.getElementById('boGross').value) || 0;
       const shows = parseInt(document.getElementById('boShows').value) || 0;
       const cities = document.getElementById('boCities').value.trim();
       const poster = document.getElementById('boPoster').value.trim();
@@ -195,7 +216,7 @@
       }
 
       try {
-        await set(ref(db, 'boxoffice/' + key), { name, dates, admissions, shows, cities, poster, updatedAt: Date.now() });
+        await set(ref(db, 'boxoffice/' + key), { name, dates, admissions, gross, shows, cities, poster, updatedAt: Date.now() });
         msg.textContent = 'Saved!'; msg.className = 'review-msg review-msg-ok';
         loadBoxOffice();
       } catch (err) {
@@ -213,11 +234,12 @@
         document.getElementById('boMovieName').value = d.name || '';
         document.getElementById('boDates').value = d.dates || '';
         document.getElementById('boAdmissions').value = d.admissions || '';
+        document.getElementById('boGross').value = d.gross || '';
         document.getElementById('boShows').value = d.shows || '';
         document.getElementById('boCities').value = d.cities || '';
         document.getElementById('boPoster').value = d.poster || '';
       } else {
-        const names = { ustaad: 'Ustaad Bhagat Singh', peddi: 'Peddi', paradise: 'The Paradise', vishwambhara: 'Vishwambhara', varanasi: 'Varanasi', spirit: 'Spirit' };
+        const names = { kalki: 'Kalki 2898 AD', og: 'They Call Him OG', devara: 'Devara', ustaad: 'Ustaad Bhagat Singh', peddi: 'Peddi', paradise: 'The Paradise', vishwambhara: 'Vishwambhara', varanasi: 'Varanasi', spirit: 'Spirit' };
         document.getElementById('boMovieName').value = names[key] || '';
       }
     });

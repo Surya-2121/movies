@@ -2521,6 +2521,12 @@ main {
   display: block;
 }
 
+.bo-poster-placeholder {
+  width: 120px;
+  flex-shrink: 0;
+  background: #0f0f1a;
+}
+
 .bo-info {
   flex: 1;
   padding: 20px;
