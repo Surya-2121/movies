@@ -51,6 +51,56 @@
         <p class="profile-info">You'll receive an email when tickets go on sale for upcoming Telugu movies in Germany.</p>
         <button class="book-btn login-signout-btn" onclick="handleSignOut()">Sign Out</button>
       </div>
+
+      <!-- Admin Panel (only for admin) -->
+      <div id="adminPanel" style="display:none;">
+        <div class="admin-divider"></div>
+        <h2 class="admin-title">Admin Panel</h2>
+
+        <div class="admin-stats">
+          <div class="admin-stat-card">
+            <div class="admin-stat-num" id="adminUserCount">0</div>
+            <div class="admin-stat-label">Registered Users</div>
+          </div>
+          <div class="admin-stat-card">
+            <div class="admin-stat-num" id="adminPredictCount">0</div>
+            <div class="admin-stat-label">Predictions</div>
+          </div>
+          <div class="admin-stat-card">
+            <div class="admin-stat-num" id="adminInterestedCount">0</div>
+            <div class="admin-stat-label">Total Interest</div>
+          </div>
+        </div>
+
+        <div class="admin-section">
+          <h3 class="admin-section-title">Registered Users</h3>
+          <div id="adminUserList" class="admin-list"></div>
+        </div>
+
+        <div class="admin-section">
+          <h3 class="admin-section-title">Per-Movie Subscribers</h3>
+          <div id="adminNotifyList" class="admin-list"></div>
+        </div>
+
+        <div class="admin-section">
+          <h3 class="admin-section-title">Predictions (Ustaad)</h3>
+          <div id="adminPredictList" class="admin-list"></div>
+        </div>
+
+        <div class="admin-section">
+          <h3 class="admin-section-title">Interest Counts</h3>
+          <div id="adminInterestList" class="admin-list"></div>
+        </div>
+
+        <div class="admin-section">
+          <h3 class="admin-section-title">Quick Actions</h3>
+          <div class="admin-actions">
+            <a href="admin-revenue.html" class="admin-action-btn">Revenue Dashboard</a>
+            <button class="admin-action-btn" onclick="exportUsers()">Export Users CSV</button>
+            <button class="admin-action-btn" onclick="exportSubscribers()">Export Subscribers CSV</button>
+          </div>
+        </div>
+      </div>
     </div>
   </main>
 
@@ -71,7 +121,9 @@
   <script type="module">
     import { initializeApp } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-app.js";
     import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut, updateProfile, sendEmailVerification } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-auth.js";
-    import { getDatabase, ref, set } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-database.js";
+    import { getDatabase, ref, set, get, onValue } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-database.js";
+
+    const ADMIN_EMAIL = 'suryasumanth001@gmail.com';
 
     const firebaseConfig = {
       apiKey: "AIzaSyDmGjpEbIo3YupHpWSc8rgzXWESF5-IPCQ",
@@ -186,9 +238,18 @@
           badge.style.color = '#ff9800';
           notice.style.display = 'block';
         }
+        // Admin panel
+        const adminPanel = document.getElementById('adminPanel');
+        if (user.email === ADMIN_EMAIL) {
+          adminPanel.style.display = 'block';
+          loadAdminData();
+        } else {
+          adminPanel.style.display = 'none';
+        }
       } else {
         authForm.style.display = 'block';
         profileView.style.display = 'none';
+        document.getElementById('adminPanel').style.display = 'none';
         if (navLink) { navLink.textContent = 'Login'; }
       }
     });
@@ -197,6 +258,126 @@
     document.querySelectorAll('.login-input').forEach(input => {
       input.addEventListener('keydown', (e) => { if (e.key === 'Enter') handleAuth(); });
     });
+
+    // ===== Admin Functions =====
+    let adminUsers = [];
+    let adminSubscribers = {};
+
+    async function loadAdminData() {
+      // Registered users
+      const usersSnap = await get(ref(db, 'users'));
+      const usersData = usersSnap.val() || {};
+      adminUsers = Object.entries(usersData).map(([uid, u]) => ({ uid, ...u }));
+      document.getElementById('adminUserCount').textContent = adminUsers.length;
+
+      const userListEl = document.getElementById('adminUserList');
+      if (adminUsers.length === 0) {
+        userListEl.innerHTML = '<p class="admin-empty">No users yet.</p>';
+      } else {
+        userListEl.innerHTML = adminUsers.map(u =>
+          `<div class="admin-list-item">
+            <div><strong>${esc(u.name || 'No name')}</strong></div>
+            <div class="admin-list-sub">${esc(u.email)} &bull; Joined ${new Date(u.createdAt).toLocaleDateString()}</div>
+          </div>`
+        ).join('');
+      }
+
+      // Per-movie notify subscribers
+      const notifySnap = await get(ref(db, 'notify'));
+      const notifyData = notifySnap.val() || {};
+      adminSubscribers = notifyData;
+      const notifyListEl = document.getElementById('adminNotifyList');
+      const movieKeys = Object.keys(notifyData);
+      if (movieKeys.length === 0) {
+        notifyListEl.innerHTML = '<p class="admin-empty">No subscribers yet.</p>';
+      } else {
+        notifyListEl.innerHTML = movieKeys.map(key => {
+          const entries = Object.values(notifyData[key] || {});
+          const emails = entries.filter(e => e.email).map(e => e.email);
+          return `<div class="admin-list-item">
+            <div><strong>${esc(key)}</strong> &mdash; ${emails.length} subscriber(s)</div>
+            <div class="admin-list-sub">${emails.map(esc).join(', ') || 'none'}</div>
+          </div>`;
+        }).join('');
+      }
+
+      // Predictions
+      const predSnap = await get(ref(db, 'predictions'));
+      const predData = predSnap.val() || {};
+      const predListEl = document.getElementById('adminPredictList');
+      let totalPreds = 0;
+      const predMovies = Object.keys(predData);
+      if (predMovies.length === 0) {
+        predListEl.innerHTML = '<p class="admin-empty">No predictions yet.</p>';
+      } else {
+        let html = '';
+        predMovies.forEach(movie => {
+          const preds = Object.values(predData[movie] || {});
+          totalPreds += preds.length;
+          html += preds.map(p =>
+            `<div class="admin-list-item">
+              <div><strong>${esc(p.name || '?')}</strong> <span class="admin-list-sub">${esc(p.email || '')}</span></div>
+              <div class="admin-list-pred">"${esc(p.oneliner || '')}"</div>
+            </div>`
+          ).join('');
+        });
+        predListEl.innerHTML = html;
+      }
+      document.getElementById('adminPredictCount').textContent = totalPreds;
+
+      // Interest counts
+      const intSnap = await get(ref(db, 'interested'));
+      const intData = intSnap.val() || {};
+      const intListEl = document.getElementById('adminInterestList');
+      let totalInterest = 0;
+      const intKeys = Object.keys(intData);
+      if (intKeys.length === 0) {
+        intListEl.innerHTML = '<p class="admin-empty">No interest data.</p>';
+      } else {
+        intListEl.innerHTML = intKeys.map(key => {
+          const count = typeof intData[key] === 'number' ? intData[key] : 0;
+          totalInterest += count;
+          return `<div class="admin-list-item"><strong>${esc(key)}</strong>: ${count}</div>`;
+        }).join('');
+      }
+      document.getElementById('adminInterestedCount').textContent = totalInterest;
+    }
+
+    function esc(str) {
+      const d = document.createElement('div');
+      d.textContent = str || '';
+      return d.innerHTML;
+    }
+
+    window.exportUsers = function() {
+      if (!adminUsers.length) return alert('No users to export.');
+      const csv = 'Name,Email,Joined\n' + adminUsers.map(u =>
+        `"${(u.name||'').replace(/"/g,'""')}","${u.email}","${new Date(u.createdAt).toISOString()}"`
+      ).join('\n');
+      downloadCSV(csv, 'gtm-users.csv');
+    };
+
+    window.exportSubscribers = function() {
+      const rows = [];
+      Object.entries(adminSubscribers).forEach(([movie, entries]) => {
+        Object.values(entries).forEach(e => {
+          if (e.email) rows.push({ movie, email: e.email });
+        });
+      });
+      if (!rows.length) return alert('No subscribers to export.');
+      const csv = 'Movie,Email\n' + rows.map(r =>
+        `"${r.movie}","${r.email}"`
+      ).join('\n');
+      downloadCSV(csv, 'gtm-subscribers.csv');
+    };
+
+    function downloadCSV(csv, filename) {
+      const blob = new Blob([csv], { type: 'text/csv' });
+      const a = document.createElement('a');
+      a.href = URL.createObjectURL(blob);
+      a.download = filename;
+      a.click();
+    }
   </script>
   <script src="js/nav.js"></script>
 </body>
