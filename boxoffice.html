@@ -151,7 +151,7 @@
       const snap = await get(ref(db, 'boxoffice'));
       const data = snap.val() || {};
       const entries = Object.entries(data).map(([key, v]) => ({ key, ...v }));
-      entries.sort((a, b) => (b.gross || 0) - (a.gross || 0));
+      entries.sort((a, b) => (b.admissions || 0) - (a.admissions || 0));
 
       let totalAdmits = 0, totalGross = 0;
       entries.forEach(e => {
