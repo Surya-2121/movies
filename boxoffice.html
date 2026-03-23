@@ -145,7 +145,7 @@
       const data = snap.val();
       if (!data) return;
       for (const [key, entry] of Object.entries(data)) {
-        if ((!entry.poster || !entry.poster.trim()) && posterMap[key]) {
+        if (posterMap[key] && (!entry.poster || !entry.poster.trim() || !entry.poster.match(/\.(jpg|jpeg|png|webp|avif|svg)$/i))) {
           await set(ref(db, 'boxoffice/' + key + '/poster'), posterMap[key]);
         }
       }
