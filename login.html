@@ -116,7 +116,14 @@
               <option value="Now Showing">Now Showing</option>
               <option value="Ended">Ended</option>
             </select>
-            <input type="text" id="mePoster" class="login-input" placeholder="Poster URL or images/filename.jpg">
+            <div class="admin-poster-row">
+              <input type="text" id="mePoster" class="login-input" placeholder="Poster URL or images/filename.jpg" style="margin-bottom:0;">
+              <label class="admin-upload-btn">
+                Upload
+                <input type="file" id="mePosterFile" accept="image/*" style="display:none;" onchange="uploadPoster(this)">
+              </label>
+            </div>
+            <div id="mePosterPreview" class="admin-poster-preview"></div>
             <input type="text" id="meDates" class="login-input" placeholder="Dates (e.g. April 30, 2026)">
             <textarea id="meDescription" class="login-input admin-textarea" placeholder="Synopsis / Description"></textarea>
             <input type="text" id="meDirector" class="login-input" placeholder="Director">
@@ -167,6 +174,7 @@
     import { initializeApp } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-app.js";
     import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut, updateProfile, sendEmailVerification } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-auth.js";
     import { getDatabase, ref, set, get, onValue } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-database.js";
+    import { getStorage, ref as storageRef, uploadBytes, getDownloadURL } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-storage.js";
 
     const ADMIN_EMAIL = 'suryasumanth001@gmail.com';
 
@@ -183,6 +191,7 @@
     const app = initializeApp(firebaseConfig);
     const auth = getAuth(app);
     const db = getDatabase(app);
+    const storage = getStorage(app);
 
     let isSignUp = false;
 
@@ -489,6 +498,7 @@
       document.getElementById('meCast').value = data?.cast || '';
       document.getElementById('meStatus').value = data?.status || 'Coming Soon';
       document.getElementById('mePoster').value = data?.poster || '';
+      document.getElementById('mePosterPreview').innerHTML = data?.poster ? `<img src="${esc(data.poster)}" alt="Preview" style="width:60px;height:80px;object-fit:cover;border-radius:6px;margin-top:8px;">` : '';
       document.getElementById('meDates').value = data?.dates || '';
       document.getElementById('meDescription').value = data?.description || '';
       document.getElementById('meDirector').value = data?.director || '';
@@ -517,6 +527,27 @@
         <input type="text" class="login-input" placeholder="YouTube URL" value="${esc(url || '')}" style="flex:1;">
         <button class="admin-delete-btn" onclick="this.parentElement.remove()" style="padding:8px;font-size:1.2rem;cursor:pointer;background:none;border:none;color:#f44336;">&times;</button>`;
       document.getElementById('meSongsList').appendChild(div);
+    };
+
+    window.uploadPoster = async function(input) {
+      const file = input.files[0];
+      if (!file) return;
+      const preview = document.getElementById('mePosterPreview');
+      const posterInput = document.getElementById('mePoster');
+      preview.innerHTML = '<p style="color:#888;font-size:0.8rem;">Uploading...</p>';
+      try {
+        const movieId = document.getElementById('meKey').value || document.getElementById('meId').value.trim().toLowerCase().replace(/[^a-z0-9]/g, '') || 'temp';
+        const ext = file.name.split('.').pop();
+        const path = `posters/${movieId}.${ext}`;
+        const sRef = storageRef(storage, path);
+        await uploadBytes(sRef, file);
+        const url = await getDownloadURL(sRef);
+        posterInput.value = url;
+        preview.innerHTML = `<img src="${url}" alt="Preview" style="width:60px;height:80px;object-fit:cover;border-radius:6px;margin-top:8px;">`;
+      } catch (err) {
+        preview.innerHTML = `<p style="color:#f44336;font-size:0.8rem;">Upload failed: ${err.message}</p>`;
+      }
+      input.value = '';
     };
 
     window.saveMovie = async function() {
