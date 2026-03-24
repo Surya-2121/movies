@@ -93,6 +93,51 @@
         </div>
 
         <div class="admin-section">
+          <h3 class="admin-section-title admin-toggle" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('admin-list-open')">Manage Movies <span class="admin-arrow">&#9654;</span></h3>
+          <div class="admin-list admin-list-collapsed">
+            <div id="adminMoviesList" class="admin-movies-grid"></div>
+            <button class="admin-action-btn" onclick="openMovieEditor()" style="margin-top:12px;width:100%;">+ Add New Movie</button>
+          </div>
+        </div>
+
+        <!-- Movie Editor Modal -->
+        <div id="movieEditorModal" class="admin-modal" style="display:none;">
+          <div class="admin-modal-content">
+            <div class="admin-modal-header">
+              <h3 id="movieEditorTitle">Add Movie</h3>
+              <button class="nav-close" onclick="closeMovieEditor()">&times;</button>
+            </div>
+            <input type="hidden" id="meKey">
+            <input type="text" id="meId" class="login-input" placeholder="Movie ID (e.g. peddi, spirit) - cannot change after save">
+            <input type="text" id="meName" class="login-input" placeholder="Movie name">
+            <input type="text" id="meCast" class="login-input" placeholder="Cast (comma separated)">
+            <select id="meStatus" class="login-input">
+              <option value="Coming Soon">Coming Soon</option>
+              <option value="Now Showing">Now Showing</option>
+              <option value="Ended">Ended</option>
+            </select>
+            <input type="text" id="mePoster" class="login-input" placeholder="Poster URL or images/filename.jpg">
+            <input type="text" id="meDates" class="login-input" placeholder="Dates (e.g. April 30, 2026)">
+            <textarea id="meDescription" class="login-input admin-textarea" placeholder="Synopsis / Description"></textarea>
+            <input type="text" id="meDirector" class="login-input" placeholder="Director">
+            <input type="text" id="meMusic" class="login-input" placeholder="Music Director">
+            <input type="text" id="meGenre" class="login-input" placeholder="Genre (e.g. Action / Drama)">
+            <h4 class="admin-form-subtitle">Trailer</h4>
+            <input type="text" id="meTrailer" class="login-input" placeholder="YouTube URL or embed ID">
+            <h4 class="admin-form-subtitle">Teaser</h4>
+            <input type="text" id="meTeaser" class="login-input" placeholder="YouTube URL or embed ID">
+            <h4 class="admin-form-subtitle">Songs</h4>
+            <div id="meSongsList"></div>
+            <button class="admin-action-btn" onclick="addSongField()" style="margin-top:6px;">+ Add Song</button>
+            <div style="display:flex;gap:8px;margin-top:16px;">
+              <button class="book-btn login-submit-btn" onclick="saveMovie()">Save Movie</button>
+              <button class="admin-action-btn" onclick="closeMovieEditor()" style="flex:1;">Cancel</button>
+            </div>
+            <div id="meMsg" class="review-msg" style="margin-top:8px;"></div>
+          </div>
+        </div>
+
+        <div class="admin-section">
           <h3 class="admin-section-title">Quick Actions</h3>
           <div class="admin-actions">
             <a href="admin-revenue.html" class="admin-action-btn">Revenue Dashboard</a>
@@ -347,6 +392,9 @@
         }).join('');
       }
       document.getElementById('adminInterestedCount').textContent = totalInterest;
+
+      // Load movies
+      loadAdminMovies();
     }
 
     function esc(str) {
@@ -384,6 +432,128 @@
       a.download = filename;
       a.click();
     }
+
+    // ===== Movie Management =====
+    let movieSongCount = 0;
+
+    async function loadAdminMovies() {
+      const snap = await get(ref(db, 'movies'));
+      const data = snap.val() || {};
+      const el = document.getElementById('adminMoviesList');
+      const entries = Object.entries(data);
+      if (entries.length === 0) {
+        el.innerHTML = '<p class="admin-empty">No movies added yet.</p>';
+        return;
+      }
+      el.innerHTML = entries.map(([key, m]) => {
+        const statusClass = m.status === 'Coming Soon' ? 'status-soon' : m.status === 'Now Showing' ? 'status-now' : 'status-ended';
+        return `<div class="admin-movie-card">
+          ${m.poster ? `<img src="${esc(m.poster)}" class="admin-movie-poster">` : ''}
+          <div class="admin-movie-info">
+            <strong>${esc(m.name)}</strong>
+            <span class="admin-movie-status ${statusClass}">${esc(m.status)}</span>
+            <div class="admin-movie-btns">
+              <button class="admin-action-btn" onclick="editMovie('${key}')">Edit</button>
+              <button class="admin-action-btn admin-delete-btn" onclick="deleteMovie('${key}')">Delete</button>
+            </div>
+          </div>
+        </div>`;
+      }).join('');
+    }
+
+    window.openMovieEditor = function(data, key) {
+      document.getElementById('movieEditorModal').style.display = 'flex';
+      document.getElementById('movieEditorTitle').textContent = key ? 'Edit Movie' : 'Add Movie';
+      document.getElementById('meKey').value = key || '';
+      document.getElementById('meId').value = key || '';
+      document.getElementById('meId').disabled = !!key;
+      document.getElementById('meName').value = data?.name || '';
+      document.getElementById('meCast').value = data?.cast || '';
+      document.getElementById('meStatus').value = data?.status || 'Coming Soon';
+      document.getElementById('mePoster').value = data?.poster || '';
+      document.getElementById('meDates').value = data?.dates || '';
+      document.getElementById('meDescription').value = data?.description || '';
+      document.getElementById('meDirector').value = data?.director || '';
+      document.getElementById('meMusic').value = data?.music || '';
+      document.getElementById('meGenre').value = data?.genre || '';
+      document.getElementById('meTrailer').value = data?.trailer || '';
+      document.getElementById('meTeaser').value = data?.teaser || '';
+      document.getElementById('meMsg').textContent = '';
+      // Songs
+      movieSongCount = 0;
+      document.getElementById('meSongsList').innerHTML = '';
+      if (data?.songs) {
+        data.songs.forEach(s => addSongField(s.title, s.url));
+      }
+    };
+
+    window.closeMovieEditor = function() {
+      document.getElementById('movieEditorModal').style.display = 'none';
+    };
+
+    window.addSongField = function(title, url) {
+      movieSongCount++;
+      const div = document.createElement('div');
+      div.className = 'admin-song-row';
+      div.innerHTML = `<input type="text" class="login-input" placeholder="Song title" value="${esc(title || '')}" style="flex:1;">
+        <input type="text" class="login-input" placeholder="YouTube URL" value="${esc(url || '')}" style="flex:1;">
+        <button class="admin-delete-btn" onclick="this.parentElement.remove()" style="padding:8px;font-size:1.2rem;cursor:pointer;background:none;border:none;color:#f44336;">&times;</button>`;
+      document.getElementById('meSongsList').appendChild(div);
+    };
+
+    window.saveMovie = async function() {
+      const key = document.getElementById('meKey').value || document.getElementById('meId').value.trim().toLowerCase().replace(/[^a-z0-9]/g, '');
+      const msg = document.getElementById('meMsg');
+      if (!key) { msg.textContent = 'Enter a movie ID.'; msg.className = 'review-msg review-msg-err'; return; }
+      const name = document.getElementById('meName').value.trim();
+      if (!name) { msg.textContent = 'Enter a movie name.'; msg.className = 'review-msg review-msg-err'; return; }
+
+      // Collect songs
+      const songRows = document.querySelectorAll('#meSongsList .admin-song-row');
+      const songs = [];
+      songRows.forEach(row => {
+        const inputs = row.querySelectorAll('input');
+        const title = inputs[0].value.trim();
+        const url = inputs[1].value.trim();
+        if (title || url) songs.push({ title, url });
+      });
+
+      const movieData = {
+        name,
+        cast: document.getElementById('meCast').value.trim(),
+        status: document.getElementById('meStatus').value,
+        poster: document.getElementById('mePoster').value.trim(),
+        dates: document.getElementById('meDates').value.trim(),
+        description: document.getElementById('meDescription').value.trim(),
+        director: document.getElementById('meDirector').value.trim(),
+        music: document.getElementById('meMusic').value.trim(),
+        genre: document.getElementById('meGenre').value.trim(),
+        trailer: document.getElementById('meTrailer').value.trim(),
+        teaser: document.getElementById('meTeaser').value.trim(),
+        songs,
+        updatedAt: Date.now()
+      };
+
+      try {
+        await set(ref(db, 'movies/' + key), movieData);
+        msg.textContent = 'Saved!'; msg.className = 'review-msg review-msg-ok';
+        loadAdminMovies();
+      } catch (err) {
+        msg.textContent = 'Error: ' + err.message; msg.className = 'review-msg review-msg-err';
+      }
+    };
+
+    window.editMovie = async function(key) {
+      const snap = await get(ref(db, 'movies/' + key));
+      const data = snap.val();
+      if (data) openMovieEditor(data, key);
+    };
+
+    window.deleteMovie = async function(key) {
+      if (!confirm('Delete this movie?')) return;
+      await set(ref(db, 'movies/' + key), null);
+      loadAdminMovies();
+    };
   </script>
   <script src="js/nav.js"></script>
 </body>

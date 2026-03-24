@@ -209,6 +209,51 @@
       goTo((current + 1) % cards.length);
     }, 3000);
   </script>
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-app.js";
+    import { getDatabase, ref, get } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-database.js";
+    const app = initializeApp({
+      apiKey: "AIzaSyDmGjpEbIo3YupHpWSc8rgzXWESF5-IPCQ",
+      authDomain: "gtm-counter.firebaseapp.com",
+      databaseURL: "https://gtm-counter-default-rtdb.europe-west1.firebasedatabase.app",
+      projectId: "gtm-counter",
+      storageBucket: "gtm-counter.firebasestorage.app",
+      messagingSenderId: "424507047798",
+      appId: "1:424507047798:web:ab288d3575e67917abc457"
+    }, 'home');
+    const db = getDatabase(app);
+    const snap = await get(ref(db, 'movies'));
+    const data = snap.val();
+    if (data) {
+      const comingSoon = Object.entries(data).filter(([k, m]) => m.status === 'Coming Soon' && m.poster);
+      if (comingSoon.length > 0) {
+        const track = document.querySelector('.cs-track');
+        const dotsContainer = document.getElementById('csDots');
+        function esc(s) { const d = document.createElement('div'); d.textContent = s||''; return d.innerHTML; }
+        track.innerHTML = comingSoon.map(([k, m]) =>
+          `<a href="movie.html?id=${k}" class="cs-card"><img src="${esc(m.poster)}" alt="${esc(m.name)}"><h3>${esc(m.name)}</h3></a>`
+        ).join('');
+        dotsContainer.innerHTML = '';
+        const newCards = track.querySelectorAll('.cs-card');
+        let cur = 0;
+        newCards.forEach((_, i) => {
+          const dot = document.createElement('span');
+          dot.className = 'cs-dot' + (i === 0 ? ' cs-dot-active' : '');
+          dot.addEventListener('click', () => {
+            cur = i;
+            track.style.transform = `translateX(-${cur * 100}%)`;
+            dotsContainer.querySelectorAll('.cs-dot').forEach((d, j) => d.classList.toggle('cs-dot-active', j === cur));
+          });
+          dotsContainer.appendChild(dot);
+        });
+        setInterval(() => {
+          cur = (cur + 1) % newCards.length;
+          track.style.transform = `translateX(-${cur * 100}%)`;
+          dotsContainer.querySelectorAll('.cs-dot').forEach((d, j) => d.classList.toggle('cs-dot-active', j === cur));
+        }, 3000);
+      }
+    }
+  </script>
   <script>
     const movies = [
       { name: 'Ustaad Bhagat Singh', url: 'ustaad-movie.html', cast: 'Pawan Kalyan, Sreeleela, Raashii Khanna', status: 'Ended' },
