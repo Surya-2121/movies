@@ -42,41 +42,8 @@
   <main class="cs-page">
     <h1 class="page-title">Coming Soon</h1>
 
-    <div class="cs-grid">
-      <a href="peddi-movie.html" class="cs-movie-card">
-        <img src="images/peddi.jpg" alt="Peddi" class="cs-movie-poster">
-        <div class="cs-movie-info">
-          <h2 class="cs-movie-name">Peddi</h2>
-        </div>
-      </a>
-
-      <a href="paradise-movie.html" class="cs-movie-card">
-        <img src="https://image.tmdb.org/t/p/w300/smghVMoMWSIFi5dgIz4w1UIcEcY.jpg" alt="The Paradise" class="cs-movie-poster">
-        <div class="cs-movie-info">
-          <h2 class="cs-movie-name">The Paradise</h2>
-        </div>
-      </a>
-
-      <a href="vishwambhara-movie.html" class="cs-movie-card">
-        <img src="https://image.tmdb.org/t/p/w300/ygmxv156YvURmnFN6eG3i2dIg4U.jpg" alt="Vishwambhara" class="cs-movie-poster">
-        <div class="cs-movie-info">
-          <h2 class="cs-movie-name">Vishwambhara</h2>
-        </div>
-      </a>
-
-      <a href="varanasi-movie.html" class="cs-movie-card">
-        <img src="images/varanasi.jpg" alt="Varanasi" class="cs-movie-poster">
-        <div class="cs-movie-info">
-          <h2 class="cs-movie-name">Varanasi</h2>
-        </div>
-      </a>
-
-      <a href="spirit-movie.html" class="cs-movie-card">
-        <img src="images/spirit.webp" alt="Spirit" class="cs-movie-poster">
-        <div class="cs-movie-info">
-          <h2 class="cs-movie-name">Spirit</h2>
-        </div>
-      </a>
+    <div class="cs-grid" id="csGrid">
+      <p style="text-align:center;color:#888;">Loading...</p>
     </div>
   </main>
 
@@ -93,6 +60,40 @@
       <div class="footer-copy">&copy; 2026 Germany Telugu Movies</div>
     </div>
   </footer>
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-app.js";
+    import { getDatabase, ref, get } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-database.js";
+    const app = initializeApp({
+      apiKey: "AIzaSyDmGjpEbIo3YupHpWSc8rgzXWESF5-IPCQ",
+      authDomain: "gtm-counter.firebaseapp.com",
+      databaseURL: "https://gtm-counter-default-rtdb.europe-west1.firebasedatabase.app",
+      projectId: "gtm-counter",
+      storageBucket: "gtm-counter.firebasestorage.app",
+      messagingSenderId: "424507047798",
+      appId: "1:424507047798:web:ab288d3575e67917abc457"
+    });
+    const db = getDatabase(app);
+    const grid = document.getElementById('csGrid');
+    function esc(s) { const d = document.createElement('div'); d.textContent = s||''; return d.innerHTML; }
+
+    const snap = await get(ref(db, 'movies'));
+    const data = snap.val() || {};
+    const movies = Object.entries(data).filter(([k, m]) => m.status === 'Coming Soon');
+
+    if (movies.length === 0) {
+      grid.innerHTML = '<p style="text-align:center;color:#888;">No upcoming movies yet. Stay tuned!</p>';
+    } else {
+      grid.innerHTML = movies.map(([k, m]) =>
+        `<a href="movie.html?id=${k}" class="cs-movie-card">
+          ${m.poster ? `<img src="${esc(m.poster)}" alt="${esc(m.name)}" class="cs-movie-poster">` : ''}
+          <div class="cs-movie-info">
+            <h2 class="cs-movie-name">${esc(m.name)}</h2>
+            ${m.dates ? `<p class="cs-movie-dates">${esc(m.dates)}</p>` : ''}
+          </div>
+        </a>`
+      ).join('');
+    }
+  </script>
   <script src="js/nav.js"></script>
 </body>
 </html>
