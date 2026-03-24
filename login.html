@@ -436,7 +436,25 @@
     // ===== Movie Management =====
     let movieSongCount = 0;
 
+    // Seed existing movies into Firebase if empty
+    async function seedMovies() {
+      const snap = await get(ref(db, 'movies'));
+      if (snap.val()) return;
+      const seed = {
+        ustaad: { name: 'Ustaad Bhagat Singh', cast: 'Pawan Kalyan, Sreeleela, Raashii Khanna', status: 'Ended', poster: 'images/poster.jpg', dates: 'March 18-23, 2026', description: 'Inspired by his teacher, who named him Bhagat Singh and shaped his values, a tribal boy grows up rooted in strong morals and unwavering courage. Standing firm against injustice, he takes on evil forces despite overwhelming odds.', director: 'Harish Shankar', music: 'Devi Sri Prasad (Songs), Thaman S. (Score)', genre: 'Action / Drama', trailer: 'https://www.youtube.com/watch?v=MLU5ZEp9YDo', teaser: '', songs: [{title:'Dekh Lenge Saala',url:'https://www.youtube.com/watch?v=hcNVG7JCxoE'},{title:'Aura of Ustaad',url:'https://www.youtube.com/watch?v=BjB1MvWZn4s'},{title:'Collar Ey Etthara',url:'https://www.youtube.com/watch?v=in-VYGclxQw'}] },
+        peddi: { name: 'Peddi', cast: 'Ram Charan, Janhvi Kapoor, Shiva Rajkumar, Jagapathi Babu, Divyenndu', status: 'Coming Soon', poster: 'images/peddi.jpg', dates: 'Release: 30 April 2026', description: 'In 1980s rural Andhra Pradesh, a spirited villager unites his community through sports to defend their pride against a powerful rival.', director: 'Buchi Babu Sana', music: 'A. R. Rahman', genre: 'Action / Drama', trailer: '', teaser: 'https://www.youtube.com/watch?v=2y_DH5gIrCU', songs: [{title:'Chikiri Chikiri',url:'https://www.youtube.com/watch?v=vVDp1ulBKIk'},{title:'Rai Rai Raa Raa',url:'https://www.youtube.com/watch?v=g5oUluD9ScA'}] },
+        paradise: { name: 'The Paradise', cast: 'Nani, Raghav Juyal, Easwari Rao', status: 'Coming Soon', poster: 'https://image.tmdb.org/t/p/w300/smghVMoMWSIFi5dgIz4w1UIcEcY.jpg', dates: 'Coming Soon to Germany', description: 'In 1980s Secunderabad, a marginalized tribe battles discrimination and fights for citizenship under an unexpected leader\'s guidance, challenging systemic oppression.', director: 'Srikanth Odela', music: '', genre: 'Period Action-Drama', trailer: '', teaser: 'https://www.youtube.com/watch?v=NkZFnpDhdCk', songs: [{title:'Aaya Sher',url:'https://www.youtube.com/watch?v=iAtoZar5W58'}] },
+        vishwambhara: { name: 'Vishwambhara', cast: 'Chiranjeevi, Trisha Krishnan, Ashika Ranganath, Isha Chawla, Surbhi Puranik, Kunal Kapoor', status: 'Coming Soon', poster: 'https://image.tmdb.org/t/p/w300/ygmxv156YvURmnFN6eG3i2dIg4U.jpg', dates: 'Coming Soon to Germany', description: 'A newborn prince embarks on an extraordinary odyssey traversing the realms of deities, mortals, and the afterlife.', director: 'Mallidi Vassishta', music: 'M. M. Keeravani', genre: 'Fantasy / Mythology', trailer: '', teaser: 'https://www.youtube.com/watch?v=WPWNt8qhx94', songs: [{title:'Rama Raama',url:'https://www.youtube.com/watch?v=7GKYw1B48o8'}] },
+        varanasi: { name: 'Varanasi', cast: 'Mahesh Babu, Priyanka Chopra, Prithviraj Sukumaran', status: 'Coming Soon', poster: 'images/varanasi.jpg', dates: 'Release: 7 April 2027', description: 'Follows Rudhra\'s perilous adventures as ancient Varanasi stands on the brink of catastrophe from a looming asteroid in 2027 CE, unfolding across multiple timelines and distant continents.', director: 'S. S. Rajamouli', music: 'M. M. Keeravani', genre: 'Action / Fantasy', trailer: '', teaser: 'https://www.youtube.com/watch?v=DMD2uthghWE', songs: [{title:'Globe Trotter',url:'https://www.youtube.com/watch?v=0oIvIwJ3qKg'},{title:'Rana Kumbha',url:'https://www.youtube.com/watch?v=UaVOfH5e3Go'}] },
+        spirit: { name: 'Spirit', cast: 'Prabhas, Triptii Dimri, Vivek Oberoi', status: 'Coming Soon', poster: 'images/spirit.webp', dates: 'Coming Soon to Germany', description: 'A brutal but honest cop goes on a mission to catch criminals.', director: 'Sandeep Reddy Vanga', music: '', genre: 'Action / Crime', trailer: '', teaser: 'https://www.youtube.com/watch?v=VCGVPiD4BP0', songs: [] },
+      };
+      for (const [k, v] of Object.entries(seed)) {
+        await set(ref(db, 'movies/' + k), { ...v, updatedAt: Date.now() });
+      }
+    }
+
     async function loadAdminMovies() {
+      await seedMovies();
       const snap = await get(ref(db, 'movies'));
       const data = snap.val() || {};
       const el = document.getElementById('adminMoviesList');
