@@ -9,15 +9,14 @@
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-  <nav class="nav-menu" id="navMenu"><div class="nav-header"><img src="images/logo.svg" alt="Logo" class="nav-logo"><button class="nav-close" onclick="toggleMenu()">&times;</button></div><a href="index.html" class="nav-link">Home</a><a href="coming-soon.html" class="nav-link">Coming Soon</a><a href="boxoffice.html" class="nav-link">Box Office</a><a href="reviews.html" class="nav-link">Reviews</a><a href="predict.html" class="nav-link">Predict &amp; Win</a><a href="about.html" class="nav-link">About Us</a><a href="contact.html" class="nav-link">Contact</a><div class="nav-divider"></div><a href="login.html" class="nav-link nav-login-link" id="navLoginLink">Login</a><button class="nav-theme-btn" onclick="toggleTheme()"><span id="themeIcon">&#9788;</span> <span id="themeText">Light Mode</span></button></nav><div class="nav-overlay" id="navOverlay" onclick="toggleMenu()"></div><button class="search-btn" onclick="toggleSearch()"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></button>
+  <nav class="nav-menu" id="navMenu"><div class="nav-header"><img src="images/logo.svg" alt="Logo" class="nav-logo"><button class="nav-close" onclick="toggleMenu()">&times;</button></div><a href="index.html" class="nav-link">Home</a><a href="coming-soon.html" class="nav-link">Coming Soon</a><a href="boxoffice.html" class="nav-link">Box Office</a><a href="reviews.html" class="nav-link">Reviews</a><a href="predict.html" class="nav-link">Predict &amp; Win</a><a href="about.html" class="nav-link">About Us</a><a href="contact.html" class="nav-link">Contact</a><div class="nav-divider"></div><button class="nav-theme-btn" onclick="toggleTheme()"><span id="themeIcon">&#9788;</span> <span id="themeText">Light Mode</span></button></nav><div class="nav-overlay" id="navOverlay" onclick="toggleMenu()"></div><button class="search-btn" onclick="toggleSearch()"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></button>
 <div class="search-overlay" id="searchOverlay"><div class="search-overlay-box"><button class="search-overlay-close" onclick="toggleSearch()">&times;</button><input type="text" class="search-overlay-input" placeholder="Search for a movie..." oninput="handleSearchInput(event)" autocomplete="off"><div class="search-overlay-results" id="searchOverlayResults"></div></div></div>
 <button class="menu-btn" id="menuBtn" onclick="toggleMenu()"><span></span><span></span><span></span></button>
-
   <header class="site-header">
     <a href="index.html"><img src="images/logo.svg" alt="Germany Telugu Movies" class="header-logo"></a>
   </header>
 
-  <main id="movieContent" class="mp-page">
+  <main id="movieContent" class="movie-page">
     <p style="text-align:center;color:#888;padding:60px 20px;">Loading movie...</p>
   </main>
 
@@ -37,7 +36,7 @@
 
   <script type="module">
     import { initializeApp } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-app.js";
-    import { getDatabase, ref, get, runTransaction } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-database.js";
+    import { getDatabase, ref, get, runTransaction, push, onValue } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-database.js";
 
     const app = initializeApp({
       apiKey: "AIzaSyDmGjpEbIo3YupHpWSc8rgzXWESF5-IPCQ",
@@ -82,71 +81,172 @@
       const trailerId = ytId(m.trailer);
       const teaserId = ytId(m.teaser);
 
+      // Hero Banner - exact same structure as dedicated pages
       let html = `
-        <section class="mp-hero">
-          <div class="mp-hero-inner">
-            ${m.poster ? `<img src="${esc(m.poster)}" alt="${esc(m.name)}" class="mp-poster">` : ''}
-            <div class="mp-hero-info">
-              <h1 class="mp-title">${esc(m.name)}</h1>
-              <div class="mp-meta">
-                <span>Telugu</span>
-                ${m.genre ? `<span>${esc(m.genre)}</span>` : ''}
-              </div>
-              ${m.director ? `<p class="mp-crew"><strong>Director:</strong> ${esc(m.director)}</p>` : ''}
-              ${m.cast ? `<p class="mp-crew"><strong>Cast:</strong> ${esc(m.cast)}</p>` : ''}
-              ${m.music ? `<p class="mp-crew"><strong>Music:</strong> ${esc(m.music)}</p>` : ''}
-              ${m.dates ? `<div class="mp-dates">${esc(m.dates)}</div>` : ''}
-              <div class="mp-hero-buttons">
-                <button id="interestedBtn" class="mp-interested-btn">
-                  <span class="mp-thumbsup">&#128077;</span>
-                  <span id="interestedText">I'm Interested</span>
-                  <span id="interestedCount" class="mp-interested-count">0</span>
-                </button>
-              </div>
-            </div>
+    <section class="mp-hero">
+      ${m.poster ? `<img src="${esc(m.poster)}" alt="${esc(m.name)}" class="mp-poster">` : ''}
+      <div class="mp-hero-info">
+        <h1 class="mp-title">${esc(m.name)}</h1>
+        <div class="mp-meta">
+          <span>Telugu</span>
+          ${m.genre ? `<span>${esc(m.genre)}</span>` : ''}
+        </div>
+        <div class="mp-crew">
+          ${m.director ? `<p><strong>Director:</strong> ${esc(m.director)}</p>` : ''}
+          ${m.cast ? `<p><strong>Starring:</strong> ${esc(m.cast)}</p>` : ''}
+          ${m.music ? `<p><strong>Music:</strong> ${esc(m.music)}</p>` : ''}
+        </div>
+        ${m.dates ? `<div class="mp-dates">${esc(m.dates)}</div>` : ''}
+        <div class="mp-hero-buttons">
+          <button id="interestedBtn" class="mp-interested-btn">
+            <span class="mp-thumbsup">&#128077;</span>
+            <span id="interestedText">I'm Interested</span>
+            <span id="interestedCount" class="mp-interested-count">0</span>
+          </button>
+          <button id="notifyBtn" class="mp-notify-btn">
+            <span class="mp-bell">&#128276;</span>
+            <span id="notifyBtnText">Notify Me</span>
+            <span id="notifyCount" class="mp-notify-count">0</span>
+          </button>
+        </div>
+        <div id="notifyForm" class="notify-form" style="display:none;">
+          <p class="notify-form-text">Get notified when tickets go on sale in Germany!</p>
+          <div class="notify-form-row">
+            <input type="email" id="notifyEmail" class="notify-input" placeholder="Your email address">
+            <button id="notifySubmit" class="book-btn notify-submit-btn">Subscribe</button>
           </div>
-        </section>`;
+          <div id="notifyMsg" class="review-msg"></div>
+        </div>
+      </div>
+    </section>`;
 
+      // Synopsis
       if (m.description) {
-        html += `<section class="mp-section"><h2 class="mp-section-title">Synopsis</h2><p class="mp-synopsis">${esc(m.description)}</p></section>`;
+        html += `
+    <section class="mp-section">
+      <h2 class="mp-section-title">Synopsis</h2>
+      <p class="mp-synopsis">${esc(m.description)}</p>
+    </section>`;
       }
 
+      // Trailer
       if (trailerId) {
-        html += `<section class="mp-section"><h2 class="mp-section-title">Trailer</h2><div class="mp-video"><iframe src="https://www.youtube.com/embed/${trailerId}" allowfullscreen loading="lazy"></iframe></div></section>`;
+        html += `
+    <section class="mp-section">
+      <h2 class="mp-section-title">Trailer</h2>
+      <div class="mp-video">
+        <iframe src="https://www.youtube.com/embed/${trailerId}" title="${esc(m.name)} Trailer" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+    </section>`;
       }
 
+      // Teaser
       if (teaserId) {
-        html += `<section class="mp-section"><h2 class="mp-section-title">Teaser</h2><div class="mp-video"><iframe src="https://www.youtube.com/embed/${teaserId}" allowfullscreen loading="lazy"></iframe></div></section>`;
+        html += `
+    <section class="mp-section">
+      <h2 class="mp-section-title">Teaser</h2>
+      <div class="mp-video">
+        <iframe src="https://www.youtube.com/embed/${teaserId}" title="${esc(m.name)} Teaser" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+    </section>`;
       }
 
+      // Songs
       if (m.songs && m.songs.length > 0) {
-        const songCards = m.songs.filter(s => s.title || s.url).map(s => {
-          const sid = ytId(s.url);
-          return `<a href="${s.url || '#'}" target="_blank" class="mp-song-card">
-            ${sid ? `<img src="https://img.youtube.com/vi/${sid}/mqdefault.jpg" alt="${esc(s.title)}" class="mp-song-thumb">` : ''}
-            <span class="mp-song-title">${esc(s.title)}</span>
-          </a>`;
-        }).join('');
-        html += `<section class="mp-section"><h2 class="mp-section-title">Songs</h2><div class="mp-songs-grid">${songCards}</div></section>`;
+        const validSongs = m.songs.filter(s => s.title || s.url);
+        if (validSongs.length > 0) {
+          const songCards = validSongs.map(s =>
+            `<a href="${s.url || '#'}" target="_blank" rel="noopener" class="mp-song-card">
+              <div class="mp-song-icon">&#9835;</div>
+              <span>${esc(s.title)}</span>
+            </a>`
+          ).join('\n        ');
+          html += `
+    <section class="mp-section">
+      <h2 class="mp-section-title">Songs</h2>
+      <div class="mp-songs">
+        ${songCards}
+      </div>
+    </section>`;
+        }
       }
 
       content.innerHTML = html;
 
-      // Interest counter
-      const countSnap = await get(ref(db, 'interested/' + movieId));
-      document.getElementById('interestedCount').textContent = countSnap.val() || 0;
-      const STORAGE_KEY = 'gtm_interested_' + movieId;
-      if (localStorage.getItem(STORAGE_KEY)) {
-        document.getElementById('interestedText').textContent = 'Interested!';
+      // ===== Interest Counter =====
+      const counterRef = ref(db, 'interested/' + movieId);
+      const STORAGE_KEY = movieId + '_interested';
+
+      function isClicked() { return localStorage.getItem(STORAGE_KEY) === 'true'; }
+
+      function updateUI(count) {
+        const btn = document.getElementById('interestedBtn');
+        const text = document.getElementById('interestedText');
+        const countEl = document.getElementById('interestedCount');
+        if (count !== undefined) countEl.textContent = count;
+        if (isClicked()) { btn.classList.add('mp-interested-active'); text.textContent = 'Interested'; }
+        else { btn.classList.remove('mp-interested-active'); text.textContent = "I'm Interested"; }
       }
-      document.getElementById('interestedBtn').addEventListener('click', async () => {
-        if (localStorage.getItem(STORAGE_KEY)) return;
-        await runTransaction(ref(db, 'interested/' + movieId), c => (c || 0) + 1);
-        localStorage.setItem(STORAGE_KEY, 'true');
-        document.getElementById('interestedText').textContent = 'Interested!';
-        const snap2 = await get(ref(db, 'interested/' + movieId));
-        document.getElementById('interestedCount').textContent = snap2.val() || 0;
+
+      async function loadCount() {
+        try { const s = await get(counterRef); updateUI(s.val() || 0); }
+        catch { updateUI(0); }
+      }
+
+      document.getElementById('interestedBtn').addEventListener('click', async function() {
+        this.disabled = true;
+        try {
+          if (!isClicked()) { localStorage.setItem(STORAGE_KEY, 'true'); await runTransaction(counterRef, c => (c || 0) + 1); }
+          else { localStorage.removeItem(STORAGE_KEY); await runTransaction(counterRef, c => Math.max((c || 0) - 1, 0)); }
+          await loadCount();
+        } catch { updateUI(); }
+        this.disabled = false;
       });
+
+      loadCount();
+
+      // ===== Notify Me System =====
+      const notifyRef = ref(db, 'notify/' + movieId);
+      const NOTIFY_STORAGE = movieId + '_notified';
+
+      onValue(ref(db, 'notify_count/' + movieId), (snap) => {
+        document.getElementById('notifyCount').textContent = snap.val() || 0;
+      });
+
+      document.getElementById('notifyBtn').addEventListener('click', function() {
+        const form = document.getElementById('notifyForm');
+        form.style.display = form.style.display === 'none' ? 'block' : 'none';
+      });
+
+      document.getElementById('notifySubmit').addEventListener('click', async () => {
+        const email = document.getElementById('notifyEmail').value.trim();
+        const msg = document.getElementById('notifyMsg');
+        if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+          msg.textContent = 'Please enter a valid email address.'; msg.className = 'review-msg review-msg-err'; return;
+        }
+        if (localStorage.getItem(NOTIFY_STORAGE)) {
+          msg.textContent = 'You are already subscribed!'; msg.className = 'review-msg review-msg-ok'; return;
+        }
+        const btn = document.getElementById('notifySubmit');
+        btn.disabled = true; btn.textContent = 'Subscribing...';
+        try {
+          await push(notifyRef, { email, timestamp: Date.now() });
+          await runTransaction(ref(db, 'notify_count/' + movieId), c => (c || 0) + 1);
+          localStorage.setItem(NOTIFY_STORAGE, 'true');
+          msg.textContent = 'You will be notified when tickets go live!'; msg.className = 'review-msg review-msg-ok';
+          document.getElementById('notifyEmail').disabled = true; btn.textContent = 'Subscribed';
+          document.getElementById('notifyBtn').classList.add('mp-notify-active');
+          document.getElementById('notifyBtnText').textContent = 'Subscribed';
+        } catch {
+          msg.textContent = 'Error subscribing. Please try again.'; msg.className = 'review-msg review-msg-err';
+          btn.disabled = false; btn.textContent = 'Subscribe';
+        }
+      });
+
+      if (localStorage.getItem(NOTIFY_STORAGE)) {
+        document.getElementById('notifyBtn').classList.add('mp-notify-active');
+        document.getElementById('notifyBtnText').textContent = 'Subscribed';
+      }
     }
   </script>
   <script src="js/nav.js"></script>
