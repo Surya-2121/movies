@@ -3,23 +3,22 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ustaad Bhagat Singh - Ticket Dashboard</title>
-  <link rel="canonical" href="https://germany-telugu-movies.com/ustaad.html">
-  <link rel="icon" href="images/logo.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="css/style.css">
+  <title>Ustaad Bhagat Singh - Telugu - Ticket Dashboard</title>
+  <link rel="icon" href="logo.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <nav class="nav-menu" id="navMenu"><div class="nav-header"><img src="images/logo.svg" alt="Logo" class="nav-logo"><button class="nav-close" onclick="toggleMenu()">&times;</button></div><a href="index.html" class="nav-link">Home</a><a href="coming-soon.html" class="nav-link">Coming Soon</a><a href="boxoffice.html" class="nav-link">Box Office</a><a href="reviews.html" class="nav-link">Reviews</a><a href="predict.html" class="nav-link">Predict &amp; Win</a><a href="about.html" class="nav-link">About Us</a><a href="contact.html" class="nav-link">Contact</a><div class="nav-divider"></div><button class="nav-theme-btn" onclick="toggleTheme()"><span id="themeIcon">&#9788;</span> <span id="themeText">Light Mode</span></button></nav><div class="nav-overlay" id="navOverlay" onclick="toggleMenu()"></div><button class="search-btn" onclick="toggleSearch()"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></button>
+  <nav class="nav-menu" id="navMenu"><div class="nav-header"><img src="logo.svg" alt="Logo" class="nav-logo"><button class="nav-close" onclick="toggleMenu()">&times;</button></div><a href="index.html" class="nav-link">Home</a><a href="about.html" class="nav-link">About Us</a><a href="contact.html" class="nav-link">Contact</a><div class="nav-divider"></div><button class="nav-theme-btn" onclick="toggleTheme()"><span id="themeIcon">&#9788;</span> <span id="themeText">Light Mode</span></button></nav><div class="nav-overlay" id="navOverlay" onclick="toggleMenu()"></div><button class="search-btn" onclick="toggleSearch()"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></button>
 <div class="search-overlay" id="searchOverlay"><div class="search-overlay-box"><button class="search-overlay-close" onclick="toggleSearch()">&times;</button><input type="text" class="search-overlay-input" placeholder="Search for a movie..." oninput="handleSearchInput(event)" autocomplete="off"><div class="search-overlay-results" id="searchOverlayResults"></div></div></div>
 <button class="menu-btn" id="menuBtn" onclick="toggleMenu()"><span></span><span></span><span></span></button>
   <header class="site-header">
-    <a href="index.html"><img src="images/logo.svg" alt="Germany Telugu Movies" class="header-logo"></a>
+    <a href="index.html"><img src="logo.svg" alt="Germany Telugu Movies" class="header-logo"></a>
   </header>
   <main>
     <div class="main-layout">
       <div class="side-panel">
-        <img src="images/poster.jpg" alt="Movie Poster" class="side-poster">
-        <h1 class="movie-title">Ustaad Bhagat Singh</h1>
+        <img src="poster.jpg" alt="Movie Poster" class="side-poster">
+        <h1 class="movie-title">Ustaad Bhagat Singh - Telugu</h1>
         <p class="subtitle">Premieres on 18th March 2026</p>
         <table class="movie-info">
           <tr><td>Directed by</td><td>Harish Shankar</td></tr>
@@ -40,16 +39,6 @@
           <button class="st-tab" onclick="switchTab('cinema')">Shows By Cinema</button>
         </div>
         <div class="st-dates" id="stDates"></div>
-        <div class="st-search-row">
-          <div class="st-search">
-            <svg class="search-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-            <input type="text" id="citySearch" class="city-search-input" placeholder="Search city..." oninput="filterByCity(this.value)" autocomplete="off">
-          </div>
-          <button class="st-nearme-btn" onclick="sortByNearMe()" title="Find nearest cinema">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
-            Near Me
-          </button>
-        </div>
         <div class="st-shows" id="stShows"></div>
 
         <div class="filter-bar" style="display:none;">
@@ -60,19 +49,11 @@
 
         <section id="showList" class="show-grid" style="display:none;"></section>
       </div>
+      <div class="right-panel">
+        <section id="revenueSection"></section>
+      </div>
     </div>
   </main>
-
-  <button class="back-to-top" id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>
-  </button>
-
-  <script>
-    const btt = document.getElementById('backToTop');
-    window.addEventListener('scroll', () => {
-      btt.classList.toggle('show', window.scrollY > 400);
-    });
-  </script>
 
   <script>
     let stShows = [];
@@ -149,35 +130,24 @@
           grouped[s.cinema].shows.push(s);
         });
 
-        container.innerHTML = Object.values(grouped).sort((a, b) => a.city.localeCompare(b.city)).map(g => {
-          const mapsQuery = encodeURIComponent(g.cinema + ', ' + g.city + ', Germany');
-          return `
+        container.innerHTML = Object.values(grouped).sort((a, b) => a.city.localeCompare(b.city)).map(g => `
           <div class="st-venue">
             <div class="st-venue-header">
               <div class="st-venue-info">
                 <div class="st-venue-city">${g.city}</div>
                 <div class="st-venue-name">${g.cinema}</div>
               </div>
-              <div class="st-venue-right" style="display:flex;align-items:center;gap:8px;">
-                <span class="st-weather" data-city="${g.city}" data-date="${g.shows[0].date}" data-time="${g.shows[0].time}" style="font-size:0.85rem;color:#aaa;"></span>
-                <a href="https://www.google.com/maps/dir/?api=1&destination=${mapsQuery}" target="_blank" rel="noopener" class="st-directions-btn" title="Get directions">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
-                </a>
-                <button class="st-share-btn" onclick="shareShow('${g.city}', '${g.cinema.replace(/'/g, "\\'")}', '${g.shows.map(s=>s.time).join(', ')}', '${g.shows[0].date}')" title="Share">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
-                </button>
-              </div>
             </div>
             <div class="st-venue-times">
               ${g.shows.map(s => `
                 <a href="${s.url}" target="_blank" rel="noopener" class="st-time-card">
                   <div class="st-time-value">${s.time}</div>
+                  <div class="st-time-price">${s.prices}</div>
                 </a>
               `).join('')}
             </div>
-          </div>`;
-        }).join('');
-        loadWeather();
+          </div>
+        `).join('');
       } else {
         // Shows By Cinema — show dates for that cinema
         container.innerHTML = filtered.map(s => {
@@ -187,16 +157,15 @@
               <div class="st-venue-info">
                 <div class="st-venue-date">${f.day} ${f.date} ${f.month}</div>
               </div>
-              <span class="st-weather" data-city="${s.city}" data-date="${s.date}" data-time="${s.time}" style="font-size:0.85rem;color:#aaa;"></span>
             </div>
             <div class="st-venue-times">
               <a href="${s.url}" target="_blank" rel="noopener" class="st-time-card">
                 <div class="st-time-value">${s.time}</div>
+                <div class="st-time-price">${s.prices}</div>
               </a>
             </div>
           </div>`;
         }).join('');
-        loadWeather();
       }
     }
 
@@ -204,197 +173,25 @@
     window.selectDate = function(d) { selectedDate = d; renderStDates(); renderStShows(); };
     window.selectCinema = function(c) { selectedCinema = c; renderStDates(); renderStShows(); };
 
-    function filterByCity(query) {
-      const venues = document.querySelectorAll('.st-venue');
-      const q = query.trim().toLowerCase();
-      venues.forEach(v => {
-        const city = (v.querySelector('.st-venue-city') || v.querySelector('.st-venue-name') || v.querySelector('.st-venue-date') || {}).textContent || '';
-        const name = (v.querySelector('.st-venue-name') || {}).textContent || '';
-        const match = !q || city.toLowerCase().includes(q) || name.toLowerCase().includes(q);
-        v.style.display = match ? '' : 'none';
-      });
-    }
-    window.filterByCity = filterByCity;
-
-    function shareShow(city, cinema, times, date) {
-      const f = formatDate(date);
-      const text = `🎬 Ustaad Bhagat Singh\n📍 ${cinema}, ${city}\n📅 ${f.day} ${f.date} ${f.month}\n🕐 ${times}\n\nBook now: https://germany-telugu-movies.com/ustaad.html`;
-      if (navigator.share) {
-        navigator.share({ title: 'Ustaad Bhagat Singh - ' + city, text: text }).catch(() => {});
-      } else {
-        // Fallback: show popup with WhatsApp + Copy
-        const existing = document.querySelector('.st-share-popup');
-        if (existing) existing.remove();
-        const popup = document.createElement('div');
-        popup.className = 'st-share-popup';
-        const waUrl = 'https://wa.me/?text=' + encodeURIComponent(text);
-        popup.innerHTML = `
-          <a href="${waUrl}" target="_blank" rel="noopener" class="st-share-option st-share-wa">WhatsApp</a>
-          <button class="st-share-option st-share-copy" onclick="navigator.clipboard.writeText(\`${text.replace(/`/g,'\\`')}\`);this.textContent='Copied!';setTimeout(()=>this.closest('.st-share-popup').remove(),1000)">Copy Link</button>
-        `;
-        document.body.appendChild(popup);
-        setTimeout(() => { document.addEventListener('click', function handler(e) { if (!popup.contains(e.target)) { popup.remove(); document.removeEventListener('click', handler); } }, { once: true }); }, 10);
-      }
-    }
-    window.shareShow = shareShow;
-
-    function haversine(lat1, lon1, lat2, lon2) {
-      const R = 6371;
-      const dLat = (lat2 - lat1) * Math.PI / 180;
-      const dLon = (lon2 - lon1) * Math.PI / 180;
-      const a = Math.sin(dLat/2)**2 + Math.cos(lat1*Math.PI/180) * Math.cos(lat2*Math.PI/180) * Math.sin(dLon/2)**2;
-      return R * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
-    }
-
-    function sortByNearMe() {
-      const btn = document.querySelector('.st-nearme-btn');
-      btn.textContent = 'Locating...';
-      btn.disabled = true;
-      if (!navigator.geolocation) {
-        alert('Geolocation is not supported by your browser');
-        btn.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg> Near Me';
-        btn.disabled = false;
-        return;
-      }
-      navigator.geolocation.getCurrentPosition(pos => {
-        const uLat = pos.coords.latitude;
-        const uLon = pos.coords.longitude;
-        const container = document.getElementById('stShows');
-        const venues = Array.from(container.querySelectorAll('.st-venue'));
-        venues.forEach(v => {
-          const cityEl = v.querySelector('.st-venue-city');
-          if (!cityEl) return;
-          const city = cityEl.textContent.toLowerCase();
-          const coords = cityCoords[city];
-          if (coords) {
-            const dist = haversine(uLat, uLon, coords.lat, coords.lon);
-            v.dataset.dist = dist;
-            // Add distance badge
-            let badge = v.querySelector('.st-dist-badge');
-            if (!badge) {
-              badge = document.createElement('span');
-              badge.className = 'st-dist-badge';
-              const right = v.querySelector('.st-venue-right');
-              if (right) right.appendChild(badge);
-              else v.querySelector('.st-venue-header').appendChild(badge);
-            }
-            badge.textContent = dist < 1 ? '<1 km away' : Math.round(dist) + ' km away';
-          } else {
-            v.dataset.dist = 99999;
-          }
-        });
-        venues.sort((a, b) => parseFloat(a.dataset.dist) - parseFloat(b.dataset.dist));
-        venues.forEach(v => container.appendChild(v));
-        btn.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg> Near Me';
-        btn.disabled = false;
-      }, err => {
-        alert('Could not get your location. Please allow location access.');
-        btn.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg> Near Me';
-        btn.disabled = false;
-      });
-    }
-    window.sortByNearMe = sortByNearMe;
-
-    const extraShows = [];
-
-    // City coordinates for weather
-    const cityCoords = {
-      "berlin": { lat: 52.52, lon: 13.41 },
-      "dusseldorf": { lat: 51.23, lon: 6.78 },
-      "düsseldorf": { lat: 51.23, lon: 6.78 },
-      "nürnberg": { lat: 49.45, lon: 11.08 },
-      "frankfurt (karben)": { lat: 50.23, lon: 8.77 },
-      "frankfurt (offenbach)": { lat: 50.10, lon: 8.76 },
-      "hamburg": { lat: 53.55, lon: 9.99 },
-      "hamburg-harburg": { lat: 53.46, lon: 9.98 },
-      "münchen": { lat: 48.14, lon: 11.58 },
-      "heidelberg": { lat: 49.40, lon: 8.69 },
-      "stuttgart": { lat: 48.78, lon: 9.18 },
-      "bremen": { lat: 53.08, lon: 8.80 },
-      "essen": { lat: 51.46, lon: 7.01 },
-      "hannover": { lat: 52.37, lon: 9.74 },
-      "magdeburg": { lat: 52.13, lon: 11.63 },
-      "regensburg": { lat: 49.01, lon: 12.10 },
-      "trier": { lat: 49.76, lon: 6.64 },
-      "dresden": { lat: 51.05, lon: 13.74 },
-      "bielefeld": { lat: 52.03, lon: 8.53 },
-      "erlangen": { lat: 49.59, lon: 11.00 },
-    };
-
-    function weatherIcon(code) {
-      if (code === 0) return { icon: "☀️", desc: "Clear", tip: "Sunscreen is a must!" };
-      if (code <= 3) return { icon: "⛅", desc: "Partly cloudy", tip: "Perfect movie weather!" };
-      if (code <= 48) return { icon: "🌫️", desc: "Foggy", tip: "Drive safe, it's foggy!" };
-      if (code <= 55) return { icon: "🌦️", desc: "Drizzle", tip: "A light jacket will do" };
-      if (code <= 65) return { icon: "🌧️", desc: "Rain", tip: "Don't forget your umbrella!" };
-      if (code <= 67) return { icon: "🌧️", desc: "Freezing rain", tip: "Stay warm & watch your step!" };
-      if (code <= 77) return { icon: "🌨️", desc: "Snow", tip: "Bundle up, it's snowy!" };
-      if (code <= 82) return { icon: "🌧️", desc: "Showers", tip: "Grab that umbrella!" };
-      if (code <= 86) return { icon: "🌨️", desc: "Snow showers", tip: "Warm boots recommended!" };
-      if (code <= 99) return { icon: "⛈️", desc: "Thunderstorm", tip: "Stay cozy inside the cinema!" };
-      return { icon: "🌡️", desc: "", tip: "" };
-    }
-
-    const weatherCache = {};
-    async function fetchWeatherForCity(city, date, time) {
-      const coords = cityCoords[city.toLowerCase()];
-      if (!coords) return null;
-      const key = `${coords.lat},${coords.lon},${date}`;
-      if (!weatherCache[key]) {
-        try {
-          const resp = await fetch(`https://api.open-meteo.com/v1/forecast?latitude=${coords.lat}&longitude=${coords.lon}&hourly=temperature_2m,weather_code&start_date=${date}&end_date=${date}&timezone=Europe/Berlin`);
-          weatherCache[key] = await resp.json();
-        } catch(e) { return null; }
-      }
-      const data = weatherCache[key];
-      if (!data || !data.hourly) return null;
-      const hour = parseInt(time.split(":")[0]);
-      const idx = data.hourly.time.findIndex(t => t.endsWith(`T${String(hour).padStart(2,'0')}:00`));
-      if (idx === -1) return null;
-      const temp = Math.round(data.hourly.temperature_2m[idx]);
-      const info = weatherIcon(data.hourly.weather_code[idx]);
-      return { temp, icon: info.icon, desc: info.desc };
-    }
-
-    async function loadWeather() {
-      const badges = document.querySelectorAll('.st-weather');
-      // Deduplicate: fetch unique city+date combos first, then apply
-      const unique = {};
-      badges.forEach(b => {
-        const city = b.dataset.city;
-        const date = b.dataset.date;
-        const key = city.toLowerCase() + '|' + date;
-        if (!unique[key]) unique[key] = { city, date, time: b.dataset.time };
-      });
-      // Fetch sequentially to avoid rate limiting
-      for (const entry of Object.values(unique)) {
-        try {
-          await fetchWeatherForCity(entry.city, entry.date, entry.time);
-        } catch(e) { console.error('Weather fetch error for', entry.city, e); }
-      }
-      // Now apply cached results to all badges
-      badges.forEach(badge => {
-        const city = badge.dataset.city;
-        const date = badge.dataset.date;
-        const time = badge.dataset.time;
-        const coords = cityCoords[city.toLowerCase()];
-        if (!coords) return;
-        const key = `${coords.lat},${coords.lon},${date}`;
-        const data = weatherCache[key];
-        if (!data || !data.hourly) return;
-        const hour = parseInt(time.split(":")[0]);
-        const idx = data.hourly.time.findIndex(t => t.endsWith(`T${String(hour).padStart(2,'0')}:00`));
-        if (idx === -1) return;
-        const temp = Math.round(data.hourly.temperature_2m[idx]);
-        const info = weatherIcon(data.hourly.weather_code[idx]);
-        badge.innerHTML = `${info.icon} ${temp}°C <span style="font-size:0.75rem;color:#e8a800;margin-left:4px;">${info.tip}</span>`;
-        badge.title = info.desc;
-      });
-    }
+    // Heidelberg (no seat data available - different platform)
+    const extraShows = [
+      { city: "Berlin", cinema: "Cineplex Berlin", date: "2026-03-18", time: "19:30", prices: '', url: "https://ticketverz.com/movieselection/ustaad-bhagat-singh-berlin/8bae530abf" },
+      { city: "München", cinema: "Cincinnati Kino", date: "2026-03-19", time: "19:30", prices: '', url: "https://www.cincinnati-muenchen.de/en/program/1849694" },
+      { city: "München", cinema: "Cincinnati Kino", date: "2026-03-21", time: "11:00", prices: '', url: "https://www.cincinnati-muenchen.de/en/program/1849694" }
+    ];
 
     function initShowtimes(data) {
       stShows = data.shows.map(s => {
-        return { city: s.city, cinema: s.cinema, date: s.date, time: s.time, url: s.bookingUrl || '' };
+        let prices = [...new Set(Object.values(s.rowPrices || {}))].sort((a,b) => a-b).map(p => '€' + p).join(' / ');
+        if (!prices && s.ticketPrice) prices = '€' + s.ticketPrice;
+        if (!prices && s.source === 'kinotickets.express') prices = '€21';
+        // Capitol shows have bookingUrl, getmyticket shows need URL built
+        const url = s.bookingUrl || (() => {
+          const timeParam = encodeURIComponent(s.dateText.split(' - ')[1] || s.time);
+          const mdate = btoa(s.date);
+          return `https://www.getmyticket.de/showbookings.php?id=${s.showId}&time=${timeParam}&mdate=${mdate}`;
+        })();
+        return { city: s.city, cinema: s.cinema, date: s.date, time: s.time, prices, url };
       });
       stShows = stShows.concat(extraShows);
       renderStDates();
@@ -409,6 +206,6 @@
       initShowtimes(seatData);
     }
   </script>
-  <script src="js/nav.js"></script>
+  <script src="nav.js"></script>
 </body>
 </html>

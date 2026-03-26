@@ -1,0 +1,393 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Get My ticket - Movies</title>
+    <meta name="robots" content="noindex, nofollow">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/font-awesome.min.css" rel="stylesheet">
+    <link href="css/popup.css" rel="stylesheet">
+    <link href="css/global.css" rel="stylesheet">
+    <link href="css/services.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani&display=swap" rel="stylesheet">
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="../jquery-1.8.0.min.js"></script>
+    <script src="../select2.js"></script>
+    <script src="../form.js"></script>
+    <script src="../jquery.lightbox_me.js"></script>
+    <style>
+        .button-booking {
+            background: #c9e76d;
+            color: #000000;
+            padding: 10px 20px;
+            display: inline-block;
+            transition: 0.8s;
+            font: caption;
+            border-radius: 8px;
+        }
+
+        a.button-booking:hover {
+            color: #000000 !important;
+            background-color: #d28b8b !important;
+        }
+
+        /*a {
+            color: white !important;
+            background-color: #C09853 !important;
+        }
+        a:hover {
+            color: black !important;
+            background-color: #f6a828 !important;
+        }*/
+    </style>
+</head>
+<body>
+
+
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7696776643858124"
+            crossorigin="anonymous"></script>
+            <script src="https://accounts.google.com/gsi/client" async></script>
+            
+<script>
+      function handleCredentialResponse(response) {
+        //console.log("Encoded JWT ID token: " + response.credential);
+        document.cookie = "login="+response.credential;
+        //console.log("Given Name: " + JSON.stringify(decodeJwtResponseFromGoogleAPI(response.credential)));
+        var jsonData = decodeJwtResponseFromGoogleAPI(response.credential);
+        
+        console.log("Given Name: " + jsonData.name);
+        var url = "google/google-login.php";
+        $.ajax({
+            type: 'POST',
+            async: false,
+            cache: false,
+            url: url,
+            data: {name: jsonData.name, email: jsonData.email, email_verified: jsonData.email_verified, jsonCopy: JSON.stringify(decodeJwtResponseFromGoogleAPI(response.credential))},
+            success: function (data) {
+                if (data !== '0') {
+                    console.log("Login successfull: "+data)
+                    //grp_discount = parseInt(noseats)*parseInt(data);
+                    //console.log("Discount:: : "+grp_discount)
+                } else {
+                    console.log("Failed to process the request: "+data)
+                }
+            }
+        });
+      }
+      window.onload = function () {
+      	console.log("testing google");
+        google.accounts.id.initialize({
+          client_id: "393602586304-mulij603bgb54n2571h89v74maccr2dn.apps.googleusercontent.com",
+          callback: handleCredentialResponse
+        });
+        google.accounts.id.renderButton(
+          document.getElementById("buttonDiv"),
+          { theme: "outline", size: "large" }  // customization attributes
+        );
+        google.accounts.id.prompt(); // also display the One Tap dialog
+      }
+      
+      function decodeJwtResponseFromGoogleAPI(token) {
+            let base64Url = token.split('.')[1]
+            let base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+            let jsonPayload = 
+           decodeURIComponent(atob(base64).split('').map(function (c) {
+                return '%' + ('00' + 
+           c.charCodeAt(0).toString(16)).slice(-2);
+            }).join(''));
+            return JSON.parse(jsonPayload)
+        }
+    </script>
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7696776643858124"
+     crossorigin="anonymous"></script>
+<section id="top">
+    <div class="container">
+        <div class="row top_1">
+            <div class="col-md-3">
+                <div class="top_1l pt-1">
+                    <h3 class="mb-0"><a class="text-white" href="index.php"><img src="https://getmyticket.de/images/GetMyTicket-logo.png" style="
+    height: 65px;
+    width: 215px;
+    background-color: #020202;
+"></a></h3>
+                </div>
+            </div>
+            <div class="col-md-5">
+                <div class="top_1m">
+                    <div class="input-group">
+                       
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                 <p class="mb-0">Powered by <a class="col_red" href="http://peddireddi.de">Peddireddi</a> Services</p>
+            </div>
+        </div>
+    </div>
+</section>
+<section id="header">
+    <nav class="navbar navbar-expand-md navbar-light" id="navbar_sticky">
+        <div class="container" style="margin-top: -15px">
+            <a style="width: 70px" class="navbar-brand text-white fw-bold" href="index.php"><img src="https://getmyticket.de/images/GetMyTicket-logo.png" style="
+    height: 65px;
+    width: 215px;
+    background-color: #020202;
+"></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mb-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="index.php">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="movies.php">Movies</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="retrieve-booking.php">Retrieve Booking</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">About Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.php">Contact Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="terms_and_conditions.php">Terms & Conditions</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="Impressum.php">Impressum</a>
+                    </li>
+                    
+                  </ul>
+            </div>
+                    </div>
+    </nav>
+</section>
+<section id="center" class="center_o pt-2 pb-2">
+    <div class="container-xl">
+        <div class="row center_o1">
+            <div class="col-md-5">
+                <div class="center_o1l">
+                    <h2 class="mb-0">Movies</h2>
+                </div>
+            </div>
+            <div class="col-md-7">
+                <div class="center_o1r text-end">
+                    <h6 class="mb-0 col_red"><a href="#">Home</a> <span class="me-2 ms-2 text-light"><i
+                                    class="fa fa-caret-right align-middle"></i></span> Movies</h6>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<div id='result' style='visibility: hidden;'></div>
+
+<section id="serv_pg" class="pt-4 pb-4 bg_grey">
+    <div class="container-xl">
+        <div class="row trend_1">
+            <div class="col-md-12">
+                <h4 class="mb-0"><i class="fa fa-file-movie-o align-middle col_red me-1"></i> Our <span class="col_red">Current Movies</span>
+                </h4>
+            </div>
+        </div>
+        <div class="row serv_pg1 mt-4">
+                            <div class="col-md-4" style="width: 100%;margin-bottom: 25px;">
+                    <div class="serv_pg1i bg_dark p-4 pt-3">
+                        <span class="col_light"><img src="https://assets-in.bmscdn.com/iedb/movies/images/mobile/thumbnail/xlarge/ustaad-bhagat-singh-et00339939-1771925113.jpg" width=100px>
+                            <span class="pull-right" style="width: auto"></span></span>
+                        <h5 class="col_red">Ustaad Bhagat Singh - Telugu</h5>
+                        <p class="mt-3">Pawan Kalyan in the lead.</p>
+                        <h6 class="mb-0 mt-4"><a class="button" id="show_booking-169"
+                                                 onclick="showbookings('169')">Book</a></h6>
+                    </div>
+                </div>
+                <div class="col-md-4" style="width: auto; display: none" id="bookings-169">
+
+                    <span style='font-size: 15pt;font-weight: bold; text-transform: uppercase; '><i class='fa fa-regular fa-map'></i> Nürnberg</span><br/><a style='margin-bottom: 3px;' class='button-booking' href='showbookings.php?id=168&time=07:30 PM&mdate=MjAyNi0wMy0xOA=='>Wed 18 Mar 2026 - 07:30 PM</a>&nbsp;&nbsp;<br/><br/><span style='font-size: 15pt;font-weight: bold; text-transform: uppercase; '><i class='fa fa-regular fa-map'></i> Dusseldorf</span><br/><a style='margin-bottom: 3px;' class='button-booking' href='showbookings.php?id=169&time=07:30 PM&mdate=MjAyNi0wMy0xOA=='>Wed 18 Mar 2026 - 07:30 PM</a>&nbsp;&nbsp;<br/><br/>
+                </div>
+                    </div>
+
+    </div>
+</section>
+
+
+<div style="text-align:center"><!--<img style="max-width: 100%;
+    max-height: 100vh;
+    height: auto;" src="/images/ad.jpg">--></div>
+<section id="footer">
+    <div class="footer_m clearfix">
+        <div class="container">
+            <div class="row footer_1">
+                <div class="col-md-4" style="margin: 0 auto">
+                    <div class="footer_1i">
+                        <h3><a class="text-white" href="index.php"><i class="fa fa-ticket col_red me-1"></i> Get My ticket</a></h3>
+                        <p class="mt-3">Contact</p>
+                        <h6 class="fw-normal"><i class="fa fa-map-marker fs-5 align-middle col_red me-1"></i> Germany</h6>
+                        <h6 class="fw-normal mt-3"><i class="fa fa-envelope fs-5 align-middle col_red me-1"></i> info@getmyticket.de</h6>
+                        <h6 class="fw-normal mt-3 mb-0"><i class="fa fa-phone fs-5 align-middle col_red me-1"></i>  +49-xxx xxx xxx</h6>
+                    </div>
+                </div>
+                <div class="col-md-4" style="margin: 0 auto">
+                    <div class="footer_1i">
+                        <h4>Sign  <span class="col_red">Newsletter</span></h4>
+                        <p class="mt-3">Subscribe to our newsletter list to get latest news and updates from us</p>
+                        <div class="input-group">
+                            <input type="text" class="form-control bg-black" placeholder="Email">
+                            <span class="input-group-btn">
+					<button class="btn btn text-white bg_red rounded-0 border-0" type="button">
+						 Subscribe</button>
+				</span>
+                        </div>
+                        <ul class="social-network social-circle mb-0 mt-4">
+                            <li><a href="#" class="icoRss" title="Rss"><i class="fa fa-instagram"></i></a></li>
+                            <li><a href="#" class="icoFacebook" title="Facebook"><i class="fa fa-facebook"></i></a></li>
+                            <li><a href="#" class="icoTwitter" title="Twitter"><i class="fa fa-twitter"></i></a></li>
+                            <li><a href="#" class="icoGoogle" title="Google +"><i class="fa fa-youtube"></i></a></li>
+                            <li><a href="#" class="icoLinkedin" title="Linkedin"><i class="fa fa-linkedin"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="footer_b" class="pt-3 pb-3 bg_grey">
+    <div class="container">
+        <div class="row footer_1">
+            <div class="col-md-8">
+                <div class="footer_1l">
+                    <p class="mb-0">© 2024 Your Website Name. All Rights Reserved | Design by <a class="col_red" href="#">Ptickets</a></p>
+                </div>
+            </div>
+            <!--<div class="col-md-4">
+                <div class="footer_1r">
+                    <ul class="mb-0">
+                        <li class="d-inline-block me-2"><a href="#">Home</a></li>
+                        <li class="d-inline-block me-2"><a href="#">Features</a></li>
+                        <li class="d-inline-block me-2"><a href="#">Pages</a></li>
+                        <li class="d-inline-block me-2"><a href="#">Portfolio</a></li>
+                        <li class="d-inline-block me-2"><a href="#">Blog</a></li>
+                        <li class="d-inline-block"><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+            </div>-->
+        </div>
+    </div>
+    <!-- Cookie Consent by FreePrivacyPolicy.com https://www.FreePrivacyPolicy.com -->
+    <script type="text/javascript" src="//www.freeprivacypolicy.com/public/cookie-consent/4.1.0/cookie-consent.js" charset="UTF-8"></script>
+    <script type="text/javascript" charset="UTF-8">
+        document.addEventListener('DOMContentLoaded', function () {
+            cookieconsent.run({"notice_banner_type":"simple","consent_type":"express","palette":"dark","language":"en","page_load_consent_levels":["strictly-necessary"],"notice_banner_reject_button_hide":false,"preferences_center_close_button_hide":false,"page_refresh_confirmation_buttons":false,"website_name":"getmyticket.de"});
+        });
+    </script>
+
+    <!-- Unnamed script -->
+    <!-- Google tag (gtag.js) -->
+    <script type="text/plain" data-cookie-consent="strictly-necessary" async src="https://www.googletagmanager.com/gtag/js?id=G-FSMEGKVJL2"></script>
+    <script type="text/plain" data-cookie-consent="strictly-necessary">
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-FSMEGKVJL2');
+    </script>
+    <!-- end of Unnamed script-->
+
+    <noscript>Cookie Consent by <a href="https://www.freeprivacypolicy.com/">Free Privacy Policy Generator</a></noscript>
+    <!-- End Cookie Consent by FreePrivacyPolicy.com https://www.FreePrivacyPolicy.com -->
+
+
+
+
+
+    <!-- Below is the link that users can use to open Preferences Center to change their preferences. Do not modify the ID parameter. Place it where appropriate, style it as needed. -->
+
+    <a style="float: right;margin-top: -26px;margin-right: 30px" href="#" id="open_preferences_center">Update cookies preferences</a>
+
+</section><script src="showbookings-popup.js"></script>
+<script>
+    window.onscroll = function () {
+        myFunction()
+    };
+
+    var navbar_sticky = document.getElementById("navbar_sticky");
+    var sticky = navbar_sticky.offsetTop;
+    var navbar_height = document.querySelector('.navbar').offsetHeight;
+
+    function myFunction() {
+        if (window.pageYOffset >= sticky + navbar_height) {
+            navbar_sticky.classList.add("sticky")
+            document.body.style.paddingTop = navbar_height + 'px';
+        } else {
+            navbar_sticky.classList.remove("sticky");
+            document.body.style.paddingTop = '0'
+        }
+    }
+
+    function openForm(id) {
+        document.getElementById("myForm" + id).style.display = "block";
+    }
+
+    function closeForm(id) {
+        document.getElementById("myForm" + id).style.display = "none";
+    }
+
+    function blockSeat(showid, seat_id, seat_name) {
+        const requestOptions = {
+            method: 'GET'
+        };
+
+        fetch("../seatsession.php?show_id=" + showid + "&seat_id=" + seat_id + "&seat_name=" + seat_name, requestOptions).then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            //return response.json();
+        });
+        console.log(showid + "-" + seat_id + "-" + seat_name)
+    }
+
+    function showbookings(booking_id) {
+        document.getElementById("bookings-" + booking_id).style.display = "block";
+    }
+
+    $(document).ready(function () {
+        var alpha = $('.alphabet');
+        for (i = 0; i <= alpha.length; i++) {
+            var aplhabet = alpha.eq(i).val();
+            var j = i + 1;
+            id = 'seat_alphabet' + j;
+            $('.' + id).html(aplhabet);
+            var gid = 'gcharges' + j;
+
+            currentChrg = document.getElementById(gid).value;
+            var col = 'head' + j;
+            if (i == 0) {
+                //$('#'+col).html('Rs - '+currentChrg);
+                $('#' + col).css('text-align', 'center');
+                $('#' + col).css('color', '#1a73c7');
+                $('#' + col).css('padding', '3px 0');
+            }
+            if (i != 0) {
+                gprev = 'gcharges' + i;
+                prevChrg = document.getElementById(gprev).value;
+                //if(currentChrg != prevChrg)
+                //$('#'+col).html('Rs - '+currentChrg);
+                $('#' + col).css('text-align', 'center');
+                $('#' + col).css('color', '#1a73c7');
+                $('#' + col).css('padding', '3px 0');
+            }
+
+        }
+    });
+</script>
+
+</body>
+
+</html>
