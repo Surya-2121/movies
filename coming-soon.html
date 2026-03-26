@@ -76,6 +76,16 @@
     const grid = document.getElementById('csGrid');
     function esc(s) { const d = document.createElement('div'); d.textContent = s||''; return d.innerHTML; }
 
+    // Map of movies that have dedicated pages
+    const legacyPages = {
+      ustaad: 'ustaad-movie.html',
+      peddi: 'peddi-movie.html',
+      paradise: 'paradise-movie.html',
+      vishwambhara: 'vishwambhara-movie.html',
+      varanasi: 'varanasi-movie.html',
+      spirit: 'spirit-movie.html',
+    };
+
     const snap = await get(ref(db, 'movies'));
     const data = snap.val() || {};
     const movies = Object.entries(data).filter(([k, m]) => m.status === 'Coming Soon');
@@ -83,15 +93,16 @@
     if (movies.length === 0) {
       grid.innerHTML = '<p style="text-align:center;color:#888;">No upcoming movies yet. Stay tuned!</p>';
     } else {
-      grid.innerHTML = movies.map(([k, m]) =>
-        `<a href="movie.html?id=${k}" class="cs-movie-card">
+      grid.innerHTML = movies.map(([k, m]) => {
+        const url = legacyPages[k] || `movie.html?id=${k}`;
+        return `<a href="${url}" class="cs-movie-card">
           ${m.poster ? `<img src="${esc(m.poster)}" alt="${esc(m.name)}" class="cs-movie-poster">` : ''}
           <div class="cs-movie-info">
             <h2 class="cs-movie-name">${esc(m.name)}</h2>
             ${m.dates ? `<p class="cs-movie-dates">${esc(m.dates)}</p>` : ''}
           </div>
-        </a>`
-      ).join('');
+        </a>`;
+      }).join('');
     }
   </script>
   <script src="js/nav.js"></script>

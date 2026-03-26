@@ -225,14 +225,16 @@
     const snap = await get(ref(db, 'movies'));
     const data = snap.val();
     if (data) {
+      const legacyPages = { ustaad:'ustaad-movie.html', peddi:'peddi-movie.html', paradise:'paradise-movie.html', vishwambhara:'vishwambhara-movie.html', varanasi:'varanasi-movie.html', spirit:'spirit-movie.html' };
       const comingSoon = Object.entries(data).filter(([k, m]) => m.status === 'Coming Soon' && m.poster);
       if (comingSoon.length > 0) {
         const track = document.querySelector('.cs-track');
         const dotsContainer = document.getElementById('csDots');
         function esc(s) { const d = document.createElement('div'); d.textContent = s||''; return d.innerHTML; }
-        track.innerHTML = comingSoon.map(([k, m]) =>
-          `<a href="movie.html?id=${k}" class="cs-card"><img src="${esc(m.poster)}" alt="${esc(m.name)}"><h3>${esc(m.name)}</h3></a>`
-        ).join('');
+        track.innerHTML = comingSoon.map(([k, m]) => {
+          const url = legacyPages[k] || `movie.html?id=${k}`;
+          return `<a href="${url}" class="cs-card"><img src="${esc(m.poster)}" alt="${esc(m.name)}"><h3>${esc(m.name)}</h3></a>`;
+        }).join('');
         dotsContainer.innerHTML = '';
         const newCards = track.querySelectorAll('.cs-card');
         let cur = 0;
