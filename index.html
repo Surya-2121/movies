@@ -225,7 +225,7 @@
     const snap = await get(ref(db, 'movies'));
     const data = snap.val();
     if (data) {
-      const legacyPages = { ustaad:'ustaad-movie.html', peddi:'peddi-movie.html', paradise:'paradise-movie.html', vishwambhara:'vishwambhara-movie.html', varanasi:'varanasi-movie.html', spirit:'spirit-movie.html' };
+      const legacyPages = { ustaad:'ustaad-movie.html', peddi:'peddi-movie.html', paradise:'paradise-movie.html', vishwambhara:'vishwambhara-movie.html', varanasi:'varanasi-movie.html', spirit:'spirit-movie.html', fauzi:'fauzi-movie.html' };
       const comingSoon = Object.entries(data).filter(([k, m]) => m.status === 'Coming Soon' && m.poster);
       if (comingSoon.length > 0) {
         const track = document.querySelector('.cs-track');
