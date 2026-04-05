@@ -166,9 +166,9 @@
     }
 
     async function loadBoxOffice() {
-      await seedIfEmpty();
-      await fixPosters();
-      await fixRRR();
+      try { await seedIfEmpty(); } catch(e) { console.warn('seed skipped:', e); }
+      try { await fixPosters(); } catch(e) { console.warn('fixPosters skipped:', e); }
+      try { await fixRRR(); } catch(e) { console.warn('fixRRR skipped:', e); }
       const snap = await get(ref(db, 'boxoffice'));
       const data = snap.val() || {};
       const entries = Object.entries(data).map(([key, v]) => ({ key, ...v }));
