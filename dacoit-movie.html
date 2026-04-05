@@ -6,11 +6,37 @@
   <title>Dacoit - Germany Telugu Movies</title>
   <link rel="canonical" href="https://germany-telugu-movies.com/dacoit-movie.html">
   <meta name="description" content="Dacoit - Telugu movie releasing April 10, 2026. Starring Adivi Sesh & Mrunal Thakur. Watch trailer, songs, and more.">
+  <meta property="og:title" content="Dacoit - Germany Telugu Movies">
+  <meta property="og:description" content="Dacoit starring Adivi Sesh & Mrunal Thakur. Premieres 9 April 2026 in Germany.">
+  <meta property="og:image" content="https://germany-telugu-movies.com/images/dacoit.webp">
+  <meta property="og:url" content="https://germany-telugu-movies.com/dacoit-movie.html">
+  <meta property="og:type" content="video.movie">
   <link rel="icon" href="images/logo.svg" type="image/svg+xml">
   <link rel="stylesheet" href="css/style.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Movie",
+    "name": "Dacoit",
+    "description": "A man is convicted for a crime he didn't commit owing to a betrayal by his better half. He hunts her down seeking vengeance, as their stories intertwine with a series of robberies.",
+    "datePublished": "2026-04-10",
+    "director": {"@type": "Person", "name": "Shaneil Deo"},
+    "actor": [
+      {"@type": "Person", "name": "Adivi Sesh"},
+      {"@type": "Person", "name": "Mrunal Thakur"},
+      {"@type": "Person", "name": "Anurag Kashyap"},
+      {"@type": "Person", "name": "Prakash Raj"}
+    ],
+    "genre": ["Action", "Drama", "Romance"],
+    "inLanguage": "te",
+    "image": "https://germany-telugu-movies.com/images/dacoit.webp",
+    "url": "https://germany-telugu-movies.com/dacoit-movie.html",
+    "productionCompany": {"@type": "Organization", "name": "Annapurna Studios"}
+  }
+  </script>
 </head>
 <body>
-  <nav class="nav-menu" id="navMenu"><div class="nav-header"><img src="images/logo.svg" alt="Logo" class="nav-logo"><button class="nav-close" onclick="toggleMenu()">&times;</button></div><a href="index.html" class="nav-link">Home</a><a href="coming-soon.html" class="nav-link">Coming Soon</a><a href="boxoffice.html" class="nav-link">Box Office</a><a href="reviews.html" class="nav-link">Reviews</a><a href="predict.html" class="nav-link">Predict &amp; Win</a><a href="about.html" class="nav-link">About Us</a><a href="contact.html" class="nav-link">Contact</a><div class="nav-divider"></div><button class="nav-theme-btn" onclick="toggleTheme()"><span id="themeIcon">&#9788;</span> <span id="themeText">Light Mode</span></button></nav><div class="nav-overlay" id="navOverlay" onclick="toggleMenu()"></div><button class="search-btn" onclick="toggleSearch()"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></button>
+  <nav class="nav-menu" id="navMenu"><div class="nav-header"><img src="images/logo.svg" alt="Logo" class="nav-logo"><button class="nav-close" onclick="toggleMenu()">&times;</button></div><a href="index.html" class="nav-link">Home</a><a href="coming-soon.html" class="nav-link">Coming Soon</a><a href="boxoffice.html" class="nav-link">Box Office</a><a href="about.html" class="nav-link">About Us</a><a href="contact.html" class="nav-link">Contact</a><div class="nav-divider"></div><button class="nav-theme-btn" onclick="toggleTheme()"><span id="themeIcon">&#9788;</span> <span id="themeText">Light Mode</span></button></nav><div class="nav-overlay" id="navOverlay" onclick="toggleMenu()"></div><button class="search-btn" onclick="toggleSearch()"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></button>
 <div class="search-overlay" id="searchOverlay"><div class="search-overlay-box"><button class="search-overlay-close" onclick="toggleSearch()">&times;</button><input type="text" class="search-overlay-input" placeholder="Search for a movie..." oninput="handleSearchInput(event)" autocomplete="off"><div class="search-overlay-results" id="searchOverlayResults"></div></div></div>
 <button class="menu-btn" id="menuBtn" onclick="toggleMenu()"><span></span><span></span><span></span></button>
   <header class="site-header">
@@ -18,16 +44,95 @@
   </header>
 
   <main class="movie-page">
-    <!-- Hero Banner -->
-    <section class="mp-hero">
-      <img src="images/dacoit.jpg" alt="Dacoit" class="mp-poster">
-      <div class="mp-hero-info">
-        <h1 class="mp-title">Dacoit</h1>
-        <div class="mp-meta">
-          <span>Telugu</span>
-          <span>2026</span>
-          <span>Action / Drama / Romance</span>
+    <!-- Backdrop Banner -->
+    <div class="mp-backdrop">
+      <img src="images/dacoit-backdrop.webp" alt="" class="mp-backdrop-img">
+      <div class="mp-backdrop-gradient"></div>
+      <section class="mp-hero">
+        <div class="mp-poster"><img src="images/dacoit.webp" alt="Dacoit"></div>
+        <div class="mp-hero-info">
+          <h1 class="mp-title">Dacoit</h1>
+          <div class="mp-meta">
+            <span>Telugu</span>
+            <span>2026</span>
+            <span>Action / Drama / Romance</span>
+          </div>
+          <div class="mp-dates">Premieres: 9 April 2026 in Germany &bull; Worldwide: 10 April 2026</div>
+          <!-- Phase 1: Pre-release - Interested + Notify -->
+          <div id="interestedBar" class="bms-interest-bar">
+            <div class="bms-bar-left">
+              <span class="bms-thumb">&#128077;</span>
+              <span class="bms-count" id="interestedCount">0</span><span class="bms-count-label"> are interested</span>
+            </div>
+            <button id="interestedBtn" class="bms-btn" onclick="toggleInterest()">I'm interested</button>
+          </div>
+
+          <div id="notifyBar" class="bms-interest-bar" style="margin-top:12px;">
+            <div class="bms-bar-left">
+              <span class="bms-thumb">&#128276;</span>
+              <span class="bms-count" id="notifyCount">0</span><span class="bms-count-label"> subscribed</span>
+            </div>
+            <button id="notifyBtn" class="bms-btn" onclick="toggleNotifyForm()">Notify Me</button>
+          </div>
+          <div id="notifyForm" class="notify-form" style="display:none;margin-top:12px;">
+            <p class="notify-form-text">Get notified when tickets go on sale in Germany!</p>
+            <div class="notify-form-row">
+              <input type="email" id="notifyEmail" class="notify-input" placeholder="Your email address">
+              <button id="notifySubmit" class="book-btn notify-submit-btn">Subscribe</button>
+            </div>
+            <div id="notifyMsg" class="review-msg"></div>
+          </div>
+
+          <!-- Phase 2: Tickets live - Rating + Book Now -->
+          <div id="rateBar" class="bms-rate-bar" style="display:none;">
+            <div class="bms-bar-left">
+              <span class="bms-star">&#11088;</span>
+              <div>
+                <span class="bms-rating-val" id="avgRating">-</span><span class="bms-rating-out">/5</span>
+                <span class="bms-votes" id="voteCount">(0 Votes)</span>
+              </div>
+            </div>
+            <button id="rateBtn" class="bms-btn" onclick="toggleRateForm()">Rate now</button>
+          </div>
+          <div id="rateForm" class="bms-review-form" style="display:none;">
+            <h3 class="bms-rf-title">How would you rate this movie?</h3>
+            <div class="bms-stars-select" id="starSelect">
+              <span class="bms-star-pick" data-val="1">&#9733;</span>
+              <span class="bms-star-pick" data-val="2">&#9733;</span>
+              <span class="bms-star-pick" data-val="3">&#9733;</span>
+              <span class="bms-star-pick" data-val="4">&#9733;</span>
+              <span class="bms-star-pick" data-val="5">&#9733;</span>
+            </div>
+            <input type="hidden" id="rateValue" value="0">
+            <input type="text" id="rateName" class="bms-rf-input" placeholder="Your name" maxlength="50">
+            <textarea id="rateText" class="bms-rf-input bms-rf-textarea" placeholder="Write your review (optional)" maxlength="500" rows="3"></textarea>
+            <button id="rateSubmit" class="bms-rf-submit">Submit Review</button>
+            <div id="rateMsg" class="review-msg"></div>
+          </div>
+
+          <!-- User Reviews List (shown in mp-content below) -->
+
+          <div id="bookBar" class="bms-interest-bar" style="display:none;margin-top:12px;">
+            <div class="bms-bar-left">
+              <span class="bms-thumb">&#127915;</span>
+              <span class="bms-count-label">Tickets available now!</span>
+            </div>
+            <a id="bookLink" href="dacoit-movie.html" class="bms-btn bms-btn-red" style="text-decoration:none;">Book Now</a>
+          </div>
         </div>
+      </section>
+    </div>
+
+    <div class="mp-content">
+      <!-- About the Movie -->
+      <section class="mp-section">
+        <h2 class="mp-section-title">About the Movie</h2>
+        <p class="mp-synopsis">A man is convicted for a crime he didn't commit owing to a betrayal by his better half. He hunts her down seeking vengeance, as their stories intertwine with a series of robberies.</p>
+      </section>
+
+      <!-- Cast & Crew -->
+      <section class="mp-section">
+        <h2 class="mp-section-title">Cast & Crew</h2>
         <div class="mp-crew">
           <p><strong>Director:</strong> Shaneil Deo</p>
           <p><strong>Written by:</strong> Adivi Sesh</p>
@@ -39,58 +144,39 @@
           <p><strong>Production:</strong> Annapurna Studios</p>
           <p><strong>Producer:</strong> Supriya Yarlagadda</p>
         </div>
-        <div class="mp-dates">Premieres: 9 April 2026 in Germany &bull; Worldwide: 10 April 2026</div>
-        <div class="mp-hero-buttons">
-          <button id="interestedBtn" class="mp-interested-btn" onclick="toggleInterest()">
-            <span class="mp-thumbsup">&#128077;</span>
-            <span id="interestedText">I'm Interested</span>
-            <span id="interestedCount" class="mp-interested-count">0</span>
-          </button>
-          <button id="notifyBtn" class="mp-notify-btn" onclick="toggleNotifyForm()">
-            <span class="mp-bell">&#128276;</span>
-            <span id="notifyBtnText">Notify Me</span>
-            <span id="notifyCount" class="mp-notify-count">0</span>
-          </button>
+      </section>
+
+      <!-- Songs -->
+      <section class="mp-section">
+        <h2 class="mp-section-title">Songs</h2>
+        <div class="mp-songs">
+          <a href="https://www.youtube.com/watch?v=wMP_haCKnzg" target="_blank" rel="noopener" class="mp-song-card">
+            <div class="mp-song-icon">&#9835;</div>
+            <span>Chichubuddi</span>
+          </a>
+          <a href="https://www.youtube.com/watch?v=ThR0iWwVCJw" target="_blank" rel="noopener" class="mp-song-card">
+            <div class="mp-song-icon">&#9835;</div>
+            <span>Rubaroo</span>
+          </a>
         </div>
-        <div id="notifyForm" class="notify-form" style="display:none;">
-          <p class="notify-form-text">Get notified when tickets go on sale in Germany!</p>
-          <div class="notify-form-row">
-            <input type="email" id="notifyEmail" class="notify-input" placeholder="Your email address">
-            <button id="notifySubmit" class="book-btn notify-submit-btn">Subscribe</button>
-          </div>
-          <div id="notifyMsg" class="review-msg"></div>
+      </section>
+
+      <!-- Trailer -->
+      <section class="mp-section">
+        <h2 class="mp-section-title">Trailer</h2>
+        <div class="mp-video">
+          <iframe src="https://www.youtube.com/embed/8Y_D7-GCcxY" title="Dacoit Trailer" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <!-- Synopsis -->
-    <section class="mp-section">
-      <h2 class="mp-section-title">Synopsis</h2>
-      <p class="mp-synopsis">A man is convicted for a crime he didn't commit owing to a betrayal by his better half. He hunts her down seeking vengeance, as their stories intertwine with a series of robberies.</p>
-    </section>
+      <!-- User Reviews - visible from release date -->
+      <section class="mp-section" id="reviewsSection" style="display:none;">
+        <h2 class="mp-section-title">User Reviews</h2>
+        <div class="bms-reviews-summary" id="reviewsSummary"></div>
+        <div id="reviewsList" class="bms-reviews-list"></div>
+      </section>
 
-    <!-- Songs -->
-    <section class="mp-section">
-      <h2 class="mp-section-title">Songs</h2>
-      <div class="mp-songs">
-        <a href="https://www.youtube.com/watch?v=wMP_haCKnzg" target="_blank" rel="noopener" class="mp-song-card">
-          <div class="mp-song-icon">&#9835;</div>
-          <span>Chichubuddi</span>
-        </a>
-        <a href="https://www.youtube.com/watch?v=ThR0iWwVCJw" target="_blank" rel="noopener" class="mp-song-card">
-          <div class="mp-song-icon">&#9835;</div>
-          <span>Rubaroo</span>
-        </a>
-      </div>
-    </section>
-
-    <!-- Trailer -->
-    <section class="mp-section">
-      <h2 class="mp-section-title">Trailer</h2>
-      <div class="mp-video">
-        <iframe src="https://www.youtube.com/embed/8Y_D7-GCcxY" title="Dacoit Trailer" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-      </div>
-    </section>
+    </div>
   </main>
 
   <!-- Footer -->
@@ -129,13 +215,17 @@
 
     function isClicked() { return localStorage.getItem(STORAGE_KEY) === 'true'; }
 
+    function formatCount(n) {
+      if (n >= 1000) return (n/1000).toFixed(1).replace(/\.0$/,'') + 'K+';
+      return n;
+    }
+
     function updateUI(count) {
       const btn = document.getElementById('interestedBtn');
-      const text = document.getElementById('interestedText');
       const countEl = document.getElementById('interestedCount');
-      if (count !== undefined) countEl.textContent = count;
-      if (isClicked()) { btn.classList.add('mp-interested-active'); text.textContent = 'Interested'; }
-      else { btn.classList.remove('mp-interested-active'); text.textContent = "I'm Interested"; }
+      if (count !== undefined) countEl.textContent = formatCount(count);
+      if (isClicked()) { btn.classList.add('bms-btn-active'); btn.textContent = 'Interested'; }
+      else { btn.classList.remove('bms-btn-active'); btn.textContent = "I'm interested"; }
     }
 
     async function loadCount() {
@@ -189,8 +279,8 @@
         localStorage.setItem(NOTIFY_STORAGE, 'true');
         msg.textContent = 'You will be notified when tickets go live!'; msg.className = 'review-msg review-msg-ok';
         document.getElementById('notifyEmail').disabled = true; btn.textContent = 'Subscribed';
-        document.getElementById('notifyBtn').classList.add('mp-notify-active');
-        document.getElementById('notifyBtnText').textContent = 'Subscribed';
+        document.getElementById('notifyBtn').classList.add('bms-btn-active');
+        document.getElementById('notifyBtn').textContent = 'Subscribed';
       } catch {
         msg.textContent = 'Error subscribing. Please try again.'; msg.className = 'review-msg review-msg-err';
         btn.disabled = false; btn.textContent = 'Subscribe';
@@ -198,11 +288,173 @@
     });
 
     if (localStorage.getItem(NOTIFY_STORAGE)) {
-      document.getElementById('notifyBtn').classList.add('mp-notify-active');
-      document.getElementById('notifyBtnText').textContent = 'Subscribed';
+      document.getElementById('notifyBtn').classList.add('bms-btn-active');
+      document.getElementById('notifyBtn').textContent = 'Subscribed';
     }
     loadNotifyCount();
+
+    // ===== Phase switching based on Firebase data =====
+    // Phase 1: Pre-release (default) - Interested + Notify
+    // Phase 2: Tickets added in Firebase - Rating + Book Now
+    // Check if tickets/booking URL exists in Firebase
+    // 3 phases based on Firebase data:
+    // Phase 1 (default): Interested + Notify Me
+    // Phase 2 (bookingUrl added): Interested + Book Now (notify hidden)
+    // Phase 3 (status = "Ended"): Rate Now + Book Now
+    get(ref(db, 'movies/dacoit')).then(snap => {
+      const movie = snap.val();
+      if (!movie) return;
+
+      const releaseDate = new Date(2026, 3, 9); // April 9, 2026
+      const now = new Date();
+
+      if (now >= releaseDate) {
+        // Phase 3: Movie released - show Rate + Book
+        document.getElementById('interestedBar').style.display = 'none';
+        document.getElementById('notifyBar').style.display = 'none';
+        document.getElementById('rateBar').style.display = 'flex';
+        if (movie.bookingUrl) {
+          document.getElementById('bookBar').style.display = 'flex';
+          document.getElementById('bookLink').href = movie.bookingUrl;
+        }
+        document.querySelector('.mp-dates').textContent = 'Now Showing';
+        document.getElementById('reviewsSection').style.display = 'block';
+      } else if (movie.bookingUrl) {
+        // Phase 2: Tickets live - replace Notify with Book Now
+        document.getElementById('notifyBar').style.display = 'none';
+        document.getElementById('bookBar').style.display = 'flex';
+        document.getElementById('bookLink').href = movie.bookingUrl;
+        document.querySelector('.mp-dates').textContent = 'Tickets Available \u2022 Premieres 9 April 2026';
+      }
+    }).catch(() => {});
+
+    // ===== Star Rating & Reviews =====
+    let selectedRating = 0;
+    document.querySelectorAll('.bms-star-pick').forEach(star => {
+      star.addEventListener('click', () => {
+        selectedRating = parseInt(star.dataset.val);
+        document.getElementById('rateValue').value = selectedRating;
+        document.querySelectorAll('.bms-star-pick').forEach(s => {
+          s.classList.toggle('active', parseInt(s.dataset.val) <= selectedRating);
+        });
+      });
+      star.addEventListener('mouseenter', () => {
+        const val = parseInt(star.dataset.val);
+        document.querySelectorAll('.bms-star-pick').forEach(s => {
+          s.classList.toggle('active', parseInt(s.dataset.val) <= val);
+        });
+      });
+    });
+    document.querySelector('.bms-stars-select').addEventListener('mouseleave', () => {
+      document.querySelectorAll('.bms-star-pick').forEach(s => {
+        s.classList.toggle('active', parseInt(s.dataset.val) <= selectedRating);
+      });
+    });
+
+    function renderStars(rating) {
+      let html = '';
+      for (let i = 1; i <= 5; i++) {
+        html += i <= rating ? '&#9733;' : '<span class="empty">&#9733;</span>';
+      }
+      return html;
+    }
+
+    // Load and display average rating + reviews
+    onValue(ref(db, 'ratings/dacoit'), (snap) => {
+      const data = snap.val();
+      const reviewsList = document.getElementById('reviewsList');
+      const summaryEl = document.getElementById('reviewsSummary');
+      const sectionEl = document.getElementById('reviewsSection');
+      if (!data) { reviewsList.innerHTML = ''; return; }
+      const ratings = Object.values(data);
+      const total = ratings.reduce((sum, r) => sum + (r.rating || 0), 0);
+      const avg = (total / ratings.length).toFixed(1);
+      document.getElementById('avgRating').textContent = avg;
+      document.getElementById('voteCount').textContent = '(' + formatCount(ratings.length) + ' Votes)';
+
+      // Show reviews section
+      sectionEl.style.display = 'block';
+
+      // Rating distribution (1-5 stars)
+      const dist = [0, 0, 0, 0, 0];
+      ratings.forEach(r => {
+        const s = Math.min(5, Math.max(1, Math.round(r.rating)));
+        dist[s - 1]++;
+      });
+      const maxDist = Math.max(...dist, 1);
+
+      summaryEl.innerHTML = `
+        <div class="bms-rs-score">
+          <div><span class="bms-rs-num">${avg}</span><span class="bms-rs-out">/5</span></div>
+          <div class="bms-rs-stars">${renderStars(Math.round(avg))}</div>
+          <div class="bms-rs-count">${formatCount(ratings.length)} votes</div>
+        </div>
+        <div class="bms-rs-bars">
+          ${[5,4,3,2,1].map(i => `<div class="bms-rs-bar-row">
+            <span class="bms-rs-bar-label">${i}</span>
+            <div class="bms-rs-bar-track"><div class="bms-rs-bar-fill" style="width:${(dist[i-1]/maxDist*100).toFixed(0)}%"></div></div>
+            <span class="bms-rs-bar-count">${dist[i-1]}</span>
+          </div>`).join('')}
+        </div>`;
+
+      // Render review cards
+      ratings.sort((a, b) => (b.timestamp || 0) - (a.timestamp || 0));
+      reviewsList.innerHTML = ratings.map(r => {
+        const initial = (r.name || '?').charAt(0).toUpperCase();
+        const date = r.timestamp ? new Date(r.timestamp).toLocaleDateString('en-DE', { day: 'numeric', month: 'short', year: 'numeric' }) : '';
+        const safeText = r.text ? `<p class="bms-rc-text">${r.text.replace(/</g,'&lt;')}</p>` : '';
+        return `<div class="bms-review-card">
+          <div class="bms-rc-avatar">${initial}</div>
+          <div class="bms-rc-body">
+            <div class="bms-rc-header">
+              <span class="bms-rc-name">${(r.name||'').replace(/</g,'&lt;')}</span>
+              <span class="bms-rc-date">${date}</span>
+            </div>
+            <div class="bms-rc-stars">${renderStars(Math.round(r.rating))}</div>
+            ${safeText}
+          </div>
+        </div>`;
+      }).join('');
+    });
+
+    // Rate Now form toggle
+    window.toggleRateForm = function() {
+      const form = document.getElementById('rateForm');
+      form.style.display = form.style.display === 'none' ? 'block' : 'none';
+    };
+
+    const RATE_STORAGE = 'dacoit_rated';
+    if (localStorage.getItem(RATE_STORAGE)) {
+      const rb = document.getElementById('rateBtn');
+      if (rb) { rb.classList.add('bms-btn-active'); rb.textContent = 'Rated'; }
+    }
+
+    document.getElementById('rateSubmit').addEventListener('click', async () => {
+      const name = document.getElementById('rateName').value.trim();
+      const value = parseInt(document.getElementById('rateValue').value);
+      const text = document.getElementById('rateText').value.trim();
+      const msg = document.getElementById('rateMsg');
+
+      if (!name) { msg.textContent = 'Please enter your name.'; msg.className = 'review-msg review-msg-err'; return; }
+      if (!value || value < 1 || value > 5) { msg.textContent = 'Please select a star rating.'; msg.className = 'review-msg review-msg-err'; return; }
+      if (localStorage.getItem(RATE_STORAGE)) { msg.textContent = 'You already rated this movie.'; msg.className = 'review-msg review-msg-err'; return; }
+
+      const btn = document.getElementById('rateSubmit');
+      btn.disabled = true; btn.textContent = 'Submitting...';
+      try {
+        await push(ref(db, 'ratings/dacoit'), { name, rating: value, text, timestamp: Date.now() });
+        localStorage.setItem(RATE_STORAGE, 'true');
+        msg.textContent = 'Thank you for your review!'; msg.className = 'review-msg review-msg-ok';
+        document.getElementById('rateForm').style.display = 'none';
+        const rb = document.getElementById('rateBtn');
+        rb.classList.add('bms-btn-active'); rb.textContent = 'Rated';
+      } catch {
+        msg.textContent = 'Error submitting. Try again.'; msg.className = 'review-msg review-msg-err';
+        btn.disabled = false; btn.textContent = 'Submit Review';
+      }
+    });
   </script>
   <script src="js/nav.js"></script>
+
 </body>
 </html>

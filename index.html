@@ -16,6 +16,37 @@
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;900&display=swap" rel="stylesheet">
   <link rel="icon" href="images/logo.svg" type="image/svg+xml">
   <link rel="stylesheet" href="css/style.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Germany Telugu Movies",
+    "url": "https://germany-telugu-movies.com",
+    "description": "Your home for Telugu movie premieres across Germany. Book tickets, check showtimes, and get notified for upcoming Telugu films in German cinemas.",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "https://germany-telugu-movies.com/?q={search_term_string}",
+      "query-input": "required name=search_term_string"
+    }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Germany Telugu Movies",
+    "url": "https://germany-telugu-movies.com",
+    "logo": "https://germany-telugu-movies.com/images/logo.svg",
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "email": "info@germany-telugu-movies.com",
+      "contactType": "customer service"
+    },
+    "sameAs": [
+      "https://www.instagram.com/germanytelugumovies"
+    ]
+  }
+  </script>
 </head>
 <body class="landing-page">
 
@@ -28,8 +59,6 @@
     <a href="index.html" class="nav-link nav-link-active">Home</a>
     <a href="coming-soon.html" class="nav-link">Coming Soon</a>
     <a href="boxoffice.html" class="nav-link">Box Office</a>
-    <a href="reviews.html" class="nav-link">Reviews</a>
-    <a href="predict.html" class="nav-link">Predict & Win</a>
     <a href="about.html" class="nav-link">About Us</a>
     <a href="contact.html" class="nav-link">Contact</a>
     <div class="nav-divider"></div>
@@ -105,13 +134,13 @@
       <!-- Movies -->
       <div class="movies-col">
         <h2 class="section-title">Movies</h2>
-        <a href="dacoit-movie.html" class="now-playing-card" id="noShowsCard">
-          <div class="np-poster"><img src="images/dacoit.jpg" alt="Dacoit"></div>
+        <a href="dacoit-movie.html" class="now-playing-card" id="dacoit-card">
+          <div class="np-poster"><img src="images/dacoit.webp" alt="Dacoit"></div>
           <div class="np-info">
             <h3 class="np-movie-name">Dacoit</h3>
             <p class="np-language">Telugu</p>
-            <p class="np-date">Premieres 9 April 2026</p>
-            <span class="book-btn">View Details</span>
+            <p class="np-date" id="dacoit-status"></p>
+            <span class="book-btn" id="dacoit-btn"></span>
           </div>
         </a>
       </div>
@@ -145,7 +174,7 @@
               <h3>Spirit</h3>
             </a>
             <a href="dacoit-movie.html" class="cs-card">
-              <img src="images/dacoit.jpg" alt="Dacoit">
+              <img src="images/dacoit.webp" alt="Dacoit">
               <h3>Dacoit</h3>
             </a>
           </div>
@@ -155,23 +184,6 @@
     </div>
   </section>
 
-  <!-- Predict & Win -->
-  <section class="movies-section" style="text-align:center;">
-    <a href="predict.html" class="book-btn predict-home-btn">Predict & Win!</a>
-  </section>
-
-  <!-- Reviews & Ratings Slider -->
-  <section class="movies-section">
-    <h2 class="section-title">Reviews & Ratings</h2>
-    <a href="reviews.html" class="rv-auto-slider">
-      <div class="rv-auto-track" id="rvTrack">
-        <div class="rv-auto-item"><span class="rv-auto-name">Mana Shankara Vara Prasad Garu</span><span class="rv-auto-rating">2.75 / 5</span></div>
-        <div class="rv-auto-item"><span class="rv-auto-name">The Raja Saab</span><span class="rv-auto-rating">1.00 / 5</span></div>
-        <div class="rv-auto-item"><span class="rv-auto-name">Anaganaga Oka Raju</span><span class="rv-auto-rating">2.50 / 5</span></div>
-        <div class="rv-auto-item"><span class="rv-auto-name">Nari Nari Naduma Murari</span><span class="rv-auto-rating">2.75 / 5</span></div>
-      </div>
-    </a>
-  </section>
 
   <!-- Footer -->
   <footer class="site-footer">
@@ -212,7 +224,7 @@
     }
 
     // Auto-slide
-    setInterval(() => {
+    window.csAutoSlide = setInterval(() => {
       goTo((current + 1) % cards.length);
     }, 3000);
   </script>
@@ -235,6 +247,7 @@
       const legacyPages = { ustaad:'ustaad-movie.html', peddi:'peddi-movie.html', paradise:'paradise-movie.html', vishwambhara:'vishwambhara-movie.html', varanasi:'varanasi-movie.html', spirit:'spirit-movie.html', fauzi:'fauzi-movie.html', dacoit:'dacoit-movie.html' };
       const comingSoon = Object.entries(data).filter(([k, m]) => m.status === 'Coming Soon' && m.poster);
       if (comingSoon.length > 0) {
+        if (window.csAutoSlide) clearInterval(window.csAutoSlide);
         const track = document.querySelector('.cs-track');
         const dotsContainer = document.getElementById('csDots');
         function esc(s) { const d = document.createElement('div'); d.textContent = s||''; return d.innerHTML; }
@@ -311,27 +324,20 @@
   </script>
   <script>
     (function() {
-      const track = document.getElementById('rvTrack');
-      const items = track.querySelectorAll('.rv-auto-item');
-      let cur = 0;
-      setInterval(() => {
-        cur = (cur + 1) % items.length;
-        track.style.transform = 'translateX(-' + (cur * 100) + '%)';
-      }, 3000);
-    })();
-  </script>
-  <script>
-    // Match No Current Shows card height to Coming Soon slider
-    (function() {
-      var card = document.getElementById('noShowsCard');
-      if (!card) return;
-      var csCard = document.querySelector('.cs-card');
-      if (!csCard) return;
-      var img = csCard.querySelector('img');
-      function sync() { card.style.height = csCard.offsetHeight + 'px'; }
-      if (img && img.complete) sync();
-      else if (img) img.addEventListener('load', sync);
-      window.addEventListener('resize', sync);
+      var premiere = new Date(2026, 3, 9);
+      var now = new Date();
+      var status = document.getElementById('dacoit-status');
+      var btn = document.getElementById('dacoit-btn');
+      if (now < premiere) {
+        var diff = Math.ceil((premiere - now) / (1000*60*60*24));
+        status.textContent = 'Premieres 9 April 2026 \u2022 ' + diff + ' day' + (diff !== 1 ? 's' : '') + ' to go';
+        btn.textContent = "View Details";
+      } else {
+        status.textContent = 'In Cinemas Now';
+        btn.textContent = 'Book Now';
+        btn.style.background = '#e74c3c';
+        btn.style.borderColor = '#e74c3c';
+      }
     })();
   </script>
   <script src="js/nav.js"></script>

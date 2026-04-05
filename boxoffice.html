@@ -17,8 +17,6 @@
     <a href="index.html" class="nav-link">Home</a>
     <a href="coming-soon.html" class="nav-link">Coming Soon</a>
     <a href="boxoffice.html" class="nav-link nav-link-active">Box Office</a>
-    <a href="reviews.html" class="nav-link">Reviews</a>
-    <a href="predict.html" class="nav-link">Predict & Win</a>
     <a href="about.html" class="nav-link">About Us</a>
     <a href="contact.html" class="nav-link">Contact</a>
     <div class="nav-divider"></div>
@@ -44,6 +42,8 @@
     <div id="boList" class="bo-list">
       <p style="text-align:center;color:#666;">Loading...</p>
     </div>
+
+    <p class="bo-disclaimer">Disclaimer: Data gathered from various sources and may also include estimates, use and follow at your own discretion, we don't guarantee any authenticity of the same</p>
 
     <!-- Admin: Add entry (hidden for normal users) -->
     <div id="boAdminSection" style="display:none;">
@@ -122,7 +122,7 @@
       const snap = await get(ref(db, 'boxoffice'));
       if (snap.val()) return;
       const seed = {
-        rrr: { name: 'RRR', dates: '2022', admissions: 1357, gross: 30290, shows: 0, cities: '', poster: 'https://image.tmdb.org/t/p/w300/u0XUBNQWlOvrh0Gd97ARGpIkL0.jpg' },
+        rrr: { name: 'RRR', dates: '2022', admissions: 1353, gross: 32015, shows: 0, cities: '', poster: 'https://image.tmdb.org/t/p/w300/u0XUBNQWlOvrh0Gd97ARGpIkL0.jpg' },
         kalki: { name: 'Kalki 2898 AD', dates: '2024', admissions: 1787, gross: 50013, shows: 0, cities: '', poster: 'https://image.tmdb.org/t/p/w300/rstcAnBeCkxNQjNp3YXrF6IP1tW.jpg' },
         og: { name: 'They Call Him OG', dates: '2025', admissions: 2038, gross: 49798, shows: 0, cities: '', poster: '' },
         devara: { name: 'Devara', dates: '2025', admissions: 1333, gross: 28000, shows: 0, cities: '', poster: 'https://image.tmdb.org/t/p/w300/7eO5iuvQjqHmqGwVoq7JPrWoXt6.jpg' },
@@ -151,9 +151,24 @@
       }
     }
 
+    // Ensure RRR exists with correct data
+    async function fixRRR() {
+      await set(ref(db, 'boxoffice/rrr'), {
+        name: 'RRR',
+        dates: '2022',
+        admissions: 1353,
+        gross: 32015,
+        shows: 0,
+        cities: '',
+        poster: 'https://image.tmdb.org/t/p/w300/u0XUBNQWlOvrh0Gd97ARGpIkL0.jpg',
+        updatedAt: Date.now()
+      });
+    }
+
     async function loadBoxOffice() {
       await seedIfEmpty();
       await fixPosters();
+      await fixRRR();
       const snap = await get(ref(db, 'boxoffice'));
       const data = snap.val() || {};
       const entries = Object.entries(data).map(([key, v]) => ({ key, ...v }));
@@ -182,20 +197,28 @@
 
       listEl.innerHTML = entries.map((e, i) => {
         const rank = i + 1;
-        const cities = e.cities ? e.cities.split(',').map(c => c.trim()).filter(Boolean) : [];
         const poster = (e.poster && e.poster.trim()) ? e.poster : (fallbackPosters[e.key] || '');
         const gross = e.gross ? '€' + (e.gross).toLocaleString() : '—';
         return `<div class="bo-card">
+          <span class="bo-rank">${rank}</span>
           ${poster ? `<img src="${esc(poster)}" alt="${esc(e.name)}" class="bo-poster">` : '<div class="bo-poster-placeholder"></div>'}
           <div class="bo-info">
-            <h3 class="bo-movie-name"><span class="bo-rank">#${rank}</span> ${esc(e.name)}</h3>
+            <h3 class="bo-movie-name">${esc(e.name)}</h3>
             <div class="bo-dates">${esc(e.dates || '')}</div>
-            <div class="bo-admits-row">
-              <span class="bo-admits-num">${(e.admissions || 0).toLocaleString()}</span>
-              <span class="bo-admits-label">admits</span>
-              <span class="bo-gross-small">${gross}</span>
+          </div>
+          <div class="bo-stats">
+            <div class="bo-stat">
+              <span class="bo-stat-val">${(e.admissions || 0).toLocaleString()}</span>
+              <span class="bo-stat-label">Admits</span>
             </div>
-            ${cities.length ? `<div class="bo-cities">${cities.map(c => `<span class="bo-city-tag">${esc(c)}</span>`).join('')}</div>` : ''}
+            <div class="bo-stat">
+              <span class="bo-stat-val">${gross}</span>
+              <span class="bo-stat-label">Gross</span>
+            </div>
+            ${e.shows ? `<div class="bo-stat">
+              <span class="bo-stat-val">${e.shows}</span>
+              <span class="bo-stat-label">Shows</span>
+            </div>` : ''}
           </div>
         </div>`;
       }).join('');

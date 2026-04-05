@@ -10,7 +10,7 @@
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-  <nav class="nav-menu" id="navMenu"><div class="nav-header"><img src="images/logo.svg" alt="Logo" class="nav-logo"><button class="nav-close" onclick="toggleMenu()">&times;</button></div><a href="index.html" class="nav-link">Home</a><a href="coming-soon.html" class="nav-link">Coming Soon</a><a href="boxoffice.html" class="nav-link">Box Office</a><a href="reviews.html" class="nav-link">Reviews</a><a href="predict.html" class="nav-link">Predict &amp; Win</a><a href="about.html" class="nav-link">About Us</a><a href="contact.html" class="nav-link">Contact</a><div class="nav-divider"></div><button class="nav-theme-btn" onclick="toggleTheme()"><span id="themeIcon">&#9788;</span> <span id="themeText">Light Mode</span></button></nav><div class="nav-overlay" id="navOverlay" onclick="toggleMenu()"></div><button class="search-btn" onclick="toggleSearch()"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></button>
+  <nav class="nav-menu" id="navMenu"><div class="nav-header"><img src="images/logo.svg" alt="Logo" class="nav-logo"><button class="nav-close" onclick="toggleMenu()">&times;</button></div><a href="index.html" class="nav-link">Home</a><a href="coming-soon.html" class="nav-link">Coming Soon</a><a href="boxoffice.html" class="nav-link">Box Office</a><a href="about.html" class="nav-link">About Us</a><a href="contact.html" class="nav-link">Contact</a><div class="nav-divider"></div><button class="nav-theme-btn" onclick="toggleTheme()"><span id="themeIcon">&#9788;</span> <span id="themeText">Light Mode</span></button></nav><div class="nav-overlay" id="navOverlay" onclick="toggleMenu()"></div><button class="search-btn" onclick="toggleSearch()"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></button>
 <div class="search-overlay" id="searchOverlay"><div class="search-overlay-box"><button class="search-overlay-close" onclick="toggleSearch()">&times;</button><input type="text" class="search-overlay-input" placeholder="Search for a movie..." oninput="handleSearchInput(event)" autocomplete="off"><div class="search-overlay-results" id="searchOverlayResults"></div></div></div>
 <button class="menu-btn" id="menuBtn" onclick="toggleMenu()"><span></span><span></span><span></span></button>
   <header class="site-header">
@@ -18,16 +18,86 @@
   </header>
 
   <main class="movie-page">
-    <!-- Hero Banner -->
-    <section class="mp-hero">
-      <img src="images/peddi.jpg" alt="Peddi" class="mp-poster">
-      <div class="mp-hero-info">
-        <h1 class="mp-title">Peddi</h1>
-        <div class="mp-meta">
-          <span>Telugu</span>
-          <span>2026</span>
-          <span>Action / Drama</span>
+    <!-- Backdrop Banner -->
+    <div class="mp-backdrop">
+      <img src="images/peddi-backdrop.jpg" alt="" class="mp-backdrop-img">
+      <div class="mp-backdrop-gradient"></div>
+      <section class="mp-hero">
+        <div class="mp-poster"><img src="images/peddi.jpg" alt="Peddi"></div>
+        <div class="mp-hero-info">
+          <h1 class="mp-title">Peddi</h1>
+          <div class="mp-meta">
+            <span>Telugu</span>
+            <span>2026</span>
+            <span>Action / Drama</span>
+          </div>
+          <div class="mp-dates">Release: 30 April 2026 &bull; Coming Soon to Germany</div>
+          <!-- Phase 1: Pre-release - Interested + Notify -->
+          <div id="interestedBar" class="bms-interest-bar">
+            <div class="bms-bar-left">
+              <span class="bms-thumb">&#128077;</span>
+              <span class="bms-count" id="interestedCount">0</span><span class="bms-count-label"> are interested</span>
+            </div>
+            <button id="interestedBtn" class="bms-btn" onclick="toggleInterest()">I'm interested</button>
+          </div>
+
+          <div id="notifyBar" class="bms-interest-bar" style="margin-top:12px;">
+            <div class="bms-bar-left">
+              <span class="bms-thumb">&#128276;</span>
+              <span class="bms-count" id="notifyCount">0</span><span class="bms-count-label"> subscribed</span>
+            </div>
+            <button id="notifyBtn" class="bms-btn" onclick="toggleNotifyForm()">Notify Me</button>
+          </div>
+          <div id="notifyForm" class="notify-form" style="display:none;margin-top:12px;">
+            <p class="notify-form-text">Get notified when tickets go on sale in Germany!</p>
+            <div class="notify-form-row">
+              <input type="email" id="notifyEmail" class="notify-input" placeholder="Your email address">
+              <button id="notifySubmit" class="book-btn notify-submit-btn">Subscribe</button>
+            </div>
+            <div id="notifyMsg" class="review-msg"></div>
+          </div>
+
+          <!-- Phase 2: Tickets live - Rating + Book Now -->
+          <div id="rateBar" class="bms-rate-bar" style="display:none;">
+            <div class="bms-bar-left">
+              <span class="bms-star">&#11088;</span>
+              <div>
+                <span class="bms-rating-val" id="avgRating">-</span><span class="bms-rating-out">/5</span>
+                <span class="bms-votes" id="voteCount">(0 Votes)</span>
+              </div>
+            </div>
+            <button id="rateBtn" class="bms-btn" onclick="toggleRateForm()">Rate now</button>
+          </div>
+          <div id="rateForm" class="notify-form" style="display:none;margin-top:12px;">
+            <input type="text" id="rateName" class="notify-input" placeholder="Your name" maxlength="50" style="margin-bottom:8px;">
+            <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px;">
+              <input type="number" id="rateValue" class="notify-input" placeholder="Rating" min="0" max="5" step="0.5" style="width:100px;">
+              <span style="color:#aaa;">/ 5</span>
+            </div>
+            <textarea id="rateText" class="notify-input" placeholder="Write your review (optional)" maxlength="500" rows="3" style="resize:vertical;"></textarea>
+            <button id="rateSubmit" class="book-btn notify-submit-btn" style="margin-top:12px;">Submit Review</button>
+            <div id="rateMsg" class="review-msg"></div>
+          </div>
+
+          <div id="bookBar" class="bms-interest-bar" style="display:none;margin-top:12px;">
+            <div class="bms-bar-left">
+              <span class="bms-thumb">&#127915;</span>
+              <span class="bms-count-label">Tickets available now!</span>
+            </div>
+            <a id="bookLink" href="#" class="bms-btn bms-btn-red" style="text-decoration:none;">Book Now</a>
+          </div>
         </div>
+      </section>
+    </div>
+
+    <div class="mp-content">
+      <section class="mp-section">
+        <h2 class="mp-section-title">About the Movie</h2>
+        <p class="mp-synopsis">In 1980s rural Andhra Pradesh, a spirited villager unites his community through sports to defend their pride against a powerful rival.</p>
+      </section>
+
+      <section class="mp-section">
+        <h2 class="mp-section-title">Cast & Crew</h2>
         <div class="mp-crew">
           <p><strong>Director:</strong> Buchi Babu Sana</p>
           <p><strong>Written by:</strong> Buchi Babu Sana</p>
@@ -38,58 +108,31 @@
           <p><strong>Production:</strong> Vriddhi Cinemas, IVY Entertainment</p>
           <p><strong>Distributed by:</strong> Mythri Movie Makers, Sukumar Writings</p>
         </div>
-        <div class="mp-dates">Release: 30 April 2026 &bull; Coming Soon to Germany</div>
-        <div class="mp-hero-buttons">
-          <button id="interestedBtn" class="mp-interested-btn" onclick="toggleInterest()">
-            <span class="mp-thumbsup">&#128077;</span>
-            <span id="interestedText">I'm Interested</span>
-            <span id="interestedCount" class="mp-interested-count">0</span>
-          </button>
-          <button id="notifyBtn" class="mp-notify-btn" onclick="toggleNotifyForm()">
-            <span class="mp-bell">&#128276;</span>
-            <span id="notifyBtnText">Notify Me</span>
-            <span id="notifyCount" class="mp-notify-count">0</span>
-          </button>
+      </section>
+
+      <!-- Songs -->
+      <section class="mp-section">
+        <h2 class="mp-section-title">Songs</h2>
+        <div class="mp-songs">
+          <a href="https://www.youtube.com/watch?v=vVDp1ulBKIk" target="_blank" rel="noopener" class="mp-song-card">
+            <div class="mp-song-icon">&#9835;</div>
+            <span>Chikiri Chikiri</span>
+          </a>
+          <a href="https://www.youtube.com/watch?v=g5oUluD9ScA" target="_blank" rel="noopener" class="mp-song-card">
+            <div class="mp-song-icon">&#9835;</div>
+            <span>Rai Rai Raa Raa</span>
+          </a>
         </div>
-        <div id="notifyForm" class="notify-form" style="display:none;">
-          <p class="notify-form-text">Get notified when tickets go on sale in Germany!</p>
-          <div class="notify-form-row">
-            <input type="email" id="notifyEmail" class="notify-input" placeholder="Your email address">
-            <button id="notifySubmit" class="book-btn notify-submit-btn">Subscribe</button>
-          </div>
-          <div id="notifyMsg" class="review-msg"></div>
+      </section>
+
+      <!-- Teaser -->
+      <section class="mp-section">
+        <h2 class="mp-section-title">Teaser</h2>
+        <div class="mp-video">
+          <iframe src="https://www.youtube.com/embed/2y_DH5gIrCU" title="Peddi Teaser" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         </div>
-      </div>
-    </section>
-
-    <!-- Synopsis -->
-    <section class="mp-section">
-      <h2 class="mp-section-title">Synopsis</h2>
-      <p class="mp-synopsis">In 1980s rural Andhra Pradesh, a spirited villager unites his community through sports to defend their pride against a powerful rival.</p>
-    </section>
-
-    <!-- Teaser -->
-    <section class="mp-section">
-      <h2 class="mp-section-title">Teaser</h2>
-      <div class="mp-video">
-        <iframe src="https://www.youtube.com/embed/2y_DH5gIrCU" title="Peddi Teaser" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-      </div>
-    </section>
-
-    <!-- Songs -->
-    <section class="mp-section">
-      <h2 class="mp-section-title">Songs</h2>
-      <div class="mp-songs">
-        <a href="https://www.youtube.com/watch?v=vVDp1ulBKIk" target="_blank" rel="noopener" class="mp-song-card">
-          <div class="mp-song-icon">&#9835;</div>
-          <span>Chikiri Chikiri</span>
-        </a>
-        <a href="https://www.youtube.com/watch?v=g5oUluD9ScA" target="_blank" rel="noopener" class="mp-song-card">
-          <div class="mp-song-icon">&#9835;</div>
-          <span>Rai Rai Raa Raa</span>
-        </a>
-      </div>
-    </section>
+      </section>
+    </div>
   </main>
 
   <!-- Footer -->
@@ -128,13 +171,17 @@
 
     function isClicked() { return localStorage.getItem(STORAGE_KEY) === 'true'; }
 
+    function formatCount(n) {
+      if (n >= 1000) return (n/1000).toFixed(1).replace(/\.0$/,'') + 'K+';
+      return n;
+    }
+
     function updateUI(count) {
       const btn = document.getElementById('interestedBtn');
-      const text = document.getElementById('interestedText');
       const countEl = document.getElementById('interestedCount');
-      if (count !== undefined) countEl.textContent = count;
-      if (isClicked()) { btn.classList.add('mp-interested-active'); text.textContent = 'Interested'; }
-      else { btn.classList.remove('mp-interested-active'); text.textContent = "I'm Interested"; }
+      if (count !== undefined) countEl.textContent = formatCount(count);
+      if (isClicked()) { btn.classList.add('bms-btn-active'); btn.textContent = 'Interested'; }
+      else { btn.classList.remove('bms-btn-active'); btn.textContent = "I'm interested"; }
     }
 
     async function loadCount() {
@@ -188,8 +235,8 @@
         localStorage.setItem(NOTIFY_STORAGE, 'true');
         msg.textContent = 'You will be notified when tickets go live!'; msg.className = 'review-msg review-msg-ok';
         document.getElementById('notifyEmail').disabled = true; btn.textContent = 'Subscribed';
-        document.getElementById('notifyBtn').classList.add('mp-notify-active');
-        document.getElementById('notifyBtnText').textContent = 'Subscribed';
+        document.getElementById('notifyBtn').classList.add('bms-btn-active');
+        document.getElementById('notifyBtn').textContent = 'Subscribed';
       } catch {
         msg.textContent = 'Error subscribing. Please try again.'; msg.className = 'review-msg review-msg-err';
         btn.disabled = false; btn.textContent = 'Subscribe';
@@ -197,11 +244,125 @@
     });
 
     if (localStorage.getItem(NOTIFY_STORAGE)) {
-      document.getElementById('notifyBtn').classList.add('mp-notify-active');
-      document.getElementById('notifyBtnText').textContent = 'Subscribed';
+      document.getElementById('notifyBtn').classList.add('bms-btn-active');
+      document.getElementById('notifyBtn').textContent = 'Subscribed';
     }
     loadNotifyCount();
+
+    // ===== Phase switching based on Firebase data =====
+    get(ref(db, 'movies/peddi')).then(snap => {
+      const movie = snap.val();
+      if (!movie) return;
+      const releaseDate = new Date(2026, 3, 30); // April 30, 2026
+      const now = new Date();
+      if (now >= releaseDate) {
+        document.getElementById('interestedBar').style.display = 'none';
+        document.getElementById('notifyBar').style.display = 'none';
+        document.getElementById('rateBar').style.display = 'flex';
+        if (movie.bookingUrl) {
+          document.getElementById('bookBar').style.display = 'flex';
+          document.getElementById('bookLink').href = movie.bookingUrl;
+        }
+        document.querySelector('.mp-dates').textContent = 'Now Showing';
+      } else if (movie.bookingUrl) {
+        document.getElementById('notifyBar').style.display = 'none';
+        document.getElementById('bookBar').style.display = 'flex';
+        document.getElementById('bookLink').href = movie.bookingUrl;
+      }
+    }).catch(() => {});
+
+    // Average rating display
+    onValue(ref(db, 'ratings/peddi'), (snap) => {
+      const data = snap.val();
+      if (!data) return;
+      const ratings = Object.values(data);
+      const total = ratings.reduce((sum, r) => sum + (r.rating || 0), 0);
+      const avg = (total / ratings.length).toFixed(1);
+      document.getElementById('avgRating').textContent = avg;
+      document.getElementById('voteCount').textContent = '(' + formatCount(ratings.length) + ' Votes)';
+    });
+
+    window.toggleRateForm = function() {
+      const form = document.getElementById('rateForm');
+      form.style.display = form.style.display === 'none' ? 'block' : 'none';
+    };
+
+    const RATE_STORAGE = 'peddi_rated';
+    if (localStorage.getItem(RATE_STORAGE)) {
+      const rb = document.getElementById('rateBtn');
+      if (rb) { rb.classList.add('bms-btn-active'); rb.textContent = 'Rated'; }
+    }
+
+    document.getElementById('rateSubmit').addEventListener('click', async () => {
+      const name = document.getElementById('rateName').value.trim();
+      const value = parseFloat(document.getElementById('rateValue').value);
+      const text = document.getElementById('rateText').value.trim();
+      const msg = document.getElementById('rateMsg');
+      if (!name) { msg.textContent = 'Please enter your name.'; msg.className = 'review-msg review-msg-err'; return; }
+      if (isNaN(value) || value < 0 || value > 5) { msg.textContent = 'Rating must be between 0 and 5.'; msg.className = 'review-msg review-msg-err'; return; }
+      if (localStorage.getItem(RATE_STORAGE)) { msg.textContent = 'You already rated this movie.'; msg.className = 'review-msg review-msg-err'; return; }
+      const btn = document.getElementById('rateSubmit');
+      btn.disabled = true; btn.textContent = 'Submitting...';
+      try {
+        await push(ref(db, 'ratings/peddi'), { name, rating: value, text, timestamp: Date.now() });
+        localStorage.setItem(RATE_STORAGE, 'true');
+        msg.textContent = 'Thank you for your review!'; msg.className = 'review-msg review-msg-ok';
+        document.getElementById('rateForm').style.display = 'none';
+        const rb = document.getElementById('rateBtn');
+        rb.classList.add('bms-btn-active'); rb.textContent = 'Rated';
+      } catch {
+        msg.textContent = 'Error submitting. Try again.'; msg.className = 'review-msg review-msg-err';
+        btn.disabled = false; btn.textContent = 'Submit Review';
+      }
+    });
   </script>
   <script src="js/nav.js"></script>
+  <!-- Backdrop Editor -->
+  <div id="bdEditor" style="position:fixed;bottom:0;left:0;right:0;background:rgba(0,0,0,0.95);padding:16px 24px;z-index:9999;font-family:monospace;color:#fff;display:flex;flex-wrap:wrap;gap:12px;align-items:center;">
+    <span style="color:#f0ad4e;font-weight:700;">Backdrop Editor</span>
+    <label>Brightness <input type="range" id="bdBright" min="0" max="100" value="40" style="width:100px"> <span id="bdBrightVal">0.4</span></label>
+    <label>Blur <input type="range" id="bdBlur" min="0" max="40" value="0" style="width:100px"> <span id="bdBlurVal">0px</span></label>
+    <label>Saturate <input type="range" id="bdSat" min="0" max="300" value="120" style="width:100px"> <span id="bdSatVal">1.2</span></label>
+    <label>Fit <select id="bdFit"><option value="cover">cover</option><option value="contain">contain</option><option value="fill">fill</option></select></label>
+    <label>Position <select id="bdPos"><option value="center center">center center</option><option value="center top">center top</option><option value="center bottom">center bottom</option><option value="left center">left center</option><option value="right center">right center</option></select></label>
+    <label>L Fade <input type="range" id="bdFadeL" min="0" max="60" value="10" style="width:80px"> <span id="bdFadeLVal">10%</span></label>
+    <label>R Fade <input type="range" id="bdFadeR" min="0" max="60" value="10" style="width:80px"> <span id="bdFadeRVal">10%</span></label>
+    <label>T Fade <input type="range" id="bdFadeT" min="0" max="40" value="10" style="width:80px"> <span id="bdFadeTVal">10%</span></label>
+    <label>B Fade <input type="range" id="bdFadeB" min="0" max="40" value="20" style="width:80px"> <span id="bdFadeBVal">20%</span></label>
+    <button id="bdCopy" style="background:#f0ad4e;color:#000;border:none;padding:8px 16px;border-radius:6px;cursor:pointer;font-weight:700;">Copy CSS</button>
+    <button id="bdClose" style="background:#c0392b;color:#fff;border:none;padding:8px 16px;border-radius:6px;cursor:pointer;font-weight:700;">Close</button>
+  </div>
+  <script>
+  (function(){
+    const img = document.querySelector('.mp-backdrop-img');
+    const grad = document.querySelector('.mp-backdrop-gradient');
+    if(!img||!grad) return;
+    function update(){
+      const b = bdBright.value/100, bl = bdBlur.value, s = bdSat.value/100;
+      const fl = bdFadeL.value, fr = bdFadeR.value, ft = bdFadeT.value, fb = bdFadeB.value;
+      img.style.filter = `brightness(${b}) blur(${bl}px) saturate(${s})`;
+      img.style.objectFit = bdFit.value;
+      img.style.objectPosition = bdPos.value;
+      bdBrightVal.textContent = b; bdBlurVal.textContent = bl+'px'; bdSatVal.textContent = s;
+      bdFadeLVal.textContent = fl+'%'; bdFadeRVal.textContent = fr+'%';
+      bdFadeTVal.textContent = ft+'%'; bdFadeBVal.textContent = fb+'%';
+      const g = [];
+      if(+fl>0||+fr>0) g.push(`linear-gradient(to right, #0f0f1a 0%, transparent ${fl}%, transparent ${100-fr}%, #0f0f1a 100%)`);
+      if(+ft>0) g.push(`linear-gradient(to bottom, #0f0f1a 0%, transparent ${ft}%)`);
+      if(+fb>0) g.push(`linear-gradient(to top, #0f0f1a 0%, transparent ${fb}%)`);
+      grad.style.background = g.length ? g.join(', ') : 'none';
+    }
+    document.querySelectorAll('#bdEditor input, #bdEditor select').forEach(el => el.addEventListener('input', update));
+    update();
+    bdCopy.addEventListener('click', () => {
+      const b = bdBright.value/100, bl = bdBlur.value, s = bdSat.value/100;
+      const fl = bdFadeL.value, fr = bdFadeR.value, ft = bdFadeT.value, fb = bdFadeB.value;
+      const css = `filter: brightness(${b}) blur(${bl}px) saturate(${s}); object-fit: ${bdFit.value}; object-position: ${bdPos.value};\nGradient: L${fl}% R${fr}% T${ft}% B${fb}%`;
+      navigator.clipboard.writeText(css);
+      bdCopy.textContent = 'Copied!'; setTimeout(()=> bdCopy.textContent = 'Copy CSS', 2000);
+    });
+    bdClose.addEventListener('click', () => document.getElementById('bdEditor').remove());
+  })();
+  </script>
 </body>
 </html>

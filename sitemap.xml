@@ -2,34 +2,72 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://germany-telugu-movies.com/</loc>
+    <lastmod>2026-04-06</lastmod>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://germany-telugu-movies.com/ustaad-movie.html</loc>
-    <priority>0.8</priority>
+    <loc>https://germany-telugu-movies.com/dacoit-movie.html</loc>
+    <lastmod>2026-04-06</lastmod>
+    <priority>0.9</priority>
   </url>
   <url>
     <loc>https://germany-telugu-movies.com/peddi-movie.html</loc>
-    <priority>0.7</priority>
+    <lastmod>2026-04-06</lastmod>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://germany-telugu-movies.com/paradise-movie.html</loc>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://germany-telugu-movies.com/varanasi-movie.html</loc>
-    <priority>0.7</priority>
+    <lastmod>2026-04-06</lastmod>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://germany-telugu-movies.com/vishwambhara-movie.html</loc>
-    <priority>0.7</priority>
+    <lastmod>2026-04-06</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://germany-telugu-movies.com/varanasi-movie.html</loc>
+    <lastmod>2026-04-06</lastmod>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://germany-telugu-movies.com/spirit-movie.html</loc>
+    <lastmod>2026-04-06</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://germany-telugu-movies.com/fauzi-movie.html</loc>
+    <lastmod>2026-04-06</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://germany-telugu-movies.com/ustaad.html</loc>
+    <loc>https://germany-telugu-movies.com/ustaad-movie.html</loc>
+    <lastmod>2026-04-06</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://germany-telugu-movies.com/coming-soon.html</loc>
+    <lastmod>2026-04-06</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://germany-telugu-movies.com/boxoffice.html</loc>
+    <lastmod>2026-04-06</lastmod>
     <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://germany-telugu-movies.com/reviews.html</loc>
+    <lastmod>2026-04-06</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://germany-telugu-movies.com/about.html</loc>
+    <lastmod>2026-04-06</lastmod>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://germany-telugu-movies.com/contact.html</loc>
+    <lastmod>2026-04-06</lastmod>
+    <priority>0.5</priority>
   </url>
 </urlset>
