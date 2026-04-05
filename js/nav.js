@@ -33,6 +33,7 @@ const allMovies = [
   { name: 'Vishwambhara', url: 'vishwambhara-movie.html', cast: 'Chiranjeevi', status: 'Coming Soon' },
   { name: 'Varanasi', url: 'varanasi-movie.html', cast: 'Mahesh Babu', status: 'Coming Soon' },
   { name: 'Spirit', url: 'spirit-movie.html', cast: 'Prabhas, Triptii Dimri', status: 'Coming Soon' },
+  { name: 'Dacoit', url: 'dacoit-movie.html', cast: 'Adivi Sesh, Mrunal Thakur', status: 'Coming Soon' },
 ];
 
 function toggleSearch() {

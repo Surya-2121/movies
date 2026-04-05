@@ -105,12 +105,15 @@
       <!-- Movies -->
       <div class="movies-col">
         <h2 class="section-title">Movies</h2>
-        <div class="now-playing-card no-shows-card" id="noShowsCard" style="align-items:center;justify-content:center;">
-          <div class="np-info" style="text-align:center;padding:2rem 1rem;">
-            <h3 class="np-movie-name">No Current Shows</h3>
-            <p class="np-language">Stay tuned for upcoming Telugu movie premieres in Germany!</p>
+        <a href="dacoit-movie.html" class="now-playing-card" id="noShowsCard">
+          <div class="np-poster"><img src="images/dacoit.jpg" alt="Dacoit"></div>
+          <div class="np-info">
+            <h3 class="np-movie-name">Dacoit</h3>
+            <p class="np-language">Telugu</p>
+            <p class="np-date">Premieres 9 April 2026</p>
+            <span class="book-btn">View Details</span>
           </div>
-        </div>
+        </a>
       </div>
 
       <!-- Coming Soon -->
@@ -140,6 +143,10 @@
             <a href="spirit-movie.html" class="cs-card">
               <img src="images/spirit.webp" alt="Spirit">
               <h3>Spirit</h3>
+            </a>
+            <a href="dacoit-movie.html" class="cs-card">
+              <img src="images/dacoit.jpg" alt="Dacoit">
+              <h3>Dacoit</h3>
             </a>
           </div>
         </div>
@@ -225,7 +232,7 @@
     const snap = await get(ref(db, 'movies'));
     const data = snap.val();
     if (data) {
-      const legacyPages = { ustaad:'ustaad-movie.html', peddi:'peddi-movie.html', paradise:'paradise-movie.html', vishwambhara:'vishwambhara-movie.html', varanasi:'varanasi-movie.html', spirit:'spirit-movie.html', fauzi:'fauzi-movie.html' };
+      const legacyPages = { ustaad:'ustaad-movie.html', peddi:'peddi-movie.html', paradise:'paradise-movie.html', vishwambhara:'vishwambhara-movie.html', varanasi:'varanasi-movie.html', spirit:'spirit-movie.html', fauzi:'fauzi-movie.html', dacoit:'dacoit-movie.html' };
       const comingSoon = Object.entries(data).filter(([k, m]) => m.status === 'Coming Soon' && m.poster);
       if (comingSoon.length > 0) {
         const track = document.querySelector('.cs-track');
@@ -264,6 +271,7 @@
       { name: 'Vishwambhara', url: 'vishwambhara-movie.html', cast: 'Chiranjeevi', status: 'Coming Soon' },
       { name: 'Varanasi', url: 'varanasi-movie.html', cast: 'Mahesh Babu', status: 'Coming Soon' },
       { name: 'Spirit', url: 'spirit-movie.html', cast: 'Prabhas, Triptii Dimri', status: 'Coming Soon' },
+      { name: 'Dacoit', url: 'dacoit-movie.html', cast: 'Adivi Sesh, Mrunal Thakur', status: 'Coming Soon' },
     ];
 
     function toggleSearch() {
