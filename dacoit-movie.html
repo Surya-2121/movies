@@ -372,8 +372,9 @@
       document.getElementById('avgRating').textContent = avg;
       document.getElementById('voteCount').textContent = '(' + formatCount(ratings.length) + ' Votes)';
 
-      // Show reviews section
-      sectionEl.style.display = 'block';
+      // Only show reviews section if Phase 3 (release date passed)
+      const rlsDate = new Date(2026, 3, 9);
+      if (new Date() >= rlsDate) sectionEl.style.display = 'block';
 
       // Rating distribution (1-5 stars)
       const dist = [0, 0, 0, 0, 0];
