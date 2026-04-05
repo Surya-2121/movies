@@ -165,10 +165,12 @@
       });
     }
 
-    async function loadBoxOffice() {
-      try { await seedIfEmpty(); } catch(e) { console.warn('seed skipped:', e); }
-      try { await fixPosters(); } catch(e) { console.warn('fixPosters skipped:', e); }
-      try { await fixRRR(); } catch(e) { console.warn('fixRRR skipped:', e); }
+    async function loadBoxOffice(isAdmin) {
+      if (isAdmin) {
+        try { await seedIfEmpty(); } catch(e) { console.warn('seed skipped:', e); }
+        try { await fixPosters(); } catch(e) { console.warn('fixPosters skipped:', e); }
+        try { await fixRRR(); } catch(e) { console.warn('fixRRR skipped:', e); }
+      }
       const snap = await get(ref(db, 'boxoffice'));
       const data = snap.val() || {};
       const entries = Object.entries(data).map(([key, v]) => ({ key, ...v }));
@@ -224,12 +226,14 @@
       }).join('');
     }
 
-    loadBoxOffice();
+    // Load immediately for everyone (read-only)
+    loadBoxOffice(false);
 
-    // Admin
+    // If admin logged in, reload with write permissions
     onAuthStateChanged(auth, (user) => {
       if (user && user.email === ADMIN_EMAIL) {
         document.getElementById('boAdminSection').style.display = 'block';
+        loadBoxOffice(true);
       }
     });
 
