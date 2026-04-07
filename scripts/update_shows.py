@@ -54,6 +54,8 @@ def parse_showtime_text(text):
         "%B %d, %Y, %I:%M %p",
         "%B %d, %Y, %I:%M%p.",
         "%B %d, %Y, %I:%M%p",
+        "%B %d, %Y, %I %p.",
+        "%B %d, %Y, %I %p",
     ]:
         cleaned = text.replace("a.m.", "AM").replace("p.m.", "PM").replace("a.m", "AM").replace("p.m", "PM")
         try:
@@ -62,13 +64,24 @@ def parse_showtime_text(text):
         except ValueError:
             continue
 
-    # Fallback: try regex
+    # Fallback: try regex with minutes
     m = re.search(r"(\w+ \d+, \d{4}),?\s*(\d+:\d+)\s*(a\.?m\.?|p\.?m\.?)", text, re.I)
     if m:
         date_str, time_str, ampm = m.groups()
         ampm_clean = ampm.replace(".", "").upper()
         try:
             dt = datetime.strptime(f"{date_str} {time_str} {ampm_clean}", "%B %d, %Y %I:%M %p")
+            return dt.strftime("%Y-%m-%d"), dt.strftime("%H:%M")
+        except ValueError:
+            pass
+
+    # Fallback: try regex without minutes (e.g. "5 p.m.")
+    m = re.search(r"(\w+ \d+, \d{4}),?\s*(\d+)\s*(a\.?m\.?|p\.?m\.?)", text, re.I)
+    if m:
+        date_str, hour_str, ampm = m.groups()
+        ampm_clean = ampm.replace(".", "").upper()
+        try:
+            dt = datetime.strptime(f"{date_str} {hour_str} {ampm_clean}", "%B %d, %Y %I %p")
             return dt.strftime("%Y-%m-%d"), dt.strftime("%H:%M")
         except ValueError:
             pass
