@@ -13,7 +13,6 @@
     /* Header */
     .bk-header { background: #0f0f1a; border-bottom: 1px solid #2a2a4a; padding: 16px 20px; position: sticky; top: 0; z-index: 100; }
     .bk-header-inner { max-width: 960px; margin: 0 auto; display: flex; align-items: center; gap: 16px; }
-    .bk-logo { height: 32px; width: auto; }
     .bk-back { background: none; border: none; color: #f0ad4e; font-size: 0.85rem; cursor: pointer; padding: 6px 12px; border-radius: 8px; transition: background 0.2s; text-decoration: none; line-height: 1; white-space: nowrap; border: 1px solid #2a2a4a; }
     .bk-back:hover { background: #1a1a2e; border-color: #f0ad4e; }
     .bk-movie-info { flex: 1; }
@@ -110,10 +109,13 @@
   <nav class="nav-menu" id="navMenu"><div class="nav-header"><img src="images/logo.svg" alt="Logo" class="nav-logo"><button class="nav-close" onclick="toggleMenu()">&times;</button></div><a href="index.html" class="nav-link">Home</a><a href="coming-soon.html" class="nav-link">Coming Soon</a><a href="boxoffice.html" class="nav-link">Box Office</a><a href="about.html" class="nav-link">About Us</a><a href="contact.html" class="nav-link">Contact</a><div class="nav-divider"></div><button class="nav-theme-btn" onclick="toggleTheme()"><span id="themeIcon">&#9788;</span> <span id="themeText">Light Mode</span></button></nav><div class="nav-overlay" id="navOverlay" onclick="toggleMenu()"></div>
   <button class="menu-btn" id="menuBtn" onclick="toggleMenu()"><span></span><span></span><span></span></button>
 
-  <!-- Header -->
+  <header class="site-header">
+    <a href="index.html"><img src="images/logo.svg" alt="Germany Telugu Movies" class="header-logo"></a>
+  </header>
+
+  <!-- Booking Header -->
   <header class="bk-header">
     <div class="bk-header-inner">
-      <a href="index.html"><img src="images/logo.svg" alt="Germany Telugu Movies" class="bk-logo"></a>
       <div class="bk-movie-info">
         <div class="bk-movie-title" id="movieTitle"></div>
         <div class="bk-movie-meta" id="movieMeta"></div>
