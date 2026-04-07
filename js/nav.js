@@ -103,5 +103,5 @@ import("https://www.gstatic.com/firebasejs/11.4.0/firebase-app.js").then(({ init
 
 window.toggleMenu = toggleMenu;
 window.toggleTheme = toggleTheme;
-window.toggleSearch = toggleSearch;
-window.handleSearchInput = handleSearchInput;
+if (!window.toggleSearch) window.toggleSearch = toggleSearch;
+if (!window.handleSearchInput) window.handleSearchInput = handleSearchInput;
