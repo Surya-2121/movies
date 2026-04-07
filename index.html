@@ -324,20 +324,12 @@
   </script>
   <script>
     (function() {
-      var premiere = new Date(2026, 3, 9);
-      var now = new Date();
       var status = document.getElementById('dacoit-status');
       var btn = document.getElementById('dacoit-btn');
-      if (now < premiere) {
-        var diff = Math.ceil((premiere - now) / (1000*60*60*24));
-        status.textContent = 'Premieres 9 April 2026 \u2022 ' + diff + ' day' + (diff !== 1 ? 's' : '') + ' to go';
-        btn.textContent = "View Details";
-      } else {
-        status.textContent = 'In Cinemas Now';
-        btn.textContent = 'Book Now';
-        btn.style.background = '#e74c3c';
-        btn.style.borderColor = '#e74c3c';
-      }
+      status.textContent = 'Tickets Available Now';
+      btn.textContent = 'Book Now';
+      btn.style.background = '#e74c3c';
+      btn.style.borderColor = '#e74c3c';
     })();
   </script>
   <script src="js/nav.js"></script>
