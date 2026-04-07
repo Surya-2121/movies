@@ -117,7 +117,7 @@
               <span class="bms-thumb">&#127915;</span>
               <span class="bms-count-label">Tickets available now!</span>
             </div>
-            <a id="bookLink" href="dacoit-movie.html" class="bms-btn bms-btn-red" style="text-decoration:none;">Book Now</a>
+            <a id="bookLink" href="#shows" class="bms-btn bms-btn-red" style="text-decoration:none;">Book Now</a>
           </div>
         </div>
       </section>
@@ -125,7 +125,7 @@
 
     <div class="mp-content">
       <!-- Shows in Germany -->
-      <section class="mp-section">
+      <section class="mp-section" id="shows">
         <h2 class="mp-section-title">Shows in Germany</h2>
         <p style="color:#aaa;font-size:0.85rem;margin-bottom:1rem;">Telugu with English Subtitles</p>
         <div class="show-grid" style="display:grid;gap:1rem;">
@@ -353,32 +353,24 @@
     // Phase 1 (default): Interested + Notify Me
     // Phase 2 (bookingUrl added): Interested + Book Now (notify hidden)
     // Phase 3 (status = "Ended"): Rate Now + Book Now
-    get(ref(db, 'movies/dacoit')).then(snap => {
-      const movie = snap.val();
-      if (!movie) return;
+    // Phase 2: Shows are live on page - activate Book Now
+    const releaseDate = new Date(2026, 3, 9); // April 9, 2026
+    const now = new Date();
 
-      const releaseDate = new Date(2026, 3, 9); // April 9, 2026
-      const now = new Date();
-
-      if (now >= releaseDate) {
-        // Phase 3: Movie released - show Rate + Book
-        document.getElementById('interestedBar').style.display = 'none';
-        document.getElementById('notifyBar').style.display = 'none';
-        document.getElementById('rateBar').style.display = 'flex';
-        if (movie.bookingUrl) {
-          document.getElementById('bookBar').style.display = 'flex';
-          document.getElementById('bookLink').href = movie.bookingUrl;
-        }
-        document.querySelector('.mp-dates').textContent = 'Now Showing';
-        document.getElementById('reviewsSection').style.display = 'block';
-      } else if (movie.bookingUrl) {
-        // Phase 2: Tickets live - replace Notify with Book Now
-        document.getElementById('notifyBar').style.display = 'none';
-        document.getElementById('bookBar').style.display = 'flex';
-        document.getElementById('bookLink').href = movie.bookingUrl;
-        document.querySelector('.mp-dates').textContent = 'Tickets Available \u2022 Premieres 9 April 2026';
-      }
-    }).catch(() => {});
+    if (now >= releaseDate) {
+      // Phase 3: Movie released - show Rate + Book
+      document.getElementById('interestedBar').style.display = 'none';
+      document.getElementById('notifyBar').style.display = 'none';
+      document.getElementById('rateBar').style.display = 'flex';
+      document.getElementById('bookBar').style.display = 'flex';
+      document.querySelector('.mp-dates').textContent = 'Now Showing';
+      document.getElementById('reviewsSection').style.display = 'block';
+    } else {
+      // Phase 2: Tickets live - replace Notify with Book Now
+      document.getElementById('notifyBar').style.display = 'none';
+      document.getElementById('bookBar').style.display = 'flex';
+      document.querySelector('.mp-dates').textContent = 'Tickets Available \u2022 Premieres 9 April 2026';
+    }
 
     // ===== Star Rating & Reviews =====
     let selectedRating = 0;
