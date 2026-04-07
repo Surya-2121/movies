@@ -43,7 +43,7 @@
     .bk-cinemas { max-width: 960px; margin: 0 auto; padding: 0 20px 40px; }
     .bk-cinema { background: #1a1a2e; border: 1px solid #2a2a4a; border-radius: 12px; padding: 22px; margin-top: 16px; transition: border-color 0.2s; }
     .bk-cinema:hover { border-color: #f0ad4e; }
-    .bk-cinema-header { display: flex; align-items: flex-start; gap: 12px; margin-bottom: 14px; }
+    .bk-cinema-header { margin-bottom: 16px; }
     .bk-cinema-name { font-size: 1rem; font-weight: 600; color: #fff; }
     .bk-cinema-city { font-size: 0.85rem; color: #f0ad4e; font-weight: 600; margin-top: 2px; }
     .bk-cinema-addr { font-size: 0.75rem; color: #999; margin-top: 2px; }
@@ -199,9 +199,7 @@
       const container = document.getElementById('dateTabs');
 
       let html = `<button class="bk-date-tab active" data-date="all" onclick="selectDate(this,'all')">
-        <span class="bk-date-day">All</span>
-        <span class="bk-date-num">&bull;</span>
-        <span class="bk-date-month">Dates</span>
+        <span class="bk-date-num">All Dates</span>
       </button>`;
 
       dates.forEach(d => {
@@ -256,10 +254,7 @@
       Object.values(grouped).forEach(g => {
         html += `<div class="bk-cinema">
           <div class="bk-cinema-header">
-            <div>
-              <div class="bk-cinema-name">${g.cinema}</div>
-              <div class="bk-cinema-city">${g.city}</div>
-            </div>
+            <span class="bk-cinema-name">${g.cinema}, ${g.city}</span>
           </div>
           <div class="bk-showtimes">`;
 
