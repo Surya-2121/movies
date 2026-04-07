@@ -41,20 +41,16 @@
 
     /* Cinema List */
     .bk-cinemas { max-width: 960px; margin: 0 auto; padding: 0 20px 40px; }
-    .bk-cinema { background: #1a1a2e; border: 1px solid #2a2a4a; border-radius: 12px; padding: 22px; margin-top: 16px; transition: border-color 0.2s; }
+    .bk-cinema { background: #1a1a2e; border: 1px solid #2a2a4a; border-radius: 12px; padding: 20px 22px; margin-top: 16px; transition: border-color 0.2s; display: flex; align-items: flex-start; gap: 24px; }
     .bk-cinema:hover { border-color: #f0ad4e; }
-    .bk-cinema-header { margin-bottom: 16px; }
-    .bk-cinema-name { font-size: 1rem; font-weight: 600; color: #fff; }
-    .bk-cinema-city { font-size: 0.85rem; color: #f0ad4e; font-weight: 600; margin-top: 2px; }
-    .bk-cinema-addr { font-size: 0.75rem; color: #999; margin-top: 2px; }
-    .bk-showtimes { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 4px; }
+    .bk-cinema-left { flex-shrink: 0; width: 180px; }
+    .bk-cinema-name { font-size: 0.95rem; font-weight: 600; color: #fff; line-height: 1.3; }
+    .bk-cinema-sub { font-size: 0.65rem; color: #999; margin-top: 4px; }
+    .bk-cinema-right { flex: 1; display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
     .bk-showtime { border: 1px solid #2a2a4a; color: #f0ad4e; background: transparent; padding: 10px 22px; border-radius: 8px; font-size: 0.85rem; font-weight: 600; cursor: pointer; transition: all 0.2s; text-decoration: none; display: inline-block; font-family: inherit; }
     .bk-showtime:hover { background: #f0ad4e; color: #000; border-color: #f0ad4e; }
     .bk-showtime-label { display: block; font-size: 0.6rem; color: #999; font-weight: 400; margin-top: 2px; text-align: center; }
     .bk-showtime:hover .bk-showtime-label { color: #333; }
-    .bk-cinema-info { display: flex; gap: 12px; align-items: center; margin-top: 12px; }
-    .bk-badge { font-size: 0.65rem; padding: 3px 10px; border-radius: 4px; font-weight: 600; }
-    .bk-badge-sub { background: rgba(240,173,78,0.1); color: #f0ad4e; border: 1px solid rgba(240,173,78,0.25); }
 
     /* Empty State */
     .bk-empty { text-align: center; padding: 60px 20px; color: #999; }
@@ -71,8 +67,9 @@
       .bk-movie-title { font-size: 1.05rem; }
       .bk-date-tab { padding: 10px 14px; }
       .bk-showtime { padding: 8px 16px; font-size: 0.8rem; }
+      .bk-cinema { padding: 16px; flex-direction: column; gap: 12px; }
+      .bk-cinema-left { width: auto; }
       .bk-cinema-name { font-size: 0.9rem; }
-      .bk-cinema { padding: 16px; }
       .bk-search.open { width: 130px; }
     }
 
@@ -96,13 +93,11 @@
     .light-theme .bk-cinema { background: #fff; border-color: #ddd; }
     .light-theme .bk-cinema:hover { border-color: #d4880f; }
     .light-theme .bk-cinema-name { color: #222; }
-    .light-theme .bk-cinema-city { color: #d4880f; }
-    .light-theme .bk-cinema-addr { color: #888; }
+    .light-theme .bk-cinema-sub { color: #888; }
     .light-theme .bk-showtime { border-color: #ddd; color: #d4880f; }
     .light-theme .bk-showtime:hover { background: #d4880f; color: #fff; border-color: #d4880f; }
     .light-theme .bk-showtime-label { color: #888; }
     .light-theme .bk-showtime:hover .bk-showtime-label { color: rgba(255,255,255,0.8); }
-    .light-theme .bk-badge-sub { background: rgba(212,136,15,0.1); color: #d4880f; border-color: rgba(212,136,15,0.25); }
     .light-theme .bk-empty { color: #888; }
     .light-theme .bk-empty h3 { color: #333; }
     .light-theme .bk-powered { color: #999; }
@@ -253,10 +248,11 @@
       let html = '';
       Object.values(grouped).forEach(g => {
         html += `<div class="bk-cinema">
-          <div class="bk-cinema-header">
-            <span class="bk-cinema-name">${g.cinema}, ${g.city}</span>
+          <div class="bk-cinema-left">
+            <div class="bk-cinema-name">${g.cinema}, ${g.city}</div>
+            <div class="bk-cinema-sub">English Subtitles</div>
           </div>
-          <div class="bk-showtimes">`;
+          <div class="bk-cinema-right">`;
 
         g.shows.forEach(s => {
           const dt = new Date(s.date + 'T00:00:00');
@@ -268,9 +264,6 @@
         });
 
         html += `</div>
-          <div class="bk-cinema-info">
-            <span class="bk-badge bk-badge-sub">English Subtitles</span>
-          </div>
         </div>`;
       });
 
