@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dacoit - Book Tickets | Germany Telugu Movies</title>
+  <title>Book Tickets | Germany Telugu Movies</title>
   <link rel="icon" href="images/logo.svg" type="image/svg+xml">
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -85,7 +85,6 @@
     .light-theme .bk-date-tab { color: #888; }
     .light-theme .bk-date-tab:hover { color: #333; }
     .light-theme .bk-date-tab.active { color: #d4880f; border-bottom-color: #d4880f; }
-    .light-theme .bk-filters { border-bottom-color: #ddd; }
     .light-theme .bk-search-icon { color: #d4880f; }
     .light-theme .bk-search-icon:hover { color: #222; }
     .light-theme .bk-search { background: #f5f5f5; border-bottom-color: #d4880f; color: #222; }
@@ -109,13 +108,10 @@
   <!-- Header -->
   <header class="bk-header">
     <div class="bk-header-inner">
-      <a href="dacoit-movie.html" class="bk-back" title="Back">&#8592;</a>
+      <a id="backLink" href="index.html" class="bk-back" title="Back">&#8592;</a>
       <div class="bk-movie-info">
-        <div class="bk-movie-title">Dacoit</div>
-        <div class="bk-movie-meta">
-          <span>Action / Drama / Romance</span>
-          <span class="bk-lang-badge">Telugu</span>
-        </div>
+        <div class="bk-movie-title" id="movieTitle"></div>
+        <div class="bk-movie-meta" id="movieMeta"></div>
       </div>
     </div>
   </header>
@@ -143,148 +139,138 @@
       if (theme === 'light') document.body.classList.add('light-theme');
     })();
 
-    const shows = [
-      {
-        id: 1,
-        city: "Magdeburg",
-        cinema: "Studio Kino",
-        date: "2026-04-10",
-        time: "19:45",
+    // ===== MOVIE DATA =====
+    // To add a new movie: add an entry to this object with the movie slug as key.
+    // Link to this page as: booking.html?movie=slug
+    const movies = {
+      dacoit: {
+        title: "Dacoit",
+        genre: "Action / Drama / Romance",
         language: "Telugu",
-        subtitle: "English Subtitles",
-        bookingUrl: "https://tinyurl.com/SDExhibitors"
-      },
-      {
-        id: 2,
-        city: "Düsseldorf",
-        cinema: "UFA Palast",
-        date: "2026-04-11",
-        time: "16:50",
-        language: "Telugu",
-        subtitle: "English Subtitles",
-        bookingUrl: "https://www.ufa-duesseldorf.de/de/programm/1869496"
-      },
-      {
-        id: 3,
-        city: "Düsseldorf",
-        cinema: "UFA Palast",
-        date: "2026-04-12",
-        time: "16:50",
-        language: "Telugu",
-        subtitle: "English Subtitles",
-        bookingUrl: "https://www.ufa-duesseldorf.de/de/programm/1869496"
-      },
-      {
-        id: 4,
-        city: "Stuttgart",
-        cinema: "Delphi Kino",
-        date: "2026-04-12",
-        time: "12:30",
-        language: "Telugu",
-        subtitle: "English Subtitles",
-        bookingUrl: "https://billetto.eu/en/e/dacoit-telugu-with-english-subtitles-in-stuttgart-Tickets-1897924/select"
+        page: "dacoit-movie.html",
+        shows: [
+          { city: "Magdeburg", cinema: "Studio Kino", date: "2026-04-10", time: "19:45", subtitle: "English Subtitles", bookingUrl: "https://tinyurl.com/SDExhibitors" },
+          { city: "Düsseldorf", cinema: "UFA Palast", date: "2026-04-11", time: "16:50", subtitle: "English Subtitles", bookingUrl: "https://www.ufa-duesseldorf.de/de/programm/1869496" },
+          { city: "Düsseldorf", cinema: "UFA Palast", date: "2026-04-12", time: "16:50", subtitle: "English Subtitles", bookingUrl: "https://www.ufa-duesseldorf.de/de/programm/1869496" },
+          { city: "Stuttgart", cinema: "Delphi Kino", date: "2026-04-12", time: "12:30", subtitle: "English Subtitles", bookingUrl: "https://billetto.eu/en/e/dacoit-telugu-with-english-subtitles-in-stuttgart-Tickets-1897924/select" }
+        ]
       }
-    ];
+      // Add more movies here:
+      // movieslug: { title: "...", genre: "...", language: "...", page: "...-movie.html", shows: [...] }
+    };
 
-    let selectedDate = 'all';
+    // Get movie from URL
+    const params = new URLSearchParams(window.location.search);
+    const movieSlug = params.get('movie');
+    const movie = movies[movieSlug];
 
-    // Build date tabs
-    function buildDateTabs() {
-      const dates = [...new Set(shows.map(s => s.date))].sort();
-      const container = document.getElementById('dateTabs');
+    if (!movie) {
+      document.getElementById('movieTitle').textContent = 'Movie not found';
+      document.getElementById('cinemaList').innerHTML = '<div class="bk-empty"><div class="bk-empty-icon">&#127916;</div><h3>No movie selected</h3><p>Please go back and select a movie.</p></div>';
+    } else {
+      // Set page title & header
+      document.title = movie.title + ' - Book Tickets | Germany Telugu Movies';
+      document.getElementById('movieTitle').textContent = movie.title;
+      document.getElementById('movieMeta').innerHTML = '<span>' + movie.genre + '</span> <span class="bk-lang-badge">' + movie.language + '</span>';
+      document.getElementById('backLink').href = movie.page;
 
-      let html = `<button class="bk-date-tab active" data-date="all" onclick="selectDate(this,'all')">
-        <span class="bk-date-num">All Dates</span>
-      </button>`;
+      const shows = movie.shows;
+      let selectedDate = 'all';
 
-      dates.forEach(d => {
-        const dt = new Date(d + 'T00:00:00');
-        const day = dt.toLocaleDateString('en-GB', { weekday: 'short' });
-        const num = dt.getDate();
-        const month = dt.toLocaleDateString('en-GB', { month: 'short' });
-        html += `<button class="bk-date-tab" data-date="${d}" onclick="selectDate(this,'${d}')">
-          <span class="bk-date-day">${day}</span>
-          <span class="bk-date-num">${num}</span>
-          <span class="bk-date-month">${month}</span>
+      function buildDateTabs() {
+        const dates = [...new Set(shows.map(s => s.date))].sort();
+        const container = document.getElementById('dateTabs');
+
+        let html = `<button class="bk-date-tab active" data-date="all" onclick="selectDate(this,'all')">
+          <span class="bk-date-num">All Dates</span>
         </button>`;
-      });
 
-      container.innerHTML = html;
-    }
-
-    function selectDate(el, date) {
-      selectedDate = date;
-      document.querySelectorAll('.bk-date-tab').forEach(t => t.classList.remove('active'));
-      el.classList.add('active');
-      renderCinemas();
-    }
-
-    function renderCinemas() {
-      const search = document.getElementById('cinemaSearch').value.toLowerCase();
-      let filtered = shows;
-
-      if (selectedDate !== 'all') filtered = filtered.filter(s => s.date === selectedDate);
-      if (search) filtered = filtered.filter(s => s.cinema.toLowerCase().includes(search) || s.city.toLowerCase().includes(search));
-
-      // Group by cinema + city
-      const grouped = {};
-      filtered.forEach(s => {
-        const key = s.cinema + '|' + s.city;
-        if (!grouped[key]) grouped[key] = { cinema: s.cinema, city: s.city, shows: [] };
-        grouped[key].shows.push(s);
-      });
-
-      const container = document.getElementById('cinemaList');
-
-      if (Object.keys(grouped).length === 0) {
-        container.innerHTML = `<div class="bk-empty">
-          <div class="bk-empty-icon">&#127916;</div>
-          <h3>No shows found</h3>
-          <p>Try selecting a different date or clearing filters.</p>
-        </div>`;
-        return;
-      }
-
-      let html = '';
-      Object.values(grouped).forEach(g => {
-        html += `<div class="bk-cinema">
-          <div class="bk-cinema-left">
-            <div class="bk-cinema-name">${g.cinema}, ${g.city}</div>
-            <div class="bk-cinema-sub">English Subtitles</div>
-          </div>
-          <div class="bk-cinema-right">`;
-
-        g.shows.forEach(s => {
-          const dt = new Date(s.date + 'T00:00:00');
-          const dateLabel = dt.toLocaleDateString('en-GB', { day: 'numeric', month: 'short' });
-          html += `<a href="${s.bookingUrl}" target="_blank" rel="noopener" class="bk-showtime">
-            ${s.time}
-            <span class="bk-showtime-label">${dateLabel}</span>
-          </a>`;
+        dates.forEach(d => {
+          const dt = new Date(d + 'T00:00:00');
+          const day = dt.toLocaleDateString('en-GB', { weekday: 'short' });
+          const num = dt.getDate();
+          const month = dt.toLocaleDateString('en-GB', { month: 'short' });
+          html += `<button class="bk-date-tab" data-date="${d}" onclick="selectDate(this,'${d}')">
+            <span class="bk-date-day">${day}</span>
+            <span class="bk-date-num">${num}</span>
+            <span class="bk-date-month">${month}</span>
+          </button>`;
         });
 
-        html += `</div>
-        </div>`;
-      });
+        container.innerHTML = html;
+      }
 
-      container.innerHTML = html;
+      window.selectDate = function(el, date) {
+        selectedDate = date;
+        document.querySelectorAll('.bk-date-tab').forEach(t => t.classList.remove('active'));
+        el.classList.add('active');
+        renderCinemas();
+      };
+
+      function renderCinemas() {
+        const search = document.getElementById('cinemaSearch').value.toLowerCase();
+        let filtered = shows;
+
+        if (selectedDate !== 'all') filtered = filtered.filter(s => s.date === selectedDate);
+        if (search) filtered = filtered.filter(s => s.cinema.toLowerCase().includes(search) || s.city.toLowerCase().includes(search));
+
+        const grouped = {};
+        filtered.forEach(s => {
+          const key = s.cinema + '|' + s.city;
+          if (!grouped[key]) grouped[key] = { cinema: s.cinema, city: s.city, shows: [] };
+          grouped[key].shows.push(s);
+        });
+
+        const container = document.getElementById('cinemaList');
+
+        if (Object.keys(grouped).length === 0) {
+          container.innerHTML = `<div class="bk-empty">
+            <div class="bk-empty-icon">&#127916;</div>
+            <h3>No shows found</h3>
+            <p>Try selecting a different date or clearing filters.</p>
+          </div>`;
+          return;
+        }
+
+        let html = '';
+        Object.values(grouped).forEach(g => {
+          html += `<div class="bk-cinema">
+            <div class="bk-cinema-left">
+              <div class="bk-cinema-name">${g.cinema}, ${g.city}</div>
+              <div class="bk-cinema-sub">${movie.language} &bull; ${g.shows[0].subtitle || ''}</div>
+            </div>
+            <div class="bk-cinema-right">`;
+
+          g.shows.forEach(s => {
+            const dt = new Date(s.date + 'T00:00:00');
+            const dateLabel = dt.toLocaleDateString('en-GB', { day: 'numeric', month: 'short' });
+            html += `<a href="${s.bookingUrl}" target="_blank" rel="noopener" class="bk-showtime">
+              ${s.time}
+              <span class="bk-showtime-label">${dateLabel}</span>
+            </a>`;
+          });
+
+          html += `</div></div>`;
+        });
+
+        container.innerHTML = html;
+      }
+
+      buildDateTabs();
+      renderCinemas();
+      document.getElementById('cinemaSearch').addEventListener('input', renderCinemas);
     }
 
-    function toggleSearch() {
+    window.toggleSearch = function() {
       const input = document.getElementById('cinemaSearch');
       input.classList.toggle('open');
       if (input.classList.contains('open')) {
         input.focus();
       } else {
         input.value = '';
-        renderCinemas();
+        if (movie) renderCinemas();
       }
-    }
-
-    // Init
-    buildDateTabs();
-    renderCinemas();
-    document.getElementById('cinemaSearch').addEventListener('input', renderCinemas);
+    };
   </script>
 
 </body>
