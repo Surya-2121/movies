@@ -7,63 +7,64 @@
   <link rel="icon" href="images/logo.svg" type="image/svg+xml">
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #0a0a1a; color: #fff; min-height: 100vh; }
+    body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #0f0f1a; color: #e0e0e0; min-height: 100vh; }
 
     /* Header */
-    .bk-header { background: #111; border-bottom: 1px solid #222; padding: 16px 20px; position: sticky; top: 0; z-index: 100; }
+    .bk-header { background: #0f0f1a; border-bottom: 1px solid #2a2a4a; padding: 16px 20px; position: sticky; top: 0; z-index: 100; }
     .bk-header-inner { max-width: 960px; margin: 0 auto; display: flex; align-items: center; gap: 16px; }
-    .bk-back { background: none; border: none; color: #aaa; font-size: 1.5rem; cursor: pointer; padding: 4px 8px; border-radius: 8px; transition: background 0.2s; text-decoration: none; line-height: 1; }
-    .bk-back:hover { background: #222; color: #fff; }
+    .bk-back { background: none; border: none; color: #e0e0e0; font-size: 1.5rem; cursor: pointer; padding: 4px 8px; border-radius: 8px; transition: background 0.2s; text-decoration: none; line-height: 1; }
+    .bk-back:hover { background: #1a1a2e; color: #f0ad4e; }
     .bk-movie-info { flex: 1; }
     .bk-movie-title { font-size: 1.25rem; font-weight: 700; color: #fff; }
-    .bk-movie-meta { font-size: 0.8rem; color: #888; margin-top: 2px; }
+    .bk-movie-meta { font-size: 0.8rem; color: #999; margin-top: 2px; }
     .bk-movie-meta span { margin-right: 8px; }
-    .bk-lang-badge { background: #1a3a2a; color: #4ade80; font-size: 0.7rem; padding: 2px 8px; border-radius: 4px; font-weight: 600; }
+    .bk-lang-badge { background: rgba(240,173,78,0.15); color: #f0ad4e; font-size: 0.7rem; padding: 2px 8px; border-radius: 4px; font-weight: 600; }
 
     /* Date Tabs */
-    .bk-dates { background: #111; border-bottom: 1px solid #222; padding: 0 20px; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    .bk-dates { background: #0f0f1a; border-bottom: 1px solid #2a2a4a; padding: 0 20px; overflow-x: auto; -webkit-overflow-scrolling: touch; }
     .bk-dates::-webkit-scrollbar { display: none; }
     .bk-dates-inner { max-width: 960px; margin: 0 auto; display: flex; gap: 4px; }
-    .bk-date-tab { padding: 12px 20px; border: none; background: none; color: #888; font-size: 0.8rem; cursor: pointer; border-bottom: 3px solid transparent; transition: all 0.2s; white-space: nowrap; text-align: center; font-family: inherit; }
-    .bk-date-tab:hover { color: #fff; }
+    .bk-date-tab { padding: 12px 20px; border: none; background: none; color: #999; font-size: 0.8rem; cursor: pointer; border-bottom: 3px solid transparent; transition: all 0.2s; white-space: nowrap; text-align: center; font-family: inherit; }
+    .bk-date-tab:hover { color: #e0e0e0; }
     .bk-date-tab.active { color: #f0ad4e; border-bottom-color: #f0ad4e; font-weight: 600; }
     .bk-date-day { display: block; font-size: 0.7rem; text-transform: uppercase; margin-bottom: 2px; }
     .bk-date-num { display: block; font-size: 1.1rem; font-weight: 700; }
     .bk-date-month { display: block; font-size: 0.65rem; text-transform: uppercase; }
 
     /* Filter Bar */
-    .bk-filters { padding: 14px 20px; border-bottom: 1px solid #1a1a2e; }
+    .bk-filters { padding: 14px 20px; border-bottom: 1px solid #2a2a4a; }
     .bk-filters-inner { max-width: 960px; margin: 0 auto; display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
-    .bk-filter-chip { background: #1a1a2e; border: 1px solid #2a2a4a; color: #ccc; padding: 6px 14px; border-radius: 20px; font-size: 0.75rem; cursor: pointer; transition: all 0.2s; font-family: inherit; }
+    .bk-filter-chip { background: #1a1a2e; border: 1px solid #2a2a4a; color: #e0e0e0; padding: 6px 14px; border-radius: 20px; font-size: 0.75rem; cursor: pointer; transition: all 0.2s; font-family: inherit; }
     .bk-filter-chip:hover, .bk-filter-chip.active { background: #f0ad4e; color: #000; border-color: #f0ad4e; }
-    .bk-search { flex: 1; min-width: 180px; background: #1a1a2e; border: 1px solid #2a2a4a; color: #fff; padding: 8px 14px; border-radius: 8px; font-size: 0.8rem; outline: none; font-family: inherit; }
-    .bk-search::placeholder { color: #555; }
+    .bk-search { flex: 1; min-width: 180px; background: #1a1a2e; border: 1px solid #2a2a4a; color: #e0e0e0; padding: 8px 14px; border-radius: 8px; font-size: 0.8rem; outline: none; font-family: inherit; }
+    .bk-search::placeholder { color: #666; }
     .bk-search:focus { border-color: #f0ad4e; }
 
     /* Cinema List */
     .bk-cinemas { max-width: 960px; margin: 0 auto; padding: 0 20px 40px; }
-    .bk-cinema { border-bottom: 1px solid #1a1a2e; padding: 24px 0; }
-    .bk-cinema:last-child { border-bottom: none; }
+    .bk-cinema { background: #1a1a2e; border: 1px solid #2a2a4a; border-radius: 12px; padding: 22px; margin-top: 16px; transition: border-color 0.2s; }
+    .bk-cinema:hover { border-color: #f0ad4e; }
     .bk-cinema-header { display: flex; align-items: flex-start; gap: 12px; margin-bottom: 14px; }
-    .bk-cinema-icon { width: 36px; height: 36px; background: #1a1a2e; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 1.1rem; flex-shrink: 0; }
+    .bk-cinema-icon { width: 36px; height: 36px; background: #0f0f1a; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 1.1rem; flex-shrink: 0; border: 1px solid #2a2a4a; }
     .bk-cinema-name { font-size: 1rem; font-weight: 600; color: #fff; }
-    .bk-cinema-addr { font-size: 0.75rem; color: #666; margin-top: 2px; }
+    .bk-cinema-city { font-size: 0.85rem; color: #f0ad4e; font-weight: 600; margin-top: 2px; }
+    .bk-cinema-addr { font-size: 0.75rem; color: #999; margin-top: 2px; }
     .bk-showtimes { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 4px; }
-    .bk-showtime { border: 1px solid #2a4a2a; color: #4ade80; background: transparent; padding: 10px 22px; border-radius: 8px; font-size: 0.85rem; font-weight: 600; cursor: pointer; transition: all 0.2s; text-decoration: none; display: inline-block; font-family: inherit; }
-    .bk-showtime:hover { background: #4ade80; color: #000; border-color: #4ade80; }
-    .bk-showtime-label { display: block; font-size: 0.6rem; color: #666; font-weight: 400; margin-top: 2px; text-align: center; }
-    .bk-cinema-info { display: flex; gap: 12px; align-items: center; margin-top: 8px; }
-    .bk-badge { font-size: 0.65rem; padding: 2px 8px; border-radius: 4px; font-weight: 600; }
-    .bk-badge-cancel { background: #1a2a1a; color: #4ade80; }
-    .bk-badge-food { background: #2a1a1a; color: #f87171; }
+    .bk-showtime { border: 1px solid #2a2a4a; color: #f0ad4e; background: transparent; padding: 10px 22px; border-radius: 8px; font-size: 0.85rem; font-weight: 600; cursor: pointer; transition: all 0.2s; text-decoration: none; display: inline-block; font-family: inherit; }
+    .bk-showtime:hover { background: #f0ad4e; color: #000; border-color: #f0ad4e; }
+    .bk-showtime-label { display: block; font-size: 0.6rem; color: #999; font-weight: 400; margin-top: 2px; text-align: center; }
+    .bk-showtime:hover .bk-showtime-label { color: #333; }
+    .bk-cinema-info { display: flex; gap: 12px; align-items: center; margin-top: 12px; }
+    .bk-badge { font-size: 0.65rem; padding: 3px 10px; border-radius: 4px; font-weight: 600; }
+    .bk-badge-sub { background: rgba(240,173,78,0.1); color: #f0ad4e; border: 1px solid rgba(240,173,78,0.25); }
 
     /* Empty State */
-    .bk-empty { text-align: center; padding: 60px 20px; color: #666; }
+    .bk-empty { text-align: center; padding: 60px 20px; color: #999; }
     .bk-empty-icon { font-size: 3rem; margin-bottom: 16px; }
-    .bk-empty h3 { color: #888; font-size: 1.1rem; margin-bottom: 8px; }
+    .bk-empty h3 { color: #e0e0e0; font-size: 1.1rem; margin-bottom: 8px; }
 
     /* Powered by */
-    .bk-powered { text-align: center; padding: 20px; color: #333; font-size: 0.7rem; }
+    .bk-powered { text-align: center; padding: 20px; color: #666; font-size: 0.7rem; }
     .bk-powered a { color: #f0ad4e; text-decoration: none; }
 
     /* Mobile */
@@ -73,25 +74,43 @@
       .bk-date-tab { padding: 10px 14px; }
       .bk-showtime { padding: 8px 16px; font-size: 0.8rem; }
       .bk-cinema-name { font-size: 0.9rem; }
+      .bk-cinema { padding: 16px; }
       .bk-search { min-width: 120px; }
     }
 
     /* Light theme */
-    @media (prefers-color-scheme: light) {
-      body { background: #f5f5f5; color: #222; }
-      .bk-header { background: #fff; border-bottom-color: #e5e5e5; }
-      .bk-back { color: #666; }
-      .bk-back:hover { background: #f0f0f0; color: #222; }
-      .bk-movie-title { color: #222; }
-      .bk-dates { background: #fff; border-bottom-color: #e5e5e5; }
-      .bk-date-tab { color: #888; }
-      .bk-filter-chip { background: #fff; border-color: #ddd; color: #555; }
-      .bk-search { background: #fff; border-color: #ddd; color: #222; }
-      .bk-cinema { border-bottom-color: #e5e5e5; }
-      .bk-cinema-icon { background: #f0f0f0; }
-      .bk-cinema-name { color: #222; }
-      .bk-cinema-addr { color: #888; }
-    }
+    .light-theme { background: #f5f5f5; color: #222; }
+    .light-theme .bk-header { background: #fff; border-bottom-color: #ddd; }
+    .light-theme .bk-back { color: #333; }
+    .light-theme .bk-back:hover { background: #f0f0f0; color: #d4880f; }
+    .light-theme .bk-movie-title { color: #222; }
+    .light-theme .bk-movie-meta { color: #888; }
+    .light-theme .bk-lang-badge { background: rgba(212,136,15,0.1); color: #d4880f; }
+    .light-theme .bk-dates { background: #fff; border-bottom-color: #ddd; }
+    .light-theme .bk-date-tab { color: #888; }
+    .light-theme .bk-date-tab:hover { color: #333; }
+    .light-theme .bk-date-tab.active { color: #d4880f; border-bottom-color: #d4880f; }
+    .light-theme .bk-filters { border-bottom-color: #ddd; }
+    .light-theme .bk-filter-chip { background: #fff; border-color: #ddd; color: #555; }
+    .light-theme .bk-filter-chip:hover, .light-theme .bk-filter-chip.active { background: #d4880f; color: #fff; border-color: #d4880f; }
+    .light-theme .bk-search { background: #fff; border-color: #ddd; color: #222; }
+    .light-theme .bk-search::placeholder { color: #999; }
+    .light-theme .bk-search:focus { border-color: #d4880f; }
+    .light-theme .bk-cinema { background: #fff; border-color: #ddd; }
+    .light-theme .bk-cinema:hover { border-color: #d4880f; }
+    .light-theme .bk-cinema-icon { background: #f0f0f0; border-color: #ddd; }
+    .light-theme .bk-cinema-name { color: #222; }
+    .light-theme .bk-cinema-city { color: #d4880f; }
+    .light-theme .bk-cinema-addr { color: #888; }
+    .light-theme .bk-showtime { border-color: #ddd; color: #d4880f; }
+    .light-theme .bk-showtime:hover { background: #d4880f; color: #fff; border-color: #d4880f; }
+    .light-theme .bk-showtime-label { color: #888; }
+    .light-theme .bk-showtime:hover .bk-showtime-label { color: rgba(255,255,255,0.8); }
+    .light-theme .bk-badge-sub { background: rgba(212,136,15,0.1); color: #d4880f; border-color: rgba(212,136,15,0.25); }
+    .light-theme .bk-empty { color: #888; }
+    .light-theme .bk-empty h3 { color: #333; }
+    .light-theme .bk-powered { color: #999; }
+    .light-theme .bk-powered a { color: #d4880f; }
   </style>
 </head>
 <body>
@@ -104,7 +123,6 @@
         <div class="bk-movie-title">Dacoit</div>
         <div class="bk-movie-meta">
           <span>Action / Drama / Romance</span>
-          <span>&bull; 2h 30m</span>
           <span class="bk-lang-badge">Telugu</span>
         </div>
       </div>
@@ -120,8 +138,6 @@
   <div class="bk-filters">
     <div class="bk-filters-inner">
       <input type="text" class="bk-search" id="cinemaSearch" placeholder="Search cinemas...">
-      <button class="bk-filter-chip active" onclick="setLang(this,'all')">All</button>
-      <button class="bk-filter-chip" onclick="setLang(this,'telugu')">Telugu</button>
     </div>
   </div>
 
@@ -133,6 +149,12 @@
   </div>
 
   <script>
+    // Sync theme from main site
+    (function() {
+      const theme = localStorage.getItem('theme');
+      if (theme === 'light') document.body.classList.add('light-theme');
+    })();
+
     const shows = [
       {
         id: 1,
@@ -177,14 +199,12 @@
     ];
 
     let selectedDate = 'all';
-    let selectedLang = 'all';
 
     // Build date tabs
     function buildDateTabs() {
       const dates = [...new Set(shows.map(s => s.date))].sort();
       const container = document.getElementById('dateTabs');
 
-      // All tab
       let html = `<button class="bk-date-tab active" data-date="all" onclick="selectDate(this,'all')">
         <span class="bk-date-day">All</span>
         <span class="bk-date-num">&bull;</span>
@@ -213,19 +233,11 @@
       renderCinemas();
     }
 
-    function setLang(el, lang) {
-      selectedLang = lang;
-      document.querySelectorAll('.bk-filter-chip').forEach(c => c.classList.remove('active'));
-      el.classList.add('active');
-      renderCinemas();
-    }
-
     function renderCinemas() {
       const search = document.getElementById('cinemaSearch').value.toLowerCase();
       let filtered = shows;
 
       if (selectedDate !== 'all') filtered = filtered.filter(s => s.date === selectedDate);
-      if (selectedLang !== 'all') filtered = filtered.filter(s => s.language.toLowerCase() === selectedLang);
       if (search) filtered = filtered.filter(s => s.cinema.toLowerCase().includes(search) || s.city.toLowerCase().includes(search));
 
       // Group by cinema + city
@@ -254,7 +266,7 @@
             <div class="bk-cinema-icon">&#127910;</div>
             <div>
               <div class="bk-cinema-name">${g.cinema}</div>
-              <div class="bk-cinema-addr">${g.city}, Germany</div>
+              <div class="bk-cinema-city">${g.city}</div>
             </div>
           </div>
           <div class="bk-showtimes">`;
@@ -264,13 +276,13 @@
           const dateLabel = dt.toLocaleDateString('en-GB', { day: 'numeric', month: 'short' });
           html += `<a href="${s.bookingUrl}" target="_blank" rel="noopener" class="bk-showtime">
             ${s.time}
-            <span class="bk-showtime-label">${dateLabel} &bull; ${s.subtitle}</span>
+            <span class="bk-showtime-label">${dateLabel}</span>
           </a>`;
         });
 
         html += `</div>
           <div class="bk-cinema-info">
-            <span class="bk-badge bk-badge-cancel">English Subtitles</span>
+            <span class="bk-badge bk-badge-sub">English Subtitles</span>
           </div>
         </div>`;
       });
