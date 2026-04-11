@@ -2,7 +2,7 @@
 // Only visible when logged in as admin (suryasumanth001@gmail.com)
 // Include this script on any movie page: <script src="js/admin-bar.js" type="module"></script>
 
-import { initializeApp } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-app.js";
+import { initializeApp, getApps, getApp } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-app.js";
 import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-auth.js";
 import { getDatabase, ref, get, set } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-database.js";
 
@@ -17,7 +17,14 @@ const firebaseConfig = {
   appId: "1:424507047798:web:ab288d3575e67917abc457"
 };
 
-const app = initializeApp(firebaseConfig, 'adminBar');
+// Reuse the existing default Firebase app (created by the page's inline script)
+// so we share the same auth state. Fall back to creating one if none exists.
+let app;
+try {
+  app = getApp();
+} catch {
+  app = initializeApp(firebaseConfig);
+}
 const auth = getAuth(app);
 const db = getDatabase(app);
 
