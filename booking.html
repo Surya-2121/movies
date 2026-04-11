@@ -240,7 +240,9 @@
       document.getElementById('movieMeta').innerHTML = '<span>' + movie.genre + '</span> <span class="bk-lang-badge">' + movie.language + '</span>';
       document.getElementById('backLink').href = movie.page;
 
-      const shows = movie.shows;
+      // Filter out past dates (compare date strings against today)
+      const today = new Date().toISOString().split('T')[0];
+      const shows = movie.shows.filter(s => s.date >= today);
       let selectedDate = 'all';
 
       function buildDateTabs() {
