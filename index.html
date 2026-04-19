@@ -134,15 +134,9 @@
       <!-- Movies -->
       <div class="movies-col">
         <h2 class="section-title">Movies</h2>
-        <a href="dacoit-movie.html" class="now-playing-card" id="dacoit-card">
-          <div class="np-poster"><img src="images/dacoit.webp" alt="Dacoit"></div>
-          <div class="np-info">
-            <h3 class="np-movie-name">Dacoit</h3>
-            <p class="np-language">Telugu</p>
-            <p class="np-date" id="dacoit-status"></p>
-            <span class="book-btn" id="dacoit-btn"></span>
-          </div>
-        </a>
+        <div class="no-shows-card">
+          <p class="no-shows-text">No shows available</p>
+        </div>
       </div>
 
       <!-- Coming Soon -->
@@ -321,16 +315,6 @@
       }
       results.style.display = 'block';
     }
-  </script>
-  <script>
-    (function() {
-      var status = document.getElementById('dacoit-status');
-      var btn = document.getElementById('dacoit-btn');
-      status.textContent = 'Tickets Available Now';
-      btn.textContent = 'Book Now';
-      btn.style.background = '#e74c3c';
-      btn.style.borderColor = '#e74c3c';
-    })();
   </script>
   <script src="js/nav.js"></script>
 
