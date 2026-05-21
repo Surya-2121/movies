@@ -241,7 +241,8 @@
     const data = snap.val();
     if (data) {
       const legacyPages = { ustaad:'ustaad-movie.html', peddi:'peddi-movie.html', paradise:'paradise-movie.html', vishwambhara:'vishwambhara-movie.html', varanasi:'varanasi-movie.html', spirit:'spirit-movie.html', fauzi:'fauzi-movie.html', dacoit:'dacoit-movie.html' };
-      const comingSoon = Object.entries(data).filter(([k, m]) => m.status === 'Coming Soon' && m.poster);
+      const nowShowing = new Set(['peddi']);
+      const comingSoon = Object.entries(data).filter(([k, m]) => m.status === 'Coming Soon' && m.poster && !nowShowing.has(k));
       if (comingSoon.length > 0) {
         if (window.csAutoSlide) clearInterval(window.csAutoSlide);
         const track = document.querySelector('.cs-track');
