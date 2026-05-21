@@ -134,9 +134,15 @@
       <!-- Movies -->
       <div class="movies-col">
         <h2 class="section-title">Movies</h2>
-        <div class="no-shows-card">
-          <p class="no-shows-text">No shows available</p>
-        </div>
+        <a href="peddi-movie.html" class="now-playing-card">
+          <div class="np-poster"><img src="images/peddi.jpg" alt="Peddi"></div>
+          <div class="np-info">
+            <div class="np-movie-name">Peddi</div>
+            <div class="np-language">Telugu</div>
+            <div class="np-dates">3 - 7 June 2026</div>
+            <div class="np-cta">Book Now &rarr;</div>
+          </div>
+        </a>
       </div>
 
       <!-- Coming Soon -->
@@ -147,10 +153,6 @@
         </a>
         <div class="cs-slider">
           <div class="cs-track">
-            <a href="peddi-movie.html" class="cs-card">
-              <img src="images/peddi.jpg" alt="Peddi">
-              <h3>Peddi</h3>
-            </a>
             <a href="paradise-movie.html" class="cs-card">
               <img src="https://image.tmdb.org/t/p/w300/smghVMoMWSIFi5dgIz4w1UIcEcY.jpg" alt="The Paradise">
               <h3>The Paradise</h3>
@@ -273,7 +275,7 @@
   <script>
     const movies = [
       { name: 'Ustaad Bhagat Singh', url: 'ustaad-movie.html', cast: 'Pawan Kalyan, Sreeleela, Raashii Khanna', status: 'Ended' },
-      { name: 'Peddi', url: 'peddi-movie.html', cast: 'Ram Charan, Janhvi Kapoor', status: 'Coming Soon' },
+      { name: 'Peddi', url: 'peddi-movie.html', cast: 'Ram Charan, Janhvi Kapoor', status: 'Now Showing' },
       { name: 'The Paradise', url: 'paradise-movie.html', cast: 'Nani', status: 'Coming Soon' },
       { name: 'Vishwambhara', url: 'vishwambhara-movie.html', cast: 'Chiranjeevi', status: 'Coming Soon' },
       { name: 'Varanasi', url: 'varanasi-movie.html', cast: 'Mahesh Babu', status: 'Coming Soon' },

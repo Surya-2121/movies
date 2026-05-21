@@ -32,6 +32,7 @@
             <span>Action / Drama</span>
           </div>
           <div class="mp-dates">Release: 30 April 2026 &bull; Coming Soon to Germany</div>
+          <div id="premiereCountdown" class="mp-premiere-count" style="display:none;margin-top:6px;font-size:0.85rem;color:#f0ad4e;font-weight:600;"></div>
           <!-- Phase 1: Pre-release - Interested + Notify -->
           <div id="interestedBar" class="bms-interest-bar">
             <div class="bms-bar-left">
@@ -84,7 +85,7 @@
               <span class="bms-thumb">&#127915;</span>
               <span class="bms-count-label">Tickets available now!</span>
             </div>
-            <a id="bookLink" href="#" class="bms-btn bms-btn-red" style="text-decoration:none;">Book Now</a>
+            <a id="bookLink" href="booking.html?movie=peddi" class="bms-btn bms-btn-red" style="text-decoration:none;">Book Now</a>
           </div>
         </div>
       </section>
@@ -122,6 +123,14 @@
             <div class="mp-song-icon">&#9835;</div>
             <span>Rai Rai Raa Raa</span>
           </a>
+        </div>
+      </section>
+
+      <!-- Trailer -->
+      <section class="mp-section">
+        <h2 class="mp-section-title">Trailer</h2>
+        <div class="mp-video">
+          <iframe src="https://www.youtube.com/embed/sF2dj7ycZvA" title="Peddi Trailer" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         </div>
       </section>
 
@@ -250,25 +259,33 @@
     loadNotifyCount();
 
     // ===== Phase switching based on Firebase data =====
-    get(ref(db, 'movies/peddi')).then(snap => {
-      const movie = snap.val();
-      if (!movie) return;
+    (function applyPhase(movie) {
       const releaseDate = new Date(2026, 3, 30); // April 30, 2026
+      const premiereDate = new Date(2026, 5, 3); // June 3, 2026
       const now = new Date();
       if (now >= releaseDate) {
         document.getElementById('interestedBar').style.display = 'none';
         document.getElementById('notifyBar').style.display = 'none';
         document.getElementById('rateBar').style.display = 'flex';
-        if (movie.bookingUrl) {
-          document.getElementById('bookBar').style.display = 'flex';
-          document.getElementById('bookLink').href = movie.bookingUrl;
-        }
+        document.getElementById('bookBar').style.display = 'flex';
+        if (movie && movie.bookingUrl) document.getElementById('bookLink').href = movie.bookingUrl;
         document.querySelector('.mp-dates').textContent = 'Now Showing';
-      } else if (movie.bookingUrl) {
+      } else if (movie && movie.bookingUrl) {
         document.getElementById('notifyBar').style.display = 'none';
         document.getElementById('bookBar').style.display = 'flex';
         document.getElementById('bookLink').href = movie.bookingUrl;
       }
+      // Premiere countdown
+      const cd = document.getElementById('premiereCountdown');
+      if (cd && now < premiereDate) {
+        const days = Math.ceil((premiereDate - now) / 86400000);
+        cd.textContent = days + ' day' + (days === 1 ? '' : 's') + ' to premiere';
+        cd.style.display = 'block';
+      }
+    })(null);
+    get(ref(db, 'movies/peddi')).then(snap => {
+      const movie = snap.val();
+      if (movie && movie.bookingUrl) document.getElementById('bookLink').href = movie.bookingUrl;
     }).catch(() => {});
 
     // Average rating display
@@ -317,8 +334,8 @@
     });
   </script>
   <script src="js/nav.js"></script>
-  <!-- Backdrop Editor -->
-  <div id="bdEditor" style="position:fixed;bottom:0;left:0;right:0;background:rgba(0,0,0,0.95);padding:16px 24px;z-index:9999;font-family:monospace;color:#fff;display:flex;flex-wrap:wrap;gap:12px;align-items:center;">
+  <!-- Backdrop Editor (admin only - gated by inline module script below) -->
+  <div id="bdEditor" style="position:fixed;bottom:0;left:0;right:0;background:rgba(0,0,0,0.95);padding:16px 24px;z-index:9999;font-family:monospace;color:#fff;display:none;flex-wrap:wrap;gap:12px;align-items:center;">
     <span style="color:#f0ad4e;font-weight:700;">Backdrop Editor</span>
     <label>Brightness <input type="range" id="bdBright" min="0" max="100" value="40" style="width:100px"> <span id="bdBrightVal">0.4</span></label>
     <label>Blur <input type="range" id="bdBlur" min="0" max="40" value="0" style="width:100px"> <span id="bdBlurVal">0px</span></label>
@@ -332,8 +349,16 @@
     <button id="bdCopy" style="background:#f0ad4e;color:#000;border:none;padding:8px 16px;border-radius:6px;cursor:pointer;font-weight:700;">Copy CSS</button>
     <button id="bdClose" style="background:#c0392b;color:#fff;border:none;padding:8px 16px;border-radius:6px;cursor:pointer;font-weight:700;">Close</button>
   </div>
-  <script>
-  (function(){
+  <script type="module">
+  import { getApp } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-app.js";
+  import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-auth.js";
+  const ADMIN_EMAIL = 'suryasumanth001@gmail.com';
+  onAuthStateChanged(getAuth(getApp()), (user) => {
+    if (!user || user.email !== ADMIN_EMAIL) return;
+    const editor = document.getElementById('bdEditor');
+    if (!editor || editor.dataset.abInit) return;
+    editor.dataset.abInit = '1';
+    editor.style.display = 'flex';
     const img = document.querySelector('.mp-backdrop-img');
     const grad = document.querySelector('.mp-backdrop-gradient');
     if(!img||!grad) return;
@@ -362,7 +387,7 @@
       bdCopy.textContent = 'Copied!'; setTimeout(()=> bdCopy.textContent = 'Copy CSS', 2000);
     });
     bdClose.addEventListener('click', () => document.getElementById('bdEditor').remove());
-  })();
+  });
   </script>
   <script src="js/admin-bar.js" type="module"></script>
 </body>

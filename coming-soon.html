@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Coming Soon - Germany Telugu Movies</title>
   <link rel="canonical" href="https://germany-telugu-movies.com/coming-soon.html">
-  <meta name="description" content="Upcoming Telugu movie premieres in Germany. Peddi, The Paradise, Vishwambhara, Varanasi, Spirit and more.">
+  <meta name="description" content="Upcoming Telugu movie premieres in Germany. The Paradise, Vishwambhara, Varanasi, Spirit and more.">
   <link rel="icon" href="images/logo.svg" type="image/svg+xml">
   <link rel="stylesheet" href="css/style.css">
 </head>
@@ -87,7 +87,8 @@
 
     const snap = await get(ref(db, 'movies'));
     const data = snap.val() || {};
-    const movies = Object.entries(data).filter(([k, m]) => m.status === 'Coming Soon');
+    const nowShowing = new Set(['peddi']);
+    const movies = Object.entries(data).filter(([k, m]) => m.status === 'Coming Soon' && !nowShowing.has(k));
 
     if (movies.length === 0) {
       grid.innerHTML = '<p style="text-align:center;color:#888;">No upcoming movies yet. Stay tuned!</p>';
