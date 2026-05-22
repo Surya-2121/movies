@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin - Shows Dashboard - Peddi</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="icon" href="images/logo.svg" type="image/svg+xml">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #0a0a1a; color: #fff; padding: 20px; }
+    h1 { font-size: 1.5rem; margin-bottom: 6px; }
+    h2 { font-size: 1.2rem; margin: 24px 0 12px; color: #f0ad4e; }
+    .updated { color: #888; font-size: 0.85rem; margin-bottom: 20px; }
+    .summary { display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 24px; }
+    .summary-card { background: #1a1a2e; border: 1px solid #2a2a4a; border-radius: 12px; padding: 16px 24px; text-align: center; flex: 1; min-width: 140px; }
+    .summary-num { font-size: 1.8rem; font-weight: 800; color: #f0ad4e; }
+    .summary-label { font-size: 0.85rem; color: #aaa; margin-top: 4px; }
+    table { width: 100%; border-collapse: collapse; background: #1a1a2e; border-radius: 12px; overflow: hidden; margin-bottom: 32px; }
+    th { background: #2a2a4a; text-align: left; padding: 12px 16px; font-size: 0.85rem; color: #aaa; text-transform: uppercase; letter-spacing: 0.5px; }
+    td { padding: 12px 16px; border-bottom: 1px solid #2a2a4a; font-size: 0.93rem; }
+    th.num, td.num { text-align: center; font-variant-numeric: tabular-nums; }
+    tr:last-child td { border-bottom: none; }
+    tr:hover td { background: #22223a; }
+    .totals-row td { font-weight: 800; background: #2a2a4a; color: #f0ad4e; border-top: 2px solid #f0ad4e; }
+    .refresh-btn { background: #f0ad4e; color: #000; border: none; padding: 8px 20px; border-radius: 8px; font-weight: 700; cursor: pointer; margin-bottom: 20px; }
+    .refresh-btn:hover { background: #ec971f; }
+    .save-btn { background: #4caf50; color: #fff; border: none; padding: 8px 20px; border-radius: 8px; font-weight: 700; cursor: pointer; margin-bottom: 12px; margin-left: 8px; }
+    .save-btn:hover { background: #388e3c; }
+    .section-header { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+    .capture-box { padding: 20px; background: #0a0a1a; }
+    .muted { color: #666; }
+    .auth-gate { max-width: 460px; margin: 80px auto; background: #1a1a2e; border: 1px solid #2a2a4a; border-radius: 14px; padding: 40px 32px; text-align: center; }
+    .auth-gate h2 { color: #f0ad4e; font-size: 1.25rem; margin-bottom: 12px; }
+    .auth-gate p { color: #aaa; font-size: 0.9rem; margin-bottom: 20px; }
+    .auth-gate a { background: #f0ad4e; color: #000; border: none; padding: 10px 22px; border-radius: 8px; font-weight: 700; cursor: pointer; text-decoration: none; display: inline-block; }
+    @media (max-width: 600px) {
+      th, td { padding: 8px 10px; font-size: 0.8rem; }
+      .summary-card { padding: 12px 16px; }
+      .summary-num { font-size: 1.3rem; }
+    }
+  </style>
+</head>
+<body>
+  <div id="authGate" class="auth-gate" style="display:none;">
+    <h2 id="authTitle">Checking access...</h2>
+    <p id="authMsg">Verifying your login.</p>
+    <a id="authLoginBtn" href="login.html" style="display:none;">Sign in</a>
+  </div>
+  <div id="adminContent" style="display:none;">
+  <h1>Shows Dashboard - Peddi</h1>
+  <div class="updated" id="updated"></div>
+  <button class="refresh-btn" onclick="loadData()">Refresh</button>
+  <div class="summary" id="summary"></div>
+
+  <div id="capturePremiere" class="capture-box">
+    <div class="section-header">
+      <h2>Premiere Day - June 3</h2>
+      <button class="save-btn" onclick="saveAsImage('capturePremiere', 'peddi-premiere-june-3')">Save as Image</button>
+    </div>
+    <div class="summary" id="summaryPremiere"></div>
+    <table>
+      <thead>
+        <tr>
+          <th>City</th>
+          <th>Cinema</th>
+          <th>Time</th>
+          <th class="num">Seats</th>
+          <th class="num">Booked</th>
+          <th class="num">Free</th>
+          <th class="num">Occ %</th>
+          <th class="num">Price</th>
+          <th class="num">Gross</th>
+        </tr>
+      </thead>
+      <tbody id="tablePremiere"></tbody>
+    </table>
+    <div style="text-align:right;margin-top:8px;">
+      <button class="save-btn" onclick="saveAsImage('capturePremiere', 'peddi-premiere-june-3')">Export as JPG</button>
+    </div>
+  </div>
+
+  <div id="captureAll" class="capture-box">
+    <div class="section-header">
+      <h2>All Shows - Complete</h2>
+      <button class="save-btn" onclick="saveAsImage('captureAll', 'peddi-all-shows')">Save as Image</button>
+    </div>
+    <table>
+      <thead>
+        <tr>
+          <th>City</th>
+          <th>Cinema</th>
+          <th>Date & Time</th>
+          <th class="num">Seats</th>
+          <th class="num">Booked</th>
+          <th class="num">Free</th>
+          <th class="num">Occ %</th>
+          <th class="num">Price</th>
+          <th class="num">Gross</th>
+        </tr>
+      </thead>
+      <tbody id="tableAll"></tbody>
+    </table>
+    <div style="text-align:right;margin-top:8px;">
+      <button class="save-btn" onclick="saveAsImage('captureAll', 'peddi-all-shows')">Export as JPG</button>
+    </div>
+  </div>
+  </div><!-- /#adminContent -->
+
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-app.js";
+    import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-auth.js";
+
+    const ADMIN_EMAIL = 'suryasumanth001@gmail.com';
+    const app = initializeApp({
+      apiKey: "AIzaSyDmGjpEbIo3YupHpWSc8rgzXWESF5-IPCQ",
+      authDomain: "gtm-counter.firebaseapp.com",
+      databaseURL: "https://gtm-counter-default-rtdb.europe-west1.firebasedatabase.app",
+      projectId: "gtm-counter",
+      storageBucket: "gtm-counter.firebasestorage.app",
+      messagingSenderId: "424507047798",
+      appId: "1:424507047798:web:ab288d3575e67917abc457"
+    });
+    const gate = document.getElementById('authGate');
+    const content = document.getElementById('adminContent');
+    gate.style.display = 'block';
+
+    onAuthStateChanged(getAuth(app), (user) => {
+      if (!user) {
+        document.getElementById('authTitle').textContent = 'Sign in required';
+        document.getElementById('authMsg').textContent = 'This dashboard is admin-only.';
+        document.getElementById('authLoginBtn').style.display = 'inline-block';
+        return;
+      }
+      if (user.email !== ADMIN_EMAIL) {
+        document.getElementById('authTitle').textContent = 'Access denied';
+        document.getElementById('authMsg').textContent = 'You are signed in as ' + user.email + ' but this dashboard is restricted to the site admin.';
+        return;
+      }
+      gate.style.display = 'none';
+      content.style.display = 'block';
+      window.loadData();
+    });
+  </script>
+
+  <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+  <script>
+    const PREMIERE_DATE = '2026-06-03';
+
+    function saveAsImage(elementId, filename) {
+      const el = document.getElementById(elementId);
+      const btns = el.querySelectorAll('.save-btn');
+      btns.forEach(b => b.style.display = 'none');
+      html2canvas(el, { backgroundColor: '#0a0a1a', scale: 2 }).then(canvas => {
+        btns.forEach(b => b.style.display = '');
+        const link = document.createElement('a');
+        link.download = filename + '.jpg';
+        link.href = canvas.toDataURL('image/jpeg', 0.95);
+        link.click();
+      });
+    }
+
+    function fmt(n) { return (n === null || n === undefined) ? '<span class="muted">&ndash;</span>' : n; }
+    function fmtPrice(n) { return (n === null || n === undefined) ? '<span class="muted">&ndash;</span>' : ('EUR ' + n.toFixed(2)); }
+    function fmtMoney(n) { return (n === null || n === undefined) ? '<span class="muted">&ndash;</span>' : ('EUR ' + n.toFixed(2)); }
+
+    function buildRows(rows, includeDate) {
+      const sorted = rows.slice().sort((a, b) => {
+        if (a.date !== b.date) return a.date.localeCompare(b.date);
+        if (a.city !== b.city) return a.city.localeCompare(b.city);
+        return a.time.localeCompare(b.time);
+      });
+      let totalCap = 0, totalBooked = 0, totalFree = 0, totalGross = 0, anyKnown = false;
+      let html = '';
+      sorted.forEach(s => {
+        const last = includeDate ? (s.date + ' ' + s.time) : s.time;
+        const cap = s.capacity, booked = s.booked, free = s.free;
+        const price = s.ticketPrice, gross = s.gross;
+        if (cap !== null && cap !== undefined) {
+          totalCap += cap; totalBooked += (booked || 0); totalFree += (free || 0);
+          totalGross += (gross || 0);
+          anyKnown = true;
+        }
+        const occ = (cap && cap > 0 && booked !== null && booked !== undefined)
+          ? ((booked / cap) * 100).toFixed(1) + '%' : '<span class="muted">&ndash;</span>';
+        html += '<tr>'
+          + '<td>' + s.city + '</td>'
+          + '<td>' + s.cinema + '</td>'
+          + '<td>' + last + '</td>'
+          + '<td class="num">' + fmt(cap) + '</td>'
+          + '<td class="num">' + fmt(booked) + '</td>'
+          + '<td class="num">' + fmt(free) + '</td>'
+          + '<td class="num">' + occ + '</td>'
+          + '<td class="num">' + fmtPrice(price) + '</td>'
+          + '<td class="num">' + fmtMoney(gross) + '</td>'
+          + '</tr>';
+      });
+      const totalOcc = (anyKnown && totalCap > 0)
+        ? ((totalBooked / totalCap) * 100).toFixed(1) + '%' : '&ndash;';
+      html += '<tr class="totals-row">'
+        + '<td>TOTAL</td>'
+        + '<td>' + sorted.length + ' shows</td>'
+        + '<td></td>'
+        + '<td class="num">' + (anyKnown ? totalCap : '&ndash;') + '</td>'
+        + '<td class="num">' + (anyKnown ? totalBooked : '&ndash;') + '</td>'
+        + '<td class="num">' + (anyKnown ? totalFree : '&ndash;') + '</td>'
+        + '<td class="num">' + totalOcc + '</td>'
+        + '<td class="num"></td>'
+        + '<td class="num">' + (anyKnown ? ('EUR ' + totalGross.toFixed(2)) : '&ndash;') + '</td>'
+        + '</tr>';
+      return { html, totalCap, totalBooked, totalFree, totalGross, count: sorted.length };
+    }
+
+    function summaryHTML(label, num) {
+      return '<div class="summary-card"><div class="summary-num">' + num + '</div><div class="summary-label">' + label + '</div></div>';
+    }
+
+    window.loadData = async function loadData() {
+      try {
+        const resp = await fetch('data/peddi_seats.json?t=' + Date.now());
+        const data = await resp.json();
+
+        document.getElementById('updated').textContent = 'Last updated: ' + new Date(data.fetchedAt).toLocaleString('en-DE');
+
+        const all = data.shows;
+        const totalCap = all.reduce((a, s) => a + (s.capacity || 0), 0);
+        const totalBooked = all.reduce((a, s) => a + (s.booked || 0), 0);
+        const totalFree = all.reduce((a, s) => a + (s.free || 0), 0);
+        const totalGross = all.reduce((a, s) => a + (s.gross || 0), 0);
+
+        const overallOcc = totalCap > 0 ? ((totalBooked / totalCap) * 100).toFixed(1) + '%' : '0%';
+        document.getElementById('summary').innerHTML =
+          summaryHTML('Shows', data.totalShows) +
+          summaryHTML('Total seats', totalCap) +
+          summaryHTML('Booked', totalBooked) +
+          summaryHTML('Free', totalFree) +
+          summaryHTML('Occupancy', overallOcc) +
+          summaryHTML('Gross', 'EUR ' + totalGross.toFixed(2));
+
+        const premiere = all.filter(s => s.date === PREMIERE_DATE);
+        const rPrem = buildRows(premiere, false);
+        document.getElementById('tablePremiere').innerHTML = rPrem.html;
+        const premOcc = rPrem.totalCap > 0 ? ((rPrem.totalBooked / rPrem.totalCap) * 100).toFixed(1) + '%' : '0%';
+        document.getElementById('summaryPremiere').innerHTML =
+          summaryHTML('Shows', premiere.length) +
+          summaryHTML('Seats', rPrem.totalCap) +
+          summaryHTML('Booked', rPrem.totalBooked) +
+          summaryHTML('Free', rPrem.totalFree) +
+          summaryHTML('Occupancy', premOcc) +
+          summaryHTML('Gross', 'EUR ' + rPrem.totalGross.toFixed(2));
+
+        document.getElementById('tableAll').innerHTML = buildRows(all, true).html;
+      } catch (e) {
+        document.getElementById('tableAll').innerHTML =
+          '<tr><td colspan="9" style="text-align:center;color:#e74c3c;">Error loading data: ' + e.message + '. Run <code>py scripts/fetch_peddi_seats.py</code> to generate data/peddi_seats.json.</td></tr>';
+      }
+    };
+  </script>
+</body>
+</html>
