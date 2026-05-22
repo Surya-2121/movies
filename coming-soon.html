@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Coming Soon - Germany Telugu Movies</title>
   <link rel="canonical" href="https://germany-telugu-movies.com/coming-soon.html">
-  <meta name="description" content="Upcoming Telugu movie premieres in Germany. The Paradise, Vishwambhara, Varanasi, Spirit and more.">
+  <meta name="description" content="Upcoming Telugu movie premieres in Germany. Dragon, The Paradise, Varanasi, Spirit and more.">
   <link rel="icon" href="images/logo.svg" type="image/svg+xml">
   <link rel="stylesheet" href="css/style.css">
 </head>
@@ -78,6 +78,7 @@
     const legacyPages = {
       ustaad: 'ustaad-movie.html',
       peddi: 'peddi-movie.html',
+      dragon: 'dragon-movie.html',
       paradise: 'paradise-movie.html',
       vishwambhara: 'vishwambhara-movie.html',
       varanasi: 'varanasi-movie.html',
@@ -88,7 +89,14 @@
     const snap = await get(ref(db, 'movies'));
     const data = snap.val() || {};
     const nowShowing = new Set(['peddi']);
-    const movies = Object.entries(data).filter(([k, m]) => m.status === 'Coming Soon' && !nowShowing.has(k));
+    const hidden = new Set(['vishwambhara']);
+    // Movies always shown, even when Firebase doesn't have them yet.
+    const staticAdditions = [
+      ['dragon', { name: 'Dragon', poster: 'images/dragon.jpg', dates: 'Release: 11 June 2027' }],
+    ];
+    const staticKeys = new Set(staticAdditions.map(([k]) => k));
+    const fbMovies = Object.entries(data).filter(([k, m]) => m.status === 'Coming Soon' && !nowShowing.has(k) && !staticKeys.has(k) && !hidden.has(k));
+    const movies = [...staticAdditions, ...fbMovies];
 
     if (movies.length === 0) {
       grid.innerHTML = '<p style="text-align:center;color:#888;">No upcoming movies yet. Stay tuned!</p>';

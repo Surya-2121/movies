@@ -55,7 +55,7 @@
 
   <div id="capturePremiere" class="capture-box">
     <div class="section-header">
-      <h2>Premiere Day - June 3</h2>
+      <h2 id="premiereHeading">Premiere Day - June 3</h2>
       <button class="save-btn" onclick="saveAsImage('capturePremiere', 'peddi-premiere-june-3')">Save as Image</button>
     </div>
     <div class="summary" id="summaryPremiere"></div>
@@ -221,6 +221,19 @@
         const data = await resp.json();
 
         document.getElementById('updated').textContent = 'Last updated: ' + new Date(data.fetchedAt).toLocaleString('en-DE');
+
+        // Premiere countdown
+        const premiereDate = new Date(PREMIERE_DATE + 'T00:00:00');
+        const today = new Date(); today.setHours(0,0,0,0);
+        const daysToPremiere = Math.ceil((premiereDate - today) / 86400000);
+        const heading = document.getElementById('premiereHeading');
+        if (daysToPremiere > 0) {
+          heading.textContent = 'Premiere Day - June 3 (' + daysToPremiere + ' day' + (daysToPremiere === 1 ? '' : 's') + ' to go)';
+        } else if (daysToPremiere === 0) {
+          heading.textContent = 'Premiere Day - June 3 (TODAY)';
+        } else {
+          heading.textContent = 'Premiere Day - June 3';
+        }
 
         const all = data.shows;
         const totalCap = all.reduce((a, s) => a + (s.capacity || 0), 0);

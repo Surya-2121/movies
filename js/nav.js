@@ -28,9 +28,9 @@ applyTheme(localStorage.getItem('theme') || 'dark');
 // Search
 const allMovies = [
   { name: 'Ustaad Bhagat Singh', url: 'ustaad-movie.html', cast: 'Pawan Kalyan, Sreeleela, Raashii Khanna', status: 'Ended' },
-  { name: 'Peddi', url: 'peddi-movie.html', cast: 'Ram Charan, Janhvi Kapoor', status: 'Coming Soon' },
+  { name: 'Peddi', url: 'peddi-movie.html', cast: 'Ram Charan, Janhvi Kapoor', status: 'Now Showing' },
+  { name: 'Dragon', url: 'dragon-movie.html', cast: 'N.T. Rama Rao Jr., Anil Kapoor, Rukmini Vasanth', status: 'Coming Soon' },
   { name: 'The Paradise', url: 'paradise-movie.html', cast: 'Nani', status: 'Coming Soon' },
-  { name: 'Vishwambhara', url: 'vishwambhara-movie.html', cast: 'Chiranjeevi', status: 'Coming Soon' },
   { name: 'Varanasi', url: 'varanasi-movie.html', cast: 'Mahesh Babu', status: 'Coming Soon' },
   { name: 'Spirit', url: 'spirit-movie.html', cast: 'Prabhas, Triptii Dimri', status: 'Coming Soon' },
   { name: 'Dacoit', url: 'dacoit-movie.html', cast: 'Adivi Sesh, Mrunal Thakur', status: 'Coming Soon' },
