@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-05-22T04:32:23.516131+00:00",
+  "fetchedAt": "2026-05-23T16:00:25.545625+00:00",
   "movie": "Peddi",
   "totalShows": 13,
   "shows": [
@@ -10,11 +10,11 @@
       "time": "20:30",
       "url": "https://booking.cinetixx.de/frontend/index.html?cinemaId=296551098&showId=3540551659&bgswitch=false&resize=false",
       "capacity": 401,
-      "booked": 24,
-      "free": 377,
+      "booked": 30,
+      "free": 371,
       "blocked": 0,
       "ticketPrice": 18.0,
-      "gross": 432.0
+      "gross": 540.0
     },
     {
       "city": "Frankfurt",
@@ -23,10 +23,10 @@
       "time": "20:45",
       "url": "https://kinotickets.express/hofheim-filmpalast/sale/seats/14678",
       "capacity": 188,
-      "booked": 17,
-      "free": 171,
+      "booked": 19,
+      "free": 169,
       "ticketPrice": 18.0,
-      "gross": 306.0
+      "gross": 342.0
     },
     {
       "city": "Frankfurt",
@@ -35,10 +35,10 @@
       "time": "14:30",
       "url": "https://kinotickets.express/hofheim-filmpalast/sale/seats/14719",
       "capacity": 188,
-      "booked": 5,
-      "free": 183,
+      "booked": 6,
+      "free": 182,
       "ticketPrice": 14.0,
-      "gross": 70.0
+      "gross": 84.0
     },
     {
       "city": "Frankfurt",
@@ -83,10 +83,10 @@
       "time": "20:30",
       "url": "https://kinotickets.express/duesseldorf-ufa-filmpalast/sale/seats/80776",
       "capacity": 178,
-      "booked": 14,
-      "free": 164,
+      "booked": 18,
+      "free": 160,
       "ticketPrice": 18.0,
-      "gross": 252.0
+      "gross": 324.0
     },
     {
       "city": "Dusseldorf",
