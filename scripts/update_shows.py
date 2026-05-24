@@ -15,16 +15,13 @@ BASE_URL = "https://3realmsentertainment.com"
 
 # Map 3 Realms movie slugs/IDs to our site's movie slugs and info.
 # Add new movies here as they appear on 3 Realms.
+# NOTE: Dacoit has ended; Peddi shows are not on 3 Realms (booked via
+# Zineflix/cinetixx/kinotickets directly). MOVIE_MAP is intentionally
+# empty so this scraper does not overwrite the hand-maintained
+# booking.html — see fetch_peddi_seats.py for the current movie.
+# Add a new entry here only when a future movie appears on 3 Realms.
 MOVIE_MAP = {
-    # "3realms-movie-name-lowercase-substring": { our slug + info }
-    "dacoit": {
-        "slug": "dacoit",
-        "title": "Dacoit",
-        "genre": "Action / Drama / Romance",
-        "language": "Telugu",
-        "page": "dacoit-movie.html"
-    },
-    # Add more movies as needed:
+    # Example:
     # "moviename": { "slug": "moviename", "title": "...", "genre": "...", "language": "Telugu", "page": "...-movie.html" }
 }
 
