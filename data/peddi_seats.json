@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-05-23T16:00:25.545625+00:00",
+  "fetchedAt": "2026-05-24T15:59:29.348334+00:00",
   "movie": "Peddi",
   "totalShows": 13,
   "shows": [
@@ -10,11 +10,11 @@
       "time": "20:30",
       "url": "https://booking.cinetixx.de/frontend/index.html?cinemaId=296551098&showId=3540551659&bgswitch=false&resize=false",
       "capacity": 401,
-      "booked": 30,
-      "free": 371,
+      "booked": 32,
+      "free": 369,
       "blocked": 0,
       "ticketPrice": 18.0,
-      "gross": 540.0
+      "gross": 576.0
     },
     {
       "city": "Frankfurt",
@@ -23,10 +23,10 @@
       "time": "20:45",
       "url": "https://kinotickets.express/hofheim-filmpalast/sale/seats/14678",
       "capacity": 188,
-      "booked": 19,
-      "free": 169,
+      "booked": 24,
+      "free": 164,
       "ticketPrice": 18.0,
-      "gross": 342.0
+      "gross": 432.0
     },
     {
       "city": "Frankfurt",
@@ -59,10 +59,10 @@
       "time": "21:00",
       "url": "https://kinotickets.express/kornwestheim-capitol/sale/seats/26314",
       "capacity": 145,
-      "booked": 21,
-      "free": 124,
+      "booked": 22,
+      "free": 123,
       "ticketPrice": 18.0,
-      "gross": 378.0
+      "gross": 396.0
     },
     {
       "city": "Stuttgart",
