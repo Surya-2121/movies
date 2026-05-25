@@ -1,7 +1,7 @@
 {
-  "fetchedAt": "2026-05-25T09:27:46.431217+00:00",
+  "fetchedAt": "2026-05-25T17:05:31.493484+00:00",
   "movie": "peddi",
-  "totalShows": 15,
+  "totalShows": 16,
   "shows": [
     {
       "city": "Dusseldorf",
@@ -11,11 +11,11 @@
       "subtitle": "English Subtitles",
       "bookingUrl": "https://kinotickets.express/duesseldorf-ufa-filmpalast/sale/seats/80776",
       "capacity": 178,
-      "booked": 18,
-      "free": 160,
+      "booked": 24,
+      "free": 154,
       "blocked": 0,
       "ticketPrice": 18.0,
-      "gross": 324.0
+      "gross": 432.0
     },
     {
       "city": "Munich",
@@ -25,11 +25,11 @@
       "subtitle": "English Subtitles",
       "bookingUrl": "https://booking.cinetixx.de/frontend/index.html?cinemaId=296551098&showId=3540551659&bgswitch=false&resize=false",
       "capacity": 401,
-      "booked": 34,
-      "free": 367,
+      "booked": 38,
+      "free": 363,
       "blocked": 0,
       "ticketPrice": 18.0,
-      "gross": 612.0
+      "gross": 684.0
     },
     {
       "city": "Pforzheim",
@@ -39,11 +39,11 @@
       "subtitle": "English Subtitles",
       "bookingUrl": "https://www.kinoheld.de/kino/pforzheim/cinemoon-pforzheim?rb=0&mode=widget&appView=1&showId=31784#panel-seats",
       "capacity": 620,
-      "booked": 0,
-      "free": 620,
+      "booked": 1,
+      "free": 619,
       "blocked": 0,
       "ticketPrice": 19.0,
-      "gross": 0.0
+      "gross": 19.0
     },
     {
       "city": "Frankfurt",
@@ -81,11 +81,11 @@
       "subtitle": "English Subtitles",
       "bookingUrl": "https://kinotickets.express/hofheim-filmpalast/sale/seats/14719",
       "capacity": 188,
-      "booked": 11,
-      "free": 177,
+      "booked": 12,
+      "free": 176,
       "blocked": 0,
       "ticketPrice": 14.0,
-      "gross": 154.0
+      "gross": 168.0
     },
     {
       "city": "Braunschweig",
@@ -95,11 +95,25 @@
       "subtitle": "English Subtitles",
       "bookingUrl": "https://braunschweig.premiumkino.de/vorstellung/peddi/20260604/1930/2erVpK_tmw5J61iFXKyRRWIl0ntJPxPkEvhGZp6lkm4~",
       "capacity": 200,
-      "booked": 9,
-      "free": 191,
+      "booked": 7,
+      "free": 193,
       "blocked": 0,
       "ticketPrice": 17.0,
-      "gross": 153.0
+      "gross": 119.0
+    },
+    {
+      "city": "Frankfurt",
+      "cinema": "Filmpalast Hofheim",
+      "date": "2026-06-05",
+      "time": "19:00",
+      "subtitle": "English Subtitles",
+      "bookingUrl": "https://kinotickets.express/hofheim-filmpalast/sale/seats/14763",
+      "capacity": 188,
+      "booked": 0,
+      "free": 188,
+      "blocked": 0,
+      "ticketPrice": 14.0,
+      "gross": 0.0
     },
     {
       "city": "Dresden",
@@ -151,11 +165,11 @@
       "subtitle": "English Subtitles",
       "bookingUrl": "https://braunschweig.premiumkino.de/vorstellung/peddi/20260606/1145/Oq8FcSMmGEe64gtlsqRGt_ST2swgSE9AX6TAqNE7Zic~",
       "capacity": 200,
-      "booked": 13,
-      "free": 187,
+      "booked": 12,
+      "free": 188,
       "blocked": 0,
       "ticketPrice": 17.0,
-      "gross": 221.0
+      "gross": 204.0
     },
     {
       "city": "Dusseldorf",
@@ -179,11 +193,11 @@
       "subtitle": "English Subtitles",
       "bookingUrl": "https://kinotickets.express/hofheim-filmpalast/sale/seats/14720",
       "capacity": 188,
-      "booked": 0,
-      "free": 188,
+      "booked": 6,
+      "free": 182,
       "blocked": 0,
       "ticketPrice": 14.0,
-      "gross": 0.0
+      "gross": 84.0
     },
     {
       "city": "Dresden",

@@ -1,7 +1,7 @@
 {
-  "fetchedAt": "2026-05-25T09:27:41.310905+00:00",
+  "fetchedAt": "2026-05-25T17:05:16.524373+00:00",
   "movie": "peddi",
-  "totalShows": 15,
+  "totalShows": 16,
   "shows": [
     {
       "city": "Dusseldorf",
@@ -58,6 +58,14 @@
       "time": "19:30",
       "subtitle": "English Subtitles",
       "bookingUrl": "https://braunschweig.premiumkino.de/vorstellung/peddi/20260604/1930/2erVpK_tmw5J61iFXKyRRWIl0ntJPxPkEvhGZp6lkm4~"
+    },
+    {
+      "city": "Frankfurt",
+      "cinema": "Filmpalast Hofheim",
+      "date": "2026-06-05",
+      "time": "19:00",
+      "subtitle": "English Subtitles",
+      "bookingUrl": "https://kinotickets.express/hofheim-filmpalast/sale/seats/14763"
     },
     {
       "city": "Dresden",
