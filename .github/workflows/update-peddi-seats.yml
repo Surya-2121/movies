@@ -1,8 +1,8 @@
-name: Update Peddi Seats
+name: Update Peddi Shows & Seats
 
 on:
   schedule:
-    # 15:00 UTC = 17:00 CEST (Berlin summer time, when Peddi is showing)
+    # 15:00 UTC = 17:00 Berlin CEST (summer), 16:00 CET (winter)
     - cron: '0 15 * * *'
   workflow_dispatch:
 
@@ -19,12 +19,15 @@ jobs:
         with:
           python-version: '3.12'
 
-      - name: Scrape Peddi seat counts
+      - name: Discover Peddi shows (Zineflix + per-cinema platforms)
+        run: python scripts/discover_peddi_shows.py
+
+      - name: Scrape per-show seat counts
         run: python scripts/fetch_peddi_seats.py
 
-      - name: Commit and push if changed
+      - name: Commit and push if anything changed
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add data/peddi_seats.json
-          git diff --staged --quiet || (git commit -m "Auto-update Peddi seat counts $(date -u +%Y-%m-%dT%H:%M:%SZ)" && git pull --rebase && git push)
+          git add booking.html data/peddi_shows.json data/peddi_seats.json
+          git diff --staged --quiet || (git commit -m "Auto-update Peddi shows & seats $(date -u +%Y-%m-%dT%H:%M:%SZ)" && git pull --rebase && git push)

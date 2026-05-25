@@ -1,122 +1,33 @@
 """
-Scrape kinotickets.express seat layouts for Peddi shows to count
-capacity and booked seats per show. Writes data/peddi_seats.json
+Scrape per-show seat counts for Peddi and write data/peddi_seats.json
 consumed by admin-revenue-peddi.html.
 
-Cinetixx (Munich Cincinnati) and Kinoheld (Dresden) shows cannot be
-scraped this way, so they're included with null counts and rendered
-as "n/a" in the dashboard.
+Reads the show list from data/peddi_shows.json (produced by
+discover_peddi_shows.py) and the per-cinema config (prices, capacity
+overrides, scrape platform IDs) from data/peddi_cinemas.json.
 
-Usage:
-    py scripts/fetch_peddi_seats.py
+Per platform:
+  cinetixx (Cincinnati, Dresden via kinoheld) -> Cinetixx sector API
+  kinotickets URL  -> Capitol/UFA/Filmpalast seat-plan HTML scrape
+  kinoheld widget URL -> Pforzheim via kinoheld GraphQL by show id
+  premiumkino vorstellung URL -> Astor performance API
+
+Usage:  py scripts/fetch_peddi_seats.py
 """
 import json
 import os
 import re
-import sys
 import urllib.request
 from datetime import datetime, timezone
 
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 PROJECT_ROOT = os.path.dirname(SCRIPT_DIR)
+CINEMAS_FILE = os.path.join(PROJECT_ROOT, "data", "peddi_cinemas.json")
+SHOWS_FILE = os.path.join(PROJECT_ROOT, "data", "peddi_shows.json")
 OUTPUT_FILE = os.path.join(PROJECT_ROOT, "data", "peddi_seats.json")
-
-# All Peddi shows. For kinotickets.express we scrape seat data; the
-# other three sources lack a usable public seat layout.
-SHOWS = [
-    # Munich - Cincinnati (cinetixx)
-    {"city": "Munich", "cinema": "Cincinnati", "date": "2026-06-03", "time": "20:30",
-     "url": "https://booking.cinetixx.de/frontend/index.html?cinemaId=296551098&showId=3540551659&bgswitch=false&resize=false",
-     "scrape": "cinetixx", "cinetixx_show_id": "3540551659"},
-
-    # Frankfurt - Filmpalast Hofheim (kinotickets.express)
-    {"city": "Frankfurt", "cinema": "Filmpalast Hofheim", "date": "2026-06-03", "time": "20:45",
-     "url": "https://kinotickets.express/hofheim-filmpalast/sale/seats/14678", "scrape": "kinotickets"},
-    {"city": "Frankfurt", "cinema": "Filmpalast Hofheim", "date": "2026-06-04", "time": "14:30",
-     "url": "https://kinotickets.express/hofheim-filmpalast/sale/seats/14719", "scrape": "kinotickets"},
-    {"city": "Frankfurt", "cinema": "Filmpalast Hofheim", "date": "2026-06-06", "time": "14:00",
-     "url": "https://kinotickets.express/hofheim-filmpalast/sale/seats/14720", "scrape": "kinotickets"},
-
-    # Stuttgart - Capitol Kornwestheim (kinotickets.express)
-    {"city": "Stuttgart", "cinema": "Capitol Kornwestheim", "date": "2026-06-03", "time": "21:00",
-     "url": "https://kinotickets.express/kornwestheim-capitol/sale/seats/26314", "scrape": "kinotickets"},
-    {"city": "Stuttgart", "cinema": "Capitol Kornwestheim", "date": "2026-06-05", "time": "21:00",
-     "url": "https://kinotickets.express/kornwestheim-capitol/sale/seats/26315", "scrape": "kinotickets"},
-
-    # Dusseldorf - UFA Palast (kinotickets.express)
-    {"city": "Dusseldorf", "cinema": "UFA Palast", "date": "2026-06-03", "time": "20:30",
-     "url": "https://kinotickets.express/duesseldorf-ufa-filmpalast/sale/seats/80776", "scrape": "kinotickets"},
-    {"city": "Dusseldorf", "cinema": "UFA Palast", "date": "2026-06-05", "time": "19:40",
-     "url": "https://kinotickets.express/duesseldorf-ufa-filmpalast/sale/seats/80777", "scrape": "kinotickets"},
-    {"city": "Dusseldorf", "cinema": "UFA Palast", "date": "2026-06-06", "time": "13:30",
-     "url": "https://kinotickets.express/duesseldorf-ufa-filmpalast/sale/seats/80778", "scrape": "kinotickets"},
-
-    # Braunschweig - Astor (Premiumkino)
-    {"city": "Braunschweig", "cinema": "Astor", "date": "2026-06-04", "time": "19:30",
-     "url": "https://braunschweig.premiumkino.de/vorstellung/peddi/20260604/1930/2erVpK_tmw5J61iFXKyRRWIl0ntJPxPkEvhGZp6lkm4~",
-     "scrape": "premiumkino", "premiumkino_cinema": "braunschweig",
-     "premiumkino_perf_id": "2erVpK_tmw5J61iFXKyRRWIl0ntJPxPkEvhGZp6lkm4~"},
-    {"city": "Braunschweig", "cinema": "Astor", "date": "2026-06-06", "time": "11:45",
-     "url": "https://braunschweig.premiumkino.de/vorstellung/peddi/20260606/1145/Oq8FcSMmGEe64gtlsqRGt_ST2swgSE9AX6TAqNE7Zic~",
-     "scrape": "premiumkino", "premiumkino_cinema": "braunschweig",
-     "premiumkino_perf_id": "Oq8FcSMmGEe64gtlsqRGt_ST2swgSE9AX6TAqNE7Zic~"},
-
-    # Dresden - Zentralkino (kinoheld frontend, cinetixx backend)
-    {"city": "Dresden", "cinema": "Zentralkino", "date": "2026-06-05", "time": "19:30",
-     "url": "https://www.kinoheld.de/kino/dresden/zentralkino-dresden/vorstellung/3541829399",
-     "scrape": "cinetixx", "cinetixx_show_id": "3541829399"},
-    {"city": "Dresden", "cinema": "Zentralkino", "date": "2026-06-07", "time": "12:30",
-     "url": "https://www.kinoheld.de/kino/dresden/zentralkino-dresden/vorstellung/3541829434",
-     "scrape": "cinetixx", "cinetixx_show_id": "3541829434"},
-
-    # Pforzheim - Cinemoon (kinoheld, Mars backend - seats via GraphQL)
-    {"city": "Pforzheim", "cinema": "Cinemoon", "date": "2026-06-03", "time": "20:30",
-     "url": "https://www.kinoheld.de/kino/pforzheim/cinemoon-pforzheim?rb=0&mode=widget&appView=1&showId=31784#panel-seats",
-     "scrape": "kinoheld_graphql", "kinoheld_show_id": "125569539"},
-    {"city": "Pforzheim", "cinema": "Cinemoon", "date": "2026-06-07", "time": "13:15",
-     "url": "https://www.kinoheld.de/kino/pforzheim/cinemoon-pforzheim?rb=0&mode=widget&appView=1&showId=31785#panel-seats",
-     "scrape": "kinoheld_graphql", "kinoheld_show_id": "125569541"},
-]
 
 UA = ("Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
       "AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36")
-
-# Ticket prices (EUR). PREMIERE_PRICES override PRICES on PREMIERE_DATE.
-# Dresden Zentralkino is reservation-only (no money at booking) => 0.
-PREMIERE_DATE = "2026-06-03"
-PRICES = {
-    "Cincinnati":           14.00,
-    "Capitol Kornwestheim": 14.00,
-    "Filmpalast Hofheim":   14.00,
-    "UFA Palast":           14.00,
-    "Cinemoon":             14.00,
-    "Astor":                17.00,
-    "Zentralkino":           0.00,
-}
-PREMIERE_PRICES = {
-    "Cincinnati":           18.00,
-    "Capitol Kornwestheim": 18.00,
-    "Filmpalast Hofheim":   18.00,
-    "UFA Palast":           18.00,
-    "Cinemoon":             19.00,
-    "Astor":                18.00,
-    "Zentralkino":           0.00,
-}
-
-
-def price_for(cinema, date):
-    table = PREMIERE_PRICES if date == PREMIERE_DATE else PRICES
-    return table.get(cinema, PRICES.get(cinema, 0.0))
-
-
-# Per-cinema capacity override. Use when the cinema's published seat
-# count differs from what the booking system exposes (e.g. wheelchair
-# seats sold offline, or admin-blocked cells that physically exist),
-# or when the source API doesn't expose total capacity at all.
-CAPACITY_OVERRIDE = {
-    "Cincinnati": 401,
-    "Astor":      200,  # placeholder; Premiumkino API gives occupied only
-}
 
 
 def fetch_html(url):
@@ -131,21 +42,15 @@ def fetch_json(url):
         return json.loads(resp.read().decode("utf-8"))
 
 
-def count_cinetixx_seats(show_id):
-    """Capacity and booked from the cinetixx sector endpoint.
+# --------------------------------------------------------------------
+# Platform-specific seat counters
+# --------------------------------------------------------------------
 
-    Cinetixx returns seat-grid cells including layout gaps (isGap=true).
-    Those gaps must be excluded from the real seat count. A booked seat
-    is one with isSold=true (or state="S"); state="B" without isGap is
-    an admin-blocked seat (broken / reserved off-sale).
-    """
+def count_cinetixx(show_id):
     sectors = fetch_json(f"https://booking.cinetixx.de/api/shows/{show_id}/sectors")
     capacity = sold = blocked = free = 0
     for sec in sectors:
-        sec_id = sec["id"]
-        full = fetch_json(
-            f"https://booking.cinetixx.de/api/shows/{show_id}/sector/{sec_id}"
-        )
+        full = fetch_json(f"https://booking.cinetixx.de/api/shows/{show_id}/sector/{sec['id']}")
         for s in full.get("seats", []):
             if s.get("isGap"):
                 continue
@@ -159,24 +64,25 @@ def count_cinetixx_seats(show_id):
     return {"capacity": capacity, "booked": sold, "free": free, "blocked": blocked}
 
 
-def count_premiumkino_seats(cinema_slug, perf_id):
-    """Booked from Premiumkino performance API. Capacity not exposed,
-    so it must come from CAPACITY_OVERRIDE for the cinema name."""
-    url = f"https://backend.premiumkino.de/v1/de/{cinema_slug}/performance/{perf_id}"
-    data = fetch_json(url)
-    occupied = len(data.get("occupation", {}).get("occupiedSeats", []))
-    return {"capacity": 0, "booked": occupied, "free": 0, "blocked": 0}
+def count_kinotickets(seats_url):
+    html = fetch_html(seats_url)
+    free = sold = 0
+    for m in re.finditer(r'<(button|div)[^>]*class="seat-dim-1x1[^"]*"[^>]*>', html):
+        if m.group(1) == "button":
+            free += 1
+        else:
+            sold += 1
+    return {"capacity": free + sold, "booked": sold, "free": free, "blocked": 0}
 
 
-def count_kinoheld_graphql_seats(show_id):
-    """Capacity and booked via kinoheld GraphQL (for Mars-source shows)."""
-    query = ('{ show(id: "' + show_id + '") '
-             '{ auditorium { seatCount } seats { status } } }')
+def count_kinoheld_graphql(kinoheld_show_id):
+    query = '{ show(id: "%s") { auditorium { seatCount } seats { status } } }' % kinoheld_show_id
+    body = json.dumps({"query": query}).encode()
     req = urllib.request.Request(
         "https://next-live.kinoheld.de/graphql",
-        data=json.dumps({"query": query}).encode(),
-        headers={"Content-Type": "application/json",
-                 "User-Agent": UA, "Accept": "application/json"},
+        data=body,
+        headers={"Content-Type": "application/json", "User-Agent": UA,
+                 "Accept": "application/json"},
         method="POST",
     )
     with urllib.request.urlopen(req, timeout=20) as resp:
@@ -187,85 +93,118 @@ def count_kinoheld_graphql_seats(show_id):
     for s in seats:
         st = s.get("status")
         counts["capacity"] += 1
-        if st == "SOLD" or st == "RESERVED" or st == "NOTED":
+        if st in ("SOLD", "RESERVED", "NOTED"):
             counts["booked"] += 1
-        elif st == "BLOCKED" or st == "SOCIAL_DISTANCE":
+        elif st in ("BLOCKED", "SOCIAL_DISTANCE"):
             counts["blocked"] += 1
         elif st == "FREE":
             counts["free"] += 1
     return counts
 
 
-def count_kinotickets_seats(html):
-    """Count capacity and booked from a kinotickets.express seat page.
+def count_premiumkino(cinema_slug, perf_id):
+    url = f"https://backend.premiumkino.de/v1/de/{cinema_slug}/performance/{perf_id}"
+    data = fetch_json(url)
+    occupied = len(data.get("occupation", {}).get("occupiedSeats", []))
+    return {"capacity": 0, "booked": occupied, "free": 0, "blocked": 0}
 
-    Each seat position is its own element with class seat-dim-1x1:
-      <button> = free (bookable), <div> = sold/blocked.
-    Both halves of a dual/couple seat (leftdualseat + rightdualseat)
-    have their own seat number, price and toggle action, so they
-    count as 2 separate seats. The page also has 3 legend icons at
-    the bottom inside <div class="h-8 w-8 mr-1"> — those are NOT seats.
-    """
-    free = sold = 0
-    for m in re.finditer(
-        r'<(button|div)[^>]*class="seat-dim-1x1[^"]*"[^>]*>',
-        html,
-    ):
-        if m.group(1) == "button":
-            free += 1
-        else:
-            sold += 1
-    return {"capacity": free + sold, "booked": sold, "free": free}
 
+# --------------------------------------------------------------------
+# Booking-URL -> platform handler
+# --------------------------------------------------------------------
+
+def scrape_show(booking_url):
+    """Pick the right seat counter based on URL pattern."""
+    m = re.search(r"booking\.cinetixx\.de/.*[?&]showId=(\d+)", booking_url)
+    if m:
+        return count_cinetixx(m.group(1))
+    m = re.search(r"kinotickets\.express/[\w\-]+/(?:sale/seats|booking)/(\d+)", booking_url)
+    if m:
+        # normalize to /sale/seats/N regardless of source
+        seats_url = re.sub(r"/booking/(\d+)", r"/sale/seats/\1", booking_url)
+        return count_kinotickets(seats_url)
+    # Dresden cinetixx via kinoheld (vorstellung/<cinetixxId>)
+    m = re.search(r"kinoheld\.de/kino/[\w\-]+/[\w\-]+/vorstellung/(\d+)", booking_url)
+    if m:
+        return count_cinetixx(m.group(1))
+    # Pforzheim cinemoon via kinoheld widget (showId in query)
+    m = re.search(r"kinoheld\.de/kino/[\w\-]+/[\w\-]+\?.*showId=(\d+)", booking_url)
+    if m:
+        # need the internal kinoheld show id; fall through to GraphQL by url slug
+        return _count_kinoheld_widget(m.group(1))
+    m = re.search(r"premiumkino\.de/vorstellung/([\w\-]+)/(\d{8})/(\d{4})/([\w~_\-]+)", booking_url)
+    if m:
+        cinema = re.search(r"https?://([\w\-]+)\.premiumkino\.de", booking_url).group(1)
+        return count_premiumkino(cinema, m.group(4))
+    raise ValueError(f"unknown booking URL pattern: {booking_url}")
+
+
+def _count_kinoheld_widget(public_show_id):
+    """Pforzheim Cinemoon: widget URL has the public showId (urlSlug);
+    look up the internal kinoheld id via GraphQL, then count seats."""
+    query = ('{ show(urlSlug: "%s", cinemaId: "292") { id } }' % public_show_id)
+    body = json.dumps({"query": query}).encode()
+    req = urllib.request.Request(
+        "https://next-live.kinoheld.de/graphql",
+        data=body,
+        headers={"Content-Type": "application/json", "User-Agent": UA},
+        method="POST",
+    )
+    with urllib.request.urlopen(req, timeout=20) as resp:
+        d = json.loads(resp.read().decode())
+    show = (d.get("data") or {}).get("show") or {}
+    show_id = show.get("id")
+    if not show_id:
+        raise ValueError(f"kinoheld widget show {public_show_id} not found")
+    return count_kinoheld_graphql(show_id)
+
+
+# --------------------------------------------------------------------
+# Main
+# --------------------------------------------------------------------
 
 def main():
-    out_shows = []
-    for s in SHOWS:
-        rec = {"city": s["city"], "cinema": s["cinema"], "date": s["date"],
-               "time": s["time"], "url": s["url"]}
-        try:
-            if s["scrape"] == "kinotickets":
-                html = fetch_html(s["url"])
-                counts = count_kinotickets_seats(html)
-            elif s["scrape"] == "kinoheld_graphql":
-                counts = count_kinoheld_graphql_seats(s["kinoheld_show_id"])
-            elif s["scrape"] == "cinetixx":
-                counts = count_cinetixx_seats(s["cinetixx_show_id"])
-            elif s["scrape"] == "premiumkino":
-                counts = count_premiumkino_seats(s["premiumkino_cinema"], s["premiumkino_perf_id"])
-            else:
-                counts = None
+    cfg = json.load(open(CINEMAS_FILE, encoding="utf-8"))
+    shows_data = json.load(open(SHOWS_FILE, encoding="utf-8"))
 
-            if counts is None:
-                rec.update({"capacity": None, "booked": None, "free": None,
-                            "ticketPrice": None, "gross": None,
-                            "note": "seat data not available for this booking system"})
-                print(f"  --  {s['city']:11} {s['cinema']:22} {s['date']} {s['time']}  (no seat scrape)")
-            else:
-                # Apply cinema-level capacity override if set; adjust free accordingly.
-                if s["cinema"] in CAPACITY_OVERRIDE:
-                    counts["capacity"] = CAPACITY_OVERRIDE[s["cinema"]]
-                    counts["free"] = max(0, counts["capacity"] - counts["booked"]
-                                         - counts.get("blocked", 0))
-                price = price_for(s["cinema"], s["date"])
-                counts["ticketPrice"] = price
-                counts["gross"] = round(counts["booked"] * price, 2)
-                rec.update(counts)
-                tag = " (PREMIERE)" if s["date"] == PREMIERE_DATE else ""
-                blocked_tag = f" (blocked={counts.get('blocked',0)})" if counts.get('blocked') else ''
-                print(f"  OK  {s['city']:11} {s['cinema']:22} {s['date']} {s['time']}  "
-                      f"cap={counts['capacity']:3d} booked={counts['booked']:3d} "
-                      f"@ EUR {price:5.2f} -> gross EUR {counts['gross']:7.2f}"
-                      f"{tag}{blocked_tag}")
+    cinema_by_name = {c["name"]: c for c in cfg["cinemas"]}
+    premiere_date = cfg["movie"].get("premiereDate")
+
+    out_shows = []
+    for s in shows_data["shows"]:
+        cinema = cinema_by_name.get(s["cinema"]) or {}
+        is_premiere = (s["date"] == premiere_date)
+        price = cinema.get("premierePrice") if is_premiere else cinema.get("ticketPrice")
+        price = float(price or 0.0)
+        rec = dict(s)
+        try:
+            counts = scrape_show(s["bookingUrl"])
         except Exception as e:
-            print(f"  ERR {s['city']} {s['date']} {s['time']}: {e}")
+            print(f"  ERR {s['city']:11} {s['cinema']:23} {s['date']} {s['time']}: {e}")
             rec.update({"capacity": None, "booked": None, "free": None,
-                        "ticketPrice": None, "gross": None, "error": str(e)})
+                        "ticketPrice": price, "gross": None, "error": str(e)})
+            out_shows.append(rec)
+            continue
+        # Cinema-level capacity override (when API doesn't expose total)
+        cap_override = cinema.get("capacityOverride")
+        if cap_override:
+            counts["capacity"] = cap_override
+            counts["free"] = max(0, cap_override - counts["booked"] - counts.get("blocked", 0))
+        counts["ticketPrice"] = price
+        counts["gross"] = round(counts["booked"] * price, 2)
+        rec.update(counts)
         out_shows.append(rec)
+        tag = " (PREMIERE)" if is_premiere else ""
+        blocked_tag = (f" (blocked={counts.get('blocked', 0)})"
+                       if counts.get("blocked") else "")
+        print(f"  OK  {s['city']:11} {s['cinema']:23} {s['date']} {s['time']}  "
+              f"cap={counts['capacity']:4d} booked={counts['booked']:3d} "
+              f"@ EUR {price:5.2f} -> gross EUR {counts['gross']:7.2f}"
+              f"{tag}{blocked_tag}")
 
     payload = {
         "fetchedAt": datetime.now(timezone.utc).isoformat(),
-        "movie": "Peddi",
+        "movie": cfg["movie"]["slug"],
         "totalShows": len(out_shows),
         "shows": out_shows,
     }

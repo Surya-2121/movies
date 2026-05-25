@@ -1,0 +1,105 @@
+{
+  "movie": {
+    "slug": "peddi",
+    "title": "Peddi",
+    "genre": "Action / Drama",
+    "language": "Telugu",
+    "page": "peddi-movie.html",
+    "subtitle": "English Subtitles",
+    "premiereDate": "2026-06-03",
+    "zineflixMovieId": 65
+  },
+  "cinemas": [
+    {
+      "key": "munich-cincinnati",
+      "city": "Munich",
+      "name": "Cincinnati",
+      "zineflixTheatreName": "Cinecitta München (Premiere)",
+      "platform": "cinetixx",
+      "cineamoCinemaId": 727,
+      "cineamoContentId": 1544186,
+      "ticketPrice": 14.0,
+      "premierePrice": 18.0,
+      "capacityOverride": 401
+    },
+    {
+      "key": "frankfurt-filmpalast-hofheim",
+      "city": "Frankfurt",
+      "name": "Filmpalast Hofheim",
+      "zineflixTheatreName": "Filmpalast Hofheim - Frankfurt",
+      "platform": "cineamo_to_kinotickets",
+      "cineamoCinemaId": 1082,
+      "cineamoContentId": 1544186,
+      "ticketPrice": 14.0,
+      "premierePrice": 18.0
+    },
+    {
+      "key": "stuttgart-capitol-kornwestheim",
+      "city": "Stuttgart",
+      "name": "Capitol Kornwestheim",
+      "zineflixTheatreName": "Capitol Kornwestheim - Stuttgart (Premiere and normal Shows)",
+      "platform": "capitol_cineweb",
+      "filmUrl": "https://capitol-kornwestheim.de/film/peddi",
+      "kinoticketsCinemaSlug": "kornwestheim-capitol",
+      "seatIdByDateTime": {
+        "2026-06-03 21:00": "26314",
+        "2026-06-05 21:00": "26315"
+      },
+      "ticketPrice": 14.0,
+      "premierePrice": 18.0
+    },
+    {
+      "key": "dusseldorf-ufa-palast",
+      "city": "Dusseldorf",
+      "name": "UFA Palast",
+      "zineflixTheatreName": "UFA PALAST DÜSSELDORF",
+      "platform": "cineamo_to_kinotickets",
+      "cineamoCinemaId": 824,
+      "cineamoContentId": 1544186,
+      "ticketPrice": 14.0,
+      "premierePrice": 18.0
+    },
+    {
+      "key": "dresden-zentralkino",
+      "city": "Dresden",
+      "name": "Zentralkino",
+      "zineflixTheatreName": "Zentral Kino Dresden",
+      "platform": "kinoheld_cinetixx",
+      "kinoheldCinemaId": 698,
+      "kinoheldCity": "dresden",
+      "kinoheldShowGroupUuid": "e357ee37-539b-4cd3-a077-9b769cb024fc",
+      "ticketPrice": 0.0,
+      "premierePrice": 0.0
+    },
+    {
+      "key": "pforzheim-cinemoon",
+      "city": "Pforzheim",
+      "name": "Cinemoon",
+      "zineflixTheatreName": "CINEMOON PFORZHEIM",
+      "platform": "kinoheld_graphql",
+      "cineamoCinemaId": 63,
+      "cineamoContentId": 1544186,
+      "kinoheldWidget": {
+        "city": "pforzheim",
+        "slug": "cinemoon-pforzheim"
+      },
+      "ticketPrice": 14.0,
+      "premierePrice": 19.0
+    },
+    {
+      "key": "braunschweig-astor",
+      "city": "Braunschweig",
+      "name": "Astor",
+      "zineflixTheatreName": "Astor Braunschweig",
+      "platform": "premiumkino",
+      "premiumkinoCinema": "braunschweig",
+      "movieSlug": "peddi",
+      "ticketPrice": 17.0,
+      "premierePrice": 18.0,
+      "capacityOverride": 200
+    }
+  ],
+  "ignoredCinemas": [
+    "Lux Heidelberg"
+  ]
+}
