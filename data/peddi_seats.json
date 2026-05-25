@@ -1,7 +1,7 @@
 {
-  "fetchedAt": "2026-05-24T17:48:42.205666+00:00",
+  "fetchedAt": "2026-05-25T08:52:13.885783+00:00",
   "movie": "Peddi",
-  "totalShows": 13,
+  "totalShows": 15,
   "shows": [
     {
       "city": "Munich",
@@ -10,11 +10,11 @@
       "time": "20:30",
       "url": "https://booking.cinetixx.de/frontend/index.html?cinemaId=296551098&showId=3540551659&bgswitch=false&resize=false",
       "capacity": 401,
-      "booked": 32,
-      "free": 369,
+      "booked": 34,
+      "free": 367,
       "blocked": 0,
       "ticketPrice": 18.0,
-      "gross": 576.0
+      "gross": 612.0
     },
     {
       "city": "Frankfurt",
@@ -35,10 +35,10 @@
       "time": "14:30",
       "url": "https://kinotickets.express/hofheim-filmpalast/sale/seats/14719",
       "capacity": 188,
-      "booked": 6,
-      "free": 182,
+      "booked": 8,
+      "free": 180,
       "ticketPrice": 14.0,
-      "gross": 84.0
+      "gross": 112.0
     },
     {
       "city": "Frankfurt",
@@ -59,10 +59,10 @@
       "time": "21:00",
       "url": "https://kinotickets.express/kornwestheim-capitol/sale/seats/26314",
       "capacity": 145,
-      "booked": 22,
-      "free": 123,
+      "booked": 26,
+      "free": 119,
       "ticketPrice": 18.0,
-      "gross": 396.0
+      "gross": 468.0
     },
     {
       "city": "Stuttgart",
@@ -111,6 +111,32 @@
       "free": 176,
       "ticketPrice": 14.0,
       "gross": 0.0
+    },
+    {
+      "city": "Braunschweig",
+      "cinema": "Astor",
+      "date": "2026-06-04",
+      "time": "19:30",
+      "url": "https://braunschweig.premiumkino.de/vorstellung/peddi/20260604/1930/2erVpK_tmw5J61iFXKyRRWIl0ntJPxPkEvhGZp6lkm4~",
+      "capacity": 200,
+      "booked": 7,
+      "free": 193,
+      "blocked": 0,
+      "ticketPrice": 17.0,
+      "gross": 119.0
+    },
+    {
+      "city": "Braunschweig",
+      "cinema": "Astor",
+      "date": "2026-06-06",
+      "time": "11:45",
+      "url": "https://braunschweig.premiumkino.de/vorstellung/peddi/20260606/1145/Oq8FcSMmGEe64gtlsqRGt_ST2swgSE9AX6TAqNE7Zic~",
+      "capacity": 200,
+      "booked": 9,
+      "free": 191,
+      "blocked": 0,
+      "ticketPrice": 17.0,
+      "gross": 153.0
     },
     {
       "city": "Dresden",

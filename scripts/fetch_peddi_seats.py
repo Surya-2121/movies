@@ -51,6 +51,16 @@ SHOWS = [
     {"city": "Dusseldorf", "cinema": "UFA Palast", "date": "2026-06-06", "time": "13:30",
      "url": "https://kinotickets.express/duesseldorf-ufa-filmpalast/sale/seats/80778", "scrape": "kinotickets"},
 
+    # Braunschweig - Astor (Premiumkino)
+    {"city": "Braunschweig", "cinema": "Astor", "date": "2026-06-04", "time": "19:30",
+     "url": "https://braunschweig.premiumkino.de/vorstellung/peddi/20260604/1930/2erVpK_tmw5J61iFXKyRRWIl0ntJPxPkEvhGZp6lkm4~",
+     "scrape": "premiumkino", "premiumkino_cinema": "braunschweig",
+     "premiumkino_perf_id": "2erVpK_tmw5J61iFXKyRRWIl0ntJPxPkEvhGZp6lkm4~"},
+    {"city": "Braunschweig", "cinema": "Astor", "date": "2026-06-06", "time": "11:45",
+     "url": "https://braunschweig.premiumkino.de/vorstellung/peddi/20260606/1145/Oq8FcSMmGEe64gtlsqRGt_ST2swgSE9AX6TAqNE7Zic~",
+     "scrape": "premiumkino", "premiumkino_cinema": "braunschweig",
+     "premiumkino_perf_id": "Oq8FcSMmGEe64gtlsqRGt_ST2swgSE9AX6TAqNE7Zic~"},
+
     # Dresden - Zentralkino (kinoheld frontend, cinetixx backend)
     {"city": "Dresden", "cinema": "Zentralkino", "date": "2026-06-05", "time": "19:30",
      "url": "https://www.kinoheld.de/kino/dresden/zentralkino-dresden/vorstellung/3541829399",
@@ -80,6 +90,7 @@ PRICES = {
     "Filmpalast Hofheim":   14.00,
     "UFA Palast":           14.00,
     "Cinemoon":             14.00,
+    "Astor":                17.00,
     "Zentralkino":           0.00,
 }
 PREMIERE_PRICES = {
@@ -88,6 +99,7 @@ PREMIERE_PRICES = {
     "Filmpalast Hofheim":   18.00,
     "UFA Palast":           18.00,
     "Cinemoon":             19.00,
+    "Astor":                18.00,
     "Zentralkino":           0.00,
 }
 
@@ -99,9 +111,11 @@ def price_for(cinema, date):
 
 # Per-cinema capacity override. Use when the cinema's published seat
 # count differs from what the booking system exposes (e.g. wheelchair
-# seats sold offline, or admin-blocked cells that physically exist).
+# seats sold offline, or admin-blocked cells that physically exist),
+# or when the source API doesn't expose total capacity at all.
 CAPACITY_OVERRIDE = {
     "Cincinnati": 401,
+    "Astor":      200,  # placeholder; Premiumkino API gives occupied only
 }
 
 
@@ -143,6 +157,15 @@ def count_cinetixx_seats(show_id):
             elif s.get("state") == "F":
                 free += 1
     return {"capacity": capacity, "booked": sold, "free": free, "blocked": blocked}
+
+
+def count_premiumkino_seats(cinema_slug, perf_id):
+    """Booked from Premiumkino performance API. Capacity not exposed,
+    so it must come from CAPACITY_OVERRIDE for the cinema name."""
+    url = f"https://backend.premiumkino.de/v1/de/{cinema_slug}/performance/{perf_id}"
+    data = fetch_json(url)
+    occupied = len(data.get("occupation", {}).get("occupiedSeats", []))
+    return {"capacity": 0, "booked": occupied, "free": 0, "blocked": 0}
 
 
 def count_kinoheld_graphql_seats(show_id):
@@ -208,6 +231,8 @@ def main():
                 counts = count_kinoheld_graphql_seats(s["kinoheld_show_id"])
             elif s["scrape"] == "cinetixx":
                 counts = count_cinetixx_seats(s["cinetixx_show_id"])
+            elif s["scrape"] == "premiumkino":
+                counts = count_premiumkino_seats(s["premiumkino_cinema"], s["premiumkino_perf_id"])
             else:
                 counts = None
 
