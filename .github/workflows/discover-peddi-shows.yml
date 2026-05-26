@@ -10,8 +10,10 @@ name: Discover Peddi Shows (daily)
 
 on:
   schedule:
-    # 15:00 UTC = 17:00 Berlin CEST (summer), 16:00 CET (winter)
-    - cron: '0 15 * * *'
+    # Berlin CEST (summer, UTC+2): 08:00, 13:00, 15:00, 18:00 local
+    # = 06:00, 11:00, 13:00, 16:00 UTC
+    # (Times will shift by 1h during winter CET; acceptable for show pickup.)
+    - cron: '0 6,11,13,16 * * *'
   workflow_dispatch:
 
 permissions:
