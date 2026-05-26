@@ -1,8 +1,10 @@
-name: Update Peddi Shows & Seats
+name: Update Peddi Revenue Board
+
+# Refreshes data/peddi_seats.json (the admin revenue dashboard).
+# Manual-only: run on demand from the GitHub Actions tab.
+# Daily show discovery runs separately in `discover-peddi-shows.yml`.
 
 on:
-  # Manual-only: run on demand from the GitHub Actions tab.
-  # (Daily cron disabled by user request 2026-05-26.)
   workflow_dispatch:
 
 permissions:
