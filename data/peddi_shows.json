@@ -1,7 +1,7 @@
 {
-  "fetchedAt": "2026-05-25T17:05:16.524373+00:00",
+  "fetchedAt": "2026-05-26T17:02:48.835839+00:00",
   "movie": "peddi",
-  "totalShows": 16,
+  "totalShows": 18,
   "shows": [
     {
       "city": "Dusseldorf",
@@ -18,6 +18,14 @@
       "time": "20:30",
       "subtitle": "English Subtitles",
       "bookingUrl": "https://booking.cinetixx.de/frontend/index.html?cinemaId=296551098&showId=3540551659&bgswitch=false&resize=false"
+    },
+    {
+      "city": "Mönchengladbach",
+      "cinema": "Haus Zoar",
+      "date": "2026-06-03",
+      "time": "20:30",
+      "subtitle": "English Subtitles",
+      "bookingUrl": "https://kinotickets.express/cine-factory-moenchengladbach/sale/seats/36959"
     },
     {
       "city": "Pforzheim",
@@ -130,6 +138,14 @@
       "time": "13:15",
       "subtitle": "English Subtitles",
       "bookingUrl": "https://www.kinoheld.de/kino/pforzheim/cinemoon-pforzheim?rb=0&mode=widget&appView=1&showId=31785#panel-seats"
+    },
+    {
+      "city": "Mönchengladbach",
+      "cinema": "Haus Zoar",
+      "date": "2026-06-07",
+      "time": "14:00",
+      "subtitle": "English Subtitles",
+      "bookingUrl": "https://kinotickets.express/cine-factory-moenchengladbach/sale/seats/36964"
     }
   ]
 }

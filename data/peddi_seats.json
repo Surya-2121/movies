@@ -1,7 +1,7 @@
 {
-  "fetchedAt": "2026-05-25T17:05:31.493484+00:00",
+  "fetchedAt": "2026-05-26T17:02:55.011691+00:00",
   "movie": "peddi",
-  "totalShows": 16,
+  "totalShows": 18,
   "shows": [
     {
       "city": "Dusseldorf",
@@ -25,11 +25,25 @@
       "subtitle": "English Subtitles",
       "bookingUrl": "https://booking.cinetixx.de/frontend/index.html?cinemaId=296551098&showId=3540551659&bgswitch=false&resize=false",
       "capacity": 401,
-      "booked": 38,
-      "free": 363,
+      "booked": 64,
+      "free": 337,
       "blocked": 0,
       "ticketPrice": 18.0,
-      "gross": 684.0
+      "gross": 1152.0
+    },
+    {
+      "city": "Mönchengladbach",
+      "cinema": "Haus Zoar",
+      "date": "2026-06-03",
+      "time": "20:30",
+      "subtitle": "English Subtitles",
+      "bookingUrl": "https://kinotickets.express/cine-factory-moenchengladbach/sale/seats/36959",
+      "capacity": 143,
+      "booked": 2,
+      "free": 141,
+      "blocked": 0,
+      "ticketPrice": 18.0,
+      "gross": 36.0
     },
     {
       "city": "Pforzheim",
@@ -39,11 +53,11 @@
       "subtitle": "English Subtitles",
       "bookingUrl": "https://www.kinoheld.de/kino/pforzheim/cinemoon-pforzheim?rb=0&mode=widget&appView=1&showId=31784#panel-seats",
       "capacity": 620,
-      "booked": 1,
-      "free": 619,
+      "booked": 0,
+      "free": 620,
       "blocked": 0,
       "ticketPrice": 19.0,
-      "gross": 19.0
+      "gross": 0.0
     },
     {
       "city": "Frankfurt",
@@ -67,11 +81,11 @@
       "subtitle": "English Subtitles",
       "bookingUrl": "https://kinotickets.express/kornwestheim-capitol/sale/seats/26314",
       "capacity": 145,
-      "booked": 26,
-      "free": 119,
+      "booked": 27,
+      "free": 118,
       "blocked": 0,
       "ticketPrice": 18.0,
-      "gross": 468.0
+      "gross": 486.0
     },
     {
       "city": "Frankfurt",
@@ -81,11 +95,11 @@
       "subtitle": "English Subtitles",
       "bookingUrl": "https://kinotickets.express/hofheim-filmpalast/sale/seats/14719",
       "capacity": 188,
-      "booked": 12,
-      "free": 176,
+      "booked": 13,
+      "free": 175,
       "blocked": 0,
       "ticketPrice": 14.0,
-      "gross": 168.0
+      "gross": 182.0
     },
     {
       "city": "Braunschweig",
@@ -95,11 +109,11 @@
       "subtitle": "English Subtitles",
       "bookingUrl": "https://braunschweig.premiumkino.de/vorstellung/peddi/20260604/1930/2erVpK_tmw5J61iFXKyRRWIl0ntJPxPkEvhGZp6lkm4~",
       "capacity": 200,
-      "booked": 7,
-      "free": 193,
+      "booked": 8,
+      "free": 192,
       "blocked": 0,
       "ticketPrice": 17.0,
-      "gross": 119.0
+      "gross": 136.0
     },
     {
       "city": "Frankfurt",
@@ -165,11 +179,11 @@
       "subtitle": "English Subtitles",
       "bookingUrl": "https://braunschweig.premiumkino.de/vorstellung/peddi/20260606/1145/Oq8FcSMmGEe64gtlsqRGt_ST2swgSE9AX6TAqNE7Zic~",
       "capacity": 200,
-      "booked": 12,
-      "free": 188,
+      "booked": 13,
+      "free": 187,
       "blocked": 0,
       "ticketPrice": 17.0,
-      "gross": 204.0
+      "gross": 221.0
     },
     {
       "city": "Dusseldorf",
@@ -193,11 +207,11 @@
       "subtitle": "English Subtitles",
       "bookingUrl": "https://kinotickets.express/hofheim-filmpalast/sale/seats/14720",
       "capacity": 188,
-      "booked": 6,
-      "free": 182,
+      "booked": 7,
+      "free": 181,
       "blocked": 0,
       "ticketPrice": 14.0,
-      "gross": 84.0
+      "gross": 98.0
     },
     {
       "city": "Dresden",
@@ -226,6 +240,20 @@
       "blocked": 0,
       "ticketPrice": 14.0,
       "gross": 0.0
+    },
+    {
+      "city": "Mönchengladbach",
+      "cinema": "Haus Zoar",
+      "date": "2026-06-07",
+      "time": "14:00",
+      "subtitle": "English Subtitles",
+      "bookingUrl": "https://kinotickets.express/cine-factory-moenchengladbach/sale/seats/36964",
+      "capacity": 143,
+      "booked": 2,
+      "free": 141,
+      "blocked": 0,
+      "ticketPrice": 12.0,
+      "gross": 24.0
     }
   ]
 }

@@ -205,9 +205,28 @@ def discover_premiumkino(cinema):
     return shows
 
 
+def discover_cineweb_termine(cinema):
+    """Cineweb-style film page with embedded `termine` JS block, e.g.
+    Cinefactory Mönchengladbach. Each termin entry has datum, zeit and
+    a link_desktop pointing at the kinotickets booking URL."""
+    html = fetch_text(cinema["filmUrl"])
+    pattern = (r'"datum_(\d{4}-\d{2}-\d{2})":\{"datum":"([^"]+)","zeit":"([^"]+)",'
+               r'"saal":"[^"]*","saal_bezeichnung":"([^"]+)","link_desktop":"([^"]+)"')
+    shows = []
+    for _, date, time, _saal, link in re.findall(pattern, html):
+        link = link.replace("\\/", "/")
+        # Normalize /booking/N -> /sale/seats/N
+        m = re.match(r"(https://kinotickets\.express/[\w\-]+)/booking/(\d+)", link)
+        if m:
+            link = f"{m.group(1)}/sale/seats/{m.group(2)}"
+        shows.append({"date": date, "time": time, "bookingUrl": link, "isPremiere": False})
+    return shows
+
+
 PLATFORM_DISCOVERY = {
     "cineamo": discover_cineamo,
     "capitol_cineweb": discover_capitol_cineweb,
+    "cineweb_termine": discover_cineweb_termine,
     "kinoheld_showgroup": discover_kinoheld_showgroup,
     "premiumkino": discover_premiumkino,
 }
