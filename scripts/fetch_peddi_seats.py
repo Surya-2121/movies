@@ -17,6 +17,7 @@ Usage:  py scripts/fetch_peddi_seats.py
 import json
 import os
 import re
+import urllib.parse
 import urllib.request
 from datetime import datetime, timezone
 
@@ -109,6 +110,69 @@ def count_premiumkino(cinema_slug, perf_id):
     return {"capacity": 0, "booked": occupied, "free": 0, "blocked": 0}
 
 
+def count_ticketcloud(cinema_slug, show_id):
+    """ticket-cloud.de (Lux Heidelberg etc): requires a session, then
+    Method=Show to get IDs, then Method=PlainSeatPlan for the seat grid.
+    Each seat is a <div ...><img src=".../Seat_<state>.png">."""
+    base = f"https://ticket-cloud.de/{cinema_slug}/Show/{show_id}"
+    connector = "https://ticket-cloud.de/modules/system/systemConnector.php"
+    jar = urllib.request.HTTPCookieProcessor()
+    opener = urllib.request.build_opener(jar)
+    # 1) load the show page to set session cookie + get informationString
+    req = urllib.request.Request(base, headers={"User-Agent": UA})
+    with opener.open(req, timeout=20) as resp:
+        page = resp.read().decode("utf-8", errors="replace")
+    m = re.search(r"informationString\s*=\s*'([^']+)'", page)
+    if not m:
+        raise RuntimeError("informationString not found")
+    info = m.group(1)
+    common_headers = {
+        "User-Agent": UA,
+        "X-Requested-With": "XMLHttpRequest",
+        "Referer": base,
+        "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8",
+    }
+
+    def post(fields):
+        data = urllib.parse.urlencode(fields).encode()
+        r = urllib.request.Request(connector, data=data, headers=common_headers, method="POST")
+        with opener.open(r, timeout=20) as resp:
+            return resp.read().decode("utf-8", errors="replace")
+
+    # 2) Method=Show -> returns header HTML + <input id="Plain" value="ShowID,AudiID,SeatVariantID,SiteID">
+    show_resp = post({
+        "Method": "Show", "ShowID": show_id, "information": info,
+        "PlanWidth": "800", "PlanHeight": "700",
+    })
+    pm = re.search(r'id="Plain"[^>]*value="([^"]+)"', show_resp)
+    if not pm:
+        raise RuntimeError("Plain field not found in Show response")
+    parts = pm.group(1).split(",")
+    if len(parts) < 4:
+        raise RuntimeError(f"Plain field has {len(parts)} parts, need >=4")
+    _, audi_id, seat_var_id, site_id = parts[:4]
+
+    # 3) Method=PlainSeatPlan -> seat grid
+    plan_resp = post({
+        "Method": "PlainSeatPlan",
+        "AudiID": audi_id, "Center": site_id, "SeatVariantID": seat_var_id,
+        "Width": "800", "Height": "700",
+        "GetBlock": "0", "GetCategory": "0", "DeviceInfo": "desktop",
+        "information": info, "ShowID": show_id,
+    })
+    # Each seat is one img tag with Seat_<state>.png in the src.
+    free = sold = blocked = 0
+    for src in re.findall(r"SeatplanImages/([\w_\-]+)\.png", plan_resp):
+        if src.endswith("_Sold"):
+            sold += 1
+        elif src.endswith("_UnAvailable"):
+            blocked += 1
+        else:
+            free += 1
+    return {"capacity": free + sold + blocked, "booked": sold,
+            "free": free, "blocked": blocked}
+
+
 # --------------------------------------------------------------------
 # Booking-URL -> platform handler
 # --------------------------------------------------------------------
@@ -136,6 +200,9 @@ def scrape_show(booking_url):
     if m:
         cinema = re.search(r"https?://([\w\-]+)\.premiumkino\.de", booking_url).group(1)
         return count_premiumkino(cinema, m.group(4))
+    m = re.search(r"ticket-cloud\.de/([\w\-]+)/Show/(\d+)", booking_url)
+    if m:
+        return count_ticketcloud(m.group(1), m.group(2))
     raise ValueError(f"unknown booking URL pattern: {booking_url}")
 
 

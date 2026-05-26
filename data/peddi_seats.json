@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-05-26T17:06:29.421975+00:00",
+  "fetchedAt": "2026-05-26T17:49:55.357626+00:00",
   "movie": "peddi",
   "totalShows": 23,
   "shows": [
@@ -11,11 +11,11 @@
       "subtitle": "English Subtitles",
       "bookingUrl": "https://kinotickets.express/duesseldorf-ufa-filmpalast/sale/seats/80776",
       "capacity": 178,
-      "booked": 24,
-      "free": 154,
+      "booked": 29,
+      "free": 149,
       "blocked": 0,
       "ticketPrice": 18.0,
-      "gross": 432.0
+      "gross": 522.0
     },
     {
       "city": "Heidelberg",
@@ -24,12 +24,12 @@
       "time": "20:30",
       "subtitle": "English Subtitles",
       "bookingUrl": "https://ticket-cloud.de/Luxor-Heidelberg/Show/2386389",
-      "capacity": null,
-      "booked": null,
-      "free": null,
+      "capacity": 163,
+      "booked": 12,
+      "free": 149,
+      "blocked": 2,
       "ticketPrice": 18.0,
-      "gross": null,
-      "error": "unknown booking URL pattern: https://ticket-cloud.de/Luxor-Heidelberg/Show/2386389"
+      "gross": 216.0
     },
     {
       "city": "Munich",
@@ -39,11 +39,11 @@
       "subtitle": "English Subtitles",
       "bookingUrl": "https://booking.cinetixx.de/frontend/index.html?cinemaId=296551098&showId=3540551659&bgswitch=false&resize=false",
       "capacity": 401,
-      "booked": 64,
-      "free": 337,
+      "booked": 70,
+      "free": 331,
       "blocked": 0,
       "ticketPrice": 18.0,
-      "gross": 1152.0
+      "gross": 1260.0
     },
     {
       "city": "Mönchengladbach",
@@ -123,11 +123,11 @@
       "subtitle": "English Subtitles",
       "bookingUrl": "https://braunschweig.premiumkino.de/vorstellung/peddi/20260604/1930/2erVpK_tmw5J61iFXKyRRWIl0ntJPxPkEvhGZp6lkm4~",
       "capacity": 200,
-      "booked": 8,
-      "free": 192,
+      "booked": 11,
+      "free": 189,
       "blocked": 0,
       "ticketPrice": 17.0,
-      "gross": 136.0
+      "gross": 187.0
     },
     {
       "city": "Heidelberg",
@@ -136,12 +136,12 @@
       "time": "20:30",
       "subtitle": "English Subtitles",
       "bookingUrl": "https://ticket-cloud.de/Luxor-Heidelberg/Show/2386391",
-      "capacity": null,
-      "booked": null,
-      "free": null,
+      "capacity": 106,
+      "booked": 0,
+      "free": 105,
+      "blocked": 1,
       "ticketPrice": 14.0,
-      "gross": null,
-      "error": "unknown booking URL pattern: https://ticket-cloud.de/Luxor-Heidelberg/Show/2386391"
+      "gross": 0.0
     },
     {
       "city": "Frankfurt",
@@ -192,12 +192,12 @@
       "time": "20:30",
       "subtitle": "English Subtitles",
       "bookingUrl": "https://ticket-cloud.de/Luxor-Heidelberg/Show/2386392",
-      "capacity": null,
-      "booked": null,
-      "free": null,
+      "capacity": 106,
+      "booked": 0,
+      "free": 105,
+      "blocked": 1,
       "ticketPrice": 14.0,
-      "gross": null,
-      "error": "unknown booking URL pattern: https://ticket-cloud.de/Luxor-Heidelberg/Show/2386392"
+      "gross": 0.0
     },
     {
       "city": "Stuttgart",
@@ -220,12 +220,12 @@
       "time": "11:00",
       "subtitle": "English Subtitles",
       "bookingUrl": "https://ticket-cloud.de/Luxor-Heidelberg/Show/2386393",
-      "capacity": null,
-      "booked": null,
-      "free": null,
+      "capacity": 163,
+      "booked": 0,
+      "free": 161,
+      "blocked": 2,
       "ticketPrice": 14.0,
-      "gross": null,
-      "error": "unknown booking URL pattern: https://ticket-cloud.de/Luxor-Heidelberg/Show/2386393"
+      "gross": 0.0
     },
     {
       "city": "Braunschweig",
@@ -235,11 +235,11 @@
       "subtitle": "English Subtitles",
       "bookingUrl": "https://braunschweig.premiumkino.de/vorstellung/peddi/20260606/1145/Oq8FcSMmGEe64gtlsqRGt_ST2swgSE9AX6TAqNE7Zic~",
       "capacity": 200,
-      "booked": 13,
-      "free": 187,
+      "booked": 14,
+      "free": 186,
       "blocked": 0,
       "ticketPrice": 17.0,
-      "gross": 221.0
+      "gross": 238.0
     },
     {
       "city": "Dusseldorf",
@@ -276,12 +276,12 @@
       "time": "11:00",
       "subtitle": "English Subtitles",
       "bookingUrl": "https://ticket-cloud.de/Luxor-Heidelberg/Show/2386394",
-      "capacity": null,
-      "booked": null,
-      "free": null,
+      "capacity": 163,
+      "booked": 3,
+      "free": 158,
+      "blocked": 2,
       "ticketPrice": 14.0,
-      "gross": null,
-      "error": "unknown booking URL pattern: https://ticket-cloud.de/Luxor-Heidelberg/Show/2386394"
+      "gross": 42.0
     },
     {
       "city": "Dresden",
