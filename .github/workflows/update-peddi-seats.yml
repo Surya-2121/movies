@@ -1,9 +1,8 @@
 name: Update Peddi Shows & Seats
 
 on:
-  schedule:
-    # 15:00 UTC = 17:00 Berlin CEST (summer), 16:00 CET (winter)
-    - cron: '0 15 * * *'
+  # Manual-only: run on demand from the GitHub Actions tab.
+  # (Daily cron disabled by user request 2026-05-26.)
   workflow_dispatch:
 
 permissions:
