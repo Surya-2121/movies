@@ -23,6 +23,17 @@
       "capacityOverride": 401
     },
     {
+      "key": "heidelberg-lux",
+      "city": "Heidelberg",
+      "name": "Lux",
+      "zineflixTheatreName": "Lux Heidelberg",
+      "platform": "cineamo",
+      "cineamoCinemaId": 1222,
+      "cineamoContentId": 1544186,
+      "ticketPrice": 14.0,
+      "premierePrice": 18.0
+    },
+    {
       "key": "frankfurt-filmpalast-hofheim",
       "city": "Frankfurt",
       "name": "Filmpalast Hofheim",
@@ -110,7 +121,5 @@
       "capacityOverride": 200
     }
   ],
-  "ignoredCinemas": [
-    "Lux Heidelberg"
-  ]
+  "ignoredCinemas": []
 }

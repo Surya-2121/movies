@@ -1,7 +1,7 @@
 {
-  "fetchedAt": "2026-05-26T17:02:55.011691+00:00",
+  "fetchedAt": "2026-05-26T17:06:29.421975+00:00",
   "movie": "peddi",
-  "totalShows": 18,
+  "totalShows": 23,
   "shows": [
     {
       "city": "Dusseldorf",
@@ -16,6 +16,20 @@
       "blocked": 0,
       "ticketPrice": 18.0,
       "gross": 432.0
+    },
+    {
+      "city": "Heidelberg",
+      "cinema": "Lux",
+      "date": "2026-06-03",
+      "time": "20:30",
+      "subtitle": "English Subtitles",
+      "bookingUrl": "https://ticket-cloud.de/Luxor-Heidelberg/Show/2386389",
+      "capacity": null,
+      "booked": null,
+      "free": null,
+      "ticketPrice": 18.0,
+      "gross": null,
+      "error": "unknown booking URL pattern: https://ticket-cloud.de/Luxor-Heidelberg/Show/2386389"
     },
     {
       "city": "Munich",
@@ -116,6 +130,20 @@
       "gross": 136.0
     },
     {
+      "city": "Heidelberg",
+      "cinema": "Lux",
+      "date": "2026-06-04",
+      "time": "20:30",
+      "subtitle": "English Subtitles",
+      "bookingUrl": "https://ticket-cloud.de/Luxor-Heidelberg/Show/2386391",
+      "capacity": null,
+      "booked": null,
+      "free": null,
+      "ticketPrice": 14.0,
+      "gross": null,
+      "error": "unknown booking URL pattern: https://ticket-cloud.de/Luxor-Heidelberg/Show/2386391"
+    },
+    {
       "city": "Frankfurt",
       "cinema": "Filmpalast Hofheim",
       "date": "2026-06-05",
@@ -158,6 +186,20 @@
       "gross": 0.0
     },
     {
+      "city": "Heidelberg",
+      "cinema": "Lux",
+      "date": "2026-06-05",
+      "time": "20:30",
+      "subtitle": "English Subtitles",
+      "bookingUrl": "https://ticket-cloud.de/Luxor-Heidelberg/Show/2386392",
+      "capacity": null,
+      "booked": null,
+      "free": null,
+      "ticketPrice": 14.0,
+      "gross": null,
+      "error": "unknown booking URL pattern: https://ticket-cloud.de/Luxor-Heidelberg/Show/2386392"
+    },
+    {
       "city": "Stuttgart",
       "cinema": "Capitol Kornwestheim",
       "date": "2026-06-05",
@@ -170,6 +212,20 @@
       "blocked": 0,
       "ticketPrice": 14.0,
       "gross": 14.0
+    },
+    {
+      "city": "Heidelberg",
+      "cinema": "Lux",
+      "date": "2026-06-06",
+      "time": "11:00",
+      "subtitle": "English Subtitles",
+      "bookingUrl": "https://ticket-cloud.de/Luxor-Heidelberg/Show/2386393",
+      "capacity": null,
+      "booked": null,
+      "free": null,
+      "ticketPrice": 14.0,
+      "gross": null,
+      "error": "unknown booking URL pattern: https://ticket-cloud.de/Luxor-Heidelberg/Show/2386393"
     },
     {
       "city": "Braunschweig",
@@ -212,6 +268,20 @@
       "blocked": 0,
       "ticketPrice": 14.0,
       "gross": 98.0
+    },
+    {
+      "city": "Heidelberg",
+      "cinema": "Lux",
+      "date": "2026-06-07",
+      "time": "11:00",
+      "subtitle": "English Subtitles",
+      "bookingUrl": "https://ticket-cloud.de/Luxor-Heidelberg/Show/2386394",
+      "capacity": null,
+      "booked": null,
+      "free": null,
+      "ticketPrice": 14.0,
+      "gross": null,
+      "error": "unknown booking URL pattern: https://ticket-cloud.de/Luxor-Heidelberg/Show/2386394"
     },
     {
       "city": "Dresden",

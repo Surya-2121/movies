@@ -1,7 +1,7 @@
 {
-  "fetchedAt": "2026-05-26T17:02:48.835839+00:00",
+  "fetchedAt": "2026-05-26T17:06:23.599580+00:00",
   "movie": "peddi",
-  "totalShows": 18,
+  "totalShows": 23,
   "shows": [
     {
       "city": "Dusseldorf",
@@ -10,6 +10,14 @@
       "time": "20:30",
       "subtitle": "English Subtitles",
       "bookingUrl": "https://kinotickets.express/duesseldorf-ufa-filmpalast/sale/seats/80776"
+    },
+    {
+      "city": "Heidelberg",
+      "cinema": "Lux",
+      "date": "2026-06-03",
+      "time": "20:30",
+      "subtitle": "English Subtitles",
+      "bookingUrl": "https://ticket-cloud.de/Luxor-Heidelberg/Show/2386389"
     },
     {
       "city": "Munich",
@@ -68,6 +76,14 @@
       "bookingUrl": "https://braunschweig.premiumkino.de/vorstellung/peddi/20260604/1930/2erVpK_tmw5J61iFXKyRRWIl0ntJPxPkEvhGZp6lkm4~"
     },
     {
+      "city": "Heidelberg",
+      "cinema": "Lux",
+      "date": "2026-06-04",
+      "time": "20:30",
+      "subtitle": "English Subtitles",
+      "bookingUrl": "https://ticket-cloud.de/Luxor-Heidelberg/Show/2386391"
+    },
+    {
       "city": "Frankfurt",
       "cinema": "Filmpalast Hofheim",
       "date": "2026-06-05",
@@ -92,12 +108,28 @@
       "bookingUrl": "https://kinotickets.express/duesseldorf-ufa-filmpalast/sale/seats/80777"
     },
     {
+      "city": "Heidelberg",
+      "cinema": "Lux",
+      "date": "2026-06-05",
+      "time": "20:30",
+      "subtitle": "English Subtitles",
+      "bookingUrl": "https://ticket-cloud.de/Luxor-Heidelberg/Show/2386392"
+    },
+    {
       "city": "Stuttgart",
       "cinema": "Capitol Kornwestheim",
       "date": "2026-06-05",
       "time": "21:00",
       "subtitle": "English Subtitles",
       "bookingUrl": "https://kinotickets.express/kornwestheim-capitol/sale/seats/26315"
+    },
+    {
+      "city": "Heidelberg",
+      "cinema": "Lux",
+      "date": "2026-06-06",
+      "time": "11:00",
+      "subtitle": "English Subtitles",
+      "bookingUrl": "https://ticket-cloud.de/Luxor-Heidelberg/Show/2386393"
     },
     {
       "city": "Braunschweig",
@@ -122,6 +154,14 @@
       "time": "14:00",
       "subtitle": "English Subtitles",
       "bookingUrl": "https://kinotickets.express/hofheim-filmpalast/sale/seats/14720"
+    },
+    {
+      "city": "Heidelberg",
+      "cinema": "Lux",
+      "date": "2026-06-07",
+      "time": "11:00",
+      "subtitle": "English Subtitles",
+      "bookingUrl": "https://ticket-cloud.de/Luxor-Heidelberg/Show/2386394"
     },
     {
       "city": "Dresden",
