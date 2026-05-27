@@ -140,10 +140,18 @@ def count_ticketcloud(cinema_slug, show_id):
             return resp.read().decode("utf-8", errors="replace")
 
     # 2) Method=Show -> returns header HTML + <input id="Plain" value="ShowID,AudiID,SeatVariantID,SiteID">
-    show_resp = post({
-        "Method": "Show", "ShowID": show_id, "information": info,
-        "PlanWidth": "800", "PlanHeight": "700",
-    })
+    # ticket-cloud occasionally responds "@-@#ERROR|System starting" on
+    # the first request after a cold session; retry a few times.
+    import time as _t
+    show_resp = ""
+    for attempt in range(4):
+        show_resp = post({
+            "Method": "Show", "ShowID": show_id, "information": info,
+            "PlanWidth": "800", "PlanHeight": "700",
+        })
+        if "System starting" not in show_resp and "Plain" in show_resp:
+            break
+        _t.sleep(2 + attempt * 2)
     pm = re.search(r'id="Plain"[^>]*value="([^"]+)"', show_resp)
     if not pm:
         raise RuntimeError("Plain field not found in Show response")
