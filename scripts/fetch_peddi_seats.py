@@ -110,6 +110,42 @@ def count_premiumkino(cinema_slug, perf_id):
     return {"capacity": 0, "booked": occupied, "free": 0, "blocked": 0}
 
 
+def count_kinopolis(perf_id, cinema_slug, site_base):
+    """Kinopolis film-detail page lists the show with its capacity in
+    `<div class="prog2__seats">N</div>` and the percentage free in
+    `<div class="prog2__scale...">P% frei</div>`. Booked is derived as
+    capacity * (100 - P) / 100."""
+    # Re-fetch the film page for this cinema to get the per-show stats
+    # We don't know the film URL from the booking URL alone, so look up
+    # the cinema config; if not provided, derive from booking_url base.
+    # The caller (scrape_show) passes the booking URL; we re-fetch the
+    # film page via the kinopolis cinema mapping below.
+    raise NotImplementedError  # handled inline in scrape_show via film page cache
+
+
+# In-process cache so we don't fetch each cinema's film page multiple times.
+_KINOPOLIS_PAGE_CACHE = {}
+
+
+def _kinopolis_count_from_film_page(film_url, perf_id):
+    if film_url not in _KINOPOLIS_PAGE_CACHE:
+        _KINOPOLIS_PAGE_CACHE[film_url] = fetch_html(film_url)
+    html = _KINOPOLIS_PAGE_CACHE[film_url]
+    block_match = re.search(
+        rf'data-performance-id="{re.escape(perf_id)}".{{0,3000}}?'
+        r'<div class="prog2__seats">\s*(\d+)\s*</div>'
+        r'.{0,2000}?<div class="prog2__scale[^"]*">\s*(\d+)\s*%\s*frei',
+        html, re.S,
+    )
+    if not block_match:
+        raise ValueError(f"kinopolis perf {perf_id} not found on film page")
+    capacity = int(block_match.group(1))
+    pct_free = int(block_match.group(2))
+    free = round(capacity * pct_free / 100)
+    sold = capacity - free
+    return {"capacity": capacity, "booked": sold, "free": free, "blocked": 0}
+
+
 def count_ticketcloud(cinema_slug, show_id):
     """ticket-cloud.de (Lux Heidelberg etc): requires a session, then
     Method=Show to get IDs, then Method=PlainSeatPlan for the seat grid.
@@ -211,6 +247,13 @@ def scrape_show(booking_url):
     m = re.search(r"ticket-cloud\.de/([\w\-]+)/Show/(\d+)", booking_url)
     if m:
         return count_ticketcloud(m.group(1), m.group(2))
+    # Kinopolis family (kinopolis.de or mathaeser.de): /<code>/programm/vorstellung/<perfId>
+    m = re.search(r"(https?://(?:www\.)?(?:kinopolis\.de|mathaeser\.de))/(\w+)/programm/vorstellung/(\w+)", booking_url)
+    if m:
+        site_base, code, perf_id = m.group(1), m.group(2), m.group(3)
+        # Reconstruct the film page URL — known slug is peddi-telugu/<id> from config
+        film_url = f"{site_base}/{code}/filmdetail/peddi-telugu/42A74000012PLXMQDD"
+        return _kinopolis_count_from_film_page(film_url, perf_id)
     raise ValueError(f"unknown booking URL pattern: {booking_url}")
 
 

@@ -109,6 +109,50 @@
       "premierePrice": 18.0
     },
     {
+      "key": "hamburg-kinopolis",
+      "city": "Hamburg",
+      "name": "Kinopolis HafenCity",
+      "zineflixTheatreName": "Kinopolis Hamburg",
+      "platform": "kinopolis",
+      "filmUrl": "https://www.kinopolis.de/hh/filmdetail/peddi-telugu/42A74000012PLXMQDD",
+      "siteBase": "https://www.kinopolis.de",
+      "ticketPrice": 14.0,
+      "premierePrice": 18.0
+    },
+    {
+      "key": "munich-mathaeser",
+      "city": "Munich",
+      "name": "Mathäser",
+      "zineflixTheatreName": "MATTHÄUSER MUNICH",
+      "platform": "kinopolis",
+      "filmUrl": "https://www.mathaeser.de/mm/filmdetail/peddi-telugu/42A74000012PLXMQDD",
+      "siteBase": "https://www.mathaeser.de",
+      "ticketPrice": 14.0,
+      "premierePrice": 18.0
+    },
+    {
+      "key": "viernheim-kinopolis",
+      "city": "Viernheim",
+      "name": "Kinopolis Viernheim",
+      "zineflixTheatreName": "Kinopolis Viernheim",
+      "platform": "kinopolis",
+      "filmUrl": "https://www.kinopolis.de/vi/filmdetail/peddi-telugu/42A74000012PLXMQDD",
+      "siteBase": "https://www.kinopolis.de",
+      "ticketPrice": 14.0,
+      "premierePrice": 18.0
+    },
+    {
+      "key": "aschaffenburg-kinopolis",
+      "city": "Aschaffenburg",
+      "name": "Kinopolis Aschaffenburg",
+      "zineflixTheatreName": "Kinopolis Aschaffenburg",
+      "platform": "kinopolis",
+      "filmUrl": "https://www.kinopolis.de/ab/filmdetail/peddi-telugu/42A74000012PLXMQDD",
+      "siteBase": "https://www.kinopolis.de",
+      "ticketPrice": 14.0,
+      "premierePrice": 18.0
+    },
+    {
       "key": "braunschweig-astor",
       "city": "Braunschweig",
       "name": "Astor",

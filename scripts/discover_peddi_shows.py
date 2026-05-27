@@ -205,6 +205,41 @@ def discover_premiumkino(cinema):
     return shows
 
 
+def discover_kinopolis(cinema):
+    """Kinopolis family (Kinopolis Hamburg/Viernheim/Aschaffenburg,
+    Mathäser Munich): the film-detail page lists each show with
+    data-performance-id and a /<code>/programm/vorstellung/<id> link.
+    JSON-LD startDate gives the date; the page has only one date in
+    this view at a time."""
+    import json as _json
+    html = fetch_text(cinema["filmUrl"])
+    # Date from JSON-LD ScreeningEvent
+    show_date = None
+    for b in re.findall(r'<script type="application/ld\+json">(.*?)</script>', html, re.S):
+        try:
+            d = _json.loads(b.strip())
+        except Exception:
+            continue
+        for it in (d if isinstance(d, list) else [d]):
+            if isinstance(it, dict) and it.get("@type") == "ScreeningEvent" and it.get("startDate"):
+                show_date = it["startDate"][:10]
+                break
+        if show_date:
+            break
+    if not show_date:
+        return []
+    pattern = (r'data-performance-id="([^"]+)".{0,2000}?'
+               r'prog2__time\s+time__buy_btn"\s+href="([^"]+)"[^>]*>\s*'
+               r'([\d:]+)\s*</a>')
+    shows = []
+    base = cinema.get("siteBase", "https://www.kinopolis.de")
+    for pid, href, time in re.findall(pattern, html, re.S):
+        booking = href if href.startswith("http") else base + href
+        shows.append({"date": show_date, "time": time,
+                      "bookingUrl": booking, "isPremiere": False})
+    return shows
+
+
 def discover_cineweb_termine(cinema):
     """Cineweb-style film page with embedded `termine` JS block, e.g.
     Cinefactory Mönchengladbach. Each termin entry has datum, zeit and
@@ -229,6 +264,7 @@ PLATFORM_DISCOVERY = {
     "cineweb_termine": discover_cineweb_termine,
     "kinoheld_showgroup": discover_kinoheld_showgroup,
     "premiumkino": discover_premiumkino,
+    "kinopolis": discover_kinopolis,
 }
 
 
