@@ -269,6 +269,97 @@ PLATFORM_DISCOVERY = {
 
 
 # --------------------------------------------------------------------
+# Auto-onboarding: detect platform from a new Zineflix theatre's URL
+# --------------------------------------------------------------------
+
+def _clean_theatre_name(name):
+    """Strip parenthetical notes and excess whitespace from Zineflix names."""
+    name = re.sub(r"\s*\([^)]*\)\s*", " ", name or "").strip()
+    return re.sub(r"\s+", " ", name)
+
+
+def _city_from_theatre(name):
+    """Heuristic: the last word of the cleaned name is usually the city."""
+    parts = _clean_theatre_name(name).split()
+    if not parts:
+        return ""
+    city = parts[-1]
+    return city[:1].upper() + city[1:].lower()
+
+
+def _auto_onboard_kinopolis(theatre, url):
+    m = re.match(r"https?://(?:www\.)?(kinopolis\.de|mathaeser\.de)/(\w+)/filmdetail/[\w\-]+/\w+", url)
+    if not m:
+        return None
+    domain, code = m.group(1), m.group(2)
+    city = _city_from_theatre(theatre)
+    if not city:
+        city = code.upper()
+    if domain == "mathaeser.de":
+        name = "Mathäser"
+        key = f"{city.lower()}-mathaeser"
+    else:
+        name = f"Kinopolis {city}"
+        key = f"{city.lower()}-kinopolis"
+    return {
+        "key": key, "city": city, "name": name,
+        "zineflixTheatreName": theatre, "platform": "kinopolis",
+        "filmUrl": url, "siteBase": f"https://www.{domain}",
+        "ticketPrice": 14.0, "premierePrice": 18.0,
+    }
+
+
+def _auto_onboard_premiumkino(theatre, url):
+    m = re.match(r"https?://([\w\-]+)\.premiumkino\.de/", url)
+    if not m:
+        return None
+    cinema_slug = m.group(1)
+    city = _city_from_theatre(theatre) or cinema_slug.capitalize()
+    name_parts = _clean_theatre_name(theatre).split()
+    name = " ".join(name_parts[:-1]) if len(name_parts) > 1 else "Astor"
+    return {
+        "key": f"{cinema_slug}-{name.lower().replace(' ', '-')}",
+        "city": city, "name": name, "zineflixTheatreName": theatre,
+        "platform": "premiumkino", "premiumkinoCinema": cinema_slug,
+        "movieSlug": "peddi", "ticketPrice": 17.0, "premierePrice": 18.0,
+    }
+
+
+def _auto_onboard_cinefactory(theatre, url):
+    """Cineweb-style cinemas with a film URL — Cinefactory pattern."""
+    m = re.match(r"https?://(?:www\.)?([\w\-]+\.\w+)/detail/\d+/[\w%]+", url)
+    if not m:
+        return None
+    host = m.group(1)
+    # Need a kinoticketsCinemaSlug for the discovered URLs — leave blank
+    # so users can fill in if needed; the show URLs themselves are
+    # parsed from the termine block and used as-is.
+    city = _city_from_theatre(theatre) or host.split(".")[0].capitalize()
+    name = _clean_theatre_name(theatre).split()[0] if theatre else "Cinema"
+    return {
+        "key": f"{city.lower()}-{name.lower().replace(' ', '-')}",
+        "city": city, "name": name, "zineflixTheatreName": theatre,
+        "platform": "cineweb_termine", "filmUrl": url,
+        "ticketPrice": 12.0, "premierePrice": 18.0,
+    }
+
+
+AUTO_ONBOARDERS = [
+    _auto_onboard_kinopolis,
+    _auto_onboard_premiumkino,
+    _auto_onboard_cinefactory,
+]
+
+
+def auto_onboard(theatre, url):
+    for fn in AUTO_ONBOARDERS:
+        cfg = fn(theatre, url)
+        if cfg:
+            return cfg
+    return None
+
+
+# --------------------------------------------------------------------
 # Zineflix theatre list
 # --------------------------------------------------------------------
 
@@ -333,8 +424,10 @@ def main():
     movie = cfg["movie"]
     cinemas = cfg["cinemas"]
 
-    # 1. Zineflix theatre check (informational + new-cinema detection)
+    # 1. Zineflix theatre check (informational + new-cinema detection +
+    #    auto-onboarding for URL patterns we already know).
     print("== Zineflix theatre check ==")
+    newly_onboarded = []
     try:
         theatres = fetch_zineflix_theatres(movie["zineflixMovieId"])
         known = {normalize_name(c.get("zineflixTheatreName")) for c in cinemas}
@@ -348,8 +441,20 @@ def main():
         print(f"  Zineflix lists {len(theatres)} theatres; {len(known)} known, "
               f"{len(ignored)} ignored, {len(unknown)} NEW unknown.")
         for t in unknown:
-            print(f"  NEW: '{t.get('theatreName')}' -> {t.get('redirectLink')}")
-            print(f"       (add to data/peddi_cinemas.json to onboard)")
+            name = t.get("theatreName")
+            url = t.get("redirectLink")
+            new_cfg = auto_onboard(name, url)
+            if new_cfg:
+                print(f"  AUTO-ONBOARDED: '{name}' -> {new_cfg['platform']} ({new_cfg['key']})")
+                cinemas.append(new_cfg)
+                newly_onboarded.append(new_cfg)
+            else:
+                print(f"  NEW: '{name}' -> {url}")
+                print(f"       (no URL pattern match; add to data/peddi_cinemas.json manually)")
+        if newly_onboarded:
+            with open(CINEMAS_FILE, "w", encoding="utf-8") as f:
+                json.dump(cfg, f, indent=2, ensure_ascii=False)
+            print(f"  Wrote {len(newly_onboarded)} new cinema(s) to {CINEMAS_FILE}")
     except Exception as e:
         print(f"  Zineflix check failed: {e}")
 
