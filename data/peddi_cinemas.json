@@ -245,6 +245,22 @@
       ],
       "ticketPrice": 14.0,
       "premierePrice": 18.0
+    },
+    {
+      "key": "guetersloh-filmwerk",
+      "city": "Gütersloh",
+      "name": "Filmwerk",
+      "zineflixTheatreName": "Filmwerk Gütersloh Bielefeld",
+      "platform": "manual",
+      "manualShows": [
+        {
+          "date": "2026-06-03",
+          "time": "20:30",
+          "bookingUrl": "https://web.filmwerk-gt.de/order/showtimes/1000-53322/seats"
+        }
+      ],
+      "ticketPrice": 14.0,
+      "premierePrice": 18.0
     }
   ],
   "ignoredCinemas": []
