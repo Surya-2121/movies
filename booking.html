@@ -22,9 +22,10 @@
     .bk-lang-badge { background: rgba(240,173,78,0.15); color: #f0ad4e; font-size: 0.7rem; padding: 2px 8px; border-radius: 4px; font-weight: 600; }
 
     /* Date Tabs */
-    .bk-dates { background: #0f0f1a; border-bottom: 1px solid #2a2a4a; padding: 0 20px; overflow-x: auto; -webkit-overflow-scrolling: touch; position: relative; }
+    .bk-datebar { position: relative; background: #0f0f1a; border-bottom: 1px solid #2a2a4a; }
+    .bk-dates { padding: 0 20px; overflow-x: auto; -webkit-overflow-scrolling: touch; }
     .bk-dates::-webkit-scrollbar { display: none; }
-    .bk-dates-inner { max-width: 960px; margin: 0 auto; display: flex; gap: 4px; padding-right: 40px; }
+    .bk-dates-inner { max-width: 960px; margin: 0 auto; display: flex; gap: 4px; padding-right: 52px; }
     .bk-date-tab { padding: 12px 20px; border: none; background: none; color: #999; font-size: 0.8rem; cursor: pointer; border-bottom: 3px solid transparent; transition: all 0.2s; white-space: nowrap; text-align: center; font-family: inherit; }
     .bk-date-tab:hover { color: #e0e0e0; }
     .bk-date-tab.active { color: #f0ad4e; border-bottom-color: #f0ad4e; font-weight: 600; }
@@ -33,7 +34,7 @@
     .bk-date-month { display: block; font-size: 0.65rem; text-transform: uppercase; }
 
     /* Search overlay in date bar */
-    .bk-search-wrap { position: absolute; right: 12px; top: 50%; transform: translateY(-50%); display: flex; align-items: center; z-index: 10; }
+    .bk-search-wrap { position: absolute; right: 0; top: 0; bottom: 0; padding-right: 12px; padding-left: 8px; display: flex; align-items: center; z-index: 10; background: #0f0f1a; }
     .bk-search-icon { background: none; border: none; color: #f0ad4e; font-size: 1.1rem; cursor: pointer; padding: 8px 10px; line-height: 1; }
     .bk-search-icon:hover { color: #fff; }
     .bk-search { width: 0; padding: 0; background: #0f0f1a; border: none; border-bottom: 2px solid #f0ad4e; color: #e0e0e0; font-size: 0.8rem; outline: none; font-family: inherit; transition: width 0.3s, padding 0.3s; border-radius: 0; overflow: hidden; }
@@ -98,7 +99,8 @@
     .light-theme .bk-movie-title { color: #222; }
     .light-theme .bk-movie-meta { color: #888; }
     .light-theme .bk-lang-badge { background: rgba(212,136,15,0.1); color: #d4880f; }
-    .light-theme .bk-dates { background: #fff; border-bottom-color: #ddd; }
+    .light-theme .bk-datebar { background: #fff; border-bottom-color: #ddd; }
+    .light-theme .bk-search-wrap { background: #fff; }
     .light-theme .bk-date-tab { color: #888; }
     .light-theme .bk-date-tab:hover { color: #333; }
     .light-theme .bk-date-tab.active { color: #d4880f; border-bottom-color: #d4880f; }
@@ -147,8 +149,10 @@
   </header>
 
   <!-- Date Tabs + Search -->
-  <div class="bk-dates">
-    <div class="bk-dates-inner" id="dateTabs"></div>
+  <div class="bk-datebar">
+    <div class="bk-dates">
+      <div class="bk-dates-inner" id="dateTabs"></div>
+    </div>
     <div class="bk-search-wrap">
       <input type="text" class="bk-search" id="cinemaSearch" placeholder="Search cinemas...">
       <button class="bk-search-icon" onclick="toggleBkSearch()" title="Search"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></button>
