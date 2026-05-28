@@ -163,6 +163,50 @@
       "ticketPrice": 17.0,
       "premierePrice": 18.0,
       "capacityOverride": 200
+    },
+    {
+      "key": "frankfurt-cinestar",
+      "city": "Frankfurt",
+      "name": "CineStar Frankfurt",
+      "zineflixTheatreName": "Cinestar Frankfurt ",
+      "platform": "cinestar",
+      "cinestarShowId": "218060",
+      "filmUrl": "https://www.cinestar.de/kino-frankfurt-main-metropolis/veranstaltung-peddi-telugu-omu",
+      "ticketPrice": 14.0,
+      "premierePrice": 18.0
+    },
+    {
+      "key": "berlin-cinestar",
+      "city": "Berlin",
+      "name": "CineStar Berlin",
+      "zineflixTheatreName": "Cinestar Berlin ",
+      "platform": "cinestar",
+      "cinestarShowId": "218056",
+      "filmUrl": "https://www.cinestar.de/kino-berlin-hellersdorf/veranstaltung-peddi-telugu-omu",
+      "ticketPrice": 14.0,
+      "premierePrice": 18.0
+    },
+    {
+      "key": "erlangen-cinestar",
+      "city": "Erlangen",
+      "name": "CineStar Erlangen",
+      "zineflixTheatreName": "Cinestar Erlangen ",
+      "platform": "cinestar",
+      "cinestarShowId": "218059",
+      "filmUrl": "https://www.cinestar.de/kino-erlangen/veranstaltung-peddi-telugu-omu",
+      "ticketPrice": 14.0,
+      "premierePrice": 18.0
+    },
+    {
+      "key": "ingolstadt-cinestar",
+      "city": "Ingolstadt",
+      "name": "CineStar Ingolstadt",
+      "zineflixTheatreName": "Cinestar Ingolstadt ",
+      "platform": "cinestar",
+      "cinestarShowId": "218061",
+      "filmUrl": "https://www.cinestar.de/kino-ingolstadt/veranstaltung-peddi-telugu-omu",
+      "ticketPrice": 14.0,
+      "premierePrice": 18.0
     }
   ],
   "ignoredCinemas": []

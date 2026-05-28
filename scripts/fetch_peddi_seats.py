@@ -247,6 +247,14 @@ def scrape_show(booking_url):
     m = re.search(r"ticket-cloud\.de/([\w\-]+)/Show/(\d+)", booking_url)
     if m:
         return count_ticketcloud(m.group(1), m.group(2))
+    # CineStar (Vista backend) — seat data not exposed publicly.
+    if "cinestar.de" in booking_url:
+        return {"capacity": None, "booked": None, "free": None, "blocked": 0,
+                "note": "CineStar/Vista seats not available"}
+    # Capitol film page fallback (a show with no mapped kinotickets seat id)
+    if "capitol-kornwestheim.de" in booking_url:
+        return {"capacity": None, "booked": None, "free": None, "blocked": 0,
+                "note": "no kinotickets seat id mapped for this Capitol show"}
     # Kinopolis family (kinopolis.de or mathaeser.de): /<code>/programm/vorstellung/<perfId>
     m = re.search(r"(https?://(?:www\.)?(?:kinopolis\.de|mathaeser\.de))/(\w+)/programm/vorstellung/(\w+)", booking_url)
     if m:
@@ -305,20 +313,25 @@ def main():
             continue
         # Cinema-level capacity override (when API doesn't expose total)
         cap_override = cinema.get("capacityOverride")
-        if cap_override:
+        if cap_override and counts.get("booked") is not None:
             counts["capacity"] = cap_override
             counts["free"] = max(0, cap_override - counts["booked"] - counts.get("blocked", 0))
         counts["ticketPrice"] = price
-        counts["gross"] = round(counts["booked"] * price, 2)
+        booked = counts.get("booked")
+        counts["gross"] = round(booked * price, 2) if booked is not None else None
         rec.update(counts)
         out_shows.append(rec)
         tag = " (PREMIERE)" if is_premiere else ""
-        blocked_tag = (f" (blocked={counts.get('blocked', 0)})"
-                       if counts.get("blocked") else "")
-        print(f"  OK  {s['city']:11} {s['cinema']:23} {s['date']} {s['time']}  "
-              f"cap={counts['capacity']:4d} booked={counts['booked']:3d} "
-              f"@ EUR {price:5.2f} -> gross EUR {counts['gross']:7.2f}"
-              f"{tag}{blocked_tag}")
+        if booked is None:
+            print(f"  --  {s['city']:11} {s['cinema']:23} {s['date']} {s['time']}  "
+                  f"(seats not available){tag}")
+        else:
+            blocked_tag = (f" (blocked={counts.get('blocked', 0)})"
+                           if counts.get("blocked") else "")
+            print(f"  OK  {s['city']:11} {s['cinema']:23} {s['date']} {s['time']}  "
+                  f"cap={counts['capacity']:4d} booked={counts['booked']:3d} "
+                  f"@ EUR {price:5.2f} -> gross EUR {counts['gross']:7.2f}"
+                  f"{tag}{blocked_tag}")
 
     payload = {
         "fetchedAt": datetime.now(timezone.utc).isoformat(),

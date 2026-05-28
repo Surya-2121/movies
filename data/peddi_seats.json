@@ -1,7 +1,7 @@
 {
-  "fetchedAt": "2026-05-27T18:47:36.441323+00:00",
+  "fetchedAt": "2026-05-28T16:33:14.896452+00:00",
   "movie": "peddi",
-  "totalShows": 27,
+  "totalShows": 30,
   "shows": [
     {
       "city": "Dusseldorf",
@@ -11,11 +11,11 @@
       "subtitle": "English Subtitles",
       "bookingUrl": "https://kinotickets.express/duesseldorf-ufa-filmpalast/sale/seats/80776",
       "capacity": 178,
-      "booked": 46,
-      "free": 132,
+      "booked": 52,
+      "free": 126,
       "blocked": 0,
       "ticketPrice": 18.0,
-      "gross": 828.0
+      "gross": 936.0
     },
     {
       "city": "Heidelberg",
@@ -25,11 +25,11 @@
       "subtitle": "English Subtitles",
       "bookingUrl": "https://ticket-cloud.de/Luxor-Heidelberg/Show/2386389",
       "capacity": 163,
-      "booked": 14,
-      "free": 147,
+      "booked": 18,
+      "free": 143,
       "blocked": 2,
       "ticketPrice": 18.0,
-      "gross": 252.0
+      "gross": 324.0
     },
     {
       "city": "Munich",
@@ -39,11 +39,11 @@
       "subtitle": "English Subtitles",
       "bookingUrl": "https://booking.cinetixx.de/frontend/index.html?cinemaId=296551098&showId=3540551659&bgswitch=false&resize=false",
       "capacity": 401,
-      "booked": 80,
-      "free": 321,
+      "booked": 83,
+      "free": 318,
       "blocked": 0,
       "ticketPrice": 18.0,
-      "gross": 1440.0
+      "gross": 1494.0
     },
     {
       "city": "Mönchengladbach",
@@ -53,11 +53,11 @@
       "subtitle": "English Subtitles",
       "bookingUrl": "https://kinotickets.express/cine-factory-moenchengladbach/sale/seats/36959",
       "capacity": 143,
-      "booked": 5,
-      "free": 138,
+      "booked": 7,
+      "free": 136,
       "blocked": 0,
       "ticketPrice": 18.0,
-      "gross": 90.0
+      "gross": 126.0
     },
     {
       "city": "Pforzheim",
@@ -81,11 +81,11 @@
       "subtitle": "English Subtitles",
       "bookingUrl": "https://kinotickets.express/hofheim-filmpalast/sale/seats/14678",
       "capacity": 188,
-      "booked": 28,
-      "free": 160,
+      "booked": 27,
+      "free": 161,
       "blocked": 0,
       "ticketPrice": 18.0,
-      "gross": 504.0
+      "gross": 486.0
     },
     {
       "city": "Stuttgart",
@@ -109,11 +109,11 @@
       "subtitle": "English Subtitles",
       "bookingUrl": "https://www.mathaeser.de/mm/programm/vorstellung/D7EA8000023BWDJVCF",
       "capacity": 285,
-      "booked": 31,
-      "free": 254,
+      "booked": 34,
+      "free": 251,
       "blocked": 0,
       "ticketPrice": 14.0,
-      "gross": 434.0
+      "gross": 476.0
     },
     {
       "city": "Frankfurt",
@@ -123,11 +123,11 @@
       "subtitle": "English Subtitles",
       "bookingUrl": "https://kinotickets.express/hofheim-filmpalast/sale/seats/14719",
       "capacity": 188,
-      "booked": 14,
-      "free": 174,
+      "booked": 15,
+      "free": 173,
       "blocked": 0,
       "ticketPrice": 14.0,
-      "gross": 196.0
+      "gross": 210.0
     },
     {
       "city": "Aschaffenburg",
@@ -158,20 +158,6 @@
       "gross": 187.0
     },
     {
-      "city": "Viernheim",
-      "cinema": "Kinopolis Viernheim",
-      "date": "2026-06-04",
-      "time": "19:30",
-      "subtitle": "English Subtitles",
-      "bookingUrl": "https://www.kinopolis.de/vi/programm/vorstellung/FF094000023WRYTYRD",
-      "capacity": 147,
-      "booked": 1,
-      "free": 146,
-      "blocked": 0,
-      "ticketPrice": 14.0,
-      "gross": 14.0
-    },
-    {
       "city": "Hamburg",
       "cinema": "Kinopolis HafenCity",
       "date": "2026-06-04",
@@ -179,11 +165,11 @@
       "subtitle": "English Subtitles",
       "bookingUrl": "https://www.kinopolis.de/hh/programm/vorstellung/FA840000023HXECDQG",
       "capacity": 143,
-      "booked": 4,
-      "free": 139,
+      "booked": 11,
+      "free": 132,
       "blocked": 0,
       "ticketPrice": 14.0,
-      "gross": 56.0
+      "gross": 154.0
     },
     {
       "city": "Heidelberg",
@@ -222,7 +208,7 @@
       "bookingUrl": "https://www.kinoheld.de/kino/dresden/zentralkino-dresden/vorstellung/3541829399",
       "capacity": 95,
       "booked": 5,
-      "free": 80,
+      "free": 78,
       "blocked": 0,
       "ticketPrice": 0.0,
       "gross": 0.0
@@ -259,15 +245,16 @@
       "city": "Stuttgart",
       "cinema": "Capitol Kornwestheim",
       "date": "2026-06-05",
-      "time": "21:00",
+      "time": "20:45",
       "subtitle": "English Subtitles",
-      "bookingUrl": "https://kinotickets.express/kornwestheim-capitol/sale/seats/26315",
-      "capacity": 145,
-      "booked": 0,
-      "free": 145,
+      "bookingUrl": "https://capitol-kornwestheim.de/film/peddi",
+      "capacity": null,
+      "booked": null,
+      "free": null,
       "blocked": 0,
+      "note": "no kinotickets seat id mapped for this Capitol show",
       "ticketPrice": 14.0,
-      "gross": 0.0
+      "gross": null
     },
     {
       "city": "Heidelberg",
@@ -319,11 +306,56 @@
       "subtitle": "English Subtitles",
       "bookingUrl": "https://kinotickets.express/hofheim-filmpalast/sale/seats/14720",
       "capacity": 188,
-      "booked": 7,
-      "free": 181,
+      "booked": 8,
+      "free": 180,
       "blocked": 0,
       "ticketPrice": 14.0,
-      "gross": 98.0
+      "gross": 112.0
+    },
+    {
+      "city": "Erlangen",
+      "cinema": "CineStar Erlangen",
+      "date": "2026-06-06",
+      "time": "22:30",
+      "subtitle": "English Subtitles",
+      "bookingUrl": "https://www.cinestar.de/kino-erlangen/veranstaltung-peddi-telugu-omu",
+      "capacity": null,
+      "booked": null,
+      "free": null,
+      "blocked": 0,
+      "note": "CineStar/Vista seats not available",
+      "ticketPrice": 14.0,
+      "gross": null
+    },
+    {
+      "city": "Frankfurt",
+      "cinema": "CineStar Frankfurt",
+      "date": "2026-06-06",
+      "time": "22:45",
+      "subtitle": "English Subtitles",
+      "bookingUrl": "https://www.cinestar.de/kino-frankfurt-main-metropolis/veranstaltung-peddi-telugu-omu",
+      "capacity": null,
+      "booked": null,
+      "free": null,
+      "blocked": 0,
+      "note": "CineStar/Vista seats not available",
+      "ticketPrice": 14.0,
+      "gross": null
+    },
+    {
+      "city": "Ingolstadt",
+      "cinema": "CineStar Ingolstadt",
+      "date": "2026-06-06",
+      "time": "23:00",
+      "subtitle": "English Subtitles",
+      "bookingUrl": "https://www.cinestar.de/kino-ingolstadt/veranstaltung-peddi-telugu-omu",
+      "capacity": null,
+      "booked": null,
+      "free": null,
+      "blocked": 0,
+      "note": "CineStar/Vista seats not available",
+      "ticketPrice": 14.0,
+      "gross": null
     },
     {
       "city": "Heidelberg",
@@ -380,6 +412,21 @@
       "blocked": 0,
       "ticketPrice": 12.0,
       "gross": 24.0
+    },
+    {
+      "city": "Berlin",
+      "cinema": "CineStar Berlin",
+      "date": "2026-06-07",
+      "time": "19:30",
+      "subtitle": "English Subtitles",
+      "bookingUrl": "https://www.cinestar.de/kino-berlin-hellersdorf/veranstaltung-peddi-telugu-omu",
+      "capacity": null,
+      "booked": null,
+      "free": null,
+      "blocked": 0,
+      "note": "CineStar/Vista seats not available",
+      "ticketPrice": 14.0,
+      "gross": null
     }
   ]
 }

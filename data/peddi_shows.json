@@ -1,7 +1,7 @@
 {
-  "fetchedAt": "2026-05-28T14:38:04.231590+00:00",
+  "fetchedAt": "2026-05-28T16:30:10.678484+00:00",
   "movie": "peddi",
-  "totalShows": 26,
+  "totalShows": 30,
   "shows": [
     {
       "city": "Dusseldorf",
@@ -180,6 +180,30 @@
       "bookingUrl": "https://kinotickets.express/hofheim-filmpalast/sale/seats/14720"
     },
     {
+      "city": "Erlangen",
+      "cinema": "CineStar Erlangen",
+      "date": "2026-06-06",
+      "time": "22:30",
+      "subtitle": "English Subtitles",
+      "bookingUrl": "https://www.cinestar.de/kino-erlangen/veranstaltung-peddi-telugu-omu"
+    },
+    {
+      "city": "Frankfurt",
+      "cinema": "CineStar Frankfurt",
+      "date": "2026-06-06",
+      "time": "22:45",
+      "subtitle": "English Subtitles",
+      "bookingUrl": "https://www.cinestar.de/kino-frankfurt-main-metropolis/veranstaltung-peddi-telugu-omu"
+    },
+    {
+      "city": "Ingolstadt",
+      "cinema": "CineStar Ingolstadt",
+      "date": "2026-06-06",
+      "time": "23:00",
+      "subtitle": "English Subtitles",
+      "bookingUrl": "https://www.cinestar.de/kino-ingolstadt/veranstaltung-peddi-telugu-omu"
+    },
+    {
       "city": "Heidelberg",
       "cinema": "Lux",
       "date": "2026-06-07",
@@ -210,6 +234,14 @@
       "time": "14:00",
       "subtitle": "English Subtitles",
       "bookingUrl": "https://kinotickets.express/cine-factory-moenchengladbach/sale/seats/36964"
+    },
+    {
+      "city": "Berlin",
+      "cinema": "CineStar Berlin",
+      "date": "2026-06-07",
+      "time": "19:30",
+      "subtitle": "English Subtitles",
+      "bookingUrl": "https://www.cinestar.de/kino-berlin-hellersdorf/veranstaltung-peddi-telugu-omu"
     }
   ]
 }

@@ -205,6 +205,24 @@ def discover_premiumkino(cinema):
     return shows
 
 
+def discover_cinestar(cinema):
+    """CineStar: /api/show/<showId> returns showtimes with a
+    'YYYY-MM-DD HH:MM CEST' datetime. Booking is the cinema's event
+    page (detailLink). Seat data lives in the Vista system and isn't
+    exposed, so seats stay unknown."""
+    show_id = cinema["cinestarShowId"]
+    data = fetch_json(f"https://www.cinestar.de/api/show/{show_id}")
+    detail = data.get("detailLink", "")
+    booking = ("https://www.cinestar.de" + detail) if detail.startswith("/") else (detail or cinema.get("filmUrl"))
+    shows = []
+    for st in data.get("showtimes", []):
+        m = re.match(r"(\d{4}-\d{2}-\d{2})\s+(\d{2}:\d{2})", st.get("datetime", ""))
+        if m:
+            shows.append({"date": m.group(1), "time": m.group(2),
+                          "bookingUrl": booking, "isPremiere": False})
+    return shows
+
+
 def discover_kinopolis(cinema):
     """Kinopolis family (Kinopolis Hamburg/Viernheim/Aschaffenburg,
     Mathäser Munich): the film-detail page lists each show with
@@ -265,6 +283,7 @@ PLATFORM_DISCOVERY = {
     "kinoheld_showgroup": discover_kinoheld_showgroup,
     "premiumkino": discover_premiumkino,
     "kinopolis": discover_kinopolis,
+    "cinestar": discover_cinestar,
 }
 
 
@@ -344,9 +363,31 @@ def _auto_onboard_cinefactory(theatre, url):
     }
 
 
+def _auto_onboard_cinestar(theatre, url):
+    m = re.match(r"https?://(?:www\.)?cinestar\.de/(kino-[\w\-]+)/", url)
+    if not m:
+        return None
+    cinema_slug = m.group(1)
+    try:
+        html = fetch_text(url)
+    except Exception:
+        return None
+    sid = re.search(r'data-show-id="(\d+)"', html)
+    if not sid:
+        return None
+    city = _city_from_theatre(theatre) or cinema_slug.replace("kino-", "").capitalize()
+    return {
+        "key": f"{city.lower()}-cinestar", "city": city,
+        "name": f"CineStar {city}", "zineflixTheatreName": theatre,
+        "platform": "cinestar", "cinestarShowId": sid.group(1),
+        "filmUrl": url, "ticketPrice": 14.0, "premierePrice": 18.0,
+    }
+
+
 AUTO_ONBOARDERS = [
     _auto_onboard_kinopolis,
     _auto_onboard_premiumkino,
+    _auto_onboard_cinestar,
     _auto_onboard_cinefactory,
 ]
 
