@@ -255,6 +255,10 @@ def scrape_show(booking_url):
     if "capitol-kornwestheim.de" in booking_url:
         return {"capacity": None, "booked": None, "free": None, "blocked": 0,
                 "note": "no kinotickets seat id mapped for this Capitol show"}
+    # Apollo Aachen — booking backend (cineorder/pmkino) is locked; click-through only.
+    if "apollo-aachen.de" in booking_url:
+        return {"capacity": None, "booked": None, "free": None, "blocked": 0,
+                "note": "Apollo Aachen seats not available (locked backend)"}
     # Kinopolis family (kinopolis.de or mathaeser.de): /<code>/programm/vorstellung/<perfId>
     m = re.search(r"(https?://(?:www\.)?(?:kinopolis\.de|mathaeser\.de))/(\w+)/programm/vorstellung/(\w+)", booking_url)
     if m:

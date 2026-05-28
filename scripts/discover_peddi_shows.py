@@ -205,6 +205,17 @@ def discover_premiumkino(cinema):
     return shows
 
 
+def discover_manual(cinema):
+    """Click-through cinemas whose showtimes can't be scraped (locked
+    booking backend). Shows are listed by hand in the cinema config's
+    `manualShows` array: [{date, time, bookingUrl}]."""
+    out = []
+    for s in cinema.get("manualShows", []):
+        out.append({"date": s["date"], "time": s["time"],
+                    "bookingUrl": s["bookingUrl"], "isPremiere": False})
+    return out
+
+
 def discover_cinestar(cinema):
     """CineStar: /api/show/<showId> returns showtimes with a
     'YYYY-MM-DD HH:MM CEST' datetime. Booking is the cinema's event
@@ -284,6 +295,7 @@ PLATFORM_DISCOVERY = {
     "premiumkino": discover_premiumkino,
     "kinopolis": discover_kinopolis,
     "cinestar": discover_cinestar,
+    "manual": discover_manual,
 }
 
 
@@ -364,23 +376,27 @@ def _auto_onboard_cinefactory(theatre, url):
 
 
 def _auto_onboard_cinestar(theatre, url):
-    m = re.match(r"https?://(?:www\.)?cinestar\.de/(kino-[\w\-]+)/", url)
+    # Zineflix sometimes doubles the URL or mistypes the event slug
+    # (e.g. ...-omum/veranstaltung...). Extract the cinema slug and
+    # rebuild a clean event URL (the Peddi event slug is shared chain-wide).
+    m = re.search(r"cinestar\.de/([\w\-]+?)/veranstaltung", url)
     if not m:
         return None
     cinema_slug = m.group(1)
+    clean_url = f"https://www.cinestar.de/{cinema_slug}/veranstaltung-peddi-telugu-omu"
     try:
-        html = fetch_text(url)
+        html = fetch_text(clean_url)
     except Exception:
         return None
     sid = re.search(r'data-show-id="(\d+)"', html)
     if not sid:
         return None
-    city = _city_from_theatre(theatre) or cinema_slug.replace("kino-", "").capitalize()
+    city = _city_from_theatre(theatre) or cinema_slug.replace("kino-", "").split("-")[0].capitalize()
     return {
         "key": f"{city.lower()}-cinestar", "city": city,
         "name": f"CineStar {city}", "zineflixTheatreName": theatre,
         "platform": "cinestar", "cinestarShowId": sid.group(1),
-        "filmUrl": url, "ticketPrice": 14.0, "premierePrice": 18.0,
+        "filmUrl": clean_url, "ticketPrice": 14.0, "premierePrice": 18.0,
     }
 
 

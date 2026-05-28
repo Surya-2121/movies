@@ -40,9 +40,22 @@
     .bk-search.open { width: 180px; padding: 6px 10px; }
     .bk-search::placeholder { color: #666; }
 
-    /* Cinema List */
-    .bk-cinemas { max-width: 960px; margin: 0 auto; padding: 0 20px 40px; }
-    .bk-cinema { background: #1a1a2e; border: 1px solid #2a2a4a; border-radius: 12px; padding: 20px 22px; margin-top: 16px; transition: border-color 0.2s; display: flex; align-items: flex-start; gap: 24px; }
+    /* City accordion */
+    .bk-cinemas { max-width: 960px; margin: 0 auto; padding: 0 20px 40px; display: grid; grid-template-columns: 1fr 1fr; gap: 12px; align-items: start; }
+    .bk-city { background: #1a1a2e; border: 1px solid #2a2a4a; border-radius: 12px; overflow: hidden; transition: border-color 0.2s; }
+    .bk-city.open { border-color: #f0ad4e; }
+    .bk-city-header { width: 100%; background: none; border: none; cursor: pointer; padding: 18px 22px; display: flex; align-items: center; gap: 12px; font-family: inherit; text-align: left; }
+    .bk-city-header:hover { background: rgba(240,173,78,0.06); }
+    .bk-city-name { font-size: 1.05rem; font-weight: 700; color: #fff; flex: 1; }
+    .bk-city-meta { font-size: 0.72rem; color: #999; white-space: nowrap; }
+    .bk-city-arrow { color: #f0ad4e; font-size: 0.8rem; transition: transform 0.2s; }
+    .bk-city.open .bk-city-arrow { transform: rotate(180deg); }
+    .bk-city-body { display: none; padding: 0 16px 10px; }
+    .bk-city.open .bk-city-body { display: block; }
+
+    /* Cinema card (inside a city) */
+    .bk-city-body .bk-cinema { margin-top: 10px; }
+    .bk-cinema { background: #16162a; border: 1px solid #2a2a4a; border-radius: 10px; padding: 16px 18px; margin-top: 16px; transition: border-color 0.2s; display: flex; align-items: flex-start; gap: 24px; }
     .bk-cinema:hover { border-color: #f0ad4e; }
     .bk-cinema-left { flex-shrink: 0; width: 180px; }
     .bk-cinema-name { font-size: 0.95rem; font-weight: 600; color: #fff; line-height: 1.3; }
@@ -63,6 +76,9 @@
     .bk-powered a { color: #f0ad4e; text-decoration: none; }
 
     /* Mobile */
+    @media (max-width: 760px) {
+      .bk-cinemas { grid-template-columns: 1fr; }
+    }
     @media (max-width: 600px) {
       .bk-header-inner { gap: 10px; }
       .bk-movie-title { font-size: 1.05rem; }
@@ -90,7 +106,13 @@
     .light-theme .bk-search-icon:hover { color: #222; }
     .light-theme .bk-search { background: #f5f5f5; border-bottom-color: #d4880f; color: #222; }
     .light-theme .bk-search::placeholder { color: #999; }
-    .light-theme .bk-cinema { background: #fff; border-color: #ddd; }
+    .light-theme .bk-city { background: #fff; border-color: #ddd; }
+    .light-theme .bk-city.open { border-color: #d4880f; }
+    .light-theme .bk-city-header:hover { background: rgba(212,136,15,0.06); }
+    .light-theme .bk-city-name { color: #222; }
+    .light-theme .bk-city-meta { color: #888; }
+    .light-theme .bk-city-arrow { color: #d4880f; }
+    .light-theme .bk-cinema { background: #faf7f0; border-color: #e2e2e2; }
     .light-theme .bk-cinema:hover { border-color: #d4880f; }
     .light-theme .bk-cinema-name { color: #222; }
     .light-theme .bk-cinema-sub { color: #888; }
@@ -158,7 +180,7 @@
         page: "peddi-movie.html",
         shows: [
             {
-                      "city": "Dusseldorf",
+                      "city": "Düsseldorf",
                       "cinema": "UFA Palast",
                       "date": "2026-06-03",
                       "time": "20:30",
@@ -174,20 +196,20 @@
                       "bookingUrl": "https://ticket-cloud.de/Luxor-Heidelberg/Show/2386389"
             },
             {
-                      "city": "Munich",
-                      "cinema": "Cincinnati",
-                      "date": "2026-06-03",
-                      "time": "20:30",
-                      "subtitle": "English Subtitles",
-                      "bookingUrl": "https://booking.cinetixx.de/frontend/index.html?cinemaId=296551098&showId=3540551659&bgswitch=false&resize=false"
-            },
-            {
                       "city": "Mönchengladbach",
                       "cinema": "Haus Zoar",
                       "date": "2026-06-03",
                       "time": "20:30",
                       "subtitle": "English Subtitles",
                       "bookingUrl": "https://kinotickets.express/cine-factory-moenchengladbach/sale/seats/36959"
+            },
+            {
+                      "city": "München",
+                      "cinema": "Cincinnati",
+                      "date": "2026-06-03",
+                      "time": "20:30",
+                      "subtitle": "English Subtitles",
+                      "bookingUrl": "https://booking.cinetixx.de/frontend/index.html?cinemaId=296551098&showId=3540551659&bgswitch=false&resize=false"
             },
             {
                       "city": "Pforzheim",
@@ -214,7 +236,7 @@
                       "bookingUrl": "https://kinotickets.express/kornwestheim-capitol/sale/seats/26314"
             },
             {
-                      "city": "Munich",
+                      "city": "München",
                       "cinema": "Mathäser",
                       "date": "2026-06-04",
                       "time": "11:15",
@@ -230,7 +252,15 @@
                       "bookingUrl": "https://kinotickets.express/hofheim-filmpalast/sale/seats/14719"
             },
             {
-                      "city": "Aschaffenburg",
+                      "city": "Aachen",
+                      "cinema": "Apollo",
+                      "date": "2026-06-04",
+                      "time": "16:45",
+                      "subtitle": "English Subtitles",
+                      "bookingUrl": "https://apollo-aachen.de/programmuebersicht/movie/peddi-telugu"
+            },
+            {
+                      "city": "Frankfurt",
                       "cinema": "Kinopolis Aschaffenburg",
                       "date": "2026-06-04",
                       "time": "19:15",
@@ -238,7 +268,7 @@
                       "bookingUrl": "https://www.kinopolis.de/ab/programm/vorstellung/585A3000023OFCLMTD"
             },
             {
-                      "city": "Braunschweig",
+                      "city": "Wolfsburg (Braunschweig)",
                       "cinema": "Astor",
                       "date": "2026-06-04",
                       "time": "19:30",
@@ -278,7 +308,7 @@
                       "bookingUrl": "https://www.kinoheld.de/kino/dresden/zentralkino-dresden/vorstellung/3541829399"
             },
             {
-                      "city": "Dusseldorf",
+                      "city": "Düsseldorf",
                       "cinema": "UFA Palast",
                       "date": "2026-06-05",
                       "time": "19:40",
@@ -310,7 +340,7 @@
                       "bookingUrl": "https://ticket-cloud.de/Luxor-Heidelberg/Show/2386393"
             },
             {
-                      "city": "Braunschweig",
+                      "city": "Wolfsburg (Braunschweig)",
                       "cinema": "Astor",
                       "date": "2026-06-06",
                       "time": "11:45",
@@ -318,7 +348,7 @@
                       "bookingUrl": "https://braunschweig.premiumkino.de/vorstellung/peddi/20260606/1145/Oq8FcSMmGEe64gtlsqRGt_ST2swgSE9AX6TAqNE7Zic~"
             },
             {
-                      "city": "Dusseldorf",
+                      "city": "Düsseldorf",
                       "cinema": "UFA Palast",
                       "date": "2026-06-06",
                       "time": "13:30",
@@ -334,12 +364,28 @@
                       "bookingUrl": "https://kinotickets.express/hofheim-filmpalast/sale/seats/14720"
             },
             {
+                      "city": "Chemnitz",
+                      "cinema": "CineStar Chemnitz",
+                      "date": "2026-06-06",
+                      "time": "22:30",
+                      "subtitle": "English Subtitles",
+                      "bookingUrl": "https://www.cinestar.de/chemnitz-kino-am-roten-turm/veranstaltung-peddi-telugu-omu"
+            },
+            {
                       "city": "Erlangen",
                       "cinema": "CineStar Erlangen",
                       "date": "2026-06-06",
                       "time": "22:30",
                       "subtitle": "English Subtitles",
                       "bookingUrl": "https://www.cinestar.de/kino-erlangen/veranstaltung-peddi-telugu-omu"
+            },
+            {
+                      "city": "Dortmund",
+                      "cinema": "CineStar Dortmund",
+                      "date": "2026-06-06",
+                      "time": "22:45",
+                      "subtitle": "English Subtitles",
+                      "bookingUrl": "https://www.cinestar.de/kino-dortmund/veranstaltung-peddi-telugu-omu"
             },
             {
                       "city": "Frankfurt",
@@ -458,16 +504,18 @@
         if (selectedDate !== 'all') filtered = filtered.filter(s => s.date === selectedDate);
         if (search) filtered = filtered.filter(s => s.cinema.toLowerCase().includes(search) || s.city.toLowerCase().includes(search));
 
-        const grouped = {};
+        // Group by city -> cinema -> shows
+        const cities = {};
         filtered.forEach(s => {
-          const key = s.cinema + '|' + s.city;
-          if (!grouped[key]) grouped[key] = { cinema: s.cinema, city: s.city, shows: [] };
-          grouped[key].shows.push(s);
+          if (!cities[s.city]) cities[s.city] = {};
+          if (!cities[s.city][s.cinema]) cities[s.city][s.cinema] = [];
+          cities[s.city][s.cinema].push(s);
         });
 
         const container = document.getElementById('cinemaList');
+        const cityNames = Object.keys(cities).sort();
 
-        if (Object.keys(grouped).length === 0) {
+        if (cityNames.length === 0) {
           container.innerHTML = `<div class="bk-empty">
             <div class="bk-empty-icon">&#127916;</div>
             <h3>No shows found</h3>
@@ -476,22 +524,41 @@
           return;
         }
 
-        let html = '';
-        Object.values(grouped).forEach(g => {
-          html += `<div class="bk-cinema">
-            <div class="bk-cinema-left">
-              <div class="bk-cinema-name">${g.cinema}, ${g.city}</div>
-              <div class="bk-cinema-sub">${movie.language} &bull; ${g.shows[0].subtitle || ''}</div>
-            </div>
-            <div class="bk-cinema-right">`;
+        // Auto-expand cities when the user is actively searching
+        const expand = !!search;
 
-          g.shows.forEach(s => {
-            const dt = new Date(s.date + 'T00:00:00');
-            const dateLabel = dt.toLocaleDateString('en-GB', { day: 'numeric', month: 'short' });
-            html += `<a href="${s.bookingUrl}" target="_blank" rel="noopener" class="bk-showtime">
-              ${s.time}
-              <span class="bk-showtime-label">${dateLabel}</span>
-            </a>`;
+        let html = '';
+        cityNames.forEach(city => {
+          const cinemas = cities[city];
+          const cinemaNames = Object.keys(cinemas).sort();
+          const showCount = cinemaNames.reduce((a, c) => a + cinemas[c].length, 0);
+          const meta = `${cinemaNames.length} cinema${cinemaNames.length > 1 ? 's' : ''} &bull; ${showCount} show${showCount > 1 ? 's' : ''}`;
+
+          html += `<div class="bk-city${expand ? ' open' : ''}">
+            <button class="bk-city-header" onclick="toggleCity(this)">
+              <span class="bk-city-name">${city}</span>
+              <span class="bk-city-meta">${meta}</span>
+              <span class="bk-city-arrow">&#9662;</span>
+            </button>
+            <div class="bk-city-body">`;
+
+          cinemaNames.forEach(cn => {
+            const cs = cinemas[cn];
+            html += `<div class="bk-cinema">
+              <div class="bk-cinema-left">
+                <div class="bk-cinema-name">${cn}</div>
+                <div class="bk-cinema-sub">${movie.language} &bull; ${cs[0].subtitle || ''}</div>
+              </div>
+              <div class="bk-cinema-right">`;
+            cs.forEach(s => {
+              const dt = new Date(s.date + 'T00:00:00');
+              const dateLabel = dt.toLocaleDateString('en-GB', { day: 'numeric', month: 'short' });
+              html += `<a href="${s.bookingUrl}" target="_blank" rel="noopener" class="bk-showtime">
+                ${s.time}
+                <span class="bk-showtime-label">${dateLabel}</span>
+              </a>`;
+            });
+            html += `</div></div>`;
           });
 
           html += `</div></div>`;
@@ -499,6 +566,10 @@
 
         container.innerHTML = html;
       }
+
+      window.toggleCity = function(btn) {
+        btn.parentElement.classList.toggle('open');
+      };
 
       buildDateTabs();
       renderCinemas();

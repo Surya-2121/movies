@@ -12,7 +12,7 @@
   "cinemas": [
     {
       "key": "munich-cincinnati",
-      "city": "Munich",
+      "city": "München",
       "name": "Cincinnati",
       "zineflixTheatreName": "Cinecitta München (Premiere)",
       "platform": "cinetixx",
@@ -61,7 +61,7 @@
     },
     {
       "key": "dusseldorf-ufa-palast",
-      "city": "Dusseldorf",
+      "city": "Düsseldorf",
       "name": "UFA Palast",
       "zineflixTheatreName": "UFA PALAST DÜSSELDORF",
       "platform": "cineamo_to_kinotickets",
@@ -121,7 +121,7 @@
     },
     {
       "key": "munich-mathaeser",
-      "city": "Munich",
+      "city": "München",
       "name": "Mathäser",
       "zineflixTheatreName": "MATTHÄUSER MUNICH",
       "platform": "kinopolis",
@@ -132,7 +132,7 @@
     },
     {
       "key": "viernheim-kinopolis",
-      "city": "Viernheim",
+      "city": "Mannheim",
       "name": "Kinopolis Viernheim",
       "zineflixTheatreName": "Kinopolis Viernheim",
       "platform": "kinopolis",
@@ -143,7 +143,7 @@
     },
     {
       "key": "aschaffenburg-kinopolis",
-      "city": "Aschaffenburg",
+      "city": "Frankfurt",
       "name": "Kinopolis Aschaffenburg",
       "zineflixTheatreName": "Kinopolis Aschaffenburg",
       "platform": "kinopolis",
@@ -154,7 +154,7 @@
     },
     {
       "key": "braunschweig-astor",
-      "city": "Braunschweig",
+      "city": "Wolfsburg (Braunschweig)",
       "name": "Astor",
       "zineflixTheatreName": "Astor Braunschweig",
       "platform": "premiumkino",
@@ -205,6 +205,44 @@
       "platform": "cinestar",
       "cinestarShowId": "218061",
       "filmUrl": "https://www.cinestar.de/kino-ingolstadt/veranstaltung-peddi-telugu-omu",
+      "ticketPrice": 14.0,
+      "premierePrice": 18.0
+    },
+    {
+      "key": "chemnitz-cinestar",
+      "city": "Chemnitz",
+      "name": "CineStar Chemnitz",
+      "zineflixTheatreName": "Cinestar Chemnitz ",
+      "platform": "cinestar",
+      "cinestarShowId": "218057",
+      "filmUrl": "https://www.cinestar.de/chemnitz-kino-am-roten-turm/veranstaltung-peddi-telugu-omu",
+      "ticketPrice": 14.0,
+      "premierePrice": 18.0
+    },
+    {
+      "key": "dortmund-cinestar",
+      "city": "Dortmund",
+      "name": "CineStar Dortmund",
+      "zineflixTheatreName": "Cinestar Dortmund ",
+      "platform": "cinestar",
+      "cinestarShowId": "218058",
+      "filmUrl": "https://www.cinestar.de/kino-dortmund/veranstaltung-peddi-telugu-omu",
+      "ticketPrice": 14.0,
+      "premierePrice": 18.0
+    },
+    {
+      "key": "aachen-apollo",
+      "city": "Aachen",
+      "name": "Apollo",
+      "zineflixTheatreName": "Apollo Aachen",
+      "platform": "manual",
+      "manualShows": [
+        {
+          "date": "2026-06-04",
+          "time": "16:45",
+          "bookingUrl": "https://apollo-aachen.de/programmuebersicht/movie/peddi-telugu"
+        }
+      ],
       "ticketPrice": 14.0,
       "premierePrice": 18.0
     }
