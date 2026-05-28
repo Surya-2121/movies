@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-05-27T22:55:19.872294+00:00",
+  "fetchedAt": "2026-05-28T10:01:12.574784+00:00",
   "movie": "peddi",
   "totalShows": 27,
   "shows": [
@@ -151,9 +151,9 @@
       "city": "Stuttgart",
       "cinema": "Capitol Kornwestheim",
       "date": "2026-06-05",
-      "time": "21:00",
+      "time": "20:45",
       "subtitle": "English Subtitles",
-      "bookingUrl": "https://kinotickets.express/kornwestheim-capitol/sale/seats/26315"
+      "bookingUrl": "https://capitol-kornwestheim.de/film/peddi"
     },
     {
       "city": "Heidelberg",
