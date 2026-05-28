@@ -1,8 +1,16 @@
 {
-  "fetchedAt": "2026-05-28T20:22:25.527471+00:00",
+  "fetchedAt": "2026-05-28T20:25:37.513314+00:00",
   "movie": "peddi",
   "totalShows": 34,
   "shows": [
+    {
+      "city": "Bielefeld",
+      "cinema": "Filmwerk",
+      "date": "2026-06-03",
+      "time": "20:30",
+      "subtitle": "English Subtitles",
+      "bookingUrl": "https://web.filmwerk-gt.de/order/showtimes/1000-53322/seats"
+    },
     {
       "city": "Düsseldorf",
       "cinema": "UFA Palast",
@@ -10,14 +18,6 @@
       "time": "20:30",
       "subtitle": "English Subtitles",
       "bookingUrl": "https://kinotickets.express/duesseldorf-ufa-filmpalast/sale/seats/80776"
-    },
-    {
-      "city": "Gütersloh",
-      "cinema": "Filmwerk",
-      "date": "2026-06-03",
-      "time": "20:30",
-      "subtitle": "English Subtitles",
-      "bookingUrl": "https://web.filmwerk-gt.de/order/showtimes/1000-53322/seats"
     },
     {
       "city": "Heidelberg",
