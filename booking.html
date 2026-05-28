@@ -163,10 +163,10 @@
   </div>
 
   <script>
-    // Sync theme from main site
+    // Sync theme from main site (light is the default)
     (function() {
       const theme = localStorage.getItem('theme');
-      if (theme === 'light') document.body.classList.add('light-theme');
+      if (theme !== 'dark') document.body.classList.add('light-theme');
     })();
 
     // ===== MOVIE DATA =====

@@ -353,9 +353,10 @@ body {
 .light-theme .summary-card { background: #fff; border-color: #ddd; }
 
 .light-theme .section-title { color: #222; border-bottom-color: #d4880f; }
-.light-theme .np-movie-name, .light-theme .cs-card h3,
 .light-theme .mp-title, .light-theme .mp-section-title { color: #fff; }
 .light-theme .mp-content .mp-section-title { color: #222; }
+/* Home-page cards are white in light mode — movie names must be dark */
+.light-theme .np-movie-name, .light-theme .cs-card h3 { color: #222; }
 .light-theme .np-dates, .light-theme .mp-synopsis,
 .light-theme .mp-crew { color: #555; }
 .light-theme .mp-crew strong { color: #d4880f; }
@@ -909,9 +910,21 @@ main {
 /* Hero */
 .hero {
   position: relative;
-  height: 100vh;
+  min-height: 100vh;
   overflow: hidden;
 }
+
+/* Movies + Coming Soon overlaid on top of the poster grid */
+.hero-foreground {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  min-height: 100vh;
+  padding: 40px 0;
+  box-sizing: border-box;
+}
+.hero-foreground .movies-section { width: 100%; }
 
 .hero-poster-grid {
   position: absolute;
@@ -925,6 +938,8 @@ main {
 
 .hero-poster-grid img {
   width: 100%;
+  aspect-ratio: 2 / 3;
+  object-fit: cover;
   height: auto;
   border-radius: 4px;
 }

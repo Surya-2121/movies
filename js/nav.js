@@ -16,14 +16,14 @@ function applyTheme(theme) {
 }
 
 function toggleTheme() {
-  const current = localStorage.getItem('theme') || 'dark';
+  const current = localStorage.getItem('theme') || 'light';
   const next = current === 'dark' ? 'light' : 'dark';
   localStorage.setItem('theme', next);
   applyTheme(next);
 }
 
-// Apply saved theme on load
-applyTheme(localStorage.getItem('theme') || 'dark');
+// Apply saved theme on load (light is the default)
+applyTheme(localStorage.getItem('theme') || 'light');
 
 // Search
 const allMovies = [
