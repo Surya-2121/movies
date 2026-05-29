@@ -1,7 +1,7 @@
 {
-  "fetchedAt": "2026-05-29T09:53:48.092479+00:00",
+  "fetchedAt": "2026-05-29T14:10:15.120218+00:00",
   "movie": "peddi",
-  "totalShows": 34,
+  "totalShows": 33,
   "shows": [
     {
       "city": "Bielefeld",
@@ -183,7 +183,7 @@
       "city": "Düsseldorf",
       "cinema": "UFA Palast",
       "date": "2026-06-06",
-      "time": "13:30",
+      "time": "13:15",
       "subtitle": "English Subtitles",
       "bookingUrl": "https://kinotickets.express/duesseldorf-ufa-filmpalast/sale/seats/80778"
     },
@@ -194,14 +194,6 @@
       "time": "14:00",
       "subtitle": "English Subtitles",
       "bookingUrl": "https://kinotickets.express/hofheim-filmpalast/sale/seats/14720"
-    },
-    {
-      "city": "Chemnitz",
-      "cinema": "CineStar Chemnitz",
-      "date": "2026-06-06",
-      "time": "22:30",
-      "subtitle": "English Subtitles",
-      "bookingUrl": "https://www.cinestar.de/chemnitz-kino-am-roten-turm/veranstaltung-peddi-telugu-omu"
     },
     {
       "city": "Erlangen",
