@@ -261,6 +261,22 @@
       ],
       "ticketPrice": 14.0,
       "premierePrice": 18.0
+    },
+    {
+      "key": "berlin-colosseum",
+      "city": "Berlin",
+      "name": "Colosseum",
+      "zineflixTheatreName": "FILMTHEATER COLLOSEUM BERLIN - 04.06.26",
+      "platform": "manual",
+      "manualShows": [
+        {
+          "date": "2026-06-04",
+          "time": "19:30",
+          "bookingUrl": "https://kino.colosseumberlin.com/programm/peddi-indisches-kino-telugu-with-english-subtitles"
+        }
+      ],
+      "ticketPrice": 14.0,
+      "premierePrice": 18.0
     }
   ],
   "ignoredCinemas": []
