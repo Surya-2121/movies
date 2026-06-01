@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-06-01T15:53:21.029515+00:00",
+  "fetchedAt": "2026-06-01T15:54:59.674216+00:00",
   "movie": "peddi",
   "totalShows": 42,
   "shows": [
@@ -52,7 +52,7 @@
       "bookingUrl": "https://kinotickets.express/hofheim-filmpalast/sale/seats/14678"
     },
     {
-      "city": "München",
+      "city": "Nürnberg",
       "cinema": "Cincinnati",
       "date": "2026-06-03",
       "time": "21:00",
@@ -212,7 +212,7 @@
       "bookingUrl": "https://capitol-kornwestheim.de/film/peddi"
     },
     {
-      "city": "München",
+      "city": "Nürnberg",
       "cinema": "Cincinnati",
       "date": "2026-06-05",
       "time": "22:30",
