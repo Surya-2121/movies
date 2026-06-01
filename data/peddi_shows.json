@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-06-01T15:54:59.674216+00:00",
+  "fetchedAt": "2026-06-01T15:55:27.923924+00:00",
   "movie": "peddi",
   "totalShows": 42,
   "shows": [
@@ -53,7 +53,7 @@
     },
     {
       "city": "Nürnberg",
-      "cinema": "Cincinnati",
+      "cinema": "Cinecitta",
       "date": "2026-06-03",
       "time": "21:00",
       "subtitle": "English Subtitles",
@@ -213,7 +213,7 @@
     },
     {
       "city": "Nürnberg",
-      "cinema": "Cincinnati",
+      "cinema": "Cinecitta",
       "date": "2026-06-05",
       "time": "22:30",
       "subtitle": "English Subtitles",
