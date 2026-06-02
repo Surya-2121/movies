@@ -26,6 +26,11 @@
           "date": "2026-06-05",
           "time": "22:30",
           "bookingUrl": "https://www.cinecitta.de/filme/peddi/"
+        },
+        {
+          "date": "2026-06-06",
+          "time": "11:00",
+          "bookingUrl": "https://www.cinecitta.de/filme/peddi/"
         }
       ],
       "ticketPrice": 14.0,

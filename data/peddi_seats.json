@@ -1,7 +1,7 @@
 {
-  "fetchedAt": "2026-06-02T18:50:14.425562+00:00",
+  "fetchedAt": "2026-06-02T18:53:53.854379+00:00",
   "movie": "peddi",
-  "totalShows": 66,
+  "totalShows": 67,
   "shows": [
     {
       "city": "Düsseldorf",
@@ -306,11 +306,11 @@
       "subtitle": "English Subtitles",
       "bookingUrl": "https://www.kinopolis.de/hh/programm/vorstellung/FA840000023HXECDQG",
       "capacity": 143,
-      "booked": 33,
-      "free": 110,
+      "booked": 34,
+      "free": 109,
       "blocked": 0,
       "ticketPrice": 14.0,
-      "gross": 462.0
+      "gross": 476.0
     },
     {
       "city": "Heidelberg",
@@ -376,11 +376,11 @@
       "subtitle": "English Subtitles",
       "bookingUrl": "https://kinotickets.express/duesseldorf-ufa-filmpalast/sale/seats/80777",
       "capacity": 125,
-      "booked": 0,
-      "free": 125,
+      "booked": 1,
+      "free": 124,
       "blocked": 0,
       "ticketPrice": 14.0,
-      "gross": 0.0
+      "gross": 14.0
     },
     {
       "city": "Heidelberg",
@@ -522,6 +522,20 @@
       "blocked": 2,
       "ticketPrice": 14.0,
       "gross": 28.0
+    },
+    {
+      "city": "Nürnberg",
+      "cinema": "Cinecitta",
+      "date": "2026-06-06",
+      "time": "11:00",
+      "subtitle": "English Subtitles",
+      "bookingUrl": "https://www.cinecitta.de/filme/peddi/",
+      "capacity": null,
+      "booked": null,
+      "free": null,
+      "ticketPrice": 14.0,
+      "gross": null,
+      "error": "unknown booking URL pattern: https://www.cinecitta.de/filme/peddi/"
     },
     {
       "city": "Heidelberg",
