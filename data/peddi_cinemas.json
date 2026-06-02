@@ -424,6 +424,22 @@
       ],
       "ticketPrice": 14.0,
       "premierePrice": 18.0
+    },
+    {
+      "key": "stuttgart-cinemaxx-liederhalle",
+      "city": "Stuttgart",
+      "name": "CinemaxX Liederhalle",
+      "zineflixTheatreName": "Cinemaxx Stuttgart",
+      "platform": "manual",
+      "manualShows": [
+        {
+          "date": "2026-06-07",
+          "time": "22:30",
+          "bookingUrl": "https://www.cinemaxx.de/kinoprogramm/stuttgart-liederhalle/film/peddi"
+        }
+      ],
+      "ticketPrice": 14.0,
+      "premierePrice": 18.0
     }
   ],
   "ignoredCinemas": []

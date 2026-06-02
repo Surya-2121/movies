@@ -1,7 +1,7 @@
 {
-  "fetchedAt": "2026-06-02T18:26:31.925163+00:00",
+  "fetchedAt": "2026-06-02T18:27:45.655573+00:00",
   "movie": "peddi",
-  "totalShows": 55,
+  "totalShows": 56,
   "shows": [
     {
       "city": "Düsseldorf",
@@ -434,6 +434,14 @@
       "time": "19:30",
       "subtitle": "English Subtitles",
       "bookingUrl": "https://www.cinestar.de/kino-berlin-hellersdorf/veranstaltung-peddi-telugu-omu"
+    },
+    {
+      "city": "Stuttgart",
+      "cinema": "CinemaxX Liederhalle",
+      "date": "2026-06-07",
+      "time": "22:30",
+      "subtitle": "English Subtitles",
+      "bookingUrl": "https://www.cinemaxx.de/kinoprogramm/stuttgart-liederhalle/film/peddi"
     },
     {
       "city": "Berlin",
