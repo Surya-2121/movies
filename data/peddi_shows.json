@@ -1,7 +1,7 @@
 {
-  "fetchedAt": "2026-06-02T18:19:13.665728+00:00",
+  "fetchedAt": "2026-06-02T18:19:48.093801+00:00",
   "movie": "peddi",
-  "totalShows": 48,
+  "totalShows": 49,
   "shows": [
     {
       "city": "Düsseldorf",
@@ -386,6 +386,14 @@
       "time": "19:30",
       "subtitle": "English Subtitles",
       "bookingUrl": "https://www.cinestar.de/kino-berlin-hellersdorf/veranstaltung-peddi-telugu-omu"
+    },
+    {
+      "city": "Berlin",
+      "cinema": "CinemaxX",
+      "date": "2026-06-10",
+      "time": "16:30",
+      "subtitle": "English Subtitles",
+      "bookingUrl": "https://www.cinemaxx.de/buchtickets/zusammenfassung/1107/HO00001469/65531"
     }
   ]
 }
