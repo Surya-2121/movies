@@ -1,7 +1,7 @@
 {
-  "fetchedAt": "2026-06-02T18:29:17.680719+00:00",
+  "fetchedAt": "2026-06-02T18:31:41.745089+00:00",
   "movie": "peddi",
-  "totalShows": 58,
+  "totalShows": 60,
   "shows": [
     {
       "city": "Düsseldorf",
@@ -228,6 +228,14 @@
       "bookingUrl": "https://capitol-kornwestheim.de/film/peddi"
     },
     {
+      "city": "Stuttgart",
+      "cinema": "Traumpalast Schwäbisch Gmünd",
+      "date": "2026-06-05",
+      "time": "21:45",
+      "subtitle": "English Subtitles",
+      "bookingUrl": "https://schwaebisch-gmuend.traumpalast.de/peddi--film-8630"
+    },
+    {
       "city": "Magdeburg",
       "cinema": "CinemaxX",
       "date": "2026-06-05",
@@ -434,6 +442,14 @@
       "time": "14:00",
       "subtitle": "English Subtitles",
       "bookingUrl": "https://www.kinoheld.de/kino/pforzheim/cinemoon-pforzheim?rb=0&mode=widget&appView=1&showId=31785#panel-seats"
+    },
+    {
+      "city": "Stuttgart",
+      "cinema": "Traumpalast Schwäbisch Gmünd",
+      "date": "2026-06-07",
+      "time": "19:00",
+      "subtitle": "English Subtitles",
+      "bookingUrl": "https://schwaebisch-gmuend.traumpalast.de/peddi--film-8630"
     },
     {
       "city": "Berlin",

@@ -461,6 +461,27 @@
       ],
       "ticketPrice": 14.0,
       "premierePrice": 18.0
+    },
+    {
+      "key": "stuttgart-traumpalast-sg",
+      "city": "Stuttgart",
+      "name": "Traumpalast Schwäbisch Gmünd",
+      "zineflixTheatreName": "TRAUMPALAST Schwäbisch Gmünd Stuttgart",
+      "platform": "manual",
+      "manualShows": [
+        {
+          "date": "2026-06-05",
+          "time": "21:45",
+          "bookingUrl": "https://schwaebisch-gmuend.traumpalast.de/peddi--film-8630"
+        },
+        {
+          "date": "2026-06-07",
+          "time": "19:00",
+          "bookingUrl": "https://schwaebisch-gmuend.traumpalast.de/peddi--film-8630"
+        }
+      ],
+      "ticketPrice": 14.0,
+      "premierePrice": 18.0
     }
   ],
   "ignoredCinemas": []
