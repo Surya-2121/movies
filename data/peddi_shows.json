@@ -1,8 +1,16 @@
 {
-  "fetchedAt": "2026-06-02T10:23:14.506955+00:00",
+  "fetchedAt": "2026-06-02T14:52:58.904034+00:00",
   "movie": "peddi",
-  "totalShows": 42,
+  "totalShows": 43,
   "shows": [
+    {
+      "city": "Düsseldorf",
+      "cinema": "UFA Palast",
+      "date": "2026-06-03",
+      "time": "19:40",
+      "subtitle": "English Subtitles",
+      "bookingUrl": "https://kinotickets.express/duesseldorf-ufa-filmpalast/sale/seats/81452"
+    },
     {
       "city": "Bielefeld",
       "cinema": "Filmwerk",
