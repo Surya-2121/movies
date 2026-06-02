@@ -482,6 +482,32 @@
       ],
       "ticketPrice": 14.0,
       "premierePrice": 18.0
+    },
+    {
+      "key": "stuttgart-traumpalast-leonberg",
+      "city": "Stuttgart",
+      "name": "Traumpalast Leonberg",
+      "zineflixTheatreName": "TRAUMPALAST LEONBERG Stuttgart",
+      "platform": "manual",
+      "manualShows": [
+        {
+          "date": "2026-06-05",
+          "time": "22:45",
+          "bookingUrl": "https://leonberg.traumpalast.de/index.php/FN/8630/PID/5574.html"
+        },
+        {
+          "date": "2026-06-06",
+          "time": "11:45",
+          "bookingUrl": "https://leonberg.traumpalast.de/index.php/FN/8630/PID/5574.html"
+        },
+        {
+          "date": "2026-06-07",
+          "time": "11:45",
+          "bookingUrl": "https://leonberg.traumpalast.de/index.php/FN/8630/PID/5574.html"
+        }
+      ],
+      "ticketPrice": 14.0,
+      "premierePrice": 18.0
     }
   ],
   "ignoredCinemas": []

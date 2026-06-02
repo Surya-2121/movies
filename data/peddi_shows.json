@@ -1,7 +1,7 @@
 {
-  "fetchedAt": "2026-06-02T18:31:41.745089+00:00",
+  "fetchedAt": "2026-06-02T18:32:46.310270+00:00",
   "movie": "peddi",
-  "totalShows": 60,
+  "totalShows": 63,
   "shows": [
     {
       "city": "Düsseldorf",
@@ -260,6 +260,14 @@
       "bookingUrl": "https://www.cinecitta.de/filme/peddi/"
     },
     {
+      "city": "Stuttgart",
+      "cinema": "Traumpalast Leonberg",
+      "date": "2026-06-05",
+      "time": "22:45",
+      "subtitle": "English Subtitles",
+      "bookingUrl": "https://leonberg.traumpalast.de/index.php/FN/8630/PID/5574.html"
+    },
+    {
       "city": "Augsburg",
       "cinema": "CinemaxX",
       "date": "2026-06-06",
@@ -314,6 +322,14 @@
       "time": "11:30",
       "subtitle": "English Subtitles",
       "bookingUrl": "https://www.cinemaxx.de/kinoprogramm/offenbach/film/peddi"
+    },
+    {
+      "city": "Stuttgart",
+      "cinema": "Traumpalast Leonberg",
+      "date": "2026-06-06",
+      "time": "11:45",
+      "subtitle": "English Subtitles",
+      "bookingUrl": "https://leonberg.traumpalast.de/index.php/FN/8630/PID/5574.html"
     },
     {
       "city": "Wolfsburg (Braunschweig)",
@@ -418,6 +434,14 @@
       "time": "11:30",
       "subtitle": "English Subtitles",
       "bookingUrl": "https://www.cinemaxx.de/buchtickets/zusammenfassung/1304/HO00001469/31609"
+    },
+    {
+      "city": "Stuttgart",
+      "cinema": "Traumpalast Leonberg",
+      "date": "2026-06-07",
+      "time": "11:45",
+      "subtitle": "English Subtitles",
+      "bookingUrl": "https://leonberg.traumpalast.de/index.php/FN/8630/PID/5574.html"
     },
     {
       "city": "Dresden",
