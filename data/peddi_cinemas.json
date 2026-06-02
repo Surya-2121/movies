@@ -440,6 +440,27 @@
       ],
       "ticketPrice": 14.0,
       "premierePrice": 18.0
+    },
+    {
+      "key": "berlin-uci",
+      "city": "Berlin",
+      "name": "UCI East Side Gallery",
+      "zineflixTheatreName": "UCI Berlin",
+      "platform": "manual",
+      "manualShows": [
+        {
+          "date": "2026-06-07",
+          "time": "11:00",
+          "bookingUrl": "https://www.uci-kinowelt.de/film/peddi/419967/berlin-east-side-gallery/82"
+        },
+        {
+          "date": "2026-06-08",
+          "time": "19:30",
+          "bookingUrl": "https://www.uci-kinowelt.de/film/peddi/419967/berlin-east-side-gallery/82"
+        }
+      ],
+      "ticketPrice": 14.0,
+      "premierePrice": 18.0
     }
   ],
   "ignoredCinemas": []

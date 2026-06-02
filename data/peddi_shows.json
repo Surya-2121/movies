@@ -1,7 +1,7 @@
 {
-  "fetchedAt": "2026-06-02T18:27:45.655573+00:00",
+  "fetchedAt": "2026-06-02T18:29:17.680719+00:00",
   "movie": "peddi",
-  "totalShows": 56,
+  "totalShows": 58,
   "shows": [
     {
       "city": "Düsseldorf",
@@ -372,6 +372,14 @@
       "bookingUrl": "https://www.cinestar.de/kino-ingolstadt/veranstaltung-peddi-telugu-omu"
     },
     {
+      "city": "Berlin",
+      "cinema": "UCI East Side Gallery",
+      "date": "2026-06-07",
+      "time": "11:00",
+      "subtitle": "English Subtitles",
+      "bookingUrl": "https://www.uci-kinowelt.de/film/peddi/419967/berlin-east-side-gallery/82"
+    },
+    {
       "city": "Heidelberg",
       "cinema": "Lux",
       "date": "2026-06-07",
@@ -442,6 +450,14 @@
       "time": "22:30",
       "subtitle": "English Subtitles",
       "bookingUrl": "https://www.cinemaxx.de/kinoprogramm/stuttgart-liederhalle/film/peddi"
+    },
+    {
+      "city": "Berlin",
+      "cinema": "UCI East Side Gallery",
+      "date": "2026-06-08",
+      "time": "19:30",
+      "subtitle": "English Subtitles",
+      "bookingUrl": "https://www.uci-kinowelt.de/film/peddi/419967/berlin-east-side-gallery/82"
     },
     {
       "city": "Berlin",
