@@ -56,7 +56,7 @@ def count_cinetixx(show_id):
             if s.get("isGap"):
                 continue
             capacity += 1
-            if s.get("isSold") or s.get("state") == "S":
+            if s.get("isSold") or s.get("state") in ("S", "R", "N"):
                 sold += 1
             elif s.get("state") == "B":
                 blocked += 1
