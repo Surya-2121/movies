@@ -1,7 +1,7 @@
 {
-  "fetchedAt": "2026-06-02T18:32:46.310270+00:00",
+  "fetchedAt": "2026-06-02T18:33:42.163713+00:00",
   "movie": "peddi",
-  "totalShows": 63,
+  "totalShows": 64,
   "shows": [
     {
       "city": "Düsseldorf",
@@ -402,6 +402,14 @@
       "time": "11:00",
       "subtitle": "English Subtitles",
       "bookingUrl": "https://www.uci-kinowelt.de/film/peddi/419967/berlin-east-side-gallery/82"
+    },
+    {
+      "city": "Düsseldorf",
+      "cinema": "UCI",
+      "date": "2026-06-07",
+      "time": "11:00",
+      "subtitle": "English Subtitles",
+      "bookingUrl": "https://www.uci-kinowelt.de/film/peddi/419967/duesseldorf"
     },
     {
       "city": "Heidelberg",

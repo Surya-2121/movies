@@ -508,6 +508,22 @@
       ],
       "ticketPrice": 14.0,
       "premierePrice": 18.0
+    },
+    {
+      "key": "duesseldorf-uci",
+      "city": "Düsseldorf",
+      "name": "UCI",
+      "zineflixTheatreName": "UCI Düsseldorf",
+      "platform": "manual",
+      "manualShows": [
+        {
+          "date": "2026-06-07",
+          "time": "11:00",
+          "bookingUrl": "https://www.uci-kinowelt.de/film/peddi/419967/duesseldorf"
+        }
+      ],
+      "ticketPrice": 14.0,
+      "premierePrice": 18.0
     }
   ],
   "ignoredCinemas": []
