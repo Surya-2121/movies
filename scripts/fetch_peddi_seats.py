@@ -300,6 +300,15 @@ def main():
     cinema_by_name = {c["name"]: c for c in cfg["cinemas"]}
     premiere_date = cfg["movie"].get("premiereDate")
 
+    def _manual_override(cinema_cfg, date, time):
+        for ms in (cinema_cfg.get("manualShows") or []):
+            if ms.get("date") == date and ms.get("time") == time and "manualBooked" in ms:
+                return {"capacity": ms.get("manualCapacity"),
+                        "booked": ms["manualBooked"],
+                        "free": max(0, (ms.get("manualCapacity") or 0) - ms["manualBooked"]),
+                        "blocked": 0, "_manual": True}
+        return None
+
     out_shows = []
     for s in shows_data["shows"]:
         cinema = cinema_by_name.get(s["cinema"]) or {}
@@ -307,14 +316,18 @@ def main():
         price = cinema.get("premierePrice") if is_premiere else cinema.get("ticketPrice")
         price = float(price or 0.0)
         rec = dict(s)
-        try:
-            counts = scrape_show(s["bookingUrl"])
-        except Exception as e:
-            print(f"  ERR {s['city']:11} {s['cinema']:23} {s['date']} {s['time']}: {e}")
-            rec.update({"capacity": None, "booked": None, "free": None,
-                        "ticketPrice": price, "gross": None, "error": str(e)})
-            out_shows.append(rec)
-            continue
+        override = _manual_override(cinema, s["date"], s["time"])
+        if override is not None:
+            counts = override
+        else:
+            try:
+                counts = scrape_show(s["bookingUrl"])
+            except Exception as e:
+                print(f"  ERR {s['city']:11} {s['cinema']:23} {s['date']} {s['time']}: {e}")
+                rec.update({"capacity": None, "booked": None, "free": None,
+                            "ticketPrice": price, "gross": None, "error": str(e)})
+                out_shows.append(rec)
+                continue
         # Cinema-level capacity override (when API doesn't expose total)
         cap_override = cinema.get("capacityOverride")
         if cap_override and counts.get("booked") is not None:

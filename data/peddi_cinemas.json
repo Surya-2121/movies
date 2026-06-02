@@ -20,7 +20,9 @@
         {
           "date": "2026-06-03",
           "time": "21:00",
-          "bookingUrl": "https://www.cinecitta.de/filme/peddi/"
+          "bookingUrl": "https://www.cinecitta.de/filme/peddi/",
+          "manualBooked": 90,
+          "manualCapacity": 160
         },
         {
           "date": "2026-06-05",
@@ -33,9 +35,8 @@
           "bookingUrl": "https://www.cinecitta.de/filme/peddi/"
         }
       ],
-      "ticketPrice": 14.0,
-      "premierePrice": 18.0,
-      "capacityOverride": 401
+      "ticketPrice": 20.0,
+      "premierePrice": 20.0
     },
     {
       "key": "heidelberg-lux",

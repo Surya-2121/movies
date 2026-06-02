@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-06-02T18:53:53.854379+00:00",
+  "fetchedAt": "2026-06-02T19:02:08.282000+00:00",
   "movie": "peddi",
   "totalShows": 67,
   "shows": [
@@ -53,11 +53,11 @@
       "subtitle": "English Subtitles",
       "bookingUrl": "https://ticket-cloud.de/Luxor-Heidelberg/Show/2386389",
       "capacity": 163,
-      "booked": 73,
-      "free": 88,
+      "booked": 75,
+      "free": 86,
       "blocked": 2,
       "ticketPrice": 18.0,
-      "gross": 1314.0
+      "gross": 1350.0
     },
     {
       "city": "Mönchengladbach",
@@ -108,12 +108,13 @@
       "time": "21:00",
       "subtitle": "English Subtitles",
       "bookingUrl": "https://www.cinecitta.de/filme/peddi/",
-      "capacity": null,
-      "booked": null,
-      "free": null,
-      "ticketPrice": 18.0,
-      "gross": null,
-      "error": "unknown booking URL pattern: https://www.cinecitta.de/filme/peddi/"
+      "capacity": 160,
+      "booked": 90,
+      "free": 70,
+      "blocked": 0,
+      "_manual": true,
+      "ticketPrice": 20.0,
+      "gross": 1800.0
     },
     {
       "city": "Stuttgart",
@@ -306,11 +307,11 @@
       "subtitle": "English Subtitles",
       "bookingUrl": "https://www.kinopolis.de/hh/programm/vorstellung/FA840000023HXECDQG",
       "capacity": 143,
-      "booked": 34,
-      "free": 109,
+      "booked": 27,
+      "free": 116,
       "blocked": 0,
       "ticketPrice": 14.0,
-      "gross": 476.0
+      "gross": 378.0
     },
     {
       "city": "Heidelberg",
@@ -463,7 +464,7 @@
       "capacity": null,
       "booked": null,
       "free": null,
-      "ticketPrice": 14.0,
+      "ticketPrice": 20.0,
       "gross": null,
       "error": "unknown booking URL pattern: https://www.cinecitta.de/filme/peddi/"
     },
@@ -533,7 +534,7 @@
       "capacity": null,
       "booked": null,
       "free": null,
-      "ticketPrice": 14.0,
+      "ticketPrice": 20.0,
       "gross": null,
       "error": "unknown booking URL pattern: https://www.cinecitta.de/filme/peddi/"
     },
