@@ -524,6 +524,22 @@
       ],
       "ticketPrice": 14.0,
       "premierePrice": 18.0
+    },
+    {
+      "key": "hamburg-uci-wandsbek",
+      "city": "Hamburg",
+      "name": "UCI Wandsbek",
+      "zineflixTheatreName": "UCI Hamburg",
+      "platform": "manual",
+      "manualShows": [
+        {
+          "date": "2026-06-07",
+          "time": "19:40",
+          "bookingUrl": "https://www.uci-kinowelt.de/film/peddi/419967/hh-wandsbek-smart-city"
+        }
+      ],
+      "ticketPrice": 14.0,
+      "premierePrice": 18.0
     }
   ],
   "ignoredCinemas": []
