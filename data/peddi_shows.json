@@ -1,7 +1,7 @@
 {
-  "fetchedAt": "2026-06-02T14:52:58.904034+00:00",
+  "fetchedAt": "2026-06-02T18:13:56.795907+00:00",
   "movie": "peddi",
-  "totalShows": 43,
+  "totalShows": 44,
   "shows": [
     {
       "city": "Düsseldorf",
@@ -218,6 +218,14 @@
       "time": "20:45",
       "subtitle": "English Subtitles",
       "bookingUrl": "https://capitol-kornwestheim.de/film/peddi"
+    },
+    {
+      "city": "Magdeburg",
+      "cinema": "CinemaxX",
+      "date": "2026-06-05",
+      "time": "21:50",
+      "subtitle": "English Subtitles",
+      "bookingUrl": "https://www.cinemaxx.de/kinoprogramm/magdeburg/film/peddi"
     },
     {
       "city": "Nürnberg",

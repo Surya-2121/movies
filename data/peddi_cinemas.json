@@ -287,6 +287,22 @@
       ],
       "ticketPrice": 14.0,
       "premierePrice": 18.0
+    },
+    {
+      "key": "magdeburg-cinemaxx",
+      "city": "Magdeburg",
+      "name": "CinemaxX",
+      "zineflixTheatreName": "Cinemaxx Magdeburg",
+      "platform": "manual",
+      "manualShows": [
+        {
+          "date": "2026-06-05",
+          "time": "21:50",
+          "bookingUrl": "https://www.cinemaxx.de/kinoprogramm/magdeburg/film/peddi"
+        }
+      ],
+      "ticketPrice": 14.0,
+      "premierePrice": 18.0
     }
   ],
   "ignoredCinemas": []
