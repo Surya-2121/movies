@@ -1,7 +1,7 @@
 {
-  "fetchedAt": "2026-06-02T18:34:53.022238+00:00",
+  "fetchedAt": "2026-06-02T18:35:28.667920+00:00",
   "movie": "peddi",
-  "totalShows": 65,
+  "totalShows": 66,
   "shows": [
     {
       "city": "Düsseldorf",
@@ -106,6 +106,14 @@
       "time": "11:15",
       "subtitle": "English Subtitles",
       "bookingUrl": "https://www.mathaeser.de/mm/programm/vorstellung/D7EA8000023BWDJVCF"
+    },
+    {
+      "city": "Bochum",
+      "cinema": "UCI Ruhr-Park",
+      "date": "2026-06-04",
+      "time": "13:30",
+      "subtitle": "English Subtitles",
+      "bookingUrl": "https://www.uci-kinowelt.de/film/peddi/419967/bochum-ruhr-park"
     },
     {
       "city": "Frankfurt",
