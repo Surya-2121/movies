@@ -331,6 +331,16 @@
           "date": "2026-06-05",
           "time": "15:00",
           "bookingUrl": "https://www.cinemaxx.de/buchtickets/zusammenfassung/1107/HO00001469/65487"
+        },
+        {
+          "date": "2026-06-06",
+          "time": "11:00",
+          "bookingUrl": "https://www.cinemaxx.de/buchtickets/zusammenfassung/1107/HO00001469/65507"
+        },
+        {
+          "date": "2026-06-07",
+          "time": "11:10",
+          "bookingUrl": "https://www.cinemaxx.de/buchtickets/zusammenfassung/1107/HO00001469/65481"
         }
       ],
       "ticketPrice": 14.0,
