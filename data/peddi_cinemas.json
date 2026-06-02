@@ -319,6 +319,22 @@
       ],
       "ticketPrice": 14.0,
       "premierePrice": 18.0
+    },
+    {
+      "key": "berlin-cinemaxx",
+      "city": "Berlin",
+      "name": "CinemaxX",
+      "zineflixTheatreName": "Cinemaxx Berlin",
+      "platform": "manual",
+      "manualShows": [
+        {
+          "date": "2026-06-05",
+          "time": "15:00",
+          "bookingUrl": "https://www.cinemaxx.de/buchtickets/zusammenfassung/1107/HO00001469/65487"
+        }
+      ],
+      "ticketPrice": 14.0,
+      "premierePrice": 18.0
     }
   ],
   "ignoredCinemas": []
