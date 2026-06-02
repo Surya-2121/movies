@@ -1,7 +1,7 @@
 {
-  "fetchedAt": "2026-06-02T18:25:15.208080+00:00",
+  "fetchedAt": "2026-06-02T18:25:53.466839+00:00",
   "movie": "peddi",
-  "totalShows": 53,
+  "totalShows": 54,
   "shows": [
     {
       "city": "Düsseldorf",
@@ -386,6 +386,14 @@
       "time": "11:30",
       "subtitle": "English Subtitles",
       "bookingUrl": "https://www.cinemaxx.de/kinoprogramm/essen/film/peddi"
+    },
+    {
+      "city": "Hannover",
+      "cinema": "CinemaxX",
+      "date": "2026-06-07",
+      "time": "11:30",
+      "subtitle": "English Subtitles",
+      "bookingUrl": "https://www.cinemaxx.de/buchtickets/zusammenfassung/1304/HO00001469/31609"
     },
     {
       "city": "Dresden",
