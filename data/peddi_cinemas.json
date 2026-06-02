@@ -303,6 +303,22 @@
       ],
       "ticketPrice": 14.0,
       "premierePrice": 18.0
+    },
+    {
+      "key": "augsburg-cinemaxx",
+      "city": "Augsburg",
+      "name": "CinemaxX",
+      "zineflixTheatreName": "Cinemaxx Augsburg",
+      "platform": "manual",
+      "manualShows": [
+        {
+          "date": "2026-06-06",
+          "time": "11:00",
+          "bookingUrl": "https://www.cinemaxx.de/kinoprogramm/augsburg/film/peddi"
+        }
+      ],
+      "ticketPrice": 14.0,
+      "premierePrice": 18.0
     }
   ],
   "ignoredCinemas": []

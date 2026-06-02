@@ -1,7 +1,7 @@
 {
-  "fetchedAt": "2026-06-02T18:13:56.795907+00:00",
+  "fetchedAt": "2026-06-02T18:14:45.967433+00:00",
   "movie": "peddi",
-  "totalShows": 44,
+  "totalShows": 45,
   "shows": [
     {
       "city": "Düsseldorf",
@@ -234,6 +234,14 @@
       "time": "22:30",
       "subtitle": "English Subtitles",
       "bookingUrl": "https://www.cinecitta.de/filme/peddi/"
+    },
+    {
+      "city": "Augsburg",
+      "cinema": "CinemaxX",
+      "date": "2026-06-06",
+      "time": "11:00",
+      "subtitle": "English Subtitles",
+      "bookingUrl": "https://www.cinemaxx.de/kinoprogramm/augsburg/film/peddi"
     },
     {
       "city": "Heidelberg",
