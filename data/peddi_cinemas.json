@@ -387,6 +387,22 @@
       ],
       "ticketPrice": 14.0,
       "premierePrice": 18.0
+    },
+    {
+      "key": "hannover-cinemaxx",
+      "city": "Hannover",
+      "name": "CinemaxX",
+      "zineflixTheatreName": "Cinemaxx Hannover",
+      "platform": "manual",
+      "manualShows": [
+        {
+          "date": "2026-06-06",
+          "time": "11:30",
+          "bookingUrl": "https://www.cinemaxx.de/buchtickets/zusammenfassung/1304/HO00001469/31616"
+        }
+      ],
+      "ticketPrice": 14.0,
+      "premierePrice": 18.0
     }
   ],
   "ignoredCinemas": []
