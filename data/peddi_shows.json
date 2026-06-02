@@ -1,7 +1,7 @@
 {
-  "fetchedAt": "2026-06-02T18:19:48.093801+00:00",
+  "fetchedAt": "2026-06-02T18:21:16.435087+00:00",
   "movie": "peddi",
-  "totalShows": 49,
+  "totalShows": 51,
   "shows": [
     {
       "city": "Düsseldorf",
@@ -276,6 +276,14 @@
       "bookingUrl": "https://ticket-cloud.de/Luxor-Heidelberg/Show/2390136"
     },
     {
+      "city": "Essen",
+      "cinema": "CinemaxX",
+      "date": "2026-06-06",
+      "time": "11:30",
+      "subtitle": "English Subtitles",
+      "bookingUrl": "https://www.cinemaxx.de/buchtickets/zusammenfassung/1431/HO00001469/50107"
+    },
+    {
       "city": "Wolfsburg (Braunschweig)",
       "cinema": "Astor",
       "date": "2026-06-06",
@@ -354,6 +362,14 @@
       "time": "11:10",
       "subtitle": "English Subtitles",
       "bookingUrl": "https://www.cinemaxx.de/buchtickets/zusammenfassung/1107/HO00001469/65481"
+    },
+    {
+      "city": "Essen",
+      "cinema": "CinemaxX",
+      "date": "2026-06-07",
+      "time": "11:30",
+      "subtitle": "English Subtitles",
+      "bookingUrl": "https://www.cinemaxx.de/kinoprogramm/essen/film/peddi"
     },
     {
       "city": "Dresden",
