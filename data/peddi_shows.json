@@ -1,7 +1,7 @@
 {
-  "fetchedAt": "2026-06-03T19:49:13.050168+00:00",
+  "fetchedAt": "2026-06-03T23:17:34.662533+00:00",
   "movie": "peddi",
-  "totalShows": 67,
+  "totalShows": 64,
   "shows": [
     {
       "city": "Düsseldorf",
@@ -36,14 +36,6 @@
       "bookingUrl": "https://ticket-cloud.de/Luxor-Heidelberg/Show/2386389"
     },
     {
-      "city": "Mönchengladbach",
-      "cinema": "Haus Zoar",
-      "date": "2026-06-03",
-      "time": "20:30",
-      "subtitle": "English Subtitles",
-      "bookingUrl": "https://kinotickets.express/cine-factory-moenchengladbach/sale/seats/36959"
-    },
-    {
       "city": "Pforzheim",
       "cinema": "Cinemoon",
       "date": "2026-06-03",
@@ -66,22 +58,6 @@
       "time": "21:00",
       "subtitle": "English Subtitles",
       "bookingUrl": "https://www.cinecitta.de/filme/peddi/"
-    },
-    {
-      "city": "Stuttgart",
-      "cinema": "Capitol Kornwestheim",
-      "date": "2026-06-03",
-      "time": "21:00",
-      "subtitle": "English Subtitles",
-      "bookingUrl": "https://kinotickets.express/kornwestheim-capitol/sale/seats/26314"
-    },
-    {
-      "city": "Dresden",
-      "cinema": "Zentralkino",
-      "date": "2026-06-03",
-      "time": "21:45",
-      "subtitle": "English Subtitles",
-      "bookingUrl": "https://www.kinoheld.de/kino/dresden/zentralkino-dresden/vorstellung/3551712764"
     },
     {
       "city": "Heidelberg",
