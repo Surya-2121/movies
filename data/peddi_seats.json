@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-06-02T19:02:08.282000+00:00",
+  "fetchedAt": "2026-06-03T14:27:11.875557+00:00",
   "movie": "peddi",
   "totalShows": 67,
   "shows": [
@@ -11,11 +11,11 @@
       "subtitle": "English Subtitles",
       "bookingUrl": "https://kinotickets.express/duesseldorf-ufa-filmpalast/sale/seats/81452",
       "capacity": 128,
-      "booked": 6,
-      "free": 122,
+      "booked": 33,
+      "free": 95,
       "blocked": 0,
       "ticketPrice": 18.0,
-      "gross": 108.0
+      "gross": 594.0
     },
     {
       "city": "Bielefeld",
@@ -39,11 +39,11 @@
       "subtitle": "English Subtitles",
       "bookingUrl": "https://kinotickets.express/duesseldorf-ufa-filmpalast/sale/seats/80776",
       "capacity": 178,
-      "booked": 101,
-      "free": 77,
+      "booked": 106,
+      "free": 72,
       "blocked": 0,
       "ticketPrice": 18.0,
-      "gross": 1818.0
+      "gross": 1908.0
     },
     {
       "city": "Heidelberg",
@@ -53,11 +53,11 @@
       "subtitle": "English Subtitles",
       "bookingUrl": "https://ticket-cloud.de/Luxor-Heidelberg/Show/2386389",
       "capacity": 163,
-      "booked": 75,
-      "free": 86,
+      "booked": 88,
+      "free": 73,
       "blocked": 2,
       "ticketPrice": 18.0,
-      "gross": 1350.0
+      "gross": 1584.0
     },
     {
       "city": "Mönchengladbach",
@@ -81,11 +81,11 @@
       "subtitle": "English Subtitles",
       "bookingUrl": "https://www.kinoheld.de/kino/pforzheim/cinemoon-pforzheim?rb=0&mode=widget&appView=1&showId=31784#panel-seats",
       "capacity": 620,
-      "booked": 14,
-      "free": 606,
+      "booked": 18,
+      "free": 602,
       "blocked": 0,
       "ticketPrice": 19.0,
-      "gross": 266.0
+      "gross": 342.0
     },
     {
       "city": "Frankfurt",
@@ -95,11 +95,11 @@
       "subtitle": "English Subtitles",
       "bookingUrl": "https://kinotickets.express/hofheim-filmpalast/sale/seats/14678",
       "capacity": 188,
-      "booked": 90,
-      "free": 98,
+      "booked": 109,
+      "free": 79,
       "blocked": 0,
       "ticketPrice": 18.0,
-      "gross": 1620.0
+      "gross": 1962.0
     },
     {
       "city": "Nürnberg",
@@ -109,12 +109,12 @@
       "subtitle": "English Subtitles",
       "bookingUrl": "https://www.cinecitta.de/filme/peddi/",
       "capacity": 160,
-      "booked": 90,
-      "free": 70,
+      "booked": 115,
+      "free": 45,
       "blocked": 0,
       "_manual": true,
       "ticketPrice": 20.0,
-      "gross": 1800.0
+      "gross": 2300.0
     },
     {
       "city": "Stuttgart",
@@ -124,11 +124,11 @@
       "subtitle": "English Subtitles",
       "bookingUrl": "https://kinotickets.express/kornwestheim-capitol/sale/seats/26314",
       "capacity": 145,
-      "booked": 64,
-      "free": 81,
+      "booked": 82,
+      "free": 63,
       "blocked": 0,
       "ticketPrice": 18.0,
-      "gross": 1152.0
+      "gross": 1476.0
     },
     {
       "city": "Dresden",
@@ -138,11 +138,11 @@
       "subtitle": "English Subtitles",
       "bookingUrl": "https://www.kinoheld.de/kino/dresden/zentralkino-dresden/vorstellung/3551712764",
       "capacity": 95,
-      "booked": 14,
-      "free": 81,
+      "booked": 18,
+      "free": 77,
       "blocked": 0,
       "ticketPrice": 19.0,
-      "gross": 266.0
+      "gross": 342.0
     },
     {
       "city": "Heidelberg",
@@ -166,11 +166,11 @@
       "subtitle": "English Subtitles",
       "bookingUrl": "https://www.kinopolis.de/vi/programm/vorstellung/FF094000023WRYTYRD",
       "capacity": 147,
-      "booked": 3,
-      "free": 144,
+      "booked": 1,
+      "free": 146,
       "blocked": 0,
       "ticketPrice": 14.0,
-      "gross": 42.0
+      "gross": 14.0
     },
     {
       "city": "München",
@@ -180,11 +180,11 @@
       "subtitle": "English Subtitles",
       "bookingUrl": "https://www.mathaeser.de/mm/programm/vorstellung/D7EA8000023BWDJVCF",
       "capacity": 285,
-      "booked": 85,
-      "free": 200,
+      "booked": 105,
+      "free": 180,
       "blocked": 0,
       "ticketPrice": 14.0,
-      "gross": 1190.0
+      "gross": 1470.0
     },
     {
       "city": "Bochum",
@@ -208,11 +208,11 @@
       "subtitle": "English Subtitles",
       "bookingUrl": "https://kinotickets.express/hofheim-filmpalast/sale/seats/14719",
       "capacity": 188,
-      "booked": 39,
-      "free": 149,
+      "booked": 48,
+      "free": 140,
       "blocked": 0,
       "ticketPrice": 14.0,
-      "gross": 546.0
+      "gross": 672.0
     },
     {
       "city": "Pforzheim",
@@ -251,11 +251,11 @@
       "subtitle": "English Subtitles",
       "bookingUrl": "https://www.kinopolis.de/ab/programm/vorstellung/585A3000023OFCLMTD",
       "capacity": 145,
-      "booked": 0,
-      "free": 145,
+      "booked": 12,
+      "free": 133,
       "blocked": 0,
       "ticketPrice": 14.0,
-      "gross": 0.0
+      "gross": 168.0
     },
     {
       "city": "Pforzheim",
@@ -293,11 +293,11 @@
       "subtitle": "English Subtitles",
       "bookingUrl": "https://braunschweig.premiumkino.de/vorstellung/peddi/20260604/1930/2erVpK_tmw5J61iFXKyRRWIl0ntJPxPkEvhGZp6lkm4~",
       "capacity": 200,
-      "booked": 23,
-      "free": 177,
+      "booked": 32,
+      "free": 168,
       "blocked": 0,
       "ticketPrice": 17.0,
-      "gross": 391.0
+      "gross": 544.0
     },
     {
       "city": "Hamburg",
@@ -307,11 +307,11 @@
       "subtitle": "English Subtitles",
       "bookingUrl": "https://www.kinopolis.de/hh/programm/vorstellung/FA840000023HXECDQG",
       "capacity": 143,
-      "booked": 27,
-      "free": 116,
+      "booked": 26,
+      "free": 117,
       "blocked": 0,
       "ticketPrice": 14.0,
-      "gross": 378.0
+      "gross": 364.0
     },
     {
       "city": "Heidelberg",
@@ -377,11 +377,11 @@
       "subtitle": "English Subtitles",
       "bookingUrl": "https://kinotickets.express/duesseldorf-ufa-filmpalast/sale/seats/80777",
       "capacity": 125,
-      "booked": 1,
-      "free": 124,
+      "booked": 0,
+      "free": 125,
       "blocked": 0,
       "ticketPrice": 14.0,
-      "gross": 14.0
+      "gross": 0.0
     },
     {
       "city": "Heidelberg",
@@ -616,11 +616,11 @@
       "subtitle": "English Subtitles",
       "bookingUrl": "https://braunschweig.premiumkino.de/vorstellung/peddi/20260606/1145/Oq8FcSMmGEe64gtlsqRGt_ST2swgSE9AX6TAqNE7Zic~",
       "capacity": 200,
-      "booked": 20,
-      "free": 180,
+      "booked": 24,
+      "free": 176,
       "blocked": 0,
       "ticketPrice": 17.0,
-      "gross": 340.0
+      "gross": 408.0
     },
     {
       "city": "Düsseldorf",
@@ -630,11 +630,11 @@
       "subtitle": "English Subtitles",
       "bookingUrl": "https://kinotickets.express/duesseldorf-ufa-filmpalast/sale/seats/80778",
       "capacity": 176,
-      "booked": 3,
-      "free": 173,
+      "booked": 7,
+      "free": 169,
       "blocked": 0,
       "ticketPrice": 14.0,
-      "gross": 42.0
+      "gross": 98.0
     },
     {
       "city": "Frankfurt",
@@ -761,11 +761,11 @@
       "subtitle": "English Subtitles",
       "bookingUrl": "https://ticket-cloud.de/Luxor-Heidelberg/Show/2386394",
       "capacity": 163,
-      "booked": 3,
-      "free": 158,
+      "booked": 5,
+      "free": 156,
       "blocked": 2,
       "ticketPrice": 14.0,
-      "gross": 42.0
+      "gross": 70.0
     },
     {
       "city": "Berlin",
