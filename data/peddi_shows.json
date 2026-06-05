@@ -1,7 +1,7 @@
 {
-  "fetchedAt": "2026-06-05T17:54:40.543557+00:00",
+  "fetchedAt": "2026-06-05T22:39:39.195117+00:00",
   "movie": "peddi",
-  "totalShows": 54,
+  "totalShows": 53,
   "shows": [
     {
       "city": "Bielefeld",
@@ -98,14 +98,6 @@
       "time": "19:00",
       "subtitle": "English Subtitles",
       "bookingUrl": "https://kinotickets.express/hofheim-filmpalast/sale/seats/14763"
-    },
-    {
-      "city": "Dresden",
-      "cinema": "Zentralkino",
-      "date": "2026-06-05",
-      "time": "19:30",
-      "subtitle": "English Subtitles",
-      "bookingUrl": "https://www.kinoheld.de/kino/dresden/zentralkino-dresden/vorstellung/3541829399"
     },
     {
       "city": "Düsseldorf",
