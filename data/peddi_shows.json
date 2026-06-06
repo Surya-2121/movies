@@ -1,7 +1,7 @@
 {
-  "fetchedAt": "2026-06-06T17:13:38.780071+00:00",
+  "fetchedAt": "2026-06-06T22:35:40.155230+00:00",
   "movie": "peddi",
-  "totalShows": 48,
+  "totalShows": 43,
   "shows": [
     {
       "city": "Bielefeld",
@@ -218,46 +218,6 @@
       "time": "14:00",
       "subtitle": "English Subtitles",
       "bookingUrl": "https://kinotickets.express/hofheim-filmpalast/sale/seats/14720"
-    },
-    {
-      "city": "Chemnitz",
-      "cinema": "CineStar Chemnitz",
-      "date": "2026-06-06",
-      "time": "21:50",
-      "subtitle": "English Subtitles",
-      "bookingUrl": "https://www.cinestar.de/chemnitz-kino-am-roten-turm/veranstaltung-peddi-telugu-omu"
-    },
-    {
-      "city": "Erlangen",
-      "cinema": "CineStar Erlangen",
-      "date": "2026-06-06",
-      "time": "22:30",
-      "subtitle": "English Subtitles",
-      "bookingUrl": "https://www.cinestar.de/kino-erlangen/veranstaltung-peddi-telugu-omu"
-    },
-    {
-      "city": "Dortmund",
-      "cinema": "CineStar Dortmund",
-      "date": "2026-06-06",
-      "time": "22:45",
-      "subtitle": "English Subtitles",
-      "bookingUrl": "https://www.cinestar.de/kino-dortmund/veranstaltung-peddi-telugu-omu"
-    },
-    {
-      "city": "Frankfurt",
-      "cinema": "CineStar Frankfurt",
-      "date": "2026-06-06",
-      "time": "22:45",
-      "subtitle": "English Subtitles",
-      "bookingUrl": "https://www.cinestar.de/kino-frankfurt-main-metropolis/veranstaltung-peddi-telugu-omu"
-    },
-    {
-      "city": "Ingolstadt",
-      "cinema": "CineStar Ingolstadt",
-      "date": "2026-06-06",
-      "time": "23:00",
-      "subtitle": "English Subtitles",
-      "bookingUrl": "https://www.cinestar.de/kino-ingolstadt/veranstaltung-peddi-telugu-omu"
     },
     {
       "city": "Berlin",
