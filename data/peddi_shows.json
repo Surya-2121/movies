@@ -1,7 +1,7 @@
 {
-  "fetchedAt": "2026-06-07T12:21:09.242168+00:00",
+  "fetchedAt": "2026-06-07T14:52:24.144231+00:00",
   "movie": "peddi",
-  "totalShows": 38,
+  "totalShows": 39,
   "shows": [
     {
       "city": "Bielefeld",
@@ -26,6 +26,14 @@
       "time": "10:30",
       "subtitle": "English Subtitles",
       "bookingUrl": "https://www.mathaeser.de/mm/programm/vorstellung/8C2B8000023BWDJVCF"
+    },
+    {
+      "city": "Hamburg",
+      "cinema": "Kinopolis HafenCity",
+      "date": "2026-06-04",
+      "time": "11:15",
+      "subtitle": "English Subtitles",
+      "bookingUrl": "https://www.kinopolis.de/hh/programm/vorstellung/A2C40000023HXECDQG"
     },
     {
       "city": "Bochum",
