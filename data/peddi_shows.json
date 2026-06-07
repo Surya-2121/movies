@@ -1,7 +1,7 @@
 {
-  "fetchedAt": "2026-06-07T14:52:24.144231+00:00",
+  "fetchedAt": "2026-06-07T17:15:59.071787+00:00",
   "movie": "peddi",
-  "totalShows": 39,
+  "totalShows": 38,
   "shows": [
     {
       "city": "Bielefeld",
@@ -50,14 +50,6 @@
       "time": "16:45",
       "subtitle": "English Subtitles",
       "bookingUrl": "https://apollo-aachen.de/programmuebersicht/movie/peddi-telugu"
-    },
-    {
-      "city": "Frankfurt",
-      "cinema": "Kinopolis Aschaffenburg",
-      "date": "2026-06-04",
-      "time": "19:15",
-      "subtitle": "English Subtitles",
-      "bookingUrl": "https://www.kinopolis.de/ab/programm/vorstellung/585A3000023OFCLMTD"
     },
     {
       "city": "Berlin",
