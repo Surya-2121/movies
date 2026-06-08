@@ -463,6 +463,11 @@
           "date": "2026-06-08",
           "time": "19:30",
           "bookingUrl": "https://www.uci-kinowelt.de/film/peddi/419967/berlin-east-side-gallery/82"
+        },
+        {
+          "date": "2026-06-14",
+          "time": "11:00",
+          "bookingUrl": "https://www.uci-kinowelt.de/film/peddi/419967/berlin-east-side-gallery/82"
         }
       ],
       "ticketPrice": 14.0,
