@@ -539,6 +539,18 @@ def main():
         except Exception as e:
             print(f"  [err]  {c['name']} ({c['city']}): {e}")
             continue
+        # Merge any manual additions on top of platform-discovered shows
+        # (useful when a kinopolis/cinetixx page only lists one date but the
+        # cinema actually has more shows we want to expose). Dedupe by (date, time).
+        if platform != "manual":
+            seen = {(s["date"], s["time"]) for s in shows}
+            for ms in (c.get("manualShows") or []):
+                key = (ms.get("date"), ms.get("time"))
+                if key[0] and key[1] and key not in seen:
+                    shows.append({"date": ms["date"], "time": ms["time"],
+                                  "bookingUrl": ms.get("bookingUrl"),
+                                  "isPremiere": False})
+                    seen.add(key)
         for s in shows:
             s["city"] = c["city"]
             s["cinema"] = c["name"]
