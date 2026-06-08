@@ -626,6 +626,16 @@
           "date": "2026-06-07",
           "time": "11:45",
           "bookingUrl": "https://leonberg.traumpalast.de/index.php/FN/8630/PID/5574.html"
+        },
+        {
+          "date": "2026-06-13",
+          "time": "11:30",
+          "bookingUrl": "https://leonberg.traumpalast.de/index.php/FN/8630/PID/5574.html"
+        },
+        {
+          "date": "2026-06-14",
+          "time": "11:30",
+          "bookingUrl": "https://leonberg.traumpalast.de/index.php/FN/8630/PID/5574.html"
         }
       ],
       "ticketPrice": 14.0,
