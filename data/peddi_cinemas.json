@@ -497,6 +497,11 @@
           "date": "2026-06-07",
           "time": "11:30",
           "bookingUrl": "https://www.cinemaxx.de/buchtickets/zusammenfassung/1304/HO00001469/31609"
+        },
+        {
+          "date": "2026-06-13",
+          "time": "12:00",
+          "bookingUrl": "https://www.cinemaxx.de/kinoprogramm/hannover/film/peddi"
         }
       ],
       "ticketPrice": 14.0,

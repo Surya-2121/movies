@@ -1,7 +1,7 @@
 {
-  "fetchedAt": "2026-06-08T18:41:45.958716+00:00",
+  "fetchedAt": "2026-06-08T18:42:22.730078+00:00",
   "movie": "peddi",
-  "totalShows": 46,
+  "totalShows": 47,
   "shows": [
     {
       "city": "Bielefeld",
@@ -290,6 +290,14 @@
       "time": "11:45",
       "subtitle": "English Subtitles",
       "bookingUrl": "https://www.cinemaxx.de/kinoprogramm/hamburg-dammtor/film/peddi"
+    },
+    {
+      "city": "Hannover",
+      "cinema": "CinemaxX",
+      "date": "2026-06-13",
+      "time": "12:00",
+      "subtitle": "English Subtitles",
+      "bookingUrl": "https://www.cinemaxx.de/kinoprogramm/hannover/film/peddi"
     },
     {
       "city": "Bremen",
