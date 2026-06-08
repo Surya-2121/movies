@@ -327,6 +327,22 @@
       "premierePrice": 18.0
     },
     {
+      "key": "bremen-cinemaxx",
+      "city": "Bremen",
+      "name": "CinemaxX",
+      "zineflixTheatreName": "Cinemaxx Bremen",
+      "platform": "manual",
+      "manualShows": [
+        {
+          "date": "2026-06-13",
+          "time": "12:10",
+          "bookingUrl": "https://www.cinemaxx.de/kinoprogramm/bremen/film/peddi"
+        }
+      ],
+      "ticketPrice": 14.0,
+      "premierePrice": 18.0
+    },
+    {
       "key": "augsburg-cinemaxx",
       "city": "Augsburg",
       "name": "CinemaxX",
