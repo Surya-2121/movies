@@ -305,6 +305,11 @@
           "date": "2026-06-05",
           "time": "21:50",
           "bookingUrl": "https://www.cinemaxx.de/kinoprogramm/magdeburg/film/peddi"
+        },
+        {
+          "date": "2026-06-13",
+          "time": "12:10",
+          "bookingUrl": "https://www.cinemaxx.de/kinoprogramm/magdeburg/film/peddi"
         }
       ],
       "ticketPrice": 14.0,

@@ -1,7 +1,7 @@
 {
-  "fetchedAt": "2026-06-08T18:42:22.730078+00:00",
+  "fetchedAt": "2026-06-08T18:42:43.020948+00:00",
   "movie": "peddi",
-  "totalShows": 47,
+  "totalShows": 48,
   "shows": [
     {
       "city": "Bielefeld",
@@ -306,6 +306,14 @@
       "time": "12:10",
       "subtitle": "English Subtitles",
       "bookingUrl": "https://www.cinemaxx.de/kinoprogramm/bremen/film/peddi"
+    },
+    {
+      "city": "Magdeburg",
+      "cinema": "CinemaxX",
+      "date": "2026-06-13",
+      "time": "12:10",
+      "subtitle": "English Subtitles",
+      "bookingUrl": "https://www.cinemaxx.de/kinoprogramm/magdeburg/film/peddi"
     },
     {
       "city": "Berlin",
