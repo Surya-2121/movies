@@ -311,6 +311,22 @@
       "premierePrice": 18.0
     },
     {
+      "key": "bielefeld-cinemaxx",
+      "city": "Bielefeld",
+      "name": "CinemaxX",
+      "zineflixTheatreName": "Cinemaxx Bielefeld",
+      "platform": "manual",
+      "manualShows": [
+        {
+          "date": "2026-06-13",
+          "time": "10:00",
+          "bookingUrl": "https://www.cinemaxx.de/kinoprogramm/bielefeld/film/peddi"
+        }
+      ],
+      "ticketPrice": 14.0,
+      "premierePrice": 18.0
+    },
+    {
       "key": "augsburg-cinemaxx",
       "city": "Augsburg",
       "name": "CinemaxX",
