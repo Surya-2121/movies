@@ -445,6 +445,16 @@
           "date": "2026-06-07",
           "time": "11:30",
           "bookingUrl": "https://www.cinemaxx.de/kinoprogramm/essen/film/peddi"
+        },
+        {
+          "date": "2026-06-13",
+          "time": "22:30",
+          "bookingUrl": "https://www.cinemaxx.de/kinoprogramm/essen/film/peddi"
+        },
+        {
+          "date": "2026-06-14",
+          "time": "11:00",
+          "bookingUrl": "https://www.cinemaxx.de/kinoprogramm/essen/film/peddi"
         }
       ],
       "ticketPrice": 14.0,
