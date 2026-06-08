@@ -132,6 +132,13 @@
       "platform": "kinopolis",
       "filmUrl": "https://www.kinopolis.de/hh/filmdetail/peddi-telugu/42A74000012PLXMQDD",
       "siteBase": "https://www.kinopolis.de",
+      "manualShows": [
+        {
+          "date": "2026-06-14",
+          "time": "11:15",
+          "bookingUrl": "https://www.kinopolis.de/hh/filmdetail/peddi-telugu/42A74000012PLXMQDD"
+        }
+      ],
       "ticketPrice": 14.0,
       "premierePrice": 18.0
     },

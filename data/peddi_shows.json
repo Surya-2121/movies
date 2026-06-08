@@ -1,7 +1,7 @@
 {
-  "fetchedAt": "2026-06-08T18:45:04.794956+00:00",
+  "fetchedAt": "2026-06-08T18:45:51.114553+00:00",
   "movie": "peddi",
-  "totalShows": 49,
+  "totalShows": 50,
   "shows": [
     {
       "city": "Bielefeld",
@@ -362,6 +362,14 @@
       "time": "11:00",
       "subtitle": "English Subtitles",
       "bookingUrl": "https://www.cinemaxx.de/kinoprogramm/essen/film/peddi"
+    },
+    {
+      "city": "Hamburg",
+      "cinema": "Kinopolis HafenCity",
+      "date": "2026-06-14",
+      "time": "11:15",
+      "subtitle": "English Subtitles",
+      "bookingUrl": "https://www.kinopolis.de/hh/filmdetail/peddi-telugu/42A74000012PLXMQDD"
     },
     {
       "city": "Berlin",
