@@ -471,6 +471,11 @@
           "date": "2026-06-05",
           "time": "22:30",
           "bookingUrl": "https://www.cinemaxx.de/kinoprogramm/hamburg-dammtor/film/peddi"
+        },
+        {
+          "date": "2026-06-13",
+          "time": "11:45",
+          "bookingUrl": "https://www.cinemaxx.de/kinoprogramm/hamburg-dammtor/film/peddi"
         }
       ],
       "ticketPrice": 14.0,
