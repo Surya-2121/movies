@@ -1,7 +1,7 @@
 {
-  "fetchedAt": "2026-06-08T18:47:52.899450+00:00",
+  "fetchedAt": "2026-06-08T18:49:16.007593+00:00",
   "movie": "peddi",
-  "totalShows": 52,
+  "totalShows": 53,
   "shows": [
     {
       "city": "Bielefeld",
@@ -282,6 +282,14 @@
       "time": "10:00",
       "subtitle": "English Subtitles",
       "bookingUrl": "https://www.cinemaxx.de/kinoprogramm/bielefeld/film/peddi"
+    },
+    {
+      "city": "Nürnberg",
+      "cinema": "Cinecitta",
+      "date": "2026-06-13",
+      "time": "11:15",
+      "subtitle": "English Subtitles",
+      "bookingUrl": "https://www.cinecitta.de/filme/peddi/"
     },
     {
       "city": "Stuttgart",
