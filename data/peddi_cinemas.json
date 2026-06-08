@@ -349,9 +349,44 @@
           "bookingUrl": "https://www.cinemaxx.de/buchtickets/zusammenfassung/1107/HO00001469/65481"
         },
         {
+          "date": "2026-06-09",
+          "time": "20:30",
+          "bookingUrl": "https://www.cinemaxx.de/buchtickets/zusammenfassung/1107/HO00001469/65863"
+        },
+        {
           "date": "2026-06-10",
           "time": "16:30",
           "bookingUrl": "https://www.cinemaxx.de/buchtickets/zusammenfassung/1107/HO00001469/65531"
+        },
+        {
+          "date": "2026-06-11",
+          "time": "14:30",
+          "bookingUrl": "https://www.cinemaxx.de/kinoprogramm/berlin/film/peddi"
+        },
+        {
+          "date": "2026-06-12",
+          "time": "21:00",
+          "bookingUrl": "https://www.cinemaxx.de/kinoprogramm/berlin/film/peddi"
+        },
+        {
+          "date": "2026-06-13",
+          "time": "14:30",
+          "bookingUrl": "https://www.cinemaxx.de/kinoprogramm/berlin/film/peddi"
+        },
+        {
+          "date": "2026-06-14",
+          "time": "12:30",
+          "bookingUrl": "https://www.cinemaxx.de/kinoprogramm/berlin/film/peddi"
+        },
+        {
+          "date": "2026-06-14",
+          "time": "20:40",
+          "bookingUrl": "https://www.cinemaxx.de/kinoprogramm/berlin/film/peddi"
+        },
+        {
+          "date": "2026-06-16",
+          "time": "20:40",
+          "bookingUrl": "https://www.cinemaxx.de/kinoprogramm/berlin/film/peddi"
         }
       ],
       "ticketPrice": 14.0,
