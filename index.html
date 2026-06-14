@@ -132,15 +132,6 @@
         <button class="hm-arrow hm-arrow-right" data-target="rowCS" data-dir="1" aria-label="Scroll right">&#8250;</button>
         <div class="hm-row" id="rowCS">
 
-          <a href="dragon-movie.html" class="hm-card">
-            <div class="hm-card-poster">
-              <img src="images/dragon.jpg" alt="Dragon">
-              <span class="hm-card-status is-cs">Coming Soon</span>
-            </div>
-            <div class="hm-card-title">Dragon</div>
-            <div class="hm-card-genre">Action / Thriller</div>
-          </a>
-
           <a href="paradise-movie.html" class="hm-card">
             <div class="hm-card-poster">
               <img src="https://image.tmdb.org/t/p/w300/smghVMoMWSIFi5dgIz4w1UIcEcY.jpg" alt="The Paradise">
@@ -159,13 +150,13 @@
             <div class="hm-card-genre">Action / Mythology</div>
           </a>
 
-          <a href="spirit-movie.html" class="hm-card">
+          <a href="dragon-movie.html" class="hm-card">
             <div class="hm-card-poster">
-              <img src="images/spirit.webp" alt="Spirit">
+              <img src="images/dragon.jpg" alt="Dragon">
               <span class="hm-card-status is-cs">Coming Soon</span>
             </div>
-            <div class="hm-card-title">Spirit</div>
-            <div class="hm-card-genre">Action / Drama</div>
+            <div class="hm-card-title">Dragon</div>
+            <div class="hm-card-genre">Action / Thriller</div>
           </a>
 
           <a href="fauzi-movie.html" class="hm-card">
@@ -175,6 +166,15 @@
             </div>
             <div class="hm-card-title">Fauzi</div>
             <div class="hm-card-genre">Action / War</div>
+          </a>
+
+          <a href="spirit-movie.html" class="hm-card">
+            <div class="hm-card-poster">
+              <img src="images/spirit.webp" alt="Spirit">
+              <span class="hm-card-status is-cs">Coming Soon</span>
+            </div>
+            <div class="hm-card-title">Spirit</div>
+            <div class="hm-card-genre">Action / Drama</div>
           </a>
 
         </div>
@@ -231,8 +231,14 @@
       const nowShowing = new Set(['peddi', 'maa-inti-bangaaram']);
       const hidden = new Set(['vishwambhara']);
       // Movies always shown in the slider, even when Firebase doesn't have them yet.
+      // Order here = visible order on the home page (Firebase entries not in this
+      // list are appended after, preserving curated order at the top).
       const staticAdditions = [
-        ['dragon', { name: 'Dragon', poster: 'images/dragon.jpg' }],
+        ['paradise',  { name: 'The Paradise', poster: 'https://image.tmdb.org/t/p/w300/smghVMoMWSIFi5dgIz4w1UIcEcY.jpg', genre: 'Drama' }],
+        ['varanasi',  { name: 'Varanasi',     poster: 'images/varanasi.jpg', genre: 'Action / Mythology' }],
+        ['dragon',    { name: 'Dragon',       poster: 'images/dragon.jpg',   genre: 'Action / Thriller' }],
+        ['fauzi',     { name: 'Fauzi',        poster: 'images/fauzi.jpg',    genre: 'Action / War' }],
+        ['spirit',    { name: 'Spirit',       poster: 'images/spirit.webp',  genre: 'Action / Drama' }],
       ];
       const fbComingSoon = Object.entries(data).filter(([k, m]) => m.status === 'Coming Soon' && m.poster && !nowShowing.has(k) && !hidden.has(k));
       const staticKeys = new Set(staticAdditions.map(([k]) => k));
