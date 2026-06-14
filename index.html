@@ -133,15 +133,29 @@
           <!-- Movies -->
           <div class="movies-col">
             <h2 class="section-title">Movies</h2>
-            <a href="peddi-movie.html" class="now-playing-card">
-              <div class="np-poster"><img src="images/peddi.jpg" alt="Peddi"></div>
-              <div class="np-info">
-                <div class="np-movie-name">Peddi</div>
-                <div class="np-language">Telugu</div>
-                <div class="np-dates">3 - 16 June 2026</div>
-                <div class="np-cta">Book Now &rarr;</div>
+            <div class="np-slider">
+              <div class="np-track">
+                <a href="peddi-movie.html" class="now-playing-card">
+                  <div class="np-poster"><img src="images/peddi.jpg" alt="Peddi"></div>
+                  <div class="np-info">
+                    <div class="np-movie-name">Peddi</div>
+                    <div class="np-language">Telugu</div>
+                    <div class="np-dates">3 - 16 June 2026</div>
+                    <div class="np-cta">Book Now &rarr;</div>
+                  </div>
+                </a>
+                <a href="maa-inti-bangaaram-movie.html" class="now-playing-card">
+                  <div class="np-poster"><img src="images/maa-inti-bangaaram.jpg" alt="Maa Inti Bangaaram"></div>
+                  <div class="np-info">
+                    <div class="np-movie-name">Maa Inti Bangaaram</div>
+                    <div class="np-language">Telugu</div>
+                    <div class="np-dates">19 June 2026</div>
+                    <div class="np-cta">Book Now &rarr;</div>
+                  </div>
+                </a>
               </div>
-            </a>
+            </div>
+            <div class="np-dots" id="npDots"></div>
           </div>
 
           <!-- Coming Soon -->
@@ -224,6 +238,28 @@
     window.csAutoSlide = setInterval(() => {
       goTo((current + 1) % cards.length);
     }, 3000);
+
+    // ===== Movies (now-playing) slider — mirrors Coming Soon =====
+    (function initNpSlider() {
+      const npTrack = document.querySelector('.np-track');
+      const npDots = document.getElementById('npDots');
+      if (!npTrack || !npDots) return;
+      const npCards = npTrack.querySelectorAll('.now-playing-card');
+      if (npCards.length <= 1) { npDots.style.display = 'none'; return; }
+      let npCur = 0;
+      npCards.forEach((_, i) => {
+        const d = document.createElement('span');
+        d.className = 'np-dot' + (i === 0 ? ' np-dot-active' : '');
+        d.addEventListener('click', () => npGo(i));
+        npDots.appendChild(d);
+      });
+      function npGo(i) {
+        npCur = i;
+        npTrack.style.transform = `translateX(-${npCur * 100}%)`;
+        npDots.querySelectorAll('.np-dot').forEach((d, j) => d.classList.toggle('np-dot-active', j === npCur));
+      }
+      window.npAutoSlide = setInterval(() => npGo((npCur + 1) % npCards.length), 4000);
+    })();
   </script>
   <script type="module">
     import { initializeApp } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-app.js";
@@ -241,8 +277,8 @@
     const snap = await get(ref(db, 'movies'));
     const data = snap.val();
     if (data) {
-      const legacyPages = { ustaad:'ustaad-movie.html', peddi:'peddi-movie.html', dragon:'dragon-movie.html', paradise:'paradise-movie.html', vishwambhara:'vishwambhara-movie.html', varanasi:'varanasi-movie.html', spirit:'spirit-movie.html', fauzi:'fauzi-movie.html', dacoit:'dacoit-movie.html' };
-      const nowShowing = new Set(['peddi']);
+      const legacyPages = { ustaad:'ustaad-movie.html', peddi:'peddi-movie.html', 'maa-inti-bangaaram':'maa-inti-bangaaram-movie.html', dragon:'dragon-movie.html', paradise:'paradise-movie.html', vishwambhara:'vishwambhara-movie.html', varanasi:'varanasi-movie.html', spirit:'spirit-movie.html', fauzi:'fauzi-movie.html', dacoit:'dacoit-movie.html' };
+      const nowShowing = new Set(['peddi', 'maa-inti-bangaaram']);
       const hidden = new Set(['vishwambhara']);
       // Movies always shown in the slider, even when Firebase doesn't have them yet.
       const staticAdditions = [
@@ -285,6 +321,7 @@
     const movies = [
       { name: 'Ustaad Bhagat Singh', url: 'ustaad-movie.html', cast: 'Pawan Kalyan, Sreeleela, Raashii Khanna', status: 'Ended' },
       { name: 'Peddi', url: 'peddi-movie.html', cast: 'Ram Charan, Janhvi Kapoor', status: 'Now Showing' },
+      { name: 'Maa Inti Bangaaram', url: 'maa-inti-bangaaram-movie.html', cast: 'Samantha Ruth Prabhu, Gulshan Devaiah, Gautami', status: 'Now Showing' },
       { name: 'Dragon', url: 'dragon-movie.html', cast: 'N.T. Rama Rao Jr., Anil Kapoor, Rukmini Vasanth', status: 'Coming Soon' },
       { name: 'The Paradise', url: 'paradise-movie.html', cast: 'Nani', status: 'Coming Soon' },
       { name: 'Varanasi', url: 'varanasi-movie.html', cast: 'Mahesh Babu', status: 'Coming Soon' },

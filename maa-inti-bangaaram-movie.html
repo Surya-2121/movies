@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Maa Inti Bangaaram - Germany Telugu Movies</title>
+  <link rel="canonical" href="https://germany-telugu-movies.com/maa-inti-bangaaram-movie.html">
+  <meta name="description" content="Maa Inti Bangaaram - Telugu movie starring Samantha Ruth Prabhu, releasing 19 June 2026. Watch trailer, songs, and book tickets in Germany.">
+  <link rel="icon" href="images/logo.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/style.css?v=3">
+</head>
+<body>
+  <nav class="nav-menu" id="navMenu"><div class="nav-header"><img src="images/logo.svg" alt="Logo" class="nav-logo"><button class="nav-close" onclick="toggleMenu()">&times;</button></div><a href="index.html" class="nav-link">Home</a><a href="coming-soon.html" class="nav-link">Coming Soon</a><a href="boxoffice.html" class="nav-link">Box Office</a><a href="about.html" class="nav-link">About Us</a><a href="contact.html" class="nav-link">Contact</a><div class="nav-divider"></div><button class="nav-theme-btn" onclick="toggleTheme()"><span id="themeIcon">&#9788;</span> <span id="themeText">Light Mode</span></button></nav><div class="nav-overlay" id="navOverlay" onclick="toggleMenu()"></div><button class="search-btn" onclick="toggleSearch()"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></button>
+<div class="search-overlay" id="searchOverlay"><div class="search-overlay-box"><button class="search-overlay-close" onclick="toggleSearch()">&times;</button><input type="text" class="search-overlay-input" placeholder="Search for a movie..." oninput="handleSearchInput(event)" autocomplete="off"><div class="search-overlay-results" id="searchOverlayResults"></div></div></div>
+<button class="menu-btn" id="menuBtn" onclick="toggleMenu()"><span></span><span></span><span></span></button>
+  <header class="site-header">
+    <a href="index.html"><img src="images/logo.svg" alt="Germany Telugu Movies" class="header-logo"></a>
+  </header>
+
+  <main class="movie-page">
+    <!-- Backdrop Banner -->
+    <div class="mp-backdrop">
+      <img src="images/maa-inti-bangaaram-backdrop.webp" alt="" class="mp-backdrop-img">
+      <div class="mp-backdrop-gradient"></div>
+      <section class="mp-hero">
+        <div class="mp-poster"><img src="images/maa-inti-bangaaram.jpg" alt="Maa Inti Bangaaram"></div>
+        <div class="mp-hero-info">
+          <h1 class="mp-title">Maa Inti Bangaaram</h1>
+          <div class="mp-meta">
+            <span>Telugu</span>
+            <span>2026</span>
+            <span>Drama / Action</span>
+          </div>
+          <div class="mp-dates">Release: 19 June 2026 &bull; Coming Soon to Germany</div>
+          <div id="premiereCountdown" class="mp-premiere-count" style="display:none;margin-top:6px;font-size:0.85rem;color:#f0ad4e;font-weight:600;"></div>
+          <!-- Phase 1: Pre-release - Interested + Notify -->
+          <div id="interestedBar" class="bms-interest-bar">
+            <div class="bms-bar-left">
+              <span class="bms-thumb">&#128077;</span>
+              <span class="bms-count" id="interestedCount">0</span><span class="bms-count-label"> are interested</span>
+            </div>
+            <button id="interestedBtn" class="bms-btn" onclick="toggleInterest()">I'm interested</button>
+          </div>
+
+          <div id="notifyBar" class="bms-interest-bar" style="margin-top:12px;">
+            <div class="bms-bar-left">
+              <span class="bms-thumb">&#128276;</span>
+              <span class="bms-count" id="notifyCount">0</span><span class="bms-count-label"> subscribed</span>
+            </div>
+            <button id="notifyBtn" class="bms-btn" onclick="toggleNotifyForm()">Notify Me</button>
+          </div>
+          <div id="notifyForm" class="notify-form" style="display:none;margin-top:12px;">
+            <p class="notify-form-text">Get notified when tickets go on sale in Germany!</p>
+            <div class="notify-form-row">
+              <input type="email" id="notifyEmail" class="notify-input" placeholder="Your email address">
+              <button id="notifySubmit" class="book-btn notify-submit-btn">Subscribe</button>
+            </div>
+            <div id="notifyMsg" class="review-msg"></div>
+          </div>
+
+          <!-- Phase 2: Tickets live - Rating + Book Now -->
+          <div id="rateBar" class="bms-rate-bar" style="display:none;">
+            <div class="bms-bar-left">
+              <span class="bms-star">&#11088;</span>
+              <div>
+                <span class="bms-rating-val" id="avgRating">-</span><span class="bms-rating-out">/5</span>
+                <span class="bms-votes" id="voteCount">(0 Votes)</span>
+              </div>
+            </div>
+            <button id="rateBtn" class="bms-btn" onclick="toggleRateForm()">Rate now</button>
+          </div>
+          <div id="rateForm" class="notify-form" style="display:none;margin-top:12px;">
+            <input type="text" id="rateName" class="notify-input" placeholder="Your name" maxlength="50" style="margin-bottom:8px;">
+            <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px;">
+              <input type="number" id="rateValue" class="notify-input" placeholder="Rating" min="0" max="5" step="0.5" style="width:100px;">
+              <span style="color:#aaa;">/ 5</span>
+            </div>
+            <textarea id="rateText" class="notify-input" placeholder="Write your review (optional)" maxlength="500" rows="3" style="resize:vertical;"></textarea>
+            <button id="rateSubmit" class="book-btn notify-submit-btn" style="margin-top:12px;">Submit Review</button>
+            <div id="rateMsg" class="review-msg"></div>
+          </div>
+
+          <div id="bookBar" class="bms-interest-bar" style="display:none;margin-top:12px;">
+            <div class="bms-bar-left">
+              <span class="bms-thumb">&#127915;</span>
+              <span class="bms-count-label">Tickets available now!</span>
+            </div>
+            <a id="bookLink" href="booking.html?movie=maa-inti-bangaaram" class="bms-btn bms-btn-red" style="text-decoration:none;">Book Now</a>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <div class="mp-content">
+      <section class="mp-section">
+        <h2 class="mp-section-title">About the Movie</h2>
+        <p class="mp-synopsis">In a traditional household, a woman with a hidden past struggles to find acceptance. When danger from her former life resurfaces, she must protect the very family that doubts her without revealing the truth.</p>
+      </section>
+
+      <section class="mp-section">
+        <h2 class="mp-section-title">Cast &amp; Crew</h2>
+        <div class="mp-crew">
+          <p><strong>Director:</strong> B.V. Nandini Reddy</p>
+          <p><strong>Written by:</strong> Raj Nidimoru, Vasanth Maringanti (additional screenplay by Prahaas Boppudi)</p>
+          <p><strong>Starring:</strong> Samantha Ruth Prabhu, Gulshan Devaiah, Gautami, Diganth, Sreemukhi, Manjusha, Srinivas Gavireddy, Lakshmi, Anand</p>
+          <p><strong>Music:</strong> Santhosh Narayanan</p>
+          <p><strong>Lyrics:</strong> Rahaman</p>
+          <p><strong>Cinematography:</strong> Om Prakash</p>
+          <p><strong>Edited by:</strong> Dharmendra Kakarala</p>
+          <p><strong>Production Designer:</strong> Ullas Hydoor</p>
+          <p><strong>Costume Designer:</strong> Pallavi Singh</p>
+          <p><strong>Producers:</strong> Himank Duvvuru, Raj Nidimoru, Samantha Ruth Prabhu</p>
+          <p><strong>Executive Producer:</strong> Gaddam Rakesh &bull; <strong>Line Producer:</strong> Daggubati Aryan Rajesh</p>
+          <p><strong>Production:</strong> Tralala Moving Pictures</p>
+        </div>
+      </section>
+
+      <!-- Songs -->
+      <section class="mp-section">
+        <h2 class="mp-section-title">Songs</h2>
+        <div class="mp-songs">
+          <a href="https://www.youtube.com/watch?v=iJ1fXeDSKXY" target="_blank" rel="noopener" class="mp-song-card">
+            <div class="mp-song-icon">&#9835;</div>
+            <span>Thassadiya</span>
+          </a>
+        </div>
+      </section>
+
+      <!-- Trailer -->
+      <section class="mp-section">
+        <h2 class="mp-section-title">Trailer</h2>
+        <div class="mp-video">
+          <iframe src="https://www.youtube.com/embed/B9d-wISnm8s" title="Maa Inti Bangaaram Trailer" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="footer-content">
+      <div class="footer-location">Germany</div>
+      <a href="mailto:info@germany-telugu-movies.com" class="footer-email">info@germany-telugu-movies.com</a>
+      <div class="footer-social">
+        <a href="https://www.instagram.com/germanytelugumovies?igsh=dmE4N2R5YWxqYWhm&utm_source=qr" target="_blank" rel="noopener" class="footer-instagram">
+          <svg style="width:18px;height:18px;vertical-align:middle;margin-right:6px;" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 1.17.054 1.97.24 2.43.403a4.08 4.08 0 011.47.958c.453.453.78.898.958 1.47.163.46.35 1.26.404 2.43.058 1.266.07 1.646.07 4.85s-.012 3.584-.07 4.85c-.054 1.17-.24 1.97-.404 2.43a4.08 4.08 0 01-.958 1.47 4.08 4.08 0 01-1.47.958c-.46.163-1.26.35-2.43.404-1.266.058-1.646.07-4.85.07s-3.584-.012-4.85-.07c-1.17-.054-1.97-.24-2.43-.404a4.08 4.08 0 01-1.47-.958 4.08 4.08 0 01-.958-1.47c-.163-.46-.35-1.26-.404-2.43C2.175 15.584 2.163 15.204 2.163 12s.012-3.584.07-4.85c.054-1.17.24-1.97.404-2.43a4.08 4.08 0 01.958-1.47 4.08 4.08 0 011.47-.958c.46-.163 1.26-.35 2.43-.404C8.416 2.175 8.796 2.163 12 2.163M12 0C8.741 0 8.333.014 7.053.072 5.775.13 4.902.333 4.14.63a6.21 6.21 0 00-2.245 1.462A6.21 6.21 0 00.433 4.337C.136 5.1-.067 5.973.01 7.25.068 8.53.082 8.938.082 12.197c0 3.259.014 3.668.072 4.948.058 1.277.261 2.15.558 2.913a6.21 6.21 0 001.462 2.245 6.21 6.21 0 002.245 1.462c.763.297 1.636.5 2.913.558C8.333 23.986 8.741 24 12 24s3.668-.014 4.948-.072c1.277-.058 2.15-.261 2.913-.558a6.21 6.21 0 002.245-1.462 6.21 6.21 0 001.462-2.245c.297-.763.5-1.636.558-2.913.058-1.28.072-1.689.072-4.948s-.014-3.668-.072-4.948c-.058-1.277-.261-2.15-.558-2.913a6.21 6.21 0 00-1.462-2.245A6.21 6.21 0 0019.861.633C19.1.336 18.225.133 16.948.075 15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+          @germanytelugumovies
+        </a>
+      </div>
+      <div class="footer-copy">&copy; 2026 Germany Telugu Movies</div>
+    </div>
+  </footer>
+
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-app.js";
+    import { getDatabase, ref, get, runTransaction, push, onValue } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-database.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyDmGjpEbIo3YupHpWSc8rgzXWESF5-IPCQ",
+      authDomain: "gtm-counter.firebaseapp.com",
+      databaseURL: "https://gtm-counter-default-rtdb.europe-west1.firebasedatabase.app",
+      projectId: "gtm-counter",
+      storageBucket: "gtm-counter.firebasestorage.app",
+      messagingSenderId: "424507047798",
+      appId: "1:424507047798:web:ab288d3575e67917abc457"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const db = getDatabase(app);
+    const counterRef = ref(db, 'interested/maa-inti-bangaaram');
+    const STORAGE_KEY = 'maa-inti-bangaaram_interested';
+
+    function isClicked() { return localStorage.getItem(STORAGE_KEY) === 'true'; }
+
+    function formatCount(n) {
+      if (n >= 1000) return (n/1000).toFixed(1).replace(/\.0$/,'') + 'K+';
+      return n;
+    }
+
+    function updateUI(count) {
+      const btn = document.getElementById('interestedBtn');
+      const countEl = document.getElementById('interestedCount');
+      if (count !== undefined) countEl.textContent = formatCount(count);
+      if (isClicked()) { btn.classList.add('bms-btn-active'); btn.textContent = 'Interested'; }
+      else { btn.classList.remove('bms-btn-active'); btn.textContent = "I'm interested"; }
+    }
+
+    async function loadCount() {
+      try { const s = await get(counterRef); updateUI(s.val() || 0); }
+      catch { updateUI(0); }
+    }
+
+    window.toggleInterest = async function() {
+      const btn = document.getElementById('interestedBtn');
+      btn.disabled = true;
+      try {
+        if (!isClicked()) { localStorage.setItem(STORAGE_KEY, 'true'); await runTransaction(counterRef, c => (c || 0) + 1); }
+        else { localStorage.removeItem(STORAGE_KEY); await runTransaction(counterRef, c => Math.max((c || 0) - 1, 0)); }
+        await loadCount();
+      } catch { updateUI(); }
+      btn.disabled = false;
+    };
+
+    loadCount();
+
+    // ===== Notify Me System =====
+    const NOTIFY_KEY = 'maa-inti-bangaaram';
+    const notifyRef = ref(db, 'notify/' + NOTIFY_KEY);
+    const NOTIFY_STORAGE = NOTIFY_KEY + '_notified';
+
+    function loadNotifyCount() {
+      onValue(ref(db, 'notify_count/' + NOTIFY_KEY), (snap) => {
+        document.getElementById('notifyCount').textContent = snap.val() || 0;
+      });
+    }
+
+    window.toggleNotifyForm = function() {
+      const form = document.getElementById('notifyForm');
+      form.style.display = form.style.display === 'none' ? 'block' : 'none';
+    };
+
+    document.getElementById('notifySubmit').addEventListener('click', async () => {
+      const email = document.getElementById('notifyEmail').value.trim();
+      const msg = document.getElementById('notifyMsg');
+      if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+        msg.textContent = 'Please enter a valid email address.'; msg.className = 'review-msg review-msg-err'; return;
+      }
+      if (localStorage.getItem(NOTIFY_STORAGE)) {
+        msg.textContent = 'You are already subscribed!'; msg.className = 'review-msg review-msg-ok'; return;
+      }
+      const btn = document.getElementById('notifySubmit');
+      btn.disabled = true; btn.textContent = 'Subscribing...';
+      try {
+        await push(notifyRef, { email, timestamp: Date.now() });
+        await runTransaction(ref(db, 'notify_count/' + NOTIFY_KEY), c => (c || 0) + 1);
+        localStorage.setItem(NOTIFY_STORAGE, 'true');
+        msg.textContent = 'You will be notified when tickets go live!'; msg.className = 'review-msg review-msg-ok';
+        document.getElementById('notifyEmail').disabled = true; btn.textContent = 'Subscribed';
+        document.getElementById('notifyBtn').classList.add('bms-btn-active');
+        document.getElementById('notifyBtn').textContent = 'Subscribed';
+      } catch {
+        msg.textContent = 'Error subscribing. Please try again.'; msg.className = 'review-msg review-msg-err';
+        btn.disabled = false; btn.textContent = 'Subscribe';
+      }
+    });
+
+    if (localStorage.getItem(NOTIFY_STORAGE)) {
+      document.getElementById('notifyBtn').classList.add('bms-btn-active');
+      document.getElementById('notifyBtn').textContent = 'Subscribed';
+    }
+    loadNotifyCount();
+
+    // ===== Phase switching based on Firebase data =====
+    (function applyPhase(movie) {
+      const releaseDate = new Date(2026, 5, 19); // June 19, 2026
+      const premiereDate = new Date(2026, 5, 19); // June 19, 2026
+      const now = new Date();
+      if (now >= releaseDate) {
+        document.getElementById('interestedBar').style.display = 'none';
+        document.getElementById('notifyBar').style.display = 'none';
+        document.getElementById('rateBar').style.display = 'flex';
+        document.getElementById('bookBar').style.display = 'flex';
+        if (movie && movie.bookingUrl) document.getElementById('bookLink').href = movie.bookingUrl;
+        document.querySelector('.mp-dates').textContent = 'Now Showing';
+      } else if (movie && movie.bookingUrl) {
+        document.getElementById('notifyBar').style.display = 'none';
+        document.getElementById('bookBar').style.display = 'flex';
+        document.getElementById('bookLink').href = movie.bookingUrl;
+      }
+      // Premiere countdown
+      const cd = document.getElementById('premiereCountdown');
+      if (cd && now < premiereDate) {
+        const days = Math.ceil((premiereDate - now) / 86400000);
+        cd.textContent = days + ' day' + (days === 1 ? '' : 's') + ' to premiere';
+        cd.style.display = 'block';
+      }
+    })(null);
+    get(ref(db, 'movies/maa-inti-bangaaram')).then(snap => {
+      const movie = snap.val();
+      if (movie && movie.bookingUrl) document.getElementById('bookLink').href = movie.bookingUrl;
+    }).catch(() => {});
+
+    // Average rating display
+    onValue(ref(db, 'ratings/maa-inti-bangaaram'), (snap) => {
+      const data = snap.val();
+      if (!data) return;
+      const ratings = Object.values(data);
+      const total = ratings.reduce((sum, r) => sum + (r.rating || 0), 0);
+      const avg = (total / ratings.length).toFixed(1);
+      document.getElementById('avgRating').textContent = avg;
+      document.getElementById('voteCount').textContent = '(' + formatCount(ratings.length) + ' Votes)';
+    });
+
+    window.toggleRateForm = function() {
+      const form = document.getElementById('rateForm');
+      form.style.display = form.style.display === 'none' ? 'block' : 'none';
+    };
+
+    const RATE_STORAGE = 'maa-inti-bangaaram_rated';
+    if (localStorage.getItem(RATE_STORAGE)) {
+      const rb = document.getElementById('rateBtn');
+      if (rb) { rb.classList.add('bms-btn-active'); rb.textContent = 'Rated'; }
+    }
+
+    document.getElementById('rateSubmit').addEventListener('click', async () => {
+      const name = document.getElementById('rateName').value.trim();
+      const value = parseFloat(document.getElementById('rateValue').value);
+      const text = document.getElementById('rateText').value.trim();
+      const msg = document.getElementById('rateMsg');
+      if (!name) { msg.textContent = 'Please enter your name.'; msg.className = 'review-msg review-msg-err'; return; }
+      if (isNaN(value) || value < 0 || value > 5) { msg.textContent = 'Rating must be between 0 and 5.'; msg.className = 'review-msg review-msg-err'; return; }
+      if (localStorage.getItem(RATE_STORAGE)) { msg.textContent = 'You already rated this movie.'; msg.className = 'review-msg review-msg-err'; return; }
+      const btn = document.getElementById('rateSubmit');
+      btn.disabled = true; btn.textContent = 'Submitting...';
+      try {
+        await push(ref(db, 'ratings/maa-inti-bangaaram'), { name, rating: value, text, timestamp: Date.now() });
+        localStorage.setItem(RATE_STORAGE, 'true');
+        msg.textContent = 'Thank you for your review!'; msg.className = 'review-msg review-msg-ok';
+        document.getElementById('rateForm').style.display = 'none';
+        const rb = document.getElementById('rateBtn');
+        rb.classList.add('bms-btn-active'); rb.textContent = 'Rated';
+      } catch {
+        msg.textContent = 'Error submitting. Try again.'; msg.className = 'review-msg review-msg-err';
+        btn.disabled = false; btn.textContent = 'Submit Review';
+      }
+    });
+  </script>
+  <script src="js/nav.js"></script>
+  <script src="js/admin-bar.js" type="module"></script>
+</body>
+</html>

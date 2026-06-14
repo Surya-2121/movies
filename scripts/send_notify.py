@@ -46,6 +46,7 @@ FIREBASE_DB_URL = 'https://gtm-counter-default-rtdb.europe-west1.firebasedatabas
 MOVIE_NAMES = {
     'spirit': 'Spirit',
     'peddi': 'Peddi',
+    'maa-inti-bangaaram': 'Maa Inti Bangaaram',
     'paradise': 'The Paradise',
     'varanasi': 'Varanasi',
     'vishwambhara': 'Vishwambhara',

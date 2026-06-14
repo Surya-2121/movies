@@ -78,6 +78,7 @@
     const legacyPages = {
       ustaad: 'ustaad-movie.html',
       peddi: 'peddi-movie.html',
+      'maa-inti-bangaaram': 'maa-inti-bangaaram-movie.html',
       dragon: 'dragon-movie.html',
       paradise: 'paradise-movie.html',
       vishwambhara: 'vishwambhara-movie.html',
@@ -88,7 +89,7 @@
 
     const snap = await get(ref(db, 'movies'));
     const data = snap.val() || {};
-    const nowShowing = new Set(['peddi']);
+    const nowShowing = new Set(['peddi', 'maa-inti-bangaaram']);
     const hidden = new Set(['vishwambhara']);
     // Movies always shown, even when Firebase doesn't have them yet.
     const staticAdditions = [

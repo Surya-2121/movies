@@ -1152,6 +1152,54 @@ main {
   transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
 }
 
+/* Movies (now-playing) slider — mirrors .cs-slider so the Movies column
+   can carry multiple cards and stay aligned with Coming Soon. Standalone
+   .now-playing-card (no slider wrapper) keeps its original block layout. */
+.np-slider {
+  overflow: hidden;
+  border-radius: 14px;
+}
+
+.np-track {
+  display: flex;
+  transition: transform 0.6s ease;
+}
+
+.np-track .now-playing-card {
+  min-width: 100%;
+  margin: 0;
+}
+
+.np-dots {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 16px;
+}
+
+.np-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #2a2a4a;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s;
+}
+
+.np-dot:hover {
+  background: #888;
+  transform: scale(1.2);
+}
+
+.np-dot-active {
+  background: #f0ad4e;
+  transform: scale(1.2);
+}
+
+.light-theme .np-dot { background: #d0d0d0; }
+.light-theme .np-dot:hover { background: #888; }
+.light-theme .np-dot-active { background: #d4880f; }
+
 .no-shows-card {
   align-items: center;
   justify-content: center;
