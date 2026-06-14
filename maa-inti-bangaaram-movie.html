@@ -32,7 +32,6 @@
             <span>Drama / Action</span>
           </div>
           <div class="mp-dates">Release: 19 June 2026 &bull; Coming Soon to Germany</div>
-          <div id="premiereCountdown" class="mp-premiere-count" style="display:none;margin-top:6px;font-size:0.85rem;color:#f0ad4e;font-weight:600;"></div>
           <!-- Phase 1: Pre-release - Interested + Notify -->
           <div id="interestedBar" class="bms-interest-bar">
             <div class="bms-bar-left">
@@ -253,7 +252,6 @@
     // ===== Phase switching based on Firebase data =====
     (function applyPhase(movie) {
       const releaseDate = new Date(2026, 5, 19); // June 19, 2026
-      const premiereDate = new Date(2026, 5, 19); // June 19, 2026
       const now = new Date();
       if (now >= releaseDate) {
         document.getElementById('interestedBar').style.display = 'none';
@@ -266,13 +264,6 @@
         document.getElementById('notifyBar').style.display = 'none';
         document.getElementById('bookBar').style.display = 'flex';
         document.getElementById('bookLink').href = movie.bookingUrl;
-      }
-      // Premiere countdown
-      const cd = document.getElementById('premiereCountdown');
-      if (cd && now < premiereDate) {
-        const days = Math.ceil((premiereDate - now) / 86400000);
-        cd.textContent = days + ' day' + (days === 1 ? '' : 's') + ' to premiere';
-        cd.style.display = 'block';
       }
     })(null);
     get(ref(db, 'movies/maa-inti-bangaaram')).then(snap => {
