@@ -167,34 +167,41 @@
       });
     }
 
-    // Add Peddi with initial figures if not present yet. Doesn't overwrite
-    // later edits — once the admin updates via the form, this is a no-op.
-    async function ensurePeddi() {
-      const snap = await get(ref(db, 'boxoffice/peddi'));
-      if (snap.val()) return;
-      await set(ref(db, 'boxoffice/peddi'), {
-        name: 'Peddi',
-        dates: '2026',
-        admissions: 1264,
-        gross: 22212,
-        shows: 0,
-        cities: '',
+    // Static overlay entries — rendered for every visitor without needing
+    // Firebase write access. Pinned by `pinPosition` (1-based) below the
+    // natural admit-sort.
+    const STATIC_OVERLAY = {
+      peddi: {
+        name: 'Peddi', dates: '2026',
+        admissions: 1264, gross: 22212,
+        shows: 0, cities: '',
         poster: 'images/peddi.jpg',
-        updatedAt: Date.now()
-      });
-    }
+        pinPosition: 4,
+      },
+    };
 
     async function loadBoxOffice(isAdmin) {
       if (isAdmin) {
         try { await seedIfEmpty(); } catch(e) { console.warn('seed skipped:', e); }
         try { await fixPosters(); } catch(e) { console.warn('fixPosters skipped:', e); }
         try { await fixRRR(); } catch(e) { console.warn('fixRRR skipped:', e); }
-        try { await ensurePeddi(); } catch(e) { console.warn('ensurePeddi skipped:', e); }
       }
       const snap = await get(ref(db, 'boxoffice'));
       const data = snap.val() || {};
+      // Merge overlay entries — Firebase data wins if same key already exists.
+      for (const [k, v] of Object.entries(STATIC_OVERLAY)) {
+        if (!data[k]) data[k] = v;
+      }
       const entries = Object.entries(data).map(([key, v]) => ({ key, ...v }));
       entries.sort((a, b) => (b.admissions || 0) - (a.admissions || 0));
+      // Move any overlay entries with a pinPosition to that 1-based slot.
+      for (const [k, v] of Object.entries(STATIC_OVERLAY)) {
+        if (!v.pinPosition) continue;
+        const idx = entries.findIndex(e => e.key === k);
+        if (idx === -1) continue;
+        const [e] = entries.splice(idx, 1);
+        entries.splice(Math.min(v.pinPosition - 1, entries.length), 0, e);
+      }
 
       let totalAdmits = 0, totalGross = 0;
       entries.forEach(e => {
