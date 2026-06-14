@@ -150,15 +150,6 @@
             <div class="hm-card-genre">Action / Mythology</div>
           </a>
 
-          <a href="dragon-movie.html" class="hm-card">
-            <div class="hm-card-poster">
-              <img src="images/dragon.jpg" alt="Dragon">
-              <span class="hm-card-status is-cs">Coming Soon</span>
-            </div>
-            <div class="hm-card-title">Dragon</div>
-            <div class="hm-card-genre">Action / Thriller</div>
-          </a>
-
           <a href="fauzi-movie.html" class="hm-card">
             <div class="hm-card-poster">
               <img src="images/fauzi.jpg" alt="Fauzi">
@@ -175,6 +166,15 @@
             </div>
             <div class="hm-card-title">Spirit</div>
             <div class="hm-card-genre">Action / Drama</div>
+          </a>
+
+          <a href="dragon-movie.html" class="hm-card">
+            <div class="hm-card-poster">
+              <img src="images/dragon.jpg" alt="Dragon">
+              <span class="hm-card-status is-cs">Coming Soon</span>
+            </div>
+            <div class="hm-card-title">Dragon</div>
+            <div class="hm-card-genre">Action / Thriller</div>
           </a>
 
         </div>
@@ -236,9 +236,9 @@
       const staticAdditions = [
         ['paradise',  { name: 'The Paradise', poster: 'https://image.tmdb.org/t/p/w300/smghVMoMWSIFi5dgIz4w1UIcEcY.jpg', genre: 'Drama' }],
         ['varanasi',  { name: 'Varanasi',     poster: 'images/varanasi.jpg', genre: 'Action / Mythology' }],
-        ['dragon',    { name: 'Dragon',       poster: 'images/dragon.jpg',   genre: 'Action / Thriller' }],
         ['fauzi',     { name: 'Fauzi',        poster: 'images/fauzi.jpg',    genre: 'Action / War' }],
         ['spirit',    { name: 'Spirit',       poster: 'images/spirit.webp',  genre: 'Action / Drama' }],
+        ['dragon',    { name: 'Dragon',       poster: 'images/dragon.jpg',   genre: 'Action / Thriller' }],
       ];
       const fbComingSoon = Object.entries(data).filter(([k, m]) => m.status === 'Coming Soon' && m.poster && !nowShowing.has(k) && !hidden.has(k));
       const staticKeys = new Set(staticAdditions.map(([k]) => k));
