@@ -82,9 +82,9 @@
           <div id="bookBar" class="bms-interest-bar" style="display:none;margin-top:12px;">
             <div class="bms-bar-left">
               <span class="bms-thumb">&#127915;</span>
-              <span class="bms-count-label">Tickets available now!</span>
+              <span class="bms-count-label">Tickets opening soon</span>
             </div>
-            <a id="bookLink" href="booking.html?movie=maa-inti-bangaaram" class="bms-btn bms-btn-red" style="text-decoration:none;">Book Now</a>
+            <a id="bookLink" href="#" class="bms-btn" style="text-decoration:none;pointer-events:none;opacity:0.6;">Coming Soon</a>
           </div>
         </div>
       </section>
@@ -250,16 +250,28 @@
     loadNotifyCount();
 
     // ===== Now Showing — skip interested/notify, show rate + book =====
+    function enableBookingLink(url) {
+      const a = document.getElementById('bookLink');
+      if (!a) return;
+      a.href = url;
+      a.textContent = 'Book Now';
+      a.classList.add('bms-btn-red');
+      a.style.pointerEvents = '';
+      a.style.opacity = '';
+      const label = document.querySelector('#bookBar .bms-count-label');
+      if (label) label.textContent = 'Tickets available now!';
+    }
+
     (function applyPhase(movie) {
       document.getElementById('interestedBar').style.display = 'none';
       document.getElementById('notifyBar').style.display = 'none';
       document.getElementById('rateBar').style.display = 'flex';
       document.getElementById('bookBar').style.display = 'flex';
-      if (movie && movie.bookingUrl) document.getElementById('bookLink').href = movie.bookingUrl;
+      if (movie && movie.bookingUrl) enableBookingLink(movie.bookingUrl);
     })(null);
     get(ref(db, 'movies/maa-inti-bangaaram')).then(snap => {
       const movie = snap.val();
-      if (movie && movie.bookingUrl) document.getElementById('bookLink').href = movie.bookingUrl;
+      if (movie && movie.bookingUrl) enableBookingLink(movie.bookingUrl);
     }).catch(() => {});
 
     // Average rating display
