@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home Preview - Germany Telugu Movies</title>
+  <meta name="robots" content="noindex,nofollow">
+  <link rel="icon" href="images/logo.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/style.css?v=3">
+  <style>
+    /* ===== BMS-style home content (preview only — inline so style.css stays untouched) ===== */
+    .preview-banner {
+      background: #f0ad4e;
+      color: #000;
+      text-align: center;
+      padding: 8px 16px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+    }
+    .preview-banner a { color: #000; text-decoration: underline; }
+
+    .hm-main {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 32px 32px 80px;
+    }
+
+    .hm-section + .hm-section { margin-top: 56px; }
+
+    .hm-section-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 20px;
+    }
+    .hm-section-title {
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: #fff;
+      margin: 0;
+    }
+    .light-theme .hm-section-title { color: #1a1a2e; }
+
+    .hm-see-all {
+      color: #f0ad4e;
+      font-size: 0.9rem;
+      font-weight: 600;
+      text-decoration: none;
+    }
+    .light-theme .hm-see-all { color: #d4880f; }
+    .hm-see-all:hover { text-decoration: underline; }
+
+    .hm-row-wrap { position: relative; }
+
+    .hm-row {
+      display: flex;
+      gap: 18px;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      scroll-behavior: smooth;
+      padding: 8px 4px 16px;
+      scrollbar-width: thin;
+    }
+    .hm-row::-webkit-scrollbar { height: 6px; }
+    .hm-row::-webkit-scrollbar-thumb { background: #2a2a4a; border-radius: 3px; }
+    .light-theme .hm-row::-webkit-scrollbar-thumb { background: #d0d0d0; }
+
+    .hm-arrow {
+      position: absolute;
+      top: 36%;
+      right: -8px;
+      transform: translateY(-50%);
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: rgba(26, 26, 46, 0.85);
+      border: 1px solid #2a2a4a;
+      color: #fff;
+      font-size: 1.5rem;
+      line-height: 1;
+      cursor: pointer;
+      z-index: 4;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.4);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .hm-arrow.hm-arrow-left { right: auto; left: -8px; }
+    .hm-arrow:hover { background: #f0ad4e; color: #000; }
+    .light-theme .hm-arrow {
+      background: rgba(255,255,255,0.95);
+      color: #1a1a2e;
+      border-color: #ddd;
+    }
+    .light-theme .hm-arrow:hover { background: #f0ad4e; color: #000; }
+
+    .hm-card {
+      flex: 0 0 auto;
+      width: 200px;
+      scroll-snap-align: start;
+      text-decoration: none;
+      color: inherit;
+      transition: transform 0.2s;
+    }
+    .hm-card:hover { transform: translateY(-4px); }
+
+    .hm-card-poster {
+      position: relative;
+      aspect-ratio: 2/3;
+      border-radius: 14px;
+      overflow: hidden;
+      background: #1a1a2e;
+      border: 1px solid #2a2a4a;
+      box-shadow: 0 6px 24px rgba(0,0,0,0.45);
+    }
+    .light-theme .hm-card-poster { background: #fff; border-color: #ddd; }
+
+    .hm-card-poster img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.4s;
+    }
+    .hm-card:hover .hm-card-poster img { transform: scale(1.04); }
+
+    .hm-card-badge {
+      position: absolute;
+      left: 0; right: 0; bottom: 0;
+      padding: 36px 12px 10px;
+      color: #fff;
+      font-size: 0.78rem;
+      font-weight: 600;
+      background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.6) 50%, transparent 100%);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .hm-card-badge .hm-star { color: #f0ad4e; }
+
+    .hm-card-status {
+      position: absolute;
+      top: 10px; left: 10px;
+      padding: 4px 10px;
+      border-radius: 14px;
+      background: rgba(240, 173, 78, 0.95);
+      color: #000;
+      font-size: 0.7rem;
+      font-weight: 800;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+    .hm-card-status.is-cs {
+      background: rgba(26, 26, 46, 0.85);
+      color: #f0ad4e;
+      border: 1px solid #f0ad4e;
+    }
+
+    .hm-card-title {
+      margin: 12px 4px 4px;
+      font-size: 1.02rem;
+      font-weight: 700;
+      color: #fff;
+      line-height: 1.2;
+    }
+    .light-theme .hm-card-title { color: #1a1a2e; }
+
+    .hm-card-genre {
+      margin: 0 4px;
+      color: #f0ad4e;
+      font-size: 0.82rem;
+    }
+    .light-theme .hm-card-genre { color: #d4880f; }
+
+    @media (max-width: 768px) {
+      .hm-main { padding: 24px 16px 60px; }
+      .hm-section + .hm-section { margin-top: 36px; }
+      .hm-card { width: 150px; }
+      .hm-section-title { font-size: 1.2rem; }
+      .hm-arrow { display: none; }
+    }
+    @media (max-width: 480px) {
+      .hm-card { width: 130px; }
+      .hm-card-title { font-size: 0.92rem; }
+      .hm-card-genre { font-size: 0.75rem; }
+    }
+  </style>
+</head>
+<body class="landing-page">
+
+  <div class="preview-banner">
+    Home Preview &mdash; not live. Compare to <a href="index.html">the current home</a>.
+  </div>
+
+  <!-- Nav Menu -->
+  <nav class="nav-menu" id="navMenu">
+    <div class="nav-header">
+      <img src="images/logo.svg" alt="Logo" class="nav-logo">
+      <button class="nav-close" onclick="toggleMenu()">&times;</button>
+    </div>
+    <a href="index.html" class="nav-link nav-link-active">Home</a>
+    <a href="coming-soon.html" class="nav-link">Coming Soon</a>
+    <a href="boxoffice.html" class="nav-link">Box Office</a>
+    <a href="about.html" class="nav-link">About Us</a>
+    <a href="contact.html" class="nav-link">Contact</a>
+    <div class="nav-divider"></div>
+    <a href="login.html" class="nav-link nav-login-link" id="navLoginLink">Login</a>
+    <button class="nav-theme-btn" onclick="toggleTheme()">
+      <span id="themeIcon">&#9788;</span> <span id="themeText">Light Mode</span>
+    </button>
+  </nav>
+  <div class="nav-overlay" id="navOverlay" onclick="toggleMenu()"></div>
+
+  <div class="nf-search" id="nfSearch">
+    <button class="nf-search-icon" onclick="toggleSearch()"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></button>
+    <input type="text" class="nf-search-input" id="movieSearch" placeholder="Search for a movie..." oninput="handleHomeSearch(event)" autocomplete="off">
+    <div class="nf-search-results" id="searchResults"></div>
+  </div>
+
+  <button class="menu-btn" id="menuBtn" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </button>
+
+  <header class="site-header">
+    <a href="index.html"><img src="images/logo.svg" alt="Germany Telugu Movies" class="header-logo"></a>
+  </header>
+
+  <main class="hm-main">
+
+    <!-- Now Showing -->
+    <section class="hm-section">
+      <div class="hm-section-header">
+        <h2 class="hm-section-title">Now Showing</h2>
+      </div>
+      <div class="hm-row-wrap">
+        <button class="hm-arrow hm-arrow-left" data-target="rowNow" data-dir="-1" aria-label="Scroll left">&#8249;</button>
+        <button class="hm-arrow hm-arrow-right" data-target="rowNow" data-dir="1" aria-label="Scroll right">&#8250;</button>
+        <div class="hm-row" id="rowNow">
+
+          <a href="peddi-movie.html" class="hm-card">
+            <div class="hm-card-poster">
+              <img src="images/peddi.jpg" alt="Peddi">
+              <span class="hm-card-status">Now Showing</span>
+              <div class="hm-card-badge"><span class="hm-star">&#9733;</span><span>3 - 16 June 2026</span></div>
+            </div>
+            <div class="hm-card-title">Peddi</div>
+            <div class="hm-card-genre">Action / Drama / Sports</div>
+          </a>
+
+          <a href="maa-inti-bangaaram-movie.html" class="hm-card">
+            <div class="hm-card-poster">
+              <img src="images/maa-inti-bangaaram.jpg" alt="Maa Inti Bangaaram">
+              <span class="hm-card-status">Now Showing</span>
+              <div class="hm-card-badge"><span class="hm-star">&#9733;</span><span>19 June 2026</span></div>
+            </div>
+            <div class="hm-card-title">Maa Inti Bangaaram</div>
+            <div class="hm-card-genre">Drama / Action</div>
+          </a>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Coming Soon -->
+    <section class="hm-section">
+      <div class="hm-section-header">
+        <h2 class="hm-section-title">Coming Soon</h2>
+        <a href="coming-soon.html" class="hm-see-all">See All &rsaquo;</a>
+      </div>
+      <div class="hm-row-wrap">
+        <button class="hm-arrow hm-arrow-left" data-target="rowCS" data-dir="-1" aria-label="Scroll left">&#8249;</button>
+        <button class="hm-arrow hm-arrow-right" data-target="rowCS" data-dir="1" aria-label="Scroll right">&#8250;</button>
+        <div class="hm-row" id="rowCS">
+
+          <a href="dragon-movie.html" class="hm-card">
+            <div class="hm-card-poster">
+              <img src="images/dragon.jpg" alt="Dragon">
+              <span class="hm-card-status is-cs">Coming Soon</span>
+            </div>
+            <div class="hm-card-title">Dragon</div>
+            <div class="hm-card-genre">Action / Thriller</div>
+          </a>
+
+          <a href="paradise-movie.html" class="hm-card">
+            <div class="hm-card-poster">
+              <img src="https://image.tmdb.org/t/p/w300/smghVMoMWSIFi5dgIz4w1UIcEcY.jpg" alt="The Paradise">
+              <span class="hm-card-status is-cs">Coming Soon</span>
+            </div>
+            <div class="hm-card-title">The Paradise</div>
+            <div class="hm-card-genre">Drama</div>
+          </a>
+
+          <a href="varanasi-movie.html" class="hm-card">
+            <div class="hm-card-poster">
+              <img src="images/varanasi.jpg" alt="Varanasi">
+              <span class="hm-card-status is-cs">Coming Soon</span>
+            </div>
+            <div class="hm-card-title">Varanasi</div>
+            <div class="hm-card-genre">Action / Mythology</div>
+          </a>
+
+          <a href="spirit-movie.html" class="hm-card">
+            <div class="hm-card-poster">
+              <img src="images/spirit.webp" alt="Spirit">
+              <span class="hm-card-status is-cs">Coming Soon</span>
+            </div>
+            <div class="hm-card-title">Spirit</div>
+            <div class="hm-card-genre">Action / Drama</div>
+          </a>
+
+          <a href="dacoit-movie.html" class="hm-card">
+            <div class="hm-card-poster">
+              <img src="images/dacoit.webp" alt="Dacoit">
+              <span class="hm-card-status is-cs">Coming Soon</span>
+            </div>
+            <div class="hm-card-title">Dacoit</div>
+            <div class="hm-card-genre">Action / Crime</div>
+          </a>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-content">
+      <div class="footer-location">Germany</div>
+      <a href="mailto:info@germany-telugu-movies.com" class="footer-email">info@germany-telugu-movies.com</a>
+      <div class="footer-social">
+        <a href="https://www.instagram.com/germanytelugumovies?igsh=dmE4N2R5YWxqYWhm&utm_source=qr" target="_blank" rel="noopener" class="footer-instagram">
+          <svg style="width:18px;height:18px;vertical-align:middle;margin-right:6px;" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 1.17.054 1.97.24 2.43.403a4.08 4.08 0 011.47.958c.453.453.78.898.958 1.47.163.46.35 1.26.404 2.43.058 1.266.07 1.646.07 4.85s-.012 3.584-.07 4.85c-.054 1.17-.24 1.97-.404 2.43a4.08 4.08 0 01-.958 1.47 4.08 4.08 0 01-1.47.958c-.46.163-1.26.35-2.43.404-1.266.058-1.646.07-4.85.07s-3.584-.012-4.85-.07c-1.17-.054-1.97-.24-2.43-.404a4.08 4.08 0 01-1.47-.958 4.08 4.08 0 01-.958-1.47c-.163-.46-.35-1.26-.404-2.43C2.175 15.584 2.163 15.204 2.163 12s.012-3.584.07-4.85c.054-1.17.24-1.97.404-2.43a4.08 4.08 0 01.958-1.47 4.08 4.08 0 011.47-.958c.46-.163 1.26-.35 2.43-.404C8.416 2.175 8.796 2.163 12 2.163M12 0C8.741 0 8.333.014 7.053.072 5.775.13 4.902.333 4.14.63a6.21 6.21 0 00-2.245 1.462A6.21 6.21 0 00.433 4.337C.136 5.1-.067 5.973.01 7.25.068 8.53.082 8.938.082 12.197c0 3.259.014 3.668.072 4.948.058 1.277.261 2.15.558 2.913a6.21 6.21 0 001.462 2.245 6.21 6.21 0 002.245 1.462c.763.297 1.636.5 2.913.558C8.333 23.986 8.741 24 12 24s3.668-.014 4.948-.072c1.277-.058 2.15-.261 2.913-.558a6.21 6.21 0 002.245-1.462 6.21 6.21 0 001.462-2.245c.297-.763.5-1.636.558-2.913.058-1.28.072-1.689.072-4.948s-.014-3.668-.072-4.948c-.058-1.277-.261-2.15-.558-2.913a6.21 6.21 0 00-1.462-2.245A6.21 6.21 0 0019.861.633C19.1.336 18.225.133 16.948.075 15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+          @germanytelugumovies
+        </a>
+      </div>
+      <div class="footer-copy">&copy; 2026 Germany Telugu Movies</div>
+    </div>
+  </footer>
+
+  <script>
+    // Scroll-by-button-page
+    document.querySelectorAll('.hm-arrow').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const row = document.getElementById(btn.dataset.target);
+        if (!row) return;
+        const dir = parseInt(btn.dataset.dir, 10);
+        row.scrollBy({ left: dir * Math.round(row.clientWidth * 0.85), behavior: 'smooth' });
+      });
+    });
+  </script>
+
+  <script>
+    // Re-use the home search machinery from index.html — keeps preview consistent.
+    const movies = [
+      { name: 'Peddi', url: 'peddi-movie.html', cast: 'Ram Charan, Janhvi Kapoor', status: 'Now Showing' },
+      { name: 'Maa Inti Bangaaram', url: 'maa-inti-bangaaram-movie.html', cast: 'Samantha Ruth Prabhu, Gulshan Devaiah, Gautami', status: 'Now Showing' },
+      { name: 'Dragon', url: 'dragon-movie.html', cast: 'N.T. Rama Rao Jr., Anil Kapoor, Rukmini Vasanth', status: 'Coming Soon' },
+      { name: 'The Paradise', url: 'paradise-movie.html', cast: 'Nani', status: 'Coming Soon' },
+      { name: 'Varanasi', url: 'varanasi-movie.html', cast: 'Mahesh Babu', status: 'Coming Soon' },
+      { name: 'Spirit', url: 'spirit-movie.html', cast: 'Prabhas, Triptii Dimri', status: 'Coming Soon' },
+      { name: 'Dacoit', url: 'dacoit-movie.html', cast: 'Adivi Sesh, Mrunal Thakur', status: 'Coming Soon' },
+      { name: 'Ustaad Bhagat Singh', url: 'ustaad-movie.html', cast: 'Pawan Kalyan, Sreeleela, Raashii Khanna', status: 'Ended' },
+    ];
+    function toggleSearch() {
+      const box = document.getElementById('nfSearch');
+      const isOpen = box.classList.toggle('nf-search-open');
+      const input = document.getElementById('movieSearch');
+      if (isOpen) { input.focus(); }
+      else { input.value = ''; document.getElementById('searchResults').innerHTML = ''; }
+    }
+    function handleHomeSearch(e) {
+      const q = e.target.value.trim().toLowerCase();
+      const res = document.getElementById('searchResults');
+      if (!q) { res.innerHTML = ''; return; }
+      const matches = movies.filter(m => m.name.toLowerCase().includes(q) || m.cast.toLowerCase().includes(q));
+      res.innerHTML = matches.length
+        ? matches.map(m => `<a href="${m.url}" class="nf-search-result"><span>${m.name}</span><small>${m.status}</small></a>`).join('')
+        : '<div class="nf-search-empty">No movies found</div>';
+    }
+  </script>
+
+  <script src="js/nav.js"></script>
+</body>
+</html>
