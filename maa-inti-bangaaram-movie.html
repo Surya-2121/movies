@@ -31,7 +31,7 @@
             <span>2026</span>
             <span>Drama / Action</span>
           </div>
-          <div class="mp-dates">Release: 19 June 2026 &bull; Coming Soon to Germany</div>
+          <div class="mp-dates">In Cinemas 19 June 2026</div>
           <!-- Phase 1: Pre-release - Interested + Notify -->
           <div id="interestedBar" class="bms-interest-bar">
             <div class="bms-bar-left">
@@ -249,22 +249,13 @@
     }
     loadNotifyCount();
 
-    // ===== Phase switching based on Firebase data =====
+    // ===== Now Showing — skip interested/notify, show rate + book =====
     (function applyPhase(movie) {
-      const releaseDate = new Date(2026, 5, 19); // June 19, 2026
-      const now = new Date();
-      if (now >= releaseDate) {
-        document.getElementById('interestedBar').style.display = 'none';
-        document.getElementById('notifyBar').style.display = 'none';
-        document.getElementById('rateBar').style.display = 'flex';
-        document.getElementById('bookBar').style.display = 'flex';
-        if (movie && movie.bookingUrl) document.getElementById('bookLink').href = movie.bookingUrl;
-        document.querySelector('.mp-dates').textContent = 'Now Showing';
-      } else if (movie && movie.bookingUrl) {
-        document.getElementById('notifyBar').style.display = 'none';
-        document.getElementById('bookBar').style.display = 'flex';
-        document.getElementById('bookLink').href = movie.bookingUrl;
-      }
+      document.getElementById('interestedBar').style.display = 'none';
+      document.getElementById('notifyBar').style.display = 'none';
+      document.getElementById('rateBar').style.display = 'flex';
+      document.getElementById('bookBar').style.display = 'flex';
+      if (movie && movie.bookingUrl) document.getElementById('bookLink').href = movie.bookingUrl;
     })(null);
     get(ref(db, 'movies/maa-inti-bangaaram')).then(snap => {
       const movie = snap.val();
