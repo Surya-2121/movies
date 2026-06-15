@@ -1,7 +1,7 @@
 {
-  "fetchedAt": "2026-06-14T22:40:57.739586+00:00",
+  "fetchedAt": "2026-06-15T12:12:28.988393+00:00",
   "movie": "peddi",
-  "totalShows": 51,
+  "totalShows": 50,
   "shows": [
     {
       "city": "Bielefeld",
@@ -354,14 +354,6 @@
       "time": "11:00",
       "subtitle": "English Subtitles",
       "bookingUrl": "https://www.cinemaxx.de/kinoprogramm/essen/film/peddi"
-    },
-    {
-      "city": "Heidelberg",
-      "cinema": "Lux",
-      "date": "2026-06-14",
-      "time": "11:00",
-      "subtitle": "English Subtitles",
-      "bookingUrl": "https://ticket-cloud.de/Luxor-Heidelberg/Show/2393994"
     },
     {
       "city": "Hamburg",
