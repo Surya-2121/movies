@@ -267,6 +267,8 @@
       document.getElementById('notifyBar').style.display = 'none';
       document.getElementById('rateBar').style.display = 'flex';
       document.getElementById('bookBar').style.display = 'flex';
+      // Tickets are live → MIB now has shows in booking.html.
+      enableBookingLink('booking.html?movie=maa-inti-bangaaram');
       if (movie && movie.bookingUrl) enableBookingLink(movie.bookingUrl);
     })(null);
     get(ref(db, 'movies/maa-inti-bangaaram')).then(snap => {
