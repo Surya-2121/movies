@@ -435,36 +435,77 @@ def normalize_name(name):
 # --------------------------------------------------------------------
 
 def regenerate_booking_html(movie, shows):
+    """Rewrite ONLY the `<slug>: { ... }` sub-entry inside `const movies = { ... }`,
+    preserving every other movie key. If the slug isn't present yet, insert it
+    just before the closing `}` of the movies object."""
     with open(BOOKING_HTML, "r", encoding="utf-8") as f:
         html = f.read()
-    # Build the new movies object
+
     entries_json = json.dumps(shows, indent=10, ensure_ascii=False)
     # Cosmetic indent fix to match existing style
     entries_json = entries_json.replace("\n          ", "\n            ")
-    block = (
-        "{\n"
-        "      " + movie["slug"] + ": {\n"
+
+    slug = movie["slug"]
+    body = (
+        '{\n'
         '        title: "' + movie["title"] + '",\n'
         '        genre: "' + movie["genre"] + '",\n'
         '        language: "' + movie["language"] + '",\n'
         '        page: "' + movie["page"] + '",\n'
         '        shows: ' + entries_json + "\n"
-        "      }\n"
-        "    }"
+        "      }"
     )
-    start = html.find("const movies = {")
-    if start == -1:
+
+    movies_start = html.find("const movies = {")
+    if movies_start == -1:
         raise RuntimeError("Cannot find 'const movies = {' in booking.html")
-    brace_start = html.index("{", start)
-    depth = 0
-    end = brace_start
-    for i in range(brace_start, len(html)):
-        if html[i] == "{": depth += 1
-        elif html[i] == "}":
-            depth -= 1
-            if depth == 0:
-                end = i; break
-    new_html = html[:start] + "const movies = " + block + html[end + 1:]
+
+    # Locate the slug entry (bare, double-quoted, or single-quoted key).
+    search_from = movies_start
+    slug_keys = [slug + ":", '"' + slug + '":', "'" + slug + "':"]
+    slug_pos = -1
+    for sk in slug_keys:
+        # Must match at the start of a line (after whitespace) to avoid false hits.
+        p = html.find(sk, search_from)
+        while p != -1:
+            # Confirm the character immediately before is whitespace/newline/{/,
+            prev = html[p - 1] if p > 0 else "\n"
+            if prev in " \t\n{,":
+                slug_pos = p
+                break
+            p = html.find(sk, p + 1)
+        if slug_pos != -1:
+            break
+
+    if slug_pos == -1:
+        # Slug not present yet — insert before the closing brace of movies object.
+        brace_start = html.index("{", movies_start)
+        depth = 0
+        end = brace_start
+        for i in range(brace_start, len(html)):
+            if html[i] == "{": depth += 1
+            elif html[i] == "}":
+                depth -= 1
+                if depth == 0:
+                    end = i; break
+        # Are there existing entries? If yes, prefix with a comma.
+        existing = html[brace_start + 1:end].strip()
+        prefix = "," if existing else ""
+        insert = f'{prefix}\n      {slug}: {body}\n    '
+        new_html = html[:end] + insert + html[end:]
+    else:
+        # Find the value's opening brace and brace-count to its match.
+        brace_open = html.index("{", slug_pos)
+        depth = 0
+        brace_close = brace_open
+        for i in range(brace_open, len(html)):
+            if html[i] == "{": depth += 1
+            elif html[i] == "}":
+                depth -= 1
+                if depth == 0:
+                    brace_close = i; break
+        new_html = html[:brace_open] + body + html[brace_close + 1:]
+
     if new_html != html:
         with open(BOOKING_HTML, "w", encoding="utf-8") as f:
             f.write(new_html)

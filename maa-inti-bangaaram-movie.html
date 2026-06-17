@@ -262,19 +262,16 @@
       if (label) label.textContent = 'Tickets available now!';
     }
 
-    (function applyPhase(movie) {
+    (function applyPhase() {
       document.getElementById('interestedBar').style.display = 'none';
       document.getElementById('notifyBar').style.display = 'none';
       document.getElementById('rateBar').style.display = 'flex';
       document.getElementById('bookBar').style.display = 'flex';
-      // Tickets are live → MIB now has shows in booking.html.
+      // Tickets are live — always link to the in-file booking page.
+      // (No Firebase override; movies/maa-inti-bangaaram.bookingUrl may
+      // contain a stale value from the admin bar.)
       enableBookingLink('booking.html?movie=maa-inti-bangaaram');
-      if (movie && movie.bookingUrl) enableBookingLink(movie.bookingUrl);
-    })(null);
-    get(ref(db, 'movies/maa-inti-bangaaram')).then(snap => {
-      const movie = snap.val();
-      if (movie && movie.bookingUrl) enableBookingLink(movie.bookingUrl);
-    }).catch(() => {});
+    })();
 
     // Average rating display
     onValue(ref(db, 'ratings/maa-inti-bangaaram'), (snap) => {
