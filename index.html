@@ -97,14 +97,14 @@
         <button class="hm-arrow hm-arrow-right" data-target="rowNow" data-dir="1" aria-label="Scroll right">&#8250;</button>
         <div class="hm-row" id="rowNow">
 
-          <a href="maa-inti-bangaaram-movie.html" class="hm-card">
+          <a href="vishwanath-and-sons-movie.html" class="hm-card">
             <div class="hm-card-poster">
-              <img src="images/maa-inti-bangaaram.jpg" alt="Maa Inti Bangaaram">
+              <img src="images/vishwanath-and-sons.jpg" alt="Vishwanath & Sons">
               <span class="hm-card-status">Now Showing</span>
-              <div class="hm-card-badge"><span class="hm-star">&#9733;</span><span>19 June 2026</span></div>
+              <div class="hm-card-badge"><span class="hm-star">&#9733;</span><span>14 August 2026</span></div>
             </div>
-            <div class="hm-card-title">Maa Inti Bangaaram</div>
-            <div class="hm-card-genre">Drama / Action</div>
+            <div class="hm-card-title">Vishwanath &amp; Sons</div>
+            <div class="hm-card-genre">Romance</div>
           </a>
 
         </div>
@@ -217,8 +217,8 @@
     const snap = await get(ref(db, 'movies'));
     const data = snap.val();
     if (data) {
-      const legacyPages = { ustaad:'ustaad-movie.html', peddi:'peddi-movie.html', 'maa-inti-bangaaram':'maa-inti-bangaaram-movie.html', dragon:'dragon-movie.html', paradise:'paradise-movie.html', vishwambhara:'vishwambhara-movie.html', varanasi:'varanasi-movie.html', spirit:'spirit-movie.html', fauzi:'fauzi-movie.html', dacoit:'dacoit-movie.html' };
-      const nowShowing = new Set(['peddi', 'maa-inti-bangaaram']);
+      const legacyPages = { ustaad:'ustaad-movie.html', peddi:'peddi-movie.html', 'maa-inti-bangaaram':'maa-inti-bangaaram-movie.html', 'vishwanath-and-sons':'vishwanath-and-sons-movie.html', dragon:'dragon-movie.html', paradise:'paradise-movie.html', vishwambhara:'vishwambhara-movie.html', varanasi:'varanasi-movie.html', spirit:'spirit-movie.html', fauzi:'fauzi-movie.html', dacoit:'dacoit-movie.html' };
+      const nowShowing = new Set(['peddi', 'maa-inti-bangaaram', 'vishwanath-and-sons']);
       const hidden = new Set(['vishwambhara']);
       // Movies always shown in the slider, even when Firebase doesn't have them yet.
       // Order here = visible order on the home page (Firebase entries not in this
@@ -257,6 +257,7 @@
       { name: 'Ustaad Bhagat Singh', url: 'ustaad-movie.html', cast: 'Pawan Kalyan, Sreeleela, Raashii Khanna', status: 'Ended' },
       { name: 'Peddi', url: 'peddi-movie.html', cast: 'Ram Charan, Janhvi Kapoor', status: 'Now Showing' },
       { name: 'Maa Inti Bangaaram', url: 'maa-inti-bangaaram-movie.html', cast: 'Samantha Ruth Prabhu, Gulshan Devaiah, Gautami', status: 'Now Showing' },
+      { name: 'Vishwanath & Sons', url: 'vishwanath-and-sons-movie.html', cast: 'Suriya', status: 'Now Showing' },
       { name: 'Dragon', url: 'dragon-movie.html', cast: 'N.T. Rama Rao Jr., Anil Kapoor, Rukmini Vasanth', status: 'Coming Soon' },
       { name: 'The Paradise', url: 'paradise-movie.html', cast: 'Nani', status: 'Coming Soon' },
       { name: 'Varanasi', url: 'varanasi-movie.html', cast: 'Mahesh Babu', status: 'Coming Soon' },

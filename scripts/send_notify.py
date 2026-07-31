@@ -47,6 +47,7 @@ MOVIE_NAMES = {
     'spirit': 'Spirit',
     'peddi': 'Peddi',
     'maa-inti-bangaaram': 'Maa Inti Bangaaram',
+    'vishwanath-and-sons': 'Vishwanath & Sons',
     'paradise': 'The Paradise',
     'varanasi': 'Varanasi',
     'vishwambhara': 'Vishwambhara',
