@@ -31,6 +31,7 @@ const allMovies = [
   { name: 'Peddi', url: 'peddi-movie.html', cast: 'Ram Charan, Janhvi Kapoor', status: 'Now Showing' },
   { name: 'Maa Inti Bangaaram', url: 'maa-inti-bangaaram-movie.html', cast: 'Samantha Ruth Prabhu, Gulshan Devaiah, Gautami', status: 'Now Showing' },
   { name: 'Vishwanath & Sons', url: 'vishwanath-and-sons-movie.html', cast: 'Suriya', status: 'Now Showing' },
+  { name: 'Irumudi', url: 'irumudi-movie.html', cast: 'Ravi Teja, Priya Bhavani Shankar, Sai Kumar, Baby Nakshathra', status: 'Now Showing' },
   { name: 'Dragon', url: 'dragon-movie.html', cast: 'N.T. Rama Rao Jr., Anil Kapoor, Rukmini Vasanth', status: 'Coming Soon' },
   { name: 'The Paradise', url: 'paradise-movie.html', cast: 'Nani', status: 'Coming Soon' },
   { name: 'Varanasi', url: 'varanasi-movie.html', cast: 'Mahesh Babu', status: 'Coming Soon' },

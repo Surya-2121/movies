@@ -107,6 +107,16 @@
             <div class="hm-card-genre">Romance</div>
           </a>
 
+          <a href="irumudi-movie.html" class="hm-card">
+            <div class="hm-card-poster">
+              <img src="images/irumudi.webp" alt="Irumudi">
+              <span class="hm-card-status">Now Showing</span>
+              <div class="hm-card-badge"><span class="hm-star">&#9733;</span><span>21 August 2026</span></div>
+            </div>
+            <div class="hm-card-title">Irumudi</div>
+            <div class="hm-card-genre">Drama</div>
+          </a>
+
         </div>
       </div>
     </section>
@@ -217,8 +227,8 @@
     const snap = await get(ref(db, 'movies'));
     const data = snap.val();
     if (data) {
-      const legacyPages = { ustaad:'ustaad-movie.html', peddi:'peddi-movie.html', 'maa-inti-bangaaram':'maa-inti-bangaaram-movie.html', 'vishwanath-and-sons':'vishwanath-and-sons-movie.html', dragon:'dragon-movie.html', paradise:'paradise-movie.html', vishwambhara:'vishwambhara-movie.html', varanasi:'varanasi-movie.html', spirit:'spirit-movie.html', fauzi:'fauzi-movie.html', dacoit:'dacoit-movie.html' };
-      const nowShowing = new Set(['peddi', 'maa-inti-bangaaram', 'vishwanath-and-sons']);
+      const legacyPages = { ustaad:'ustaad-movie.html', peddi:'peddi-movie.html', 'maa-inti-bangaaram':'maa-inti-bangaaram-movie.html', 'vishwanath-and-sons':'vishwanath-and-sons-movie.html', irumudi:'irumudi-movie.html', dragon:'dragon-movie.html', paradise:'paradise-movie.html', vishwambhara:'vishwambhara-movie.html', varanasi:'varanasi-movie.html', spirit:'spirit-movie.html', fauzi:'fauzi-movie.html', dacoit:'dacoit-movie.html' };
+      const nowShowing = new Set(['peddi', 'maa-inti-bangaaram', 'vishwanath-and-sons', 'irumudi']);
       const hidden = new Set(['vishwambhara']);
       // Movies always shown in the slider, even when Firebase doesn't have them yet.
       // Order here = visible order on the home page (Firebase entries not in this
@@ -258,6 +268,7 @@
       { name: 'Peddi', url: 'peddi-movie.html', cast: 'Ram Charan, Janhvi Kapoor', status: 'Now Showing' },
       { name: 'Maa Inti Bangaaram', url: 'maa-inti-bangaaram-movie.html', cast: 'Samantha Ruth Prabhu, Gulshan Devaiah, Gautami', status: 'Now Showing' },
       { name: 'Vishwanath & Sons', url: 'vishwanath-and-sons-movie.html', cast: 'Suriya', status: 'Now Showing' },
+      { name: 'Irumudi', url: 'irumudi-movie.html', cast: 'Ravi Teja, Priya Bhavani Shankar, Sai Kumar', status: 'Now Showing' },
       { name: 'Dragon', url: 'dragon-movie.html', cast: 'N.T. Rama Rao Jr., Anil Kapoor, Rukmini Vasanth', status: 'Coming Soon' },
       { name: 'The Paradise', url: 'paradise-movie.html', cast: 'Nani', status: 'Coming Soon' },
       { name: 'Varanasi', url: 'varanasi-movie.html', cast: 'Mahesh Babu', status: 'Coming Soon' },
