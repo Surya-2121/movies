@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 160" width="480" height="160" role="img" aria-label="Germany Telugu Movies">
+  <text x="26" y="118" font-family="'Archivo Black','Arial Black',sans-serif" font-size="96" letter-spacing="-3" fill="#f0ad4e">GTM</text>
+  <line x1="288" y1="46" x2="288" y2="122" stroke="#8a5a12" stroke-width="1.5"></line>
+  <g font-family="Figtree,'Helvetica Neue',Arial,sans-serif" font-weight="700" font-size="19" letter-spacing="3.6">
+    <text x="308" y="66" fill="#c9b28a">GERMANY</text>
+    <text x="308" y="92" fill="#c9b28a">TELUGU</text>
+    <text x="308" y="118" fill="#888888">MOVIES</text>
+  </g>
+</svg>

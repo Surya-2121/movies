@@ -13,6 +13,8 @@ function applyTheme(theme) {
   const text = document.getElementById('themeText');
   if (icon) icon.textContent = theme === 'light' ? '\u263E' : '\u2606';
   if (text) text.textContent = theme === 'light' ? 'Dark Mode' : 'Light Mode';
+  const logoSrc = theme === 'light' ? 'images/logo-light.svg' : 'images/logo-dark.svg';
+  document.querySelectorAll('.header-logo, .nav-logo').forEach(img => { img.src = logoSrc; });
 }
 
 function toggleTheme() {
