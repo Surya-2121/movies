@@ -81,6 +81,7 @@
       'maa-inti-bangaaram': 'maa-inti-bangaaram-movie.html',
       'vishwanath-and-sons': 'vishwanath-and-sons-movie.html',
       irumudi: 'irumudi-movie.html',
+      toxic: 'toxic-movie.html',
       dragon: 'dragon-movie.html',
       paradise: 'paradise-movie.html',
       vishwambhara: 'vishwambhara-movie.html',
@@ -95,6 +96,7 @@
     const hidden = new Set(['vishwambhara']);
     // Movies always shown, even when Firebase doesn't have them yet.
     const staticAdditions = [
+      ['toxic', { name: 'Toxic', poster: 'images/toxic.jpg', dates: 'Release: 26 August 2026' }],
       ['dragon', { name: 'Dragon', poster: 'images/dragon.jpg', dates: 'Release: 11 June 2027' }],
     ];
     const staticKeys = new Set(staticAdditions.map(([k]) => k));

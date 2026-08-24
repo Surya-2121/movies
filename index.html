@@ -97,24 +97,14 @@
         <button class="hm-arrow hm-arrow-right" data-target="rowNow" data-dir="1" aria-label="Scroll right">&#8250;</button>
         <div class="hm-row" id="rowNow">
 
-          <a href="vishwanath-and-sons-movie.html" class="hm-card">
+          <a href="toxic-movie.html" class="hm-card">
             <div class="hm-card-poster">
-              <img src="images/vishwanath-and-sons.jpg" alt="Vishwanath & Sons">
-              <span class="hm-card-status">Now Showing</span>
-              <div class="hm-card-badge"><span class="hm-star">&#9733;</span><span>14 August 2026</span></div>
+              <img src="images/toxic.jpg" alt="Toxic">
+              <span class="hm-card-status is-cs">Coming Soon</span>
+              <div class="hm-card-badge"><span class="hm-star">&#9733;</span><span>26 August 2026</span></div>
             </div>
-            <div class="hm-card-title">Vishwanath &amp; Sons</div>
-            <div class="hm-card-genre">Romance</div>
-          </a>
-
-          <a href="irumudi-movie.html" class="hm-card">
-            <div class="hm-card-poster">
-              <img src="images/irumudi.webp" alt="Irumudi">
-              <span class="hm-card-status">Now Showing</span>
-              <div class="hm-card-badge"><span class="hm-star">&#9733;</span><span>21 August 2026</span></div>
-            </div>
-            <div class="hm-card-title">Irumudi</div>
-            <div class="hm-card-genre">Drama</div>
+            <div class="hm-card-title">Toxic</div>
+            <div class="hm-card-genre">Action / Period Drama</div>
           </a>
 
         </div>
@@ -227,8 +217,8 @@
     const snap = await get(ref(db, 'movies'));
     const data = snap.val();
     if (data) {
-      const legacyPages = { ustaad:'ustaad-movie.html', peddi:'peddi-movie.html', 'maa-inti-bangaaram':'maa-inti-bangaaram-movie.html', 'vishwanath-and-sons':'vishwanath-and-sons-movie.html', irumudi:'irumudi-movie.html', dragon:'dragon-movie.html', paradise:'paradise-movie.html', vishwambhara:'vishwambhara-movie.html', varanasi:'varanasi-movie.html', spirit:'spirit-movie.html', fauzi:'fauzi-movie.html', dacoit:'dacoit-movie.html' };
-      const nowShowing = new Set(['peddi', 'maa-inti-bangaaram', 'vishwanath-and-sons', 'irumudi']);
+      const legacyPages = { ustaad:'ustaad-movie.html', peddi:'peddi-movie.html', 'maa-inti-bangaaram':'maa-inti-bangaaram-movie.html', 'vishwanath-and-sons':'vishwanath-and-sons-movie.html', irumudi:'irumudi-movie.html', toxic:'toxic-movie.html', dragon:'dragon-movie.html', paradise:'paradise-movie.html', vishwambhara:'vishwambhara-movie.html', varanasi:'varanasi-movie.html', spirit:'spirit-movie.html', fauzi:'fauzi-movie.html', dacoit:'dacoit-movie.html' };
+      const nowShowing = new Set(['peddi', 'maa-inti-bangaaram', 'vishwanath-and-sons', 'irumudi', 'toxic']);
       const hidden = new Set(['vishwambhara']);
       // Movies always shown in the slider, even when Firebase doesn't have them yet.
       // Order here = visible order on the home page (Firebase entries not in this
@@ -267,8 +257,7 @@
       { name: 'Ustaad Bhagat Singh', url: 'ustaad-movie.html', cast: 'Pawan Kalyan, Sreeleela, Raashii Khanna', status: 'Ended' },
       { name: 'Peddi', url: 'peddi-movie.html', cast: 'Ram Charan, Janhvi Kapoor', status: 'Now Showing' },
       { name: 'Maa Inti Bangaaram', url: 'maa-inti-bangaaram-movie.html', cast: 'Samantha Ruth Prabhu, Gulshan Devaiah, Gautami', status: 'Now Showing' },
-      { name: 'Vishwanath & Sons', url: 'vishwanath-and-sons-movie.html', cast: 'Suriya', status: 'Now Showing' },
-      { name: 'Irumudi', url: 'irumudi-movie.html', cast: 'Ravi Teja, Priya Bhavani Shankar, Sai Kumar', status: 'Now Showing' },
+      { name: 'Toxic', url: 'toxic-movie.html', cast: 'Yash, Kiara Advani, Nayanthara, Huma Qureshi, Tara Sutaria, Rukmini Vasanth', status: 'Coming Soon' },
       { name: 'Dragon', url: 'dragon-movie.html', cast: 'N.T. Rama Rao Jr., Anil Kapoor, Rukmini Vasanth', status: 'Coming Soon' },
       { name: 'The Paradise', url: 'paradise-movie.html', cast: 'Nani', status: 'Coming Soon' },
       { name: 'Varanasi', url: 'varanasi-movie.html', cast: 'Mahesh Babu', status: 'Coming Soon' },
