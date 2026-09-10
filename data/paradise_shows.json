@@ -1,8 +1,96 @@
 {
-  "fetchedAt": "2026-09-10T13:04:44.526569+00:00",
+  "fetchedAt": "2026-09-10T13:11:37.906617+00:00",
   "movie": "paradise",
-  "totalShows": 1,
+  "totalShows": 12,
   "shows": [
+    {
+      "city": "Berlin",
+      "cinema": "BABYLON BERLIN (BIG SCREEN) PREMIERE",
+      "date": "2026-09-10",
+      "time": "20:00",
+      "subtitle": "See cinema for showtimes",
+      "bookingUrl": "https://babylonberlin.eu/film/7341-indogerman-film-paradise"
+    },
+    {
+      "city": "Berlin",
+      "cinema": "FILMTHEATER COLLOSEUM BERLIN 26.09 - BIG Screen",
+      "date": "2026-09-10",
+      "time": "20:00",
+      "subtitle": "See cinema for showtimes",
+      "bookingUrl": "https://kino.colosseumberlin.com/"
+    },
+    {
+      "city": "Bielefeld",
+      "cinema": "Filmwerk Gütersloh Bielefeld",
+      "date": "2026-09-10",
+      "time": "20:00",
+      "subtitle": "See cinema for showtimes",
+      "bookingUrl": "https://web.filmwerk-gt.de/films/The-Paradise-Sprache-Teluguengl-Untertitel/HO00001993"
+    },
+    {
+      "city": "Dresden",
+      "cinema": "Zentral Kino Dresden",
+      "date": "2026-09-10",
+      "time": "20:00",
+      "subtitle": "See cinema for showtimes",
+      "bookingUrl": "https://www.kinoheld.de/kino/dresden/zentralkino-dresden/vorstellung/3647170129?mode=widget&layout=days&layouts=days&design=red&rb=1#panel-seats"
+    },
+    {
+      "city": "Düsseldorf",
+      "cinema": "ATALIER DÜSSELDORF",
+      "date": "2026-09-10",
+      "time": "20:00",
+      "subtitle": "See cinema for showtimes",
+      "bookingUrl": "https://filmkunstkinos.de/filme/the-paradise-2026/"
+    },
+    {
+      "city": "Düsseldorf",
+      "cinema": "UFA PALAST DÜSSELDORF",
+      "date": "2026-09-10",
+      "time": "20:00",
+      "subtitle": "See cinema for showtimes",
+      "bookingUrl": "https://ufa-duesseldorf.de/programm/2322056/"
+    },
+    {
+      "city": "Hamburg",
+      "cinema": "Zeise Hamburg (Big Screen)",
+      "date": "2026-09-10",
+      "time": "20:00",
+      "subtitle": "See cinema for showtimes",
+      "bookingUrl": "https://www.zeise.de/film/3991"
+    },
+    {
+      "city": "Karlsruhe",
+      "cinema": "UNIVERSUM KARLSRUHE",
+      "date": "2026-09-10",
+      "time": "20:00",
+      "subtitle": "See cinema for showtimes",
+      "bookingUrl": "https://www.universum-city.de/de/programm/1529184"
+    },
+    {
+      "city": "Koblenz",
+      "cinema": "Kino Neuwied Koblenz",
+      "date": "2026-09-10",
+      "time": "20:00",
+      "subtitle": "See cinema for showtimes",
+      "bookingUrl": "https://www.kinoneuwied.de/detail/131309/The%20Paradise"
+    },
+    {
+      "city": "Stuttgart",
+      "cinema": "Capitol KORNWESTHEIM STUTTGART",
+      "date": "2026-09-10",
+      "time": "20:00",
+      "subtitle": "See cinema for showtimes",
+      "bookingUrl": "https://capitol-kornwestheim.de/programm/film/the-paradise"
+    },
+    {
+      "city": "Würzburg",
+      "cinema": "Cineplex Dettelbach",
+      "date": "2026-09-10",
+      "time": "20:00",
+      "subtitle": "See cinema for showtimes",
+      "bookingUrl": "https://www.cineplex.de/dettelbach/film/the-paradise-telugu-4C341000012FWBXJYB"
+    },
     {
       "city": "Frankfurt",
       "cinema": "Premium Kino Frankfurt",

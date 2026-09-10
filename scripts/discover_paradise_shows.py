@@ -2,18 +2,30 @@
 Auto-discover The Paradise (movieId=77) shows from Zineflix.
 
 Zineflix's SPA at zineflix.com is powered by
-`https://backendzineflex.teammatrixmantra.com/api/v1`. This script:
+`https://backendzineflex.teammatrixmantra.com/api/v1`.
 
-  1. GET /shows                       -> every show record
-  2. Filter to movieId == 77 (Paradise)
-  3. For each unique cinemaId, GET /cinemas/getcinema/{id}
-     (cached in-process) to get name + city (via cinema.location =
-     "uuid-N" -> cities[uuid].name).
-  4. Merge in any hand-added shows from data/paradise_manual.json.
-  5. Dedupe by (date, time, city, cinema).
+The `/movie/places/show-cities/Paradise/77` page reads from
+GET /othertheatre — a flat list of {theatreName, city (uuid), redirectLink}
+records. Zineflix stores no dates/times for these external theatres, so
+each listing surfaces the cinema as an "external booking" card that
+deep-links back to the actual cinema's own booking page.
+
+Any real, hand-curated showtime lives in data/paradise_manual.json and
+takes precedence: if a manual entry shares the same bookingUrl as a
+Zineflix-discovered theatre, the Zineflix placeholder is dropped in
+favor of the manual (dated, timed) entry.
+
+Flow:
+  1. GET /cities  -> {uuid: cityName}
+  2. GET /othertheatre  -> filter movieId=77
+  3. Build one placeholder show per theatre (today's date, "External"
+     time), with city resolved via /cities.
+  4. Load data/paradise_manual.json.
+  5. Drop Zineflix placeholders whose bookingUrl already appears in
+     the manual list; keep everything else.
   6. Write data/paradise_shows.json.
   7. Patch ONLY the `paradise:` sub-entry inside `const movies = {...}`
-     in booking.html — never the whole movies object.
+     in booking.html — never touch other movies.
 
 Usage:  py scripts/discover_paradise_shows.py
 """
@@ -22,7 +34,7 @@ import os
 import re
 import sys
 import urllib.request
-from datetime import datetime, timezone
+from datetime import datetime, date, timezone
 
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 PROJECT_ROOT = os.path.dirname(SCRIPT_DIR)
@@ -34,6 +46,12 @@ API_BASE = "https://backendzineflex.teammatrixmantra.com/api/v1"
 UA = ("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
       "(KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36")
 
+# Placeholder time for Zineflix theatres that carry no showtime data.
+# Users see "See cinema" in the subtitle and click through to the real
+# booking backend for exact dates/times.
+PLACEHOLDER_TIME = "20:00"
+PLACEHOLDER_SUBTITLE = "See cinema for showtimes"
+
 MOVIE = {
     "slug": "paradise",
     "title": "The Paradise",
@@ -41,8 +59,6 @@ MOVIE = {
     "language": "Telugu",
     "page": "paradise-movie.html",
     "zineflixMovieId": 77,
-    "zineflixSlug": "Paradise",
-    "subtitle": "Telugu",
 }
 
 
@@ -58,7 +74,7 @@ def fetch_json(url):
 
 
 def get_cities():
-    """Return {uuid: name} map."""
+    """Return {uuid: cleaned city name}."""
     data = fetch_json(f"{API_BASE}/cities").get("data") or []
     out = {}
     for c in data:
@@ -69,61 +85,44 @@ def get_cities():
     return out
 
 
-def get_cinema(cinema_id, cache):
-    if cinema_id in cache:
-        return cache[cinema_id]
-    try:
-        data = fetch_json(f"{API_BASE}/cinemas/getcinema/{cinema_id}").get("data") or {}
-    except Exception as e:
-        print(f"  [warn] cinema {cinema_id} lookup failed: {e}")
-        data = {}
-    cache[cinema_id] = data
-    return data
+def clean_theatre_name(raw):
+    """Zineflix names come in ALL CAPS with trailing city tokens and stray
+    encoding artefacts. Return a legible label."""
+    if not raw:
+        return ""
+    name = raw.strip()
+    # Drop encoding replacement chars, collapse whitespace.
+    name = name.replace("�", "").replace("  ", " ").strip()
+    return re.sub(r"\s+", " ", name)
 
 
-def zineflix_booking_url(city_name):
-    """Deep-link back to Zineflix's city booking page."""
-    slug = MOVIE["zineflixSlug"]
-    mid = MOVIE["zineflixMovieId"]
-    # Zineflix uses the city name verbatim in the route.
-    from urllib.parse import quote
-    return f"https://zineflix.com/movie/booking/{slug}/{mid}/{quote(city_name)}"
-
-
-def fetch_zineflix_shows():
-    payload = fetch_json(f"{API_BASE}/shows")
-    all_shows = payload.get("data") or []
-    paradise = [s for s in all_shows if s.get("movieId") == MOVIE["zineflixMovieId"]]
-    print(f"  Zineflix /shows -> {len(all_shows)} total, {len(paradise)} for Paradise")
+def fetch_zineflix_theatres():
+    """One placeholder show per Zineflix theatre entry for Paradise."""
+    theatres = fetch_json(f"{API_BASE}/othertheatre").get("data") or []
+    paradise = [t for t in theatres if t.get("movieId") == MOVIE["zineflixMovieId"]]
+    print(f"  Zineflix /othertheatre -> {len(theatres)} total, {len(paradise)} for Paradise")
     if not paradise:
         return []
 
     cities = get_cities()
-    cinema_cache = {}
+    placeholder_date = date.today().isoformat()
     out = []
-    for s in paradise:
-        cinema_id = s.get("cinemaId")
-        start_date = s.get("startDate")
-        start_time = (s.get("startTime") or "")[:5]  # "HH:MM"
-        if not (cinema_id and start_date and start_time):
-            print(f"  [skip] show {s.get('id')} missing fields")
+    for t in paradise:
+        raw_name = t.get("theatreName") or ""
+        redirect = t.get("redirectLink") or ""
+        city_uuid = t.get("city") or ""
+        city_name = cities.get(city_uuid) or "Unknown"
+        cinema_name = clean_theatre_name(raw_name) or f"Zineflix theatre {t.get('id')}"
+        if not redirect:
+            print(f"  [skip] {cinema_name}: no redirectLink")
             continue
-        cinema = get_cinema(cinema_id, cinema_cache)
-        cinema_name = (cinema.get("name") or f"Cinema {cinema_id}").strip()
-        city_name = (cities.get(cinema.get("location")) or "").strip()
-        if not city_name:
-            # Fall back: try to lift city from the cinema name (e.g.
-            # "Cinestar Frankfurt Metropolis kino 9" -> "Frankfurt").
-            m = re.search(r"\b([A-ZÄÖÜ][a-zäöüß]+)\b", cinema_name)
-            city_name = m.group(1) if m else "Unknown"
-            print(f"  [warn] cinema {cinema_id} has no city uuid; guessed '{city_name}'")
         out.append({
             "city": city_name,
             "cinema": cinema_name,
-            "date": start_date,
-            "time": start_time,
-            "subtitle": MOVIE["subtitle"],
-            "bookingUrl": zineflix_booking_url(city_name),
+            "date": placeholder_date,
+            "time": PLACEHOLDER_TIME,
+            "subtitle": PLACEHOLDER_SUBTITLE,
+            "bookingUrl": redirect,
         })
     return out
 
@@ -141,20 +140,16 @@ def load_manual():
     return shows
 
 
-def dedupe(shows):
-    seen = set()
-    out = []
-    for s in shows:
-        key = (s.get("date"), s.get("time"), s.get("city"), s.get("cinema"))
-        if key in seen:
-            continue
-        seen.add(key)
-        out.append(s)
-    return out
+def merge_prefer_manual(zineflix, manual):
+    """Manual entries always win. If a Zineflix placeholder points at the
+    same bookingUrl as any manual entry, drop the placeholder."""
+    manual_urls = {m.get("bookingUrl") for m in manual if m.get("bookingUrl")}
+    filtered = [z for z in zineflix if z.get("bookingUrl") not in manual_urls]
+    return filtered + manual
 
 
 # --------------------------------------------------------------------
-# booking.html regeneration — patch ONLY paradise: sub-entry
+# booking.html regeneration — patch ONLY the paradise: sub-entry
 # --------------------------------------------------------------------
 
 def regenerate_booking_html(movie, shows):
@@ -237,19 +232,23 @@ def regenerate_booking_html(movie, shows):
 # --------------------------------------------------------------------
 
 def main():
-    print("== Zineflix scrape ==")
+    print("== Zineflix /othertheatre scrape ==")
     try:
-        zineflix_shows = fetch_zineflix_shows()
+        zineflix_shows = fetch_zineflix_theatres()
     except Exception as e:
         print(f"  Zineflix scrape failed: {e}")
         zineflix_shows = []
+    for s in zineflix_shows:
+        print(f"    {s['city']:15} | {s['cinema']:40} | {s['bookingUrl']}")
 
     print("\n== Manual overrides ==")
     manual_shows = load_manual()
 
-    all_shows = dedupe(zineflix_shows + manual_shows)
+    all_shows = merge_prefer_manual(zineflix_shows, manual_shows)
     all_shows.sort(key=lambda s: (s["date"], s["time"], s["city"], s["cinema"]))
-    print(f"\nTotal Paradise shows after merge+dedupe: {len(all_shows)}")
+    print(f"\nTotal Paradise shows: {len(all_shows)} "
+          f"({len(zineflix_shows) - (len(zineflix_shows + manual_shows) - len(all_shows))} zineflix + "
+          f"{len(manual_shows)} manual)")
 
     os.makedirs(os.path.dirname(SHOWS_FILE), exist_ok=True)
     out = {
