@@ -1,0 +1,13 @@
+{
+  "_comment": "Movies tracked by scripts/discover_zineflix_shows.py. To onboard a new movie, add an entry here — the scraper will pick it up on the next run. Fields: slug (site slug matching booking.html key), zineflixMovieId (from zineflix.com URL, e.g. /movie/places/show-cities/Paradise/77 -> 77), title/genre/language/page (used when regenerating booking.html for new shows).",
+  "movies": [
+    {
+      "slug": "paradise",
+      "zineflixMovieId": 77,
+      "title": "The Paradise",
+      "genre": "Period Action-Drama",
+      "language": "Telugu",
+      "page": "paradise-movie.html"
+    }
+  ]
+}

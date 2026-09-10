@@ -1,0 +1,55 @@
+name: Discover Zineflix Shows
+
+# Generalized Zineflix cinema-roster check for every movie listed in
+# data/zineflix_movies.json. Runs each evening (main sweep) plus a
+# morning safety pass. On any roster change (new or removed cinemas),
+# appends a note to data/zineflix_alerts.md — visible in the commit
+# history and easy to eyeball.
+#
+# To add a new movie, edit data/zineflix_movies.json (or run
+# `python scripts/discover_zineflix_shows.py add <slug> <zineflixMovieId>
+#  "<title>" "<genre>" "<language>" "<page>"`).
+
+on:
+  schedule:
+    # Berlin CEST (summer, UTC+2):
+    #   08:00 local = 06:00 UTC  (morning safety pass)
+    #   19:00 local = 17:00 UTC  (evening main sweep)
+    #   23:30 local = 21:30 UTC  (late catch)
+    # (Times shift by 1h during winter CET; acceptable for pickup.)
+    - cron: '0 6,17 * * *'
+    - cron: '30 21 * * *'
+  workflow_dispatch:
+    inputs:
+      slug:
+        description: 'Optional: single movie slug to run (leave empty for all).'
+        required: false
+        type: string
+
+permissions:
+  contents: write
+
+jobs:
+  discover:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Run Zineflix roster scan
+        run: |
+          if [ -n "${{ github.event.inputs.slug }}" ]; then
+            python scripts/discover_zineflix_shows.py "${{ github.event.inputs.slug }}"
+          else
+            python scripts/discover_zineflix_shows.py
+          fi
+
+      - name: Commit and push if anything changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add booking.html data/*_zineflix.json data/zineflix_alerts.md 2>/dev/null || true
+          git diff --staged --quiet || (git commit -m "Zineflix scan $(date -u +%Y-%m-%dT%H:%M:%SZ)" && git pull --rebase && git push)
