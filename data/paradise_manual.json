@@ -71,6 +71,14 @@
       "time": "20:30",
       "subtitle": "Telugu",
       "bookingUrl": "https://babylonberlin.eu/film/7341-indogerman-film-paradise"
+    },
+    {
+      "city": "Hamburg",
+      "cinema": "Zeise Kinos Hamburg",
+      "date": "2026-09-25",
+      "time": "16:30",
+      "subtitle": "Telugu",
+      "bookingUrl": "https://www.zeise.de/film/3991"
     }
   ]
 }
