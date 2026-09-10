@@ -79,6 +79,22 @@
       "time": "16:30",
       "subtitle": "Telugu",
       "bookingUrl": "https://www.zeise.de/film/3991"
+    },
+    {
+      "city": "Bielefeld",
+      "cinema": "Filmwerk Gütersloh",
+      "date": "2026-09-25",
+      "time": "19:30",
+      "subtitle": "Telugu",
+      "bookingUrl": "https://web.filmwerk-gt.de/films/The-Paradise-Sprache-Teluguengl-Untertitel/HO00001993"
+    },
+    {
+      "city": "Bielefeld",
+      "cinema": "Filmwerk Gütersloh",
+      "date": "2026-09-27",
+      "time": "11:30",
+      "subtitle": "Telugu",
+      "bookingUrl": "https://web.filmwerk-gt.de/films/The-Paradise-Sprache-Teluguengl-Untertitel/HO00001993"
     }
   ]
 }
