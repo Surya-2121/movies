@@ -1,7 +1,7 @@
 {
-  "fetchedAt": "2026-09-10T14:26:57.864035+00:00",
+  "fetchedAt": "2026-09-10T19:27:45.562242+00:00",
   "movie": "paradise",
-  "totalCinemas": 12,
+  "totalCinemas": 13,
   "cinemas": [
     {
       "city": "Berlin",
@@ -74,6 +74,12 @@
       "cinema": "Filmwerk Gütersloh Bielefeld",
       "bookingUrl": "https://web.filmwerk-gt.de/films/The-Paradise-Sprache-Teluguengl-Untertitel/HO00001993",
       "zineflixId": 824
+    },
+    {
+      "city": "Berlin",
+      "cinema": "Filmtheater Colloseum Berlin",
+      "bookingUrl": "https://kino.colosseumberlin.com/tickets?showUrl=https%3A%2F%2Fwww.kinoheld.de%2Fkino%2Fberlin%2Fcolosseum-filmtheater-berlin%2Fvorstellung%2F3640706849%2Fthe-paradise-telugu-omeu%3Fmode%3Dwidget%26change%3D0",
+      "zineflixId": 825
     }
   ]
 }
