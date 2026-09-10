@@ -34,7 +34,7 @@ const allMovies = [
   { name: 'Maa Inti Bangaaram', url: 'maa-inti-bangaaram-movie.html', cast: 'Samantha Ruth Prabhu, Gulshan Devaiah, Gautami', status: 'Now Showing' },
   { name: 'Toxic', url: 'toxic-movie.html', cast: 'Yash, Kiara Advani, Nayanthara, Huma Qureshi, Tara Sutaria, Rukmini Vasanth', status: 'Coming Soon' },
   { name: 'Dragon', url: 'dragon-movie.html', cast: 'N.T. Rama Rao Jr., Anil Kapoor, Rukmini Vasanth', status: 'Coming Soon' },
-  { name: 'The Paradise', url: 'paradise-movie.html', cast: 'Nani', status: 'Coming Soon' },
+  { name: 'The Paradise', url: 'paradise-movie.html', cast: 'Nani, Raghav Juyal, Easwari Rao', status: 'Now Showing' },
   { name: 'Varanasi', url: 'varanasi-movie.html', cast: 'Mahesh Babu', status: 'Coming Soon' },
   { name: 'Spirit', url: 'spirit-movie.html', cast: 'Prabhas, Triptii Dimri', status: 'Coming Soon' },
   { name: 'Dacoit', url: 'dacoit-movie.html', cast: 'Adivi Sesh, Mrunal Thakur', status: 'Coming Soon' },

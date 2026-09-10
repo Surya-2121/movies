@@ -30,9 +30,9 @@
             <span>2026</span>
             <span>Period Action-Drama</span>
           </div>
-          <div class="mp-dates">Coming Soon to Germany</div>
+          <div class="mp-dates">In Cinemas Now</div>
           <!-- Phase 1: Pre-release - Interested + Notify -->
-          <div id="interestedBar" class="bms-interest-bar">
+          <div id="interestedBar" class="bms-interest-bar" style="display:none;">
             <div class="bms-bar-left">
               <span class="bms-thumb">&#128077;</span>
               <span class="bms-count" id="interestedCount">0</span><span class="bms-count-label"> are interested</span>
@@ -40,7 +40,7 @@
             <button id="interestedBtn" class="bms-btn" onclick="toggleInterest()">I'm interested</button>
           </div>
 
-          <div id="notifyBar" class="bms-interest-bar" style="margin-top:12px;">
+          <div id="notifyBar" class="bms-interest-bar" style="display:none;margin-top:12px;">
             <div class="bms-bar-left">
               <span class="bms-thumb">&#128276;</span>
               <span class="bms-count" id="notifyCount">0</span><span class="bms-count-label"> subscribed</span>
@@ -78,12 +78,12 @@
             <div id="rateMsg" class="review-msg"></div>
           </div>
 
-          <div id="bookBar" class="bms-interest-bar" style="display:none;margin-top:12px;">
+          <div id="bookBar" class="bms-interest-bar" style="display:flex;margin-top:12px;">
             <div class="bms-bar-left">
               <span class="bms-thumb">&#127915;</span>
               <span class="bms-count-label">Tickets available now!</span>
             </div>
-            <a id="bookLink" href="#" class="bms-btn bms-btn-red" style="text-decoration:none;">Book Now</a>
+            <a id="bookLink" href="booking.html?movie=paradise" class="bms-btn bms-btn-red" style="text-decoration:none;">Book Now</a>
           </div>
         </div>
       </section>

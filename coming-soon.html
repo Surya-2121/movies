@@ -92,11 +92,10 @@
 
     const snap = await get(ref(db, 'movies'));
     const data = snap.val() || {};
-    const nowShowing = new Set(['peddi', 'maa-inti-bangaaram', 'vishwanath-and-sons', 'irumudi']);
+    const nowShowing = new Set(['peddi', 'maa-inti-bangaaram', 'vishwanath-and-sons', 'irumudi', 'toxic', 'paradise']);
     const hidden = new Set(['vishwambhara']);
     // Movies always shown, even when Firebase doesn't have them yet.
     const staticAdditions = [
-      ['toxic', { name: 'Toxic', poster: 'images/toxic.jpg', dates: 'Release: 26 August 2026' }],
       ['dragon', { name: 'Dragon', poster: 'images/dragon.jpg', dates: 'Release: 11 June 2027' }],
     ];
     const staticKeys = new Set(staticAdditions.map(([k]) => k));

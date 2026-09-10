@@ -100,11 +100,21 @@
           <a href="toxic-movie.html" class="hm-card">
             <div class="hm-card-poster">
               <img src="images/toxic.jpg" alt="Toxic">
-              <span class="hm-card-status is-cs">Coming Soon</span>
+              <span class="hm-card-status">Now Showing</span>
               <div class="hm-card-badge"><span class="hm-star">&#9733;</span><span>26 August 2026</span></div>
             </div>
             <div class="hm-card-title">Toxic</div>
             <div class="hm-card-genre">Action / Period Drama</div>
+          </a>
+
+          <a href="paradise-movie.html" class="hm-card">
+            <div class="hm-card-poster">
+              <img src="https://image.tmdb.org/t/p/w300/smghVMoMWSIFi5dgIz4w1UIcEcY.jpg" alt="The Paradise">
+              <span class="hm-card-status">Now Showing</span>
+              <div class="hm-card-badge"><span class="hm-star">&#9733;</span><span>23 September 2026</span></div>
+            </div>
+            <div class="hm-card-title">The Paradise</div>
+            <div class="hm-card-genre">Period Action-Drama</div>
           </a>
 
         </div>
@@ -121,15 +131,6 @@
         <button class="hm-arrow hm-arrow-left" data-target="rowCS" data-dir="-1" aria-label="Scroll left">&#8249;</button>
         <button class="hm-arrow hm-arrow-right" data-target="rowCS" data-dir="1" aria-label="Scroll right">&#8250;</button>
         <div class="hm-row" id="rowCS">
-
-          <a href="paradise-movie.html" class="hm-card">
-            <div class="hm-card-poster">
-              <img src="https://image.tmdb.org/t/p/w300/smghVMoMWSIFi5dgIz4w1UIcEcY.jpg" alt="The Paradise">
-              <span class="hm-card-status is-cs">Coming Soon</span>
-            </div>
-            <div class="hm-card-title">The Paradise</div>
-            <div class="hm-card-genre">Drama</div>
-          </a>
 
           <a href="varanasi-movie.html" class="hm-card">
             <div class="hm-card-poster">
@@ -218,13 +219,12 @@
     const data = snap.val();
     if (data) {
       const legacyPages = { ustaad:'ustaad-movie.html', peddi:'peddi-movie.html', 'maa-inti-bangaaram':'maa-inti-bangaaram-movie.html', 'vishwanath-and-sons':'vishwanath-and-sons-movie.html', irumudi:'irumudi-movie.html', toxic:'toxic-movie.html', dragon:'dragon-movie.html', paradise:'paradise-movie.html', vishwambhara:'vishwambhara-movie.html', varanasi:'varanasi-movie.html', spirit:'spirit-movie.html', fauzi:'fauzi-movie.html', dacoit:'dacoit-movie.html' };
-      const nowShowing = new Set(['peddi', 'maa-inti-bangaaram', 'vishwanath-and-sons', 'irumudi', 'toxic']);
+      const nowShowing = new Set(['peddi', 'maa-inti-bangaaram', 'vishwanath-and-sons', 'irumudi', 'toxic', 'paradise']);
       const hidden = new Set(['vishwambhara']);
       // Movies always shown in the slider, even when Firebase doesn't have them yet.
       // Order here = visible order on the home page (Firebase entries not in this
       // list are appended after, preserving curated order at the top).
       const staticAdditions = [
-        ['paradise',  { name: 'The Paradise', poster: 'https://image.tmdb.org/t/p/w300/smghVMoMWSIFi5dgIz4w1UIcEcY.jpg', genre: 'Drama' }],
         ['varanasi',  { name: 'Varanasi',     poster: 'images/varanasi.jpg', genre: 'Action / Mythology' }],
         ['fauzi',     { name: 'Fauzi',        poster: 'images/fauzi.jpg',    genre: 'Action / War' }],
         ['spirit',    { name: 'Spirit',       poster: 'images/spirit.webp',  genre: 'Action / Drama' }],
@@ -259,7 +259,7 @@
       { name: 'Maa Inti Bangaaram', url: 'maa-inti-bangaaram-movie.html', cast: 'Samantha Ruth Prabhu, Gulshan Devaiah, Gautami', status: 'Now Showing' },
       { name: 'Toxic', url: 'toxic-movie.html', cast: 'Yash, Kiara Advani, Nayanthara, Huma Qureshi, Tara Sutaria, Rukmini Vasanth', status: 'Coming Soon' },
       { name: 'Dragon', url: 'dragon-movie.html', cast: 'N.T. Rama Rao Jr., Anil Kapoor, Rukmini Vasanth', status: 'Coming Soon' },
-      { name: 'The Paradise', url: 'paradise-movie.html', cast: 'Nani', status: 'Coming Soon' },
+      { name: 'The Paradise', url: 'paradise-movie.html', cast: 'Nani, Raghav Juyal, Easwari Rao', status: 'Now Showing' },
       { name: 'Varanasi', url: 'varanasi-movie.html', cast: 'Mahesh Babu', status: 'Coming Soon' },
       { name: 'Spirit', url: 'spirit-movie.html', cast: 'Prabhas, Triptii Dimri', status: 'Coming Soon' },
       { name: 'Dacoit', url: 'dacoit-movie.html', cast: 'Adivi Sesh, Mrunal Thakur', status: 'Coming Soon' },
