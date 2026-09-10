@@ -119,6 +119,22 @@
       "time": "16:30",
       "subtitle": "Telugu",
       "bookingUrl": "https://www.kinoneuwied.de/detail/131309/The%20Paradise"
+    },
+    {
+      "city": "Würzburg",
+      "cinema": "Cineplex Dettelbach",
+      "date": "2026-09-27",
+      "time": "11:00",
+      "subtitle": "Telugu (OmeU)",
+      "bookingUrl": "https://www.cineplex.de/dettelbach/film/the-paradise-telugu-4C341000012FWBXJYB"
+    },
+    {
+      "city": "Würzburg",
+      "cinema": "Cineplex Dettelbach",
+      "date": "2026-09-28",
+      "time": "19:30",
+      "subtitle": "Telugu (OmeU)",
+      "bookingUrl": "https://www.cineplex.de/dettelbach/film/the-paradise-telugu-4C341000012FWBXJYB"
     }
   ]
 }
