@@ -111,6 +111,14 @@
       "time": "11:45",
       "subtitle": "Telugu",
       "bookingUrl": "https://www.universum-city.de/de/programm/1529184"
+    },
+    {
+      "city": "Koblenz",
+      "cinema": "Kino Neuwied",
+      "date": "2026-09-27",
+      "time": "16:30",
+      "subtitle": "Telugu",
+      "bookingUrl": "https://www.kinoneuwied.de/detail/131309/The%20Paradise"
     }
   ]
 }
