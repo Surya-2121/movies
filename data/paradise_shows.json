@@ -1,0 +1,15 @@
+{
+  "fetchedAt": "2026-09-10T13:04:44.526569+00:00",
+  "movie": "paradise",
+  "totalShows": 1,
+  "shows": [
+    {
+      "city": "Frankfurt",
+      "cinema": "Premium Kino Frankfurt",
+      "date": "2026-09-23",
+      "time": "20:45",
+      "subtitle": "Telugu",
+      "bookingUrl": "https://frankfurt.premiumkino.de/en/film/the-paradise"
+    }
+  ]
+}
