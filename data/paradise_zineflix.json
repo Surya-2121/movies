@@ -1,7 +1,7 @@
 {
-  "fetchedAt": "2026-09-11T19:28:09.694823+00:00",
+  "fetchedAt": "2026-09-11T23:24:07.092601+00:00",
   "movie": "paradise",
-  "totalCinemas": 13,
+  "totalCinemas": 14,
   "cinemas": [
     {
       "city": "Berlin",
@@ -80,6 +80,12 @@
       "cinema": "Filmtheater Colloseum Berlin",
       "bookingUrl": "https://kino.colosseumberlin.com/tickets?showUrl=https%3A%2F%2Fwww.kinoheld.de%2Fkino%2Fberlin%2Fcolosseum-filmtheater-berlin%2Fvorstellung%2F3640706849%2Fthe-paradise-telugu-omeu%3Fmode%3Dwidget%26change%3D0",
       "zineflixId": 825
+    },
+    {
+      "city": "Mönchengladbach",
+      "cinema": "HAUS ZOAR MÖNCHENGLADBACH",
+      "bookingUrl": "https://www.cinefactorymg.de/detail/131130/The%20Paradise",
+      "zineflixId": 826
     }
   ]
 }
