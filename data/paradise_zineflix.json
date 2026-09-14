@@ -1,7 +1,7 @@
 {
-  "fetchedAt": "2026-09-14T11:55:44.272871+00:00",
+  "fetchedAt": "2026-09-14T20:45:02.232236+00:00",
   "movie": "paradise",
-  "totalCinemas": 14,
+  "totalCinemas": 17,
   "cinemas": [
     {
       "city": "Berlin",
@@ -86,6 +86,24 @@
       "cinema": "HAUS ZOAR MÖNCHENGLADBACH",
       "bookingUrl": "https://www.cinefactorymg.de/detail/131130/The%20Paradise",
       "zineflixId": 826
+    },
+    {
+      "city": "Frankenthal",
+      "cinema": "Lux Kino Frankenthal",
+      "bookingUrl": "https://kinotickets.express/lux-frankenthal/sale/seats/54291",
+      "zineflixId": 827
+    },
+    {
+      "city": "München",
+      "cinema": "Cincinnati München PREMIERE show",
+      "bookingUrl": "https://www.cincinnati-muenchen.de/de/programm/2025211",
+      "zineflixId": 828
+    },
+    {
+      "city": "HEIDELBERG",
+      "cinema": "Lux Kino Heidelberg",
+      "bookingUrl": "https://heidelberg.luxor-kino.de/de/programm/2025121",
+      "zineflixId": 829
     }
   ]
 }
