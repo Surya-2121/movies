@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-09-15T20:01:12.459633+00:00",
+  "fetchedAt": "2026-09-15T23:34:02.145368+00:00",
   "movie": "paradise",
   "totalCinemas": 17,
   "cinemas": [
@@ -95,14 +95,14 @@
     },
     {
       "city": "München",
-      "cinema": "Cincinnati München PREMIERE show",
-      "bookingUrl": "https://www.cincinnati-muenchen.de/de/programm/2025211",
+      "cinema": "Cincinnati München BIG SCREEN",
+      "bookingUrl": "https://www.cincinnati-muenchen.de/de/programm/1529184",
       "zineflixId": 828
     },
     {
       "city": "HEIDELBERG",
       "cinema": "Lux Kino Heidelberg",
-      "bookingUrl": "https://heidelberg.luxor-kino.de/de/programm/2025121",
+      "bookingUrl": "https://heidelberg.luxor-kino.de/de/programm/1529184",
       "zineflixId": 829
     }
   ]
