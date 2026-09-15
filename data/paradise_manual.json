@@ -159,6 +159,14 @@
       "time": "11:00",
       "subtitle": "Telugu",
       "bookingUrl": "https://www.cinefactorymg.de/detail/131130/The%20Paradise"
+    },
+    {
+      "city": "Frankenthal",
+      "cinema": "Lux Kino Frankenthal",
+      "date": "2026-09-24",
+      "time": "19:00",
+      "subtitle": "Telugu",
+      "bookingUrl": "https://kinotickets.express/lux-frankenthal/sale/seats/54291"
     }
   ]
 }
