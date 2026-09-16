@@ -1,12 +1,12 @@
 {
-  "fetchedAt": "2026-09-15T23:34:02.145368+00:00",
+  "fetchedAt": "2026-09-16T10:54:31.672590+00:00",
   "movie": "paradise",
-  "totalCinemas": 17,
+  "totalCinemas": 19,
   "cinemas": [
     {
       "city": "Berlin",
       "cinema": "FILMTHEATER COLLOSEUM BERLIN 26.09 - BIG Screen",
-      "bookingUrl": "https://kino.colosseumberlin.com/",
+      "bookingUrl": "https://kino.colosseumberlin.com/tickets?showUrl=https%3A%2F%2Fwww.kinoheld.de%2Fkino%2Fberlin%2Fcolosseum-filmtheater-berlin%2Fvorstellung%2F3648082572%2Fthe-paradise-telugu-omeu%3Fmode%3Dwidget%26change%3D0",
       "zineflixId": 791
     },
     {
@@ -104,6 +104,18 @@
       "cinema": "Lux Kino Heidelberg",
       "bookingUrl": "https://heidelberg.luxor-kino.de/de/programm/1529184",
       "zineflixId": 829
+    },
+    {
+      "city": "München",
+      "cinema": "Cineplex Bayreuth",
+      "bookingUrl": "https://www.cineplex.de/bayreuth/film/the-paradise-telugu-4C341000012FWBXJYB",
+      "zineflixId": 830
+    },
+    {
+      "city": "Pforzheim",
+      "cinema": "Cinemoon Pforzheim",
+      "bookingUrl": "https://www.cinemoon.de/de/programm/1529184",
+      "zineflixId": 831
     }
   ]
 }
