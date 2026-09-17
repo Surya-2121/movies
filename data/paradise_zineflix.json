@@ -1,7 +1,7 @@
 {
-  "fetchedAt": "2026-09-17T11:02:50.815363+00:00",
+  "fetchedAt": "2026-09-17T20:00:55.068230+00:00",
   "movie": "paradise",
-  "totalCinemas": 19,
+  "totalCinemas": 20,
   "cinemas": [
     {
       "city": "Berlin",
@@ -116,6 +116,12 @@
       "cinema": "Cinemoon Pforzheim",
       "bookingUrl": "https://www.cinemoon.de/de/programm/1529184",
       "zineflixId": 831
+    },
+    {
+      "city": "Dresden",
+      "cinema": "Cineplexx Dresden",
+      "bookingUrl": "https://www.cineplex.de/dresden/film/the-paradise-telugu-4C341000012FWBXJYB",
+      "zineflixId": 833
     }
   ]
 }
