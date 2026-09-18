@@ -191,6 +191,22 @@
       "time": "19:45",
       "subtitle": "Telugu (OmeU)",
       "bookingUrl": "https://www.kinoheld.de/kino/pforzheim/cinemoon-pforzheim?rb=0&mode=widget&appView=1&showId=33968"
+    },
+    {
+      "city": "Dresden",
+      "cinema": "Cineplex Kristallpalast Dresden",
+      "date": "2026-09-26",
+      "time": "12:00",
+      "subtitle": "Telugu (OmeU)",
+      "bookingUrl": "https://www.cineplex.de/dresden/film/the-paradise-telugu-4C341000012FWBXJYB"
+    },
+    {
+      "city": "Bayreuth",
+      "cinema": "Franz & Gloria (Cineplex Bayreuth)",
+      "date": "2026-10-04",
+      "time": "10:30",
+      "subtitle": "Telugu (OmeU)",
+      "bookingUrl": "https://www.cineplex.de/bayreuth/film/the-paradise-telugu-4C341000012FWBXJYB"
     }
   ]
 }
