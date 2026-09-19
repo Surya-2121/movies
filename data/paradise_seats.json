@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-09-19T08:00:25.196449+00:00",
+  "fetchedAt": "2026-09-19T16:00:00.074316+00:00",
   "filterDate": null,
   "shows": [
     {
@@ -23,8 +23,8 @@
       "subtitle": "Telugu",
       "bookingUrl": "https://ufa-duesseldorf.de/programm/2322056/",
       "capacity": 223,
-      "booked": 81,
-      "free": 142,
+      "booked": 88,
+      "free": 135,
       "blocked": 0,
       "note": null,
       "rewrittenUrl": "https://kinotickets.express/duesseldorf-ufa-filmpalast/sale/seats/86044"
@@ -77,8 +77,8 @@
       "subtitle": "Telugu",
       "bookingUrl": "https://www.kinoheld.de/kino/dresden/zentralkino-dresden/vorstellung/3647170129?mode=widget&layout=days&layouts=days&design=red&rb=1#panel-seats",
       "capacity": 95,
-      "booked": 45,
-      "free": 50,
+      "booked": 47,
+      "free": 48,
       "blocked": 0,
       "note": null
     },
@@ -90,7 +90,7 @@
       "subtitle": "Telugu",
       "bookingUrl": "https://frankfurt.premiumkino.de/en/film/the-paradise",
       "capacity": 0,
-      "booked": 93,
+      "booked": 104,
       "free": 0,
       "blocked": 0,
       "note": null,
@@ -104,8 +104,8 @@
       "subtitle": "Telugu",
       "bookingUrl": "https://kino.colosseumberlin.com/tickets?showUrl=https%3A%2F%2Fwww.kinoheld.de%2Fkino%2Fberlin%2Fcolosseum-filmtheater-berlin%2Fvorstellung%2F3640706849%2Fthe-paradise-telugu-omeu%3Fmode%3Dwidget%26change%3D0",
       "capacity": 161,
-      "booked": 39,
-      "free": 122,
+      "booked": 43,
+      "free": 118,
       "blocked": 0,
       "note": null,
       "rewrittenUrl": "https://www.kinoheld.de/kino/berlin/colosseum-filmtheater-berlin/vorstellung/3640706849/the-paradise-telugu-omeu?mode=widget&change=0"
@@ -336,7 +336,7 @@
     "shows": 26,
     "coverageShows": 9,
     "capacity": 1510,
-    "booked": 323,
-    "free": 1280
+    "booked": 347,
+    "free": 1267
   }
 }
