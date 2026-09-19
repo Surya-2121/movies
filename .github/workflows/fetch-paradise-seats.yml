@@ -1,0 +1,47 @@
+name: Fetch Paradise Seats
+
+# Scrapes seat counts for every Paradise show whose booking URL lands on
+# a supported backend (Kinoheld / Kinotickets / PremiumKino / Cinetixx /
+# ticket-cloud), writes data/paradise_seats.json, and commits changes.
+#
+# Runs OUTSIDE the discover cron so the two don't overlap. Adjust as needed.
+
+on:
+  schedule:
+    # Berlin CEST (summer, UTC+2): 09:30, 14:30, 20:30 local
+    # = 07:30, 12:30, 18:30 UTC
+    - cron: '30 7,12,18 * * *'
+  workflow_dispatch:
+    inputs:
+      date:
+        description: 'Optional date filter (YYYY-MM-DD). Empty = all shows.'
+        required: false
+        type: string
+
+permissions:
+  contents: write
+
+jobs:
+  scrape:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Scrape Paradise seat counts
+        run: |
+          if [ -n "${{ github.event.inputs.date }}" ]; then
+            python scripts/fetch_paradise_seats.py "${{ github.event.inputs.date }}"
+          else
+            python scripts/fetch_paradise_seats.py
+          fi
+
+      - name: Commit and push if seats changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/paradise_seats.json
+          git diff --staged --quiet || (git commit -m "Paradise seats scan $(date -u +%Y-%m-%dT%H:%M:%SZ)" && git pull --rebase && git push)
