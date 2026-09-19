@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-09-19T19:10:15.978285+00:00",
+  "fetchedAt": "2026-09-19T23:16:31.805273+00:00",
   "movie": "paradise",
   "totalCinemas": 20,
   "cinemas": [
@@ -77,7 +77,7 @@
     },
     {
       "city": "Berlin",
-      "cinema": "Filmtheater Colloseum Berlin",
+      "cinema": "Filmtheater Colloseum Berlin 24.09.26",
       "bookingUrl": "https://kino.colosseumberlin.com/tickets?showUrl=https%3A%2F%2Fwww.kinoheld.de%2Fkino%2Fberlin%2Fcolosseum-filmtheater-berlin%2Fvorstellung%2F3640706849%2Fthe-paradise-telugu-omeu%3Fmode%3Dwidget%26change%3D0",
       "zineflixId": 825
     },
