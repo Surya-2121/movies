@@ -1,7 +1,7 @@
 {
-  "fetchedAt": "2026-09-21T12:06:19.359702+00:00",
+  "fetchedAt": "2026-09-21T20:47:47.330535+00:00",
   "movie": "paradise",
-  "totalCinemas": 20,
+  "totalCinemas": 26,
   "cinemas": [
     {
       "city": "Berlin",
@@ -122,6 +122,42 @@
       "cinema": "Cineplexx Dresden",
       "bookingUrl": "https://www.cineplex.de/dresden/film/the-paradise-telugu-4C341000012FWBXJYB",
       "zineflixId": 833
+    },
+    {
+      "city": "Weil am Rhein",
+      "cinema": "Kinopalast Weil am Rhein (TELUGU & TAMIL SHOW)",
+      "bookingUrl": "https://kino-weil.de/film/34315/Paradise-The--/",
+      "zineflixId": 837
+    },
+    {
+      "city": "Stuttgart",
+      "cinema": "Leonberg Traumpalast",
+      "bookingUrl": "https://leonberg.traumpalast.de/index.php/FN/8807/PID/5574.html",
+      "zineflixId": 838
+    },
+    {
+      "city": "Stuttgart",
+      "cinema": "Leonberg Esslingen Stuttgart",
+      "bookingUrl": "https://esslingen.traumpalast.de/index.php/FN/8807/PID/144.html",
+      "zineflixId": 839
+    },
+    {
+      "city": "Stuttgart",
+      "cinema": "TRAUMPALAST Schwäbisch Gmünd Stuttgart",
+      "bookingUrl": "https://schwaebisch-gmuend.traumpalast.de/index.php/FN/8807/PID/7230.html",
+      "zineflixId": 840
+    },
+    {
+      "city": "Berlin",
+      "cinema": "Cineplex Alambhara Berlin",
+      "bookingUrl": "https://www.cineplex.de/berlin-alhambra/film/the-paradise-telugu-4C341000012FWBXJYB",
+      "zineflixId": 841
+    },
+    {
+      "city": "Berlin",
+      "cinema": "Cineplex Neukölln Berlin",
+      "bookingUrl": "https://www.cineplex.de/berlin-neukoelln/film/the-paradise-telugu-4C341000012FWBXJYB",
+      "zineflixId": 842
     }
   ]
 }
