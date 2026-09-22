@@ -1,7 +1,7 @@
 {
-  "fetchedAt": "2026-09-22T05:55:09.891226+00:00",
+  "fetchedAt": "2026-09-22T11:01:38.246755+00:00",
   "movie": "paradise",
-  "totalCinemas": 27,
+  "totalCinemas": 49,
   "cinemas": [
     {
       "city": "Berlin",
@@ -164,6 +164,138 @@
       "cinema": "Cinecitta Nürnberg",
       "bookingUrl": "https://www.cinecitta.de/filme/the-paradise/",
       "zineflixId": 843
+    },
+    {
+      "city": "Augsburg",
+      "cinema": "Cinemaxx Augsburg",
+      "bookingUrl": "https://www.cinemaxx.de/kinoprogramm/augsburg/film/the-paradise",
+      "zineflixId": 844
+    },
+    {
+      "city": "Augsburg",
+      "cinema": "Cinemaxx Berlin",
+      "bookingUrl": "https://www.cinemaxx.de/kinoprogramm/berlin/film/the-paradise",
+      "zineflixId": 845
+    },
+    {
+      "city": "Augsburg",
+      "cinema": "Cinemaxx Bielefeld",
+      "bookingUrl": "https://www.cinemaxx.de/kinoprogramm/bielefeld/film/the-paradise",
+      "zineflixId": 846
+    },
+    {
+      "city": "Augsburg",
+      "cinema": "Cinemaxx Freiburg",
+      "bookingUrl": "https://www.cinemaxx.de/kinoprogramm/freiburg/film/the-paradise",
+      "zineflixId": 847
+    },
+    {
+      "city": "Augsburg",
+      "cinema": "Cinemaxx Essen",
+      "bookingUrl": "https://www.cinemaxx.de/kinoprogramm/essen/film/the-paradise",
+      "zineflixId": 848
+    },
+    {
+      "city": "Essen",
+      "cinema": "Cinemaxx essen",
+      "bookingUrl": "https://www.cinemaxx.de/kinoprogramm/essen/film/the-paradise",
+      "zineflixId": 849
+    },
+    {
+      "city": "Dresden",
+      "cinema": "Cinemaxx Dresden",
+      "bookingUrl": "https://www.cinemaxx.de/kinoprogramm/dresden/film/the-paradise",
+      "zineflixId": 850
+    },
+    {
+      "city": "Bremen",
+      "cinema": "Cinemaxx Bremen",
+      "bookingUrl": "https://www.cinemaxx.de/kinoprogramm/bremen/film/the-paradise",
+      "zineflixId": 851
+    },
+    {
+      "city": "Kiel",
+      "cinema": "Cinemaxx Kiel",
+      "bookingUrl": "https://www.cinemaxx.de/kinoprogramm/kiel/film/the-paradise",
+      "zineflixId": 852
+    },
+    {
+      "city": "Heilbronn",
+      "cinema": "Cinemaxx Heilbronn",
+      "bookingUrl": "https://www.cinemaxx.de/kinoprogramm/heilbronn/film/the-paradise",
+      "zineflixId": 853
+    },
+    {
+      "city": "Hannover",
+      "cinema": "Cinemaxx Hannover",
+      "bookingUrl": "https://www.cinemaxx.de/kinoprogramm/hannover/film/the-paradise",
+      "zineflixId": 854
+    },
+    {
+      "city": "Hamburg",
+      "cinema": "Cinemaxx Hamburg",
+      "bookingUrl": "https://www.cinemaxx.de/kinoprogramm/hamburg-dammtor/film/the-paradise",
+      "zineflixId": 855
+    },
+    {
+      "city": "Göttingen",
+      "cinema": "Cinemaxx Göttingen",
+      "bookingUrl": "https://www.cinemaxx.de/kinoprogramm/gottingen/film/the-paradise",
+      "zineflixId": 856
+    },
+    {
+      "city": "Stuttgart",
+      "cinema": "Cinemaxx Sindelfingen",
+      "bookingUrl": "https://www.cinemaxx.de/kinoprogramm/sindelfingen/film/the-paradise",
+      "zineflixId": 857
+    },
+    {
+      "city": "Regensburg",
+      "cinema": "Cinemaxx Regensburg",
+      "bookingUrl": "https://www.cinemaxx.de/kinoprogramm/regensburg/film/the-paradise",
+      "zineflixId": 858
+    },
+    {
+      "city": "Frankfurt",
+      "cinema": "Cinemaxx Offenbach Frankfurt",
+      "bookingUrl": "https://www.cinemaxx.de/kinoprogramm/offenbach/film/the-paradise",
+      "zineflixId": 859
+    },
+    {
+      "city": "München",
+      "cinema": "Cinemaxx München",
+      "bookingUrl": "https://www.cinemaxx.de/kinoprogramm/munchen/film/the-paradise",
+      "zineflixId": 860
+    },
+    {
+      "city": "Magdeburg",
+      "cinema": "Cinemaxx Magdeburg",
+      "bookingUrl": "https://www.cinemaxx.de/kinoprogramm/magdeburg/film/the-paradise",
+      "zineflixId": 861
+    },
+    {
+      "city": "Stuttgart",
+      "cinema": "Cinemaxx Stuttgart Liederhalle",
+      "bookingUrl": "https://www.cinemaxx.de/kinoprogramm/stuttgart-liederhalle/film/the-paradise",
+      "zineflixId": 862
+    },
+    {
+      "city": "Stuttgart",
+      "cinema": "Cinemaxx Stuttgart Centrum",
+      "bookingUrl": "https://www.cinemaxx.de/kinoprogramm/stuttgart-si-centrum/film/the-paradise",
+      "zineflixId": 863
+    },
+    {
+      "city": "Wuppertal",
+      "cinema": "Cinemaxx Wuppertal",
+      "bookingUrl": "https://www.cinemaxx.de/kinoprogramm/wuppertal/film/the-paradise",
+      "zineflixId": 864
+    },
+    {
+      "city": "Würzburg",
+      "cinema": "Cinemaxx Würzburg",
+      "bookingUrl": "https://www.cinemaxx.de/kinoprogramm/wurzburg/film/the-paradise",
+      "zineflixId": 865
     }
   ]
 }
