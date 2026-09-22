@@ -1,7 +1,7 @@
 {
-  "fetchedAt": "2026-09-22T20:00:51.013288+00:00",
+  "fetchedAt": "2026-09-22T23:40:20.802307+00:00",
   "movie": "paradise",
-  "totalCinemas": 49,
+  "totalCinemas": 50,
   "cinemas": [
     {
       "city": "Berlin",
@@ -296,6 +296,12 @@
       "cinema": "Cinemaxx Würzburg",
       "bookingUrl": "https://www.cinemaxx.de/kinoprogramm/wurzburg/film/the-paradise",
       "zineflixId": 865
+    },
+    {
+      "city": "Pirmasens (Rheinland Pfalz)",
+      "cinema": "Walhalla-kinocenter Pirmasens",
+      "bookingUrl": "https://walhalla-kinocenter.de/programm/film/the-paradise-tel-meu-ab-18",
+      "zineflixId": 866
     }
   ]
 }
