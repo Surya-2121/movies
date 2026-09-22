@@ -162,6 +162,7 @@ REWRITERS = [
 
 BLOCKED = [
     (r"cineplex\.de", "Cineplex.de BFF requires OAuth (WAF-blocked)"),
+    (r"cinemaxx\.de/buchtickets", "Cinemaxx buchtickets — seat API needs auth (booking flow only)"),
     (r"zeise\.de", "Zeise Hamburg custom widget — no public seat API"),
     (r"filmwerk-gt\.de", "Filmwerk Gütersloh custom booking — not scrapable"),
     (r"universum-city\.de", "Universum Karlsruhe custom widget — not mapped"),
@@ -169,6 +170,9 @@ BLOCKED = [
     (r"cinefactorymg\.de", "Cinefactory Mönchengladbach — not mapped"),
     (r"filmkunstkinos\.de", "Filmkunstkinos Atelier custom widget — not mapped"),
     (r"capitol-kornwestheim\.de", "Capitol Kornwestheim — kinotickets id per show needs manual map"),
+    (r"traumpalast\.de", "Traumpalast — Vista-family, seats via Vista API (not scraped)"),
+    (r"cinecitta\.de", "Cinecitta Nürnberg — Vista-family, seats via own API (not scraped)"),
+    (r"kino-weil\.de", "Kinopalast Weil am Rhein — custom widget (not scraped)"),
 ]
 
 

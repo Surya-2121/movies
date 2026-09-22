@@ -234,6 +234,8 @@
     { "city": "Nürnberg", "cinema": "Cinecitta Nürnberg", "date": "2026-09-30", "time": "12:45", "subtitle": "Telugu (OmeU)", "bookingUrl": "https://www.cinecitta.de/filme/the-paradise/" },
     { "city": "Berlin", "cinema": "Cineplex Berlin Alhambra", "date": "2026-09-26", "time": "12:00", "subtitle": "Telugu (OmeU)", "bookingUrl": "https://www.cineplex.de/berlin-alhambra/film/the-paradise-telugu-4C341000012FWBXJYB" },
     { "city": "Berlin", "cinema": "Cineplex Berlin Neukölln", "date": "2026-09-26", "time": "12:00", "subtitle": "Telugu (OmeU)", "bookingUrl": "https://www.cineplex.de/berlin-neukoelln/film/the-paradise-telugu-4C341000012FWBXJYB" },
-    { "city": "Berlin", "cinema": "Cineplex Berlin Neukölln", "date": "2026-09-27", "time": "11:30", "subtitle": "Telugu (OmeU)", "bookingUrl": "https://www.cineplex.de/berlin-neukoelln/film/the-paradise-telugu-4C341000012FWBXJYB" }
+    { "city": "Berlin", "cinema": "Cineplex Berlin Neukölln", "date": "2026-09-27", "time": "11:30", "subtitle": "Telugu (OmeU)", "bookingUrl": "https://www.cineplex.de/berlin-neukoelln/film/the-paradise-telugu-4C341000012FWBXJYB" },
+    { "city": "Offenbach", "cinema": "Cinemaxx Offenbach", "date": "2026-09-26", "time": "22:20", "subtitle": "Telugu (OmeU)", "bookingUrl": "https://www.cinemaxx.de/buchtickets/zusammenfassung/1631/HO00001653/25571" },
+    { "city": "Offenbach", "cinema": "Cinemaxx Offenbach", "date": "2026-09-27", "time": "11:40", "subtitle": "Telugu (OmeU)", "bookingUrl": "https://www.cinemaxx.de/buchtickets/zusammenfassung/1631/HO00001653/25650" }
   ]
 }
