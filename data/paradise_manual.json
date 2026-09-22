@@ -207,6 +207,14 @@
       "time": "10:30",
       "subtitle": "Telugu (OmeU)",
       "bookingUrl": "https://www.cineplex.de/bayreuth/film/the-paradise-telugu-4C341000012FWBXJYB"
+    },
+    {
+      "city": "Weil am Rhein",
+      "cinema": "Kinopalast Weil am Rhein",
+      "date": "2026-09-25",
+      "time": "22:00",
+      "subtitle": "Telugu (OmeU)",
+      "bookingUrl": "https://kino-weil.de/film/34315/Paradise-The--/"
     }
   ]
 }
