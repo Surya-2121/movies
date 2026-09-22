@@ -215,6 +215,25 @@
       "time": "22:00",
       "subtitle": "Telugu (OmeU)",
       "bookingUrl": "https://kino-weil.de/film/34315/Paradise-The--/"
-    }
+    },
+    { "city": "Leonberg", "cinema": "Traumpalast Leonberg", "date": "2026-09-25", "time": "22:30", "subtitle": "Telugu (OmeU, HFR)", "bookingUrl": "https://leonberg.traumpalast.de/index.php/FN/8807/PID/5574.html" },
+    { "city": "Leonberg", "cinema": "Traumpalast Leonberg", "date": "2026-09-26", "time": "12:45", "subtitle": "Telugu (OmeU, HFR)", "bookingUrl": "https://leonberg.traumpalast.de/index.php/FN/8807/PID/5574.html" },
+    { "city": "Leonberg", "cinema": "Traumpalast Leonberg", "date": "2026-09-27", "time": "12:30", "subtitle": "Telugu (OmeU, HFR)", "bookingUrl": "https://leonberg.traumpalast.de/index.php/FN/8807/PID/5574.html" },
+    { "city": "Esslingen", "cinema": "Traumpalast Esslingen", "date": "2026-09-26", "time": "12:30", "subtitle": "Telugu (OmeU)", "bookingUrl": "https://esslingen.traumpalast.de/index.php/FN/8807/PID/144.html" },
+    { "city": "Esslingen", "cinema": "Traumpalast Esslingen", "date": "2026-09-27", "time": "12:30", "subtitle": "Telugu (OmeU)", "bookingUrl": "https://esslingen.traumpalast.de/index.php/FN/8807/PID/144.html" },
+    { "city": "Schwäbisch Gmünd", "cinema": "Traumpalast Schwäbisch Gmünd", "date": "2026-09-26", "time": "14:45", "subtitle": "Telugu (OmeU, HFR)", "bookingUrl": "https://schwaebisch-gmuend.traumpalast.de/index.php/FN/8807/PID/7230.html" },
+    { "city": "Schwäbisch Gmünd", "cinema": "Traumpalast Schwäbisch Gmünd", "date": "2026-09-27", "time": "14:45", "subtitle": "Telugu (OmeU, HFR)", "bookingUrl": "https://schwaebisch-gmuend.traumpalast.de/index.php/FN/8807/PID/7230.html" },
+    { "city": "Nürnberg", "cinema": "Cinecitta Nürnberg", "date": "2026-09-23", "time": "20:00", "subtitle": "Telugu (OmeU)", "bookingUrl": "https://www.cinecitta.de/filme/the-paradise/" },
+    { "city": "Nürnberg", "cinema": "Cinecitta Nürnberg", "date": "2026-09-24", "time": "12:45", "subtitle": "Telugu (OmeU)", "bookingUrl": "https://www.cinecitta.de/filme/the-paradise/" },
+    { "city": "Nürnberg", "cinema": "Cinecitta Nürnberg", "date": "2026-09-25", "time": "12:45", "subtitle": "Telugu (OmeU)", "bookingUrl": "https://www.cinecitta.de/filme/the-paradise/" },
+    { "city": "Nürnberg", "cinema": "Cinecitta Nürnberg", "date": "2026-09-25", "time": "21:15", "subtitle": "Telugu (OmeU)", "bookingUrl": "https://www.cinecitta.de/filme/the-paradise/" },
+    { "city": "Nürnberg", "cinema": "Cinecitta Nürnberg", "date": "2026-09-26", "time": "12:45", "subtitle": "Telugu (OmeU)", "bookingUrl": "https://www.cinecitta.de/filme/the-paradise/" },
+    { "city": "Nürnberg", "cinema": "Cinecitta Nürnberg", "date": "2026-09-27", "time": "12:45", "subtitle": "Telugu (OmeU)", "bookingUrl": "https://www.cinecitta.de/filme/the-paradise/" },
+    { "city": "Nürnberg", "cinema": "Cinecitta Nürnberg", "date": "2026-09-28", "time": "12:45", "subtitle": "Telugu (OmeU)", "bookingUrl": "https://www.cinecitta.de/filme/the-paradise/" },
+    { "city": "Nürnberg", "cinema": "Cinecitta Nürnberg", "date": "2026-09-29", "time": "12:45", "subtitle": "Telugu (OmeU)", "bookingUrl": "https://www.cinecitta.de/filme/the-paradise/" },
+    { "city": "Nürnberg", "cinema": "Cinecitta Nürnberg", "date": "2026-09-30", "time": "12:45", "subtitle": "Telugu (OmeU)", "bookingUrl": "https://www.cinecitta.de/filme/the-paradise/" },
+    { "city": "Berlin", "cinema": "Cineplex Berlin Alhambra", "date": "2026-09-26", "time": "12:00", "subtitle": "Telugu (OmeU)", "bookingUrl": "https://www.cineplex.de/berlin-alhambra/film/the-paradise-telugu-4C341000012FWBXJYB" },
+    { "city": "Berlin", "cinema": "Cineplex Berlin Neukölln", "date": "2026-09-26", "time": "12:00", "subtitle": "Telugu (OmeU)", "bookingUrl": "https://www.cineplex.de/berlin-neukoelln/film/the-paradise-telugu-4C341000012FWBXJYB" },
+    { "city": "Berlin", "cinema": "Cineplex Berlin Neukölln", "date": "2026-09-27", "time": "11:30", "subtitle": "Telugu (OmeU)", "bookingUrl": "https://www.cineplex.de/berlin-neukoelln/film/the-paradise-telugu-4C341000012FWBXJYB" }
   ]
 }
