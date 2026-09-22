@@ -47,6 +47,12 @@ USER_DATA = Path(os.environ.get(
     Path.home() / ".cache" / "gtm_browser_fetch",
 ))
 
+# Polite identifying header. Cinemas that check headers see who we are +
+# how to contact us to opt out — moves us from "sneaky bot" to
+# "identifiable community crawler".
+CONTACT_URL = "https://germany-telugu-movies.com"
+CONTACT_EMAIL = "info@germany-telugu-movies.com"
+
 _CHALLENGE_TITLE_RE = re.compile(
     r"Just a moment|Nur einen Moment|Attention Required|Un momento",
     re.I,
@@ -79,12 +85,25 @@ def fetch_rendered_html(
     browser still runs invisibly.
     """
     USER_DATA.mkdir(parents=True, exist_ok=True)
+    # In CI (BROWSER_FETCH_CHANNEL=chromium) use patchright's bundled
+    # Chromium; on a dev box, default to installed Chrome — Turnstile
+    # clears more reliably against real Chrome.
+    channel = os.environ.get("BROWSER_FETCH_CHANNEL", "chrome")
     with sync_playwright() as pw:
         ctx = pw.chromium.launch_persistent_context(
             user_data_dir=str(USER_DATA),
-            channel="chrome",
+            channel=channel,
             headless=headless,
             no_viewport=True,
+            extra_http_headers={
+                # Identify the crawler so cinemas can contact us / opt out.
+                # This lands in server logs; Turnstile inspects UA
+                # separately (via the fingerprint script), so a normal
+                # Chrome UA on the browser + this header on the request
+                # gives us both stealth AND transparency.
+                "X-Bot-Contact": f"{CONTACT_URL} <{CONTACT_EMAIL}>",
+                "From": CONTACT_EMAIL,
+            },
         )
         try:
             page = ctx.new_page()

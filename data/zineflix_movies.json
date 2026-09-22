@@ -1,9 +1,10 @@
 {
-  "_comment": "Movies tracked by scripts/discover_zineflix_shows.py. To onboard a new movie, add an entry here — the scraper will pick it up on the next run. Fields: slug (site slug matching booking.html key), zineflixMovieId (from zineflix.com URL, e.g. /movie/places/show-cities/Paradise/77 -> 77), title/genre/language/page (used when regenerating booking.html for new shows).",
+  "_comment": "Movies tracked by the site's discovery scrapers. Each entry represents ONE site movie (identified by `slug`) with optional per-source identifiers: `zineflixMovieId` (for scripts/discover_zineflix_shows.py — e.g. /movie/places/show-cities/Paradise/77 -> 77), `cinemaxxSlug` (film-page slug on cinemaxx.de, e.g. `the-paradise` for /kinoprogramm/{city}/film/the-paradise — enables scripts/discover_cinemaxx_shows.py). Presence of a field enables that source; omit to skip. title/genre/language/page are used when regenerating booking.html.",
   "movies": [
     {
       "slug": "paradise",
       "zineflixMovieId": 77,
+      "cinemaxxSlug": "the-paradise",
       "title": "The Paradise",
       "genre": "Period Action-Drama",
       "language": "Telugu",
