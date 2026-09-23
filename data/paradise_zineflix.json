@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-09-23T19:58:16.532897+00:00",
+  "fetchedAt": "2026-09-23T23:48:43.005735+00:00",
   "movie": "paradise",
   "totalCinemas": 50,
   "cinemas": [
@@ -17,7 +17,7 @@
     },
     {
       "city": "Berlin",
-      "cinema": "BABYLON BERLIN (BIG SCREEN) PREMIERE",
+      "cinema": "BABYLON BERLIN (BIG SCREEN)",
       "bookingUrl": "https://babylonberlin.eu/film/7341-indogerman-film-paradise",
       "zineflixId": 795
     },
