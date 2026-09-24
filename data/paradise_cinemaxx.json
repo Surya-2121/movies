@@ -1,8 +1,8 @@
 {
-  "fetchedAt": "2026-09-24T12:51:28.806361+00:00",
+  "fetchedAt": "2026-09-24T22:29:00.462561+00:00",
   "movie": "paradise",
-  "totalCities": 21,
-  "totalShows": 40,
+  "totalCities": 20,
+  "totalShows": 35,
   "cities": {
     "augsburg": [
       {
@@ -14,20 +14,6 @@
       }
     ],
     "berlin": [
-      {
-        "date": "2026-09-24",
-        "time": "18:00",
-        "kino": "Kino 14",
-        "lang": "engl. UT - Telugu",
-        "href": "https://www.cinemaxx.de/buchtickets/zusammenfassung/1107/HO00001653/83744"
-      },
-      {
-        "date": "2026-09-24",
-        "time": "22:15",
-        "kino": "Kino 09",
-        "lang": "engl. UT - Telugu",
-        "href": "https://www.cinemaxx.de/buchtickets/zusammenfassung/1107/HO00001653/84208"
-      },
       {
         "date": "2026-09-25",
         "time": "19:00",
@@ -135,13 +121,6 @@
     ],
     "essen": [
       {
-        "date": "2026-09-24",
-        "time": "22:00",
-        "kino": "Kino 14",
-        "lang": "engl. UT - Telugu",
-        "href": "https://www.cinemaxx.de/buchtickets/zusammenfassung/1431/HO00001653/64786"
-      },
-      {
         "date": "2026-09-25",
         "time": "22:00",
         "kino": "Kino 14",
@@ -191,13 +170,6 @@
       }
     ],
     "hannover": [
-      {
-        "date": "2026-09-24",
-        "time": "22:20",
-        "kino": "Kino 10",
-        "lang": "engl. UT - Telugu",
-        "href": "https://www.cinemaxx.de/buchtickets/zusammenfassung/1304/HO00001653/40057"
-      },
       {
         "date": "2026-09-25",
         "time": "22:30",
@@ -288,15 +260,6 @@
         "kino": "Kino 05",
         "lang": "engl. UT - Telugu",
         "href": "https://www.cinemaxx.de/buchtickets/zusammenfassung/1703/HO00001653/29811"
-      }
-    ],
-    "stuttgart-liederhalle": [
-      {
-        "date": "2026-09-24",
-        "time": "22:45",
-        "kino": "Kino 05",
-        "lang": "engl. UT - Telugu",
-        "href": "https://www.cinemaxx.de/buchtickets/zusammenfassung/1702/HO00001653/28372"
       }
     ],
     "stuttgart-si-centrum": [
