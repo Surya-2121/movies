@@ -687,6 +687,14 @@
       "time": "22:00",
       "subtitle": "Telugu (OmeU)",
       "bookingUrl": "https://www.cinemaxx.de/buchtickets/zusammenfassung/1971/HO00001653/25281"
+    },
+    {
+      "city": "Hannover",
+      "cinema": "Cinemaxx Hannover",
+      "date": "2026-09-26",
+      "time": "22:20",
+      "subtitle": "Telugu (OmeU)",
+      "bookingUrl": "https://www.cinemaxx.de/buchtickets/zusammenfassung/1304/HO00001653/40255"
     }
   ]
 }
