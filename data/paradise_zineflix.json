@@ -1,7 +1,7 @@
 {
-  "fetchedAt": "2026-09-25T11:15:51.887972+00:00",
+  "fetchedAt": "2026-09-25T20:16:45.994736+00:00",
   "movie": "paradise",
-  "totalCinemas": 50,
+  "totalCinemas": 51,
   "cinemas": [
     {
       "city": "Berlin",
@@ -302,6 +302,12 @@
       "cinema": "Walhalla-kinocenter Pirmasens",
       "bookingUrl": "https://walhalla-kinocenter.de/programm/film/the-paradise-tel-meu-ab-18",
       "zineflixId": 866
+    },
+    {
+      "city": "Frankfurt",
+      "cinema": "Filmpalast Hofheim Frankfurt - 04.10.26 Show",
+      "bookingUrl": "https://www.filmpalast-hofheim.de/de/programm/1529184",
+      "zineflixId": 868
     }
   ]
 }
