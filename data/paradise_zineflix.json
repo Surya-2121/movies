@@ -1,7 +1,7 @@
 {
-  "fetchedAt": "2026-09-25T20:16:45.994736+00:00",
+  "fetchedAt": "2026-09-25T23:59:12.921346+00:00",
   "movie": "paradise",
-  "totalCinemas": 51,
+  "totalCinemas": 49,
   "cinemas": [
     {
       "city": "Berlin",
@@ -34,28 +34,10 @@
       "zineflixId": 797
     },
     {
-      "city": "Stuttgart",
-      "cinema": "Capitol KORNWESTHEIM STUTTGART",
-      "bookingUrl": "https://capitol-kornwestheim.de/programm/film/the-paradise",
-      "zineflixId": 799
-    },
-    {
-      "city": "Hamburg",
-      "cinema": "Zeise Hamburg (Big Screen)",
-      "bookingUrl": "https://www.zeise.de/film/3991",
-      "zineflixId": 801
-    },
-    {
       "city": "Koblenz",
       "cinema": "Kino Neuwied Koblenz",
       "bookingUrl": "https://www.kinoneuwied.de/detail/131309/The%20Paradise",
       "zineflixId": 808
-    },
-    {
-      "city": "Dresden",
-      "cinema": "Zentral Kino Dresden",
-      "bookingUrl": "https://www.kinoheld.de/kino/dresden/zentralkino-dresden/vorstellung/3647170129?mode=widget&layout=days&layouts=days&design=red&rb=1#panel-seats",
-      "zineflixId": 816
     },
     {
       "city": "Düsseldorf",
@@ -308,6 +290,12 @@
       "cinema": "Filmpalast Hofheim Frankfurt - 04.10.26 Show",
       "bookingUrl": "https://www.filmpalast-hofheim.de/de/programm/1529184",
       "zineflixId": 868
+    },
+    {
+      "city": "WIESBADEN",
+      "cinema": "Cineplex Wiesbaden",
+      "bookingUrl": "https://www.cineplex.de/wiesbaden/film/the-paradise-telugu-4C341000012FWBXJYB",
+      "zineflixId": 869
     }
   ]
 }
