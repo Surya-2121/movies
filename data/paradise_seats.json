@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-09-25T21:45:23.985447+00:00",
+  "fetchedAt": "2026-09-26T12:20:56.551424+00:00",
   "filterDate": null,
   "shows": [
     {
@@ -75,8 +75,8 @@
       "subtitle": "Telugu",
       "bookingUrl": "https://www.cincinnati-muenchen.de/de/programm/1529184",
       "capacity": 398,
-      "booked": 26,
-      "free": 372,
+      "booked": 28,
+      "free": 370,
       "blocked": 0,
       "note": null,
       "rewrittenUrl": "https://www.kinoheld.de/kino/muenchen/cincinnati-muenchen/vorstellung/3654449312"
@@ -539,8 +539,8 @@
       "subtitle": "Telugu",
       "bookingUrl": "https://kino.colosseumberlin.com/tickets?showUrl=https%3A%2F%2Fwww.kinoheld.de%2Fkino%2Fberlin%2Fcolosseum-filmtheater-berlin%2Fvorstellung%2F3648082572%2Fthe-paradise-telugu-omeu%3Fmode%3Dwidget%26change%3D0",
       "capacity": 525,
-      "booked": 64,
-      "free": 461,
+      "booked": 81,
+      "free": 444,
       "blocked": 0,
       "note": null,
       "rewrittenUrl": "https://www.kinoheld.de/kino/berlin/colosseum-filmtheater-berlin/vorstellung/3648082572/the-paradise-telugu-omeu?mode=widget&change=0"
@@ -660,6 +660,18 @@
       "time": "22:15",
       "subtitle": "Telugu (OmeU)",
       "bookingUrl": "https://www.cinemaxx.de/buchtickets/zusammenfassung/1431/HO00001653/64784",
+      "capacity": null,
+      "booked": null,
+      "free": null,
+      "note": "Cinemaxx buchtickets — seat API needs auth (booking flow only)"
+    },
+    {
+      "city": "Hannover",
+      "cinema": "Cinemaxx Hannover",
+      "date": "2026-09-26",
+      "time": "22:20",
+      "subtitle": "Telugu (OmeU)",
+      "bookingUrl": "https://www.cinemaxx.de/buchtickets/zusammenfassung/1304/HO00001653/40255",
       "capacity": null,
       "booked": null,
       "free": null,
@@ -1051,10 +1063,10 @@
     }
   ],
   "totals": {
-    "shows": 86,
+    "shows": 87,
     "coverageShows": 8,
     "capacity": 1355,
-    "booked": 272,
-    "free": 1083
+    "booked": 291,
+    "free": 1064
   }
 }
