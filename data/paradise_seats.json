@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-09-26T16:35:52.640266+00:00",
+  "fetchedAt": "2026-09-26T21:23:53.716203+00:00",
   "filterDate": null,
   "shows": [
     {
@@ -34,12 +34,12 @@
       "time": "20:15",
       "subtitle": "Telugu",
       "bookingUrl": "https://ufa-duesseldorf.de/programm/2322056/",
-      "capacity": 224,
-      "booked": 2,
-      "free": 222,
+      "capacity": 144,
+      "booked": 13,
+      "free": 131,
       "blocked": 0,
       "note": null,
-      "rewrittenUrl": "https://kinotickets.express/duesseldorf-ufa-filmpalast/sale/seats/86659"
+      "rewrittenUrl": "https://kinotickets.express/duesseldorf-ufa-filmpalast/sale/seats/86479"
     },
     {
       "city": "Heidelberg",
@@ -75,8 +75,8 @@
       "subtitle": "Telugu",
       "bookingUrl": "https://www.cincinnati-muenchen.de/de/programm/1529184",
       "capacity": 398,
-      "booked": 29,
-      "free": 369,
+      "booked": 31,
+      "free": 367,
       "blocked": 0,
       "note": null,
       "rewrittenUrl": "https://www.kinoheld.de/kino/muenchen/cincinnati-muenchen/vorstellung/3654449312"
@@ -1065,8 +1065,8 @@
   "totals": {
     "shows": 87,
     "coverageShows": 8,
-    "capacity": 1403,
-    "booked": 289,
-    "free": 1114
+    "capacity": 1323,
+    "booked": 302,
+    "free": 1021
   }
 }
