@@ -1,8 +1,8 @@
 {
-  "fetchedAt": "2026-09-26T12:21:00.647984+00:00",
+  "fetchedAt": "2026-09-26T22:05:53.642973+00:00",
   "movie": "paradise",
-  "totalCities": 12,
-  "totalShows": 23,
+  "totalCities": 7,
+  "totalShows": 12,
   "cities": {
     "augsburg": [
       {
@@ -14,20 +14,6 @@
       }
     ],
     "berlin": [
-      {
-        "date": "2026-09-26",
-        "time": "18:45",
-        "kino": "Kino 15",
-        "lang": "engl. UT - Telugu",
-        "href": "https://www.cinemaxx.de/buchtickets/zusammenfassung/1107/HO00001653/83822"
-      },
-      {
-        "date": "2026-09-26",
-        "time": "22:15",
-        "kino": "Kino 15",
-        "lang": "engl. UT - Telugu",
-        "href": "https://www.cinemaxx.de/buchtickets/zusammenfassung/1107/HO00001653/83820"
-      },
       {
         "date": "2026-09-27",
         "time": "18:45",
@@ -73,36 +59,11 @@
     ],
     "essen": [
       {
-        "date": "2026-09-26",
-        "time": "22:15",
-        "kino": "Kino 14",
-        "lang": "engl. UT - Telugu",
-        "href": "https://www.cinemaxx.de/buchtickets/zusammenfassung/1431/HO00001653/64784"
-      },
-      {
         "date": "2026-09-27",
         "time": "10:45",
         "kino": "Kino 07",
         "lang": "engl. UT - Telugu",
         "href": "https://www.cinemaxx.de/buchtickets/zusammenfassung/1431/HO00001653/64698"
-      }
-    ],
-    "freiburg": [
-      {
-        "date": "2026-09-26",
-        "time": "22:30",
-        "kino": "Kino 06",
-        "lang": "engl. UT - Telugu",
-        "href": "https://www.cinemaxx.de/buchtickets/zusammenfassung/1791/HO00001653/31976"
-      }
-    ],
-    "gottingen": [
-      {
-        "date": "2026-09-26",
-        "time": "21:45",
-        "kino": "Kino 07",
-        "lang": "engl. UT - Telugu",
-        "href": "https://www.cinemaxx.de/buchtickets/zusammenfassung/1341/HO00001653/33973"
       }
     ],
     "hamburg-dammtor": [
@@ -114,32 +75,7 @@
         "href": "https://www.cinemaxx.de/buchtickets/zusammenfassung/1206/HO00001653/37128"
       }
     ],
-    "hannover": [
-      {
-        "date": "2026-09-26",
-        "time": "22:20",
-        "kino": "Kino 05",
-        "lang": "engl. UT - Telugu",
-        "href": "https://www.cinemaxx.de/buchtickets/zusammenfassung/1304/HO00001653/40255"
-      }
-    ],
-    "heilbronn": [
-      {
-        "date": "2026-09-26",
-        "time": "22:20",
-        "kino": "Kino 04",
-        "lang": "engl. UT - Telugu",
-        "href": "https://www.cinemaxx.de/buchtickets/zusammenfassung/1741/HO00001653/22507"
-      }
-    ],
     "magdeburg": [
-      {
-        "date": "2026-09-26",
-        "time": "22:00",
-        "kino": "Kino 02",
-        "lang": "engl. UT - Telugu",
-        "href": "https://www.cinemaxx.de/buchtickets/zusammenfassung/1391/HO00001653/46411"
-      },
       {
         "date": "2026-09-27",
         "time": "11:45",
@@ -150,13 +86,6 @@
     ],
     "offenbach": [
       {
-        "date": "2026-09-26",
-        "time": "22:20",
-        "kino": "Kino 06",
-        "lang": "engl. UT - Telugu",
-        "href": "https://www.cinemaxx.de/buchtickets/zusammenfassung/1631/HO00001653/25571"
-      },
-      {
         "date": "2026-09-27",
         "time": "11:40",
         "kino": "Kino 02",
@@ -166,27 +95,11 @@
     ],
     "regensburg": [
       {
-        "date": "2026-09-26",
-        "time": "22:20",
-        "kino": "Kino 06",
-        "lang": "engl. UT - Telugu",
-        "href": "https://www.cinemaxx.de/buchtickets/zusammenfassung/1931/HO00001653/26610"
-      },
-      {
         "date": "2026-09-27",
         "time": "11:45",
         "kino": "Kino 07",
         "lang": "engl. UT - Telugu",
         "href": "https://www.cinemaxx.de/buchtickets/zusammenfassung/1931/HO00001653/26675"
-      }
-    ],
-    "stuttgart-si-centrum": [
-      {
-        "date": "2026-09-26",
-        "time": "22:45",
-        "kino": "Kino 06",
-        "lang": "engl. UT - Telugu",
-        "href": "https://www.cinemaxx.de/buchtickets/zusammenfassung/1701/HO00001653/4842"
       }
     ]
   }
