@@ -1,8 +1,8 @@
 {
-  "fetchedAt": "2026-09-25T22:24:48.771670+00:00",
+  "fetchedAt": "2026-09-26T12:21:00.647984+00:00",
   "movie": "paradise",
-  "totalCities": 15,
-  "totalShows": 26,
+  "totalCities": 12,
+  "totalShows": 23,
   "cities": {
     "augsburg": [
       {
@@ -69,33 +69,6 @@
         "kino": "Kino 18",
         "lang": "engl. UT - Telugu",
         "href": "https://www.cinemaxx.de/buchtickets/zusammenfassung/1107/HO00001653/83957"
-      }
-    ],
-    "bielefeld": [
-      {
-        "date": "2026-09-26",
-        "time": "10:20",
-        "kino": "Kino 01",
-        "lang": "engl. UT - Telugu",
-        "href": "https://www.cinemaxx.de/buchtickets/zusammenfassung/1336/HO00001653/37225"
-      }
-    ],
-    "bremen": [
-      {
-        "date": "2026-09-26",
-        "time": "11:20",
-        "kino": "Kino 03",
-        "lang": "engl. UT - Telugu",
-        "href": "https://www.cinemaxx.de/buchtickets/zusammenfassung/1281/HO00001653/33980"
-      }
-    ],
-    "dresden": [
-      {
-        "date": "2026-09-26",
-        "time": "11:45",
-        "kino": "Kino 02",
-        "lang": "engl. UT - Telugu",
-        "href": "https://www.cinemaxx.de/buchtickets/zusammenfassung/1011/HO00001653/29499"
       }
     ],
     "essen": [
