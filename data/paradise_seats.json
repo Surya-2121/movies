@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-09-26T21:23:53.716203+00:00",
+  "fetchedAt": "2026-09-27T13:13:14.516957+00:00",
   "filterDate": null,
   "shows": [
     {
@@ -34,9 +34,9 @@
       "time": "20:15",
       "subtitle": "Telugu",
       "bookingUrl": "https://ufa-duesseldorf.de/programm/2322056/",
-      "capacity": 144,
-      "booked": 13,
-      "free": 131,
+      "capacity": 0,
+      "booked": 0,
+      "free": 0,
       "blocked": 0,
       "note": null,
       "rewrittenUrl": "https://kinotickets.express/duesseldorf-ufa-filmpalast/sale/seats/86479"
@@ -60,12 +60,10 @@
       "time": "20:30",
       "subtitle": "Telugu",
       "bookingUrl": "https://babylonberlin.eu/film/7341-indogerman-film-paradise",
-      "capacity": 0,
-      "booked": 0,
-      "free": 0,
-      "blocked": 0,
-      "note": null,
-      "rewrittenUrl": "https://www.kinoheld.de/kino/berlin/babylon-berlin/vorstellung/64084"
+      "capacity": null,
+      "booked": null,
+      "free": null,
+      "note": "rewrite failed: no kinoheld show id on Babylon page"
     },
     {
       "city": "München",
@@ -1064,9 +1062,9 @@
   ],
   "totals": {
     "shows": 87,
-    "coverageShows": 8,
-    "capacity": 1323,
-    "booked": 302,
-    "free": 1021
+    "coverageShows": 7,
+    "capacity": 1179,
+    "booked": 289,
+    "free": 890
   }
 }
