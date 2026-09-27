@@ -1,18 +1,9 @@
 {
-  "fetchedAt": "2026-09-26T22:05:53.642973+00:00",
+  "fetchedAt": "2026-09-27T13:07:23.567348+00:00",
   "movie": "paradise",
-  "totalCities": 7,
-  "totalShows": 12,
+  "totalCities": 1,
+  "totalShows": 6,
   "cities": {
-    "augsburg": [
-      {
-        "date": "2026-09-27",
-        "time": "11:00",
-        "kino": "Kino 06",
-        "lang": "engl. UT - Telugu",
-        "href": "https://www.cinemaxx.de/buchtickets/zusammenfassung/1861/HO00001653/37733"
-      }
-    ],
     "berlin": [
       {
         "date": "2026-09-27",
@@ -55,51 +46,6 @@
         "kino": "Kino 18",
         "lang": "engl. UT - Telugu",
         "href": "https://www.cinemaxx.de/buchtickets/zusammenfassung/1107/HO00001653/83957"
-      }
-    ],
-    "essen": [
-      {
-        "date": "2026-09-27",
-        "time": "10:45",
-        "kino": "Kino 07",
-        "lang": "engl. UT - Telugu",
-        "href": "https://www.cinemaxx.de/buchtickets/zusammenfassung/1431/HO00001653/64698"
-      }
-    ],
-    "hamburg-dammtor": [
-      {
-        "date": "2026-09-27",
-        "time": "12:15",
-        "kino": "Kino 06",
-        "lang": "engl. UT - Telugu",
-        "href": "https://www.cinemaxx.de/buchtickets/zusammenfassung/1206/HO00001653/37128"
-      }
-    ],
-    "magdeburg": [
-      {
-        "date": "2026-09-27",
-        "time": "11:45",
-        "kino": "Kino 04",
-        "lang": "engl. UT - Telugu",
-        "href": "https://www.cinemaxx.de/buchtickets/zusammenfassung/1391/HO00001653/46412"
-      }
-    ],
-    "offenbach": [
-      {
-        "date": "2026-09-27",
-        "time": "11:40",
-        "kino": "Kino 02",
-        "lang": "engl. UT - Telugu",
-        "href": "https://www.cinemaxx.de/buchtickets/zusammenfassung/1631/HO00001653/25650"
-      }
-    ],
-    "regensburg": [
-      {
-        "date": "2026-09-27",
-        "time": "11:45",
-        "kino": "Kino 07",
-        "lang": "engl. UT - Telugu",
-        "href": "https://www.cinemaxx.de/buchtickets/zusammenfassung/1931/HO00001653/26675"
       }
     ]
   }
