@@ -1,37 +1,13 @@
 {
-  "fetchedAt": "2026-09-28T13:01:29.582759+00:00",
+  "fetchedAt": "2026-09-28T22:24:49.225972+00:00",
   "movie": "paradise",
-  "totalCinemas": 49,
+  "totalCinemas": 28,
   "cinemas": [
-    {
-      "city": "Berlin",
-      "cinema": "FILMTHEATER COLLOSEUM BERLIN 26.09 - BIG Screen",
-      "bookingUrl": "https://kino.colosseumberlin.com/tickets?showUrl=https%3A%2F%2Fwww.kinoheld.de%2Fkino%2Fberlin%2Fcolosseum-filmtheater-berlin%2Fvorstellung%2F3648082572%2Fthe-paradise-telugu-omeu%3Fmode%3Dwidget%26change%3D0",
-      "zineflixId": 791
-    },
     {
       "city": "Düsseldorf",
       "cinema": "ATALIER DÜSSELDORF",
       "bookingUrl": "https://filmkunstkinos.de/filme/the-paradise-2026/",
       "zineflixId": 792
-    },
-    {
-      "city": "Berlin",
-      "cinema": "BABYLON BERLIN (BIG SCREEN)",
-      "bookingUrl": "https://babylonberlin.eu/film/7341-indogerman-film-paradise",
-      "zineflixId": 795
-    },
-    {
-      "city": "Karlsruhe",
-      "cinema": "UNIVERSUM KARLSRUHE",
-      "bookingUrl": "https://www.universum-city.de/de/programm/1529184",
-      "zineflixId": 796
-    },
-    {
-      "city": "Frankfurt",
-      "cinema": "ASTOR Frankfurt (Myzeil)",
-      "bookingUrl": "https://frankfurt.premiumkino.de/en/film/the-paradise",
-      "zineflixId": 797
     },
     {
       "city": "Koblenz",
@@ -40,34 +16,10 @@
       "zineflixId": 808
     },
     {
-      "city": "Düsseldorf",
-      "cinema": "UFA PALAST DÜSSELDORF",
-      "bookingUrl": "https://ufa-duesseldorf.de/programm/2322056/",
-      "zineflixId": 820
-    },
-    {
       "city": "Würzburg",
       "cinema": "Cineplex Dettelbach",
       "bookingUrl": "https://www.cineplex.de/dettelbach/film/the-paradise-telugu-4C341000012FWBXJYB",
       "zineflixId": 823
-    },
-    {
-      "city": "Bielefeld",
-      "cinema": "Filmwerk Gütersloh Bielefeld",
-      "bookingUrl": "https://web.filmwerk-gt.de/films/The-Paradise-Sprache-Teluguengl-Untertitel/HO00001993",
-      "zineflixId": 824
-    },
-    {
-      "city": "Berlin",
-      "cinema": "Filmtheater Colloseum Berlin 24.09.26",
-      "bookingUrl": "https://kino.colosseumberlin.com/tickets?showUrl=https%3A%2F%2Fwww.kinoheld.de%2Fkino%2Fberlin%2Fcolosseum-filmtheater-berlin%2Fvorstellung%2F3640706849%2Fthe-paradise-telugu-omeu%3Fmode%3Dwidget%26change%3D0",
-      "zineflixId": 825
-    },
-    {
-      "city": "Mönchengladbach",
-      "cinema": "HAUS ZOAR MÖNCHENGLADBACH",
-      "bookingUrl": "https://www.cinefactorymg.de/detail/131130/The%20Paradise",
-      "zineflixId": 826
     },
     {
       "city": "Frankenthal",
@@ -77,27 +29,9 @@
     },
     {
       "city": "München",
-      "cinema": "Cincinnati München BIG SCREEN",
-      "bookingUrl": "https://www.cincinnati-muenchen.de/de/programm/1529184",
-      "zineflixId": 828
-    },
-    {
-      "city": "HEIDELBERG",
-      "cinema": "Lux Kino Heidelberg",
-      "bookingUrl": "https://heidelberg.luxor-kino.de/de/programm/1529184",
-      "zineflixId": 829
-    },
-    {
-      "city": "München",
       "cinema": "Cineplex Bayreuth",
       "bookingUrl": "https://www.cineplex.de/bayreuth/film/the-paradise-telugu-4C341000012FWBXJYB",
       "zineflixId": 830
-    },
-    {
-      "city": "Pforzheim",
-      "cinema": "Cinemoon Pforzheim",
-      "bookingUrl": "https://www.cinemoon.de/de/programm/1529184",
-      "zineflixId": 831
     },
     {
       "city": "Dresden",
@@ -106,22 +40,10 @@
       "zineflixId": 833
     },
     {
-      "city": "Weil am Rhein",
-      "cinema": "Kinopalast Weil am Rhein (TELUGU & TAMIL SHOW)",
-      "bookingUrl": "https://kino-weil.de/film/34315/Paradise-The--/",
-      "zineflixId": 837
-    },
-    {
       "city": "Stuttgart",
       "cinema": "Leonberg Traumpalast",
       "bookingUrl": "https://leonberg.traumpalast.de/index.php/FN/8807/PID/5574.html",
       "zineflixId": 838
-    },
-    {
-      "city": "Stuttgart",
-      "cinema": "Leonberg Esslingen Stuttgart",
-      "bookingUrl": "https://esslingen.traumpalast.de/index.php/FN/8807/PID/144.html",
-      "zineflixId": 839
     },
     {
       "city": "Stuttgart",
@@ -149,27 +71,9 @@
     },
     {
       "city": "Augsburg",
-      "cinema": "Cinemaxx Augsburg",
-      "bookingUrl": "https://www.cinemaxx.de/kinoprogramm/augsburg/film/the-paradise",
-      "zineflixId": 844
-    },
-    {
-      "city": "Augsburg",
       "cinema": "Cinemaxx Berlin",
       "bookingUrl": "https://www.cinemaxx.de/kinoprogramm/berlin/film/the-paradise",
       "zineflixId": 845
-    },
-    {
-      "city": "Augsburg",
-      "cinema": "Cinemaxx Bielefeld",
-      "bookingUrl": "https://www.cinemaxx.de/kinoprogramm/bielefeld/film/the-paradise",
-      "zineflixId": 846
-    },
-    {
-      "city": "Augsburg",
-      "cinema": "Cinemaxx Freiburg",
-      "bookingUrl": "https://www.cinemaxx.de/kinoprogramm/freiburg/film/the-paradise",
-      "zineflixId": 847
     },
     {
       "city": "Augsburg",
@@ -188,18 +92,6 @@
       "cinema": "Cinemaxx Dresden",
       "bookingUrl": "https://www.cinemaxx.de/kinoprogramm/dresden/film/the-paradise",
       "zineflixId": 850
-    },
-    {
-      "city": "Bremen",
-      "cinema": "Cinemaxx Bremen",
-      "bookingUrl": "https://www.cinemaxx.de/kinoprogramm/bremen/film/the-paradise",
-      "zineflixId": 851
-    },
-    {
-      "city": "Kiel",
-      "cinema": "Cinemaxx Kiel",
-      "bookingUrl": "https://www.cinemaxx.de/kinoprogramm/kiel/film/the-paradise",
-      "zineflixId": 852
     },
     {
       "city": "Heilbronn",
@@ -238,34 +130,10 @@
       "zineflixId": 858
     },
     {
-      "city": "Frankfurt",
-      "cinema": "Cinemaxx Offenbach Frankfurt",
-      "bookingUrl": "https://www.cinemaxx.de/kinoprogramm/offenbach/film/the-paradise",
-      "zineflixId": 859
-    },
-    {
-      "city": "München",
-      "cinema": "Cinemaxx München",
-      "bookingUrl": "https://www.cinemaxx.de/kinoprogramm/munchen/film/the-paradise",
-      "zineflixId": 860
-    },
-    {
       "city": "Magdeburg",
       "cinema": "Cinemaxx Magdeburg",
       "bookingUrl": "https://www.cinemaxx.de/kinoprogramm/magdeburg/film/the-paradise",
       "zineflixId": 861
-    },
-    {
-      "city": "Stuttgart",
-      "cinema": "Cinemaxx Stuttgart Liederhalle",
-      "bookingUrl": "https://www.cinemaxx.de/kinoprogramm/stuttgart-liederhalle/film/the-paradise",
-      "zineflixId": 862
-    },
-    {
-      "city": "Stuttgart",
-      "cinema": "Cinemaxx Stuttgart Centrum",
-      "bookingUrl": "https://www.cinemaxx.de/kinoprogramm/stuttgart-si-centrum/film/the-paradise",
-      "zineflixId": 863
     },
     {
       "city": "Wuppertal",
@@ -296,6 +164,12 @@
       "cinema": "Cineplex Wiesbaden",
       "bookingUrl": "https://www.cineplex.de/wiesbaden/film/the-paradise-telugu-4C341000012FWBXJYB",
       "zineflixId": 869
+    },
+    {
+      "city": "Düsseldorf",
+      "cinema": "Atelier Düsseldorf",
+      "bookingUrl": "https://filmkunstkinos.de/filme/the-paradise-2026/",
+      "zineflixId": 873
     }
   ]
 }
