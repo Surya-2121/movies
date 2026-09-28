@@ -695,6 +695,38 @@
       "time": "22:20",
       "subtitle": "Telugu (OmeU)",
       "bookingUrl": "https://www.cinemaxx.de/buchtickets/zusammenfassung/1304/HO00001653/40255"
+    },
+    {
+      "city": "Bremen",
+      "cinema": "Cinemaxx Bremen",
+      "date": "2026-10-03",
+      "time": "22:15",
+      "subtitle": "Telugu (OmeU)",
+      "bookingUrl": "https://www.cinemaxx.de/buchtickets/zusammenfassung/1281/HO00001653/34434"
+    },
+    {
+      "city": "Essen",
+      "cinema": "Cinemaxx Essen",
+      "date": "2026-10-03",
+      "time": "10:30",
+      "subtitle": "Telugu (OmeU)",
+      "bookingUrl": "https://www.cinemaxx.de/buchtickets/zusammenfassung/1431/HO00001653/65446"
+    },
+    {
+      "city": "Magdeburg",
+      "cinema": "Cinemaxx Magdeburg",
+      "date": "2026-10-04",
+      "time": "11:40",
+      "subtitle": "Telugu (OmeU)",
+      "bookingUrl": "https://www.cinemaxx.de/buchtickets/zusammenfassung/1391/HO00001653/46766"
+    },
+    {
+      "city": "Regensburg",
+      "cinema": "Cinemaxx Regensburg",
+      "date": "2026-10-04",
+      "time": "11:30",
+      "subtitle": "Telugu (OmeU)",
+      "bookingUrl": "https://www.cinemaxx.de/buchtickets/zusammenfassung/1931/HO00001653/27020"
     }
   ]
 }
