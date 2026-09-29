@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-09-28T23:26:46.458918+00:00",
+  "fetchedAt": "2026-09-29T14:15:05.268160+00:00",
   "filterDate": null,
   "shows": [
     {
@@ -73,11 +73,11 @@
       "subtitle": "Telugu",
       "bookingUrl": "https://www.cincinnati-muenchen.de/de/programm/1529184",
       "capacity": 398,
-      "booked": 12,
-      "free": 386,
+      "booked": 0,
+      "free": 398,
       "blocked": 0,
       "note": null,
-      "rewrittenUrl": "https://www.kinoheld.de/kino/muenchen/cincinnati-muenchen/vorstellung/3659623095"
+      "rewrittenUrl": "https://www.kinoheld.de/kino/muenchen/cincinnati-muenchen/vorstellung/3659623096"
     },
     {
       "city": "Dresden",
@@ -1036,6 +1036,30 @@
       "note": "Cinemaxx buchtickets — seat API needs auth (booking flow only)"
     },
     {
+      "city": "Essen",
+      "cinema": "Cinemaxx Essen",
+      "date": "2026-10-03",
+      "time": "10:30",
+      "subtitle": "Telugu (OmeU)",
+      "bookingUrl": "https://www.cinemaxx.de/buchtickets/zusammenfassung/1431/HO00001653/65446",
+      "capacity": null,
+      "booked": null,
+      "free": null,
+      "note": "Cinemaxx buchtickets — seat API needs auth (booking flow only)"
+    },
+    {
+      "city": "Bremen",
+      "cinema": "Cinemaxx Bremen",
+      "date": "2026-10-03",
+      "time": "22:15",
+      "subtitle": "Telugu (OmeU)",
+      "bookingUrl": "https://www.cinemaxx.de/buchtickets/zusammenfassung/1281/HO00001653/34434",
+      "capacity": null,
+      "booked": null,
+      "free": null,
+      "note": "Cinemaxx buchtickets — seat API needs auth (booking flow only)"
+    },
+    {
       "city": "Bayreuth",
       "cinema": "Franz & Gloria (Cineplex Bayreuth)",
       "date": "2026-10-04",
@@ -1046,6 +1070,30 @@
       "booked": null,
       "free": null,
       "note": "Cineplex.de BFF requires OAuth (WAF-blocked)"
+    },
+    {
+      "city": "Regensburg",
+      "cinema": "Cinemaxx Regensburg",
+      "date": "2026-10-04",
+      "time": "11:30",
+      "subtitle": "Telugu (OmeU)",
+      "bookingUrl": "https://www.cinemaxx.de/buchtickets/zusammenfassung/1931/HO00001653/27020",
+      "capacity": null,
+      "booked": null,
+      "free": null,
+      "note": "Cinemaxx buchtickets — seat API needs auth (booking flow only)"
+    },
+    {
+      "city": "Magdeburg",
+      "cinema": "Cinemaxx Magdeburg",
+      "date": "2026-10-04",
+      "time": "11:40",
+      "subtitle": "Telugu (OmeU)",
+      "bookingUrl": "https://www.cinemaxx.de/buchtickets/zusammenfassung/1391/HO00001653/46766",
+      "capacity": null,
+      "booked": null,
+      "free": null,
+      "note": "Cinemaxx buchtickets — seat API needs auth (booking flow only)"
     },
     {
       "city": "Düsseldorf",
@@ -1061,10 +1109,10 @@
     }
   ],
   "totals": {
-    "shows": 87,
+    "shows": 91,
     "coverageShows": 7,
     "capacity": 1179,
-    "booked": 270,
-    "free": 909
+    "booked": 258,
+    "free": 921
   }
 }
