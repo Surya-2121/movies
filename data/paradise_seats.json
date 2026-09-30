@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-09-29T22:31:19.280855+00:00",
+  "fetchedAt": "2026-09-30T14:06:03.352215+00:00",
   "filterDate": null,
   "shows": [
     {
@@ -73,11 +73,11 @@
       "subtitle": "Telugu",
       "bookingUrl": "https://www.cincinnati-muenchen.de/de/programm/1529184",
       "capacity": 398,
-      "booked": 7,
-      "free": 391,
+      "booked": 56,
+      "free": 342,
       "blocked": 0,
       "note": null,
-      "rewrittenUrl": "https://www.kinoheld.de/kino/muenchen/cincinnati-muenchen/vorstellung/3659623096"
+      "rewrittenUrl": "https://www.kinoheld.de/kino/muenchen/cincinnati-muenchen/vorstellung/3362610031"
     },
     {
       "city": "Dresden",
@@ -1036,12 +1036,48 @@
       "note": "Cinemaxx buchtickets — seat API needs auth (booking flow only)"
     },
     {
+      "city": "Berlin",
+      "cinema": "Cinemaxx Berlin",
+      "date": "2026-10-01",
+      "time": "22:15",
+      "subtitle": "Telugu (OmeU)",
+      "bookingUrl": "https://www.cinemaxx.de/buchtickets/zusammenfassung/1107/HO00001653/84979",
+      "capacity": null,
+      "booked": null,
+      "free": null,
+      "note": "Cinemaxx buchtickets — seat API needs auth (booking flow only)"
+    },
+    {
+      "city": "Berlin",
+      "cinema": "Cinemaxx Berlin",
+      "date": "2026-10-02",
+      "time": "22:30",
+      "subtitle": "Telugu (OmeU)",
+      "bookingUrl": "https://www.cinemaxx.de/buchtickets/zusammenfassung/1107/HO00001653/84972",
+      "capacity": null,
+      "booked": null,
+      "free": null,
+      "note": "Cinemaxx buchtickets — seat API needs auth (booking flow only)"
+    },
+    {
       "city": "Essen",
       "cinema": "Cinemaxx Essen",
       "date": "2026-10-03",
       "time": "10:30",
       "subtitle": "Telugu (OmeU)",
       "bookingUrl": "https://www.cinemaxx.de/buchtickets/zusammenfassung/1431/HO00001653/65446",
+      "capacity": null,
+      "booked": null,
+      "free": null,
+      "note": "Cinemaxx buchtickets — seat API needs auth (booking flow only)"
+    },
+    {
+      "city": "Berlin",
+      "cinema": "Cinemaxx Berlin",
+      "date": "2026-10-03",
+      "time": "22:10",
+      "subtitle": "Telugu (OmeU)",
+      "bookingUrl": "https://www.cinemaxx.de/buchtickets/zusammenfassung/1107/HO00001653/85074",
       "capacity": null,
       "booked": null,
       "free": null,
@@ -1109,10 +1145,10 @@
     }
   ],
   "totals": {
-    "shows": 91,
+    "shows": 94,
     "coverageShows": 7,
     "capacity": 1179,
-    "booked": 265,
-    "free": 914
+    "booked": 314,
+    "free": 865
   }
 }
