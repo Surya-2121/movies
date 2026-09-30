@@ -1,8 +1,8 @@
 {
-  "fetchedAt": "2026-09-29T23:05:31.411589+00:00",
+  "fetchedAt": "2026-09-30T13:47:21.395523+00:00",
   "movie": "paradise",
-  "totalCities": 5,
-  "totalShows": 5,
+  "totalCities": 4,
+  "totalShows": 7,
   "cities": {
     "berlin": [
       {
@@ -11,6 +11,27 @@
         "kino": "Kino 18",
         "lang": "engl. UT - Telugu",
         "href": "https://www.cinemaxx.de/buchtickets/zusammenfassung/1107/HO00001653/83957"
+      },
+      {
+        "date": "2026-10-01",
+        "time": "22:15",
+        "kino": "Kino 16",
+        "lang": "engl. UT - Telugu",
+        "href": "https://www.cinemaxx.de/buchtickets/zusammenfassung/1107/HO00001653/84979"
+      },
+      {
+        "date": "2026-10-02",
+        "time": "22:30",
+        "kino": "Kino 16",
+        "lang": "engl. UT - Telugu",
+        "href": "https://www.cinemaxx.de/buchtickets/zusammenfassung/1107/HO00001653/84972"
+      },
+      {
+        "date": "2026-10-03",
+        "time": "22:10",
+        "kino": "Kino 02",
+        "lang": "engl. UT - Telugu",
+        "href": "https://www.cinemaxx.de/buchtickets/zusammenfassung/1107/HO00001653/85074"
       }
     ],
     "bremen": [
@@ -38,15 +59,6 @@
         "kino": "Kino 04",
         "lang": "engl. UT - Telugu",
         "href": "https://www.cinemaxx.de/buchtickets/zusammenfassung/1391/HO00001653/46766"
-      }
-    ],
-    "regensburg": [
-      {
-        "date": "2026-10-04",
-        "time": "11:30",
-        "kino": "Kino 05",
-        "lang": "engl. UT",
-        "href": "https://www.cinemaxx.de/buchtickets/zusammenfassung/1931/HO00001653/27020"
       }
     ]
   }
