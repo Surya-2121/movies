@@ -1,17 +1,10 @@
 {
-  "fetchedAt": "2026-10-01T14:34:39.887072+00:00",
+  "fetchedAt": "2026-10-01T23:17:46.409947+00:00",
   "movie": "paradise",
   "totalCities": 5,
-  "totalShows": 7,
+  "totalShows": 6,
   "cities": {
     "berlin": [
-      {
-        "date": "2026-10-01",
-        "time": "22:15",
-        "kino": "Kino 16",
-        "lang": "engl. UT - Telugu",
-        "href": "https://www.cinemaxx.de/buchtickets/zusammenfassung/1107/HO00001653/84979"
-      },
       {
         "date": "2026-10-02",
         "time": "22:30",
