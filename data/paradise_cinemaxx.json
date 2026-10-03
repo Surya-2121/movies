@@ -1,27 +1,9 @@
 {
-  "fetchedAt": "2026-10-03T12:37:54.899858+00:00",
+  "fetchedAt": "2026-10-03T22:15:31.923657+00:00",
   "movie": "paradise",
-  "totalCities": 4,
-  "totalShows": 4,
+  "totalCities": 2,
+  "totalShows": 2,
   "cities": {
-    "berlin": [
-      {
-        "date": "2026-10-03",
-        "time": "22:10",
-        "kino": "Kino 02",
-        "lang": "engl. UT - Telugu",
-        "href": "https://www.cinemaxx.de/buchtickets/zusammenfassung/1107/HO00001653/85074"
-      }
-    ],
-    "bremen": [
-      {
-        "date": "2026-10-03",
-        "time": "22:15",
-        "kino": "Kino 05",
-        "lang": "engl. UT",
-        "href": "https://www.cinemaxx.de/buchtickets/zusammenfassung/1281/HO00001653/34434"
-      }
-    ],
     "magdeburg": [
       {
         "date": "2026-10-04",
