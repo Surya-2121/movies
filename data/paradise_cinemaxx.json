@@ -1,8 +1,8 @@
 {
-  "fetchedAt": "2026-10-02T23:05:54.685737+00:00",
+  "fetchedAt": "2026-10-03T12:37:54.899858+00:00",
   "movie": "paradise",
-  "totalCities": 5,
-  "totalShows": 5,
+  "totalCities": 4,
+  "totalShows": 4,
   "cities": {
     "berlin": [
       {
@@ -20,15 +20,6 @@
         "kino": "Kino 05",
         "lang": "engl. UT",
         "href": "https://www.cinemaxx.de/buchtickets/zusammenfassung/1281/HO00001653/34434"
-      }
-    ],
-    "essen": [
-      {
-        "date": "2026-10-03",
-        "time": "10:30",
-        "kino": "Kino 07",
-        "lang": "engl. UT",
-        "href": "https://www.cinemaxx.de/buchtickets/zusammenfassung/1431/HO00001653/65446"
       }
     ],
     "magdeburg": [
