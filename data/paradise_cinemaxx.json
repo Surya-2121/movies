@@ -1,26 +1,7 @@
 {
-  "fetchedAt": "2026-10-03T22:15:31.923657+00:00",
+  "fetchedAt": "2026-10-04T13:18:57.865961+00:00",
   "movie": "paradise",
-  "totalCities": 2,
-  "totalShows": 2,
-  "cities": {
-    "magdeburg": [
-      {
-        "date": "2026-10-04",
-        "time": "11:40",
-        "kino": "Kino 04",
-        "lang": "engl. UT - Telugu",
-        "href": "https://www.cinemaxx.de/buchtickets/zusammenfassung/1391/HO00001653/46766"
-      }
-    ],
-    "regensburg": [
-      {
-        "date": "2026-10-04",
-        "time": "11:30",
-        "kino": "Kino 05",
-        "lang": "engl. UT",
-        "href": "https://www.cinemaxx.de/buchtickets/zusammenfassung/1931/HO00001653/27020"
-      }
-    ]
-  }
+  "totalCities": 0,
+  "totalShows": 0,
+  "cities": {}
 }
