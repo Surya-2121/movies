@@ -149,23 +149,21 @@ def sunset_index_html(slug: str, html: str) -> tuple[str, list[str]]:
         changes.append("home hm-card removed")
         html = new_html
 
-    # 2. nowShowing Set — strip the slug + its separators
-    for quote in ("'", '"'):
-        pat_mid = re.compile(r"," + r"\s*" + re.escape(quote) + re.escape(slug) + re.escape(quote))
-        new_html, n = pat_mid.subn("", html)
-        if n:
-            changes.append("nowShowing entry removed (mid)")
-            html = new_html; continue
-        pat_lead = re.compile(re.escape(quote) + re.escape(slug) + re.escape(quote) + r"\s*,\s*")
-        new_html, n = pat_lead.subn("", html)
-        if n:
-            changes.append("nowShowing entry removed (lead)")
-            html = new_html; continue
-        pat_only = re.compile(r"new Set\(\[\s*" + re.escape(quote) + re.escape(slug) + re.escape(quote) + r"\s*\]\)")
-        new_html, n = pat_only.subn("new Set([])", html)
-        if n:
-            changes.append("nowShowing entry removed (only)")
-            html = new_html
+    # 2. nowShowing Set — scoped strictly to `new Set([...])` so we don't
+    #    accidentally munge legacyPages (same literal format and quoted
+    #    hyphenated slug keys live inside it).
+    set_re = re.compile(r"new Set\(\[([^\]]*)\]\)")
+    m = set_re.search(html)
+    if m:
+        inner = m.group(1)
+        original = inner
+        for quote in ("'", '"'):
+            q = re.escape(quote)
+            inner = re.sub(r",\s*" + q + re.escape(slug) + q, "", inner)
+            inner = re.sub(q + re.escape(slug) + q + r"\s*,\s*", "", inner)
+        if inner != original:
+            changes.append("nowShowing entry removed")
+            html = html[:m.start(1)] + inner + html[m.end(1):]
 
     # 3. search `movies` array — line that includes url: '<slug>-movie.html'
     search_re = re.compile(
@@ -180,19 +178,25 @@ def sunset_index_html(slug: str, html: str) -> tuple[str, list[str]]:
 
 
 def sunset_coming_soon_html(slug: str, html: str) -> tuple[str, list[str]]:
-    """Remove slug from the nowShowing Set in coming-soon.html."""
+    """Remove slug from the nowShowing Set in coming-soon.html.
+
+    Scoped to `new Set([...])` only — legacyPages above it uses the same
+    quoted-key format and would get corrupted by an unscoped regex.
+    """
     changes = []
+    set_re = re.compile(r"new Set\(\[([^\]]*)\]\)")
+    m = set_re.search(html)
+    if not m:
+        return html, changes
+    inner = m.group(1)
+    original = inner
     for quote in ("'", '"'):
-        pat_mid = re.compile(r"," + r"\s*" + re.escape(quote) + re.escape(slug) + re.escape(quote))
-        new_html, n = pat_mid.subn("", html)
-        if n:
-            changes.append("coming-soon nowShowing entry removed (mid)")
-            return new_html, changes
-        pat_lead = re.compile(re.escape(quote) + re.escape(slug) + re.escape(quote) + r"\s*,\s*")
-        new_html, n = pat_lead.subn("", html)
-        if n:
-            changes.append("coming-soon nowShowing entry removed (lead)")
-            return new_html, changes
+        q = re.escape(quote)
+        inner = re.sub(r",\s*" + q + re.escape(slug) + q, "", inner)
+        inner = re.sub(q + re.escape(slug) + q + r"\s*,\s*", "", inner)
+    if inner != original:
+        changes.append("coming-soon nowShowing entry removed")
+        return html[:m.start(1)] + inner + html[m.end(1):], changes
     return html, changes
 
 
