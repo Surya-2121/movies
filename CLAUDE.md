@@ -62,6 +62,30 @@ Two GitHub Actions workflows in `.github/workflows/` run on cron against the scr
 
 `fetch_seats.py` is regex-based and specific to the Ustaad Bhagat Singh page on 3 Realms (hard-coded `THREEALMS_URL`, hard-coded `2026-03-<dd>` year/month in `_extract_date_time`). It injects JSON into `js/app.js` between the `// SEAT_DATA_START` / `// SEAT_DATA_END` markers — preserve those markers when editing `app.js`.
 
+### Show-discovery pipeline (current)
+Tracked movies live in `data/zineflix_movies.json` (`slug`, `zineflixMovieId`, optional `cinemaxxSlug`). Real showtimes live in `data/<slug>_manual.json`; scripts patch ONLY that movie's sub-entry in booking.html (hyphenated keys are auto-quoted — `jailer-2:` unquoted breaks the whole page).
+
+| Script | Workflow / cron (Berlin) | Purpose |
+|---|---|---|
+| `scripts/discover_zineflix_shows.py [slug]` | `discover-zineflix-shows.yml` 08:00 / 19:00 / 23:30 | Zineflix roster diff → `data/<slug>_zineflix.json`, `data/zineflix_alerts.md`, patch booking.html from manual overlay |
+| `scripts/discover_cinemaxx_shows.py [slug]` | `discover-cinemaxx-shows.yml` 09:15 / 21:15 (xvfb) | Scan all Cinemaxx cities via patchright |
+| `scripts/scrape_cinemaxx.py <url>` | manual | Single Cinemaxx page |
+| `scripts/browser_fetch.py <url>` | helper | Cloudflare/JS-rendered fetch (patchright, persistent cf_clearance, `X-Bot-Contact` header) |
+| `scripts/fetch_paradise_seats.py [date]` | `fetch-paradise-seats.yml` | Seat counts via Kinoheld/Kinotickets/PremiumKino handlers |
+| `scripts/sunset_ended_movies.py [--apply] [--slug X]` | `sunset-ended-movies.yml` 06:00 | Remove movies whose shows have all passed from Now Showing surfaces |
+| `scripts/discover_peddi_shows.py` | `discover-peddi-shows.yml` | Peddi multi-platform discovery (legacy) |
+
+### Project subagents (`.claude/agents/`)
+Delegate these workflows (they can run in the background):
+- **show-checker** — "check zineflix for X": roster diff → fetch each cinema page for real dates → manual.json → push.
+- **show-adder** — user pastes link + city + date/time → add show → push.
+- **movie-onboarder** — full new-movie checklist.
+- **movie-sunsetter** — remove a movie from Now Showing (ended or on request).
+- **cinemaxx-scanner** — scan all Cinemaxx cities for a movie.
+- **seat-counter** — tickets booked / occupancy.
+- **media-updater** — trailers, teasers, songs, posters, synopsis.
+- **site-verifier** — read-only QA; run after bulk edits or when the user says "I can't see X".
+
 ### New-movie checklist
 When adding a new Telugu film to the site:
 1. Create `<slug>-movie.html` (copy an existing movie page as a template).
