@@ -274,7 +274,11 @@ def regenerate_booking_html(movie, shows):
                     break
         existing = html[brace_start + 1:end].strip()
         prefix = "," if existing else ""
-        insert = f'{prefix}\n      {slug}: {body}\n    '
+        # Quote slug when it contains hyphens — `jailer-2:` is invalid JS
+        # (parsed as subtraction), which would silently break the whole
+        # `const movies = {...}` object and blank the booking page.
+        key = f'"{slug}"' if "-" in slug else slug
+        insert = f'{prefix}\n      {key}: {body}\n    '
         new_html = html[:end] + insert + html[end:]
     else:
         brace_open = html.index("{", slug_pos)
