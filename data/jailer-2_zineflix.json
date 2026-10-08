@@ -1,0 +1,211 @@
+{
+  "fetchedAt": "2026-10-08T16:53:10.380859+00:00",
+  "movie": "jailer-2",
+  "totalCinemas": 34,
+  "cinemas": [
+    {
+      "city": "Saarbrücken",
+      "cinema": "UT KINO SAARBRÜCKEN",
+      "bookingUrl": "https://ut-kinos.saarfilm.net/programm/film/jailer-2-tamil-englsubtitles",
+      "zineflixId": 877
+    },
+    {
+      "city": "Stuttgart",
+      "cinema": "Capitol Kornwestheim Stuttgart",
+      "bookingUrl": "https://capitol-kornwestheim.de/programm/film/jailer-2-tamil-mit-englischen-untertiteln",
+      "zineflixId": 878
+    },
+    {
+      "city": "Karlsruhe",
+      "cinema": "Universum Karlsruhe",
+      "bookingUrl": "https://www.universum-city.de/en/program/1525693",
+      "zineflixId": 879
+    },
+    {
+      "city": "Berlin",
+      "cinema": "Filmtheater Colloseum Berlin ( 17.10.26)",
+      "bookingUrl": "https://kino.colosseumberlin.com/tickets?showUrl=https%3A%2F%2Fwww.kinoheld.de%2Fkino%2Fberlin%2Fcolosseum-filmtheater-berlin%2Fvorstellung%2F3667896120%2Fjailer-2-tamil-omeu%3Fmode%3Dwidget%26change%3D0",
+      "zineflixId": 880
+    },
+    {
+      "city": "Mönchengladbach",
+      "cinema": "HAUS ZOAR MÖNCHENGLADBACH",
+      "bookingUrl": "https://www.cinefactorymg.de/detail/131833/Jailer%202",
+      "zineflixId": 881
+    },
+    {
+      "city": "Bielefeld",
+      "cinema": "FILMWERK GÜTERSLOH BIELEFELD PREMIERE (BIG SCREEN)",
+      "bookingUrl": "https://web.filmwerk-gt.de/films/Jailer-2-World-Premiere/HO00002016",
+      "zineflixId": 882
+    },
+    {
+      "city": "Bielefeld",
+      "cinema": "FILMWERK GÜTERSLOH BIELEFELD (BIG SCREEN)",
+      "bookingUrl": "https://web.filmwerk-gt.de/films/Jailer-2-Sprache-Tamil-mit-engl-Untertitel/HO00002015",
+      "zineflixId": 883
+    },
+    {
+      "city": "Pforzheim",
+      "cinema": "CINEMOON PFORZHEIM PREMIERE & NORMAL SHOWS (BIG SCREEN)",
+      "bookingUrl": "https://www.cinemoon.de/de/programm/1525693",
+      "zineflixId": 884
+    },
+    {
+      "city": "Hamburg",
+      "cinema": "SAVOY HAMBURG (BIG SCREEN)",
+      "bookingUrl": "https://savoy.premiumkino.de/specials/standard/indian-cinema/jailer-2",
+      "zineflixId": 885
+    },
+    {
+      "city": "Frankenthal",
+      "cinema": "LUX FRANKENTHAL",
+      "bookingUrl": "https://www.lux-kinos.de/detail/131840/JAILER%202",
+      "zineflixId": 886
+    },
+    {
+      "city": "Berlin",
+      "cinema": "Filmtheater Colloseum Berlin - PREMIERE 15.10.26 Midnight",
+      "bookingUrl": "https://kino.colosseumberlin.com/tickets?showUrl=https%3A%2F%2Fwww.kinoheld.de%2Fkino%2Fberlin%2Fcolosseum-filmtheater-berlin%2Fvorstellung%2F3667894972%2Fjailer-2-tamil-omeu%3Fmode%3Dwidget%26change%3D0",
+      "zineflixId": 887
+    },
+    {
+      "city": "Berlin",
+      "cinema": "Filmtheater Colloseum Berlin - 15.10.26",
+      "bookingUrl": "https://kino.colosseumberlin.com/tickets?showUrl=https%3A%2F%2Fwww.kinoheld.de%2Fkino%2Fberlin%2Fcolosseum-filmtheater-berlin%2Fvorstellung%2F3667895792%2Fjailer-2-tamil-omeu%3Fmode%3Dwidget%26change%3D0",
+      "zineflixId": 888
+    },
+    {
+      "city": "Berlin",
+      "cinema": "Filmtheater Colloseum Berlin - 16.10.26",
+      "bookingUrl": "https://kino.colosseumberlin.com/tickets?showUrl=https%3A%2F%2Fwww.kinoheld.de%2Fkino%2Fberlin%2Fcolosseum-filmtheater-berlin%2Fvorstellung%2F3667896046%2Fjailer-2-tamil-omeu%3Fmode%3Dwidget%26change%3D0",
+      "zineflixId": 889
+    },
+    {
+      "city": "Berlin",
+      "cinema": "Filmtheater Colloseum Berlin - 18.10.26",
+      "bookingUrl": "https://kino.colosseumberlin.com/tickets?showUrl=https%3A%2F%2Fwww.kinoheld.de%2Fkino%2Fberlin%2Fcolosseum-filmtheater-berlin%2Fvorstellung%2F3667896237%2Fjailer-2-tamil-omeu%3Fmode%3Dwidget%26change%3D0",
+      "zineflixId": 890
+    },
+    {
+      "city": "Dresden",
+      "cinema": "Zentral Kino Dresden",
+      "bookingUrl": "https://www.kinoheld.de/film/jailer-2-tamil",
+      "zineflixId": 891
+    },
+    {
+      "city": "Weil am Rhein",
+      "cinema": "Kinopalast Weil am Rhein (Swiss border)",
+      "bookingUrl": "https://kino-weil.de/film/34349/Jailer-2--/",
+      "zineflixId": 892
+    },
+    {
+      "city": "Düsseldorf",
+      "cinema": "UFA PALAST DÜSSELDORF",
+      "bookingUrl": "https://ufa-duesseldorf.de/programm/15102026/",
+      "zineflixId": 893
+    },
+    {
+      "city": "München",
+      "cinema": "Cincinnati München (Thursday & Friday Shows)",
+      "bookingUrl": "https://www.cincinnati-muenchen.de/de/programm/1525693",
+      "zineflixId": 894
+    },
+    {
+      "city": "München",
+      "cinema": "Neues Rottman München (Sunday Show)",
+      "bookingUrl": "https://www.neuesrottmann.de/de/programm/1525693",
+      "zineflixId": 895
+    },
+    {
+      "city": "Frankfurt",
+      "cinema": "Filmpalast Hofheim Frankfurt",
+      "bookingUrl": "https://www.filmpalast-hofheim.de/de/programm/1525693",
+      "zineflixId": 896
+    },
+    {
+      "city": "Wolfsburg",
+      "cinema": "Delphi Kino Wolfsburg (Free Popcorn & drinks per Ticket)",
+      "bookingUrl": "https://www.delphin-palast.de/vorverkauf/",
+      "zineflixId": 897
+    },
+    {
+      "city": "Mannheim",
+      "cinema": "Kinopolis Viernheim",
+      "bookingUrl": "https://www.kinopolis.de/vi/filmdetail/jailer-2/EAB74000012PLXMQDD",
+      "zineflixId": 898
+    },
+    {
+      "city": "Koblenz",
+      "cinema": "Kinopolis KOBLENZ",
+      "bookingUrl": "https://www.kinopolis.de/ko/filmdetail/jailer-2/EAB74000012PLXMQDD",
+      "zineflixId": 899
+    },
+    {
+      "city": "Dortmund",
+      "cinema": "Cinestar Dortmund",
+      "bookingUrl": "https://ticketverz.com/movieslist",
+      "zineflixId": 900
+    },
+    {
+      "city": "Bremen",
+      "cinema": "Cinestar Bremen",
+      "bookingUrl": "https://wa.me/4915150121181",
+      "zineflixId": 901
+    },
+    {
+      "city": "Rheine",
+      "cinema": "Rheine Cinema",
+      "bookingUrl": "https://zinema-city.de/programm/film/jailer-2-tamil-mit-englischen-untertiteln",
+      "zineflixId": 902
+    },
+    {
+      "city": "Augsburg",
+      "cinema": "Filmhaus Langerringen - AUGSBURG",
+      "bookingUrl": "https://filmhaus-kinos.de/film/jailer-2",
+      "zineflixId": 903
+    },
+    {
+      "city": "Aachen",
+      "cinema": "APOLLO AACHEN (big screen)",
+      "bookingUrl": "https://apollo-aachen.de/sondervorstellung/indische-filme/",
+      "zineflixId": 904
+    },
+    {
+      "city": "Chemnitz",
+      "cinema": "Cinestar Chemnitz",
+      "bookingUrl": "https://www.cinestar.de/chemnitz-kino-am-roten-turm/veranstaltung-jailer-2-tamil-omeu",
+      "zineflixId": 905
+    },
+    {
+      "city": "Erlangen",
+      "cinema": "Cinestar Erlangen",
+      "bookingUrl": "https://www.cinestar.de/kino-erlangen/veranstaltung-jailer-2-tamil-omeu",
+      "zineflixId": 906
+    },
+    {
+      "city": "Siegen",
+      "cinema": "Cinestar Siegen",
+      "bookingUrl": "https://www.cinestar.de/kino-siegen/veranstaltung-jailer-2-tamil-omeu",
+      "zineflixId": 907
+    },
+    {
+      "city": "Ingolstadt",
+      "cinema": "Cinestar Ingolstadt",
+      "bookingUrl": "https://www.cinestar.de/kino-ingolstadt/veranstaltung-jailer-2-tamil-omeu",
+      "zineflixId": 908
+    },
+    {
+      "city": "Paderborn",
+      "cinema": "FILMWERK GÜTERSLOH",
+      "bookingUrl": "https://web.filmwerk-gt.de/films/Jailer-2-Sprache-Tamil-mit-engl-Untertitel/HO00002015",
+      "zineflixId": 909
+    },
+    {
+      "city": "Koblenz",
+      "cinema": "Kino Neuwied Koblenz (FRIDAY SHOW)",
+      "bookingUrl": "https://www.kinoneuwied.de/detail/131941/Jailer%202",
+      "zineflixId": 910
+    }
+  ]
+}

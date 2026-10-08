@@ -9,6 +9,15 @@
       "genre": "Period Action-Drama",
       "language": "Telugu",
       "page": "paradise-movie.html"
+    },
+    {
+      "slug": "jailer-2",
+      "zineflixMovieId": 82,
+      "cinemaxxSlug": "jailer-2",
+      "title": "Jailer 2",
+      "genre": "Action",
+      "language": "Tamil",
+      "page": "jailer-2-movie.html"
     }
   ]
 }
