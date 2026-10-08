@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-10-08T16:53:10.380859+00:00",
+  "fetchedAt": "2026-10-08T16:57:48.661689+00:00",
   "movie": "jailer-2",
   "totalCinemas": 34,
   "cinemas": [
@@ -156,7 +156,7 @@
     {
       "city": "Rheine",
       "cinema": "Rheine Cinema",
-      "bookingUrl": "https://zinema-city.de/programm/film/jailer-2-tamil-mit-englischen-untertiteln",
+      "bookingUrl": "https://zinema-city.de/film/jailer-2",
       "zineflixId": 902
     },
     {
