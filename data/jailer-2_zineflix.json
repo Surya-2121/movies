@@ -1,7 +1,7 @@
 {
-  "fetchedAt": "2026-10-11T12:10:42.920809+00:00",
+  "fetchedAt": "2026-10-11T20:48:29.608759+00:00",
   "movie": "jailer-2",
-  "totalCinemas": 34,
+  "totalCinemas": 35,
   "cinemas": [
     {
       "city": "Saarbrücken",
@@ -101,7 +101,7 @@
     },
     {
       "city": "Düsseldorf",
-      "cinema": "UFA PALAST DÜSSELDORF",
+      "cinema": "UFA PALAST DÜSSELDORF (TAMIL)",
       "bookingUrl": "https://ufa-duesseldorf.de/programm/15102026/",
       "zineflixId": 893
     },
@@ -206,6 +206,12 @@
       "cinema": "Kino Neuwied Koblenz (FRIDAY SHOW)",
       "bookingUrl": "https://www.kinoneuwied.de/detail/131941/Jailer%202",
       "zineflixId": 910
+    },
+    {
+      "city": "Düsseldorf",
+      "cinema": "Atelier Düsseldorf (TELUGU)",
+      "bookingUrl": "https://filmkunstkinos.de/filme/jailer-2-2026/",
+      "zineflixId": 911
     }
   ]
 }
