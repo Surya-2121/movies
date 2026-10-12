@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-10-11T22:18:15.702345+00:00",
+  "fetchedAt": "2026-10-12T16:54:49.649051+00:00",
   "filterDate": null,
   "shows": [
     {
@@ -73,11 +73,11 @@
       "subtitle": "Telugu",
       "bookingUrl": "https://www.cincinnati-muenchen.de/de/programm/1529184",
       "capacity": 398,
-      "booked": 9,
-      "free": 389,
+      "booked": 18,
+      "free": 380,
       "blocked": 0,
       "note": null,
-      "rewrittenUrl": "https://www.kinoheld.de/kino/muenchen/cincinnati-muenchen/vorstellung/3674534805"
+      "rewrittenUrl": "https://www.kinoheld.de/kino/muenchen/cincinnati-muenchen/vorstellung/3674078319"
     },
     {
       "city": "Dresden",
@@ -1148,7 +1148,7 @@
     "shows": 94,
     "coverageShows": 7,
     "capacity": 1179,
-    "booked": 267,
-    "free": 912
+    "booked": 276,
+    "free": 903
   }
 }
