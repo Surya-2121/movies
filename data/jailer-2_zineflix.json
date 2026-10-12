@@ -1,7 +1,7 @@
 {
-  "fetchedAt": "2026-10-12T14:32:13.997424+00:00",
+  "fetchedAt": "2026-10-12T23:30:30.479503+00:00",
   "movie": "jailer-2",
-  "totalCinemas": 35,
+  "totalCinemas": 38,
   "cinemas": [
     {
       "city": "Saarbrücken",
@@ -212,6 +212,24 @@
       "cinema": "Atelier Düsseldorf (TELUGU)",
       "bookingUrl": "https://filmkunstkinos.de/filme/jailer-2-2026/",
       "zineflixId": 911
+    },
+    {
+      "city": "HEIDELBERG",
+      "cinema": "Luxor Heidelberg",
+      "bookingUrl": "https://heidelberg.luxor-kino.de/de/specials/454",
+      "zineflixId": 912
+    },
+    {
+      "city": "THÜRINGEN",
+      "cinema": "Kino Bleicherode THÜRINGEN - TAMIL",
+      "bookingUrl": "https://booking.cinetixx.de/frontend/index.html?cinemaId=2284627575&showId=3681320868&bgswitch=false&resize=false#/show/2284627575/3681320868",
+      "zineflixId": 913
+    },
+    {
+      "city": "THÜRINGEN",
+      "cinema": "Kino Bleicherode THÜRINGEN - TELUGU",
+      "bookingUrl": "https://booking.cinetixx.de/frontend/index.html?cinemaId=2284627575&showId=3681320920&bgswitch=false&resize=false#/show/2284627575/3681320920",
+      "zineflixId": 914
     }
   ]
 }
