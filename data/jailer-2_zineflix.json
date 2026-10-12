@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-10-11T20:48:29.608759+00:00",
+  "fetchedAt": "2026-10-12T00:39:25.519210+00:00",
   "movie": "jailer-2",
   "totalCinemas": 35,
   "cinemas": [
@@ -95,7 +95,7 @@
     },
     {
       "city": "Weil am Rhein",
-      "cinema": "FILMPALAST Weil am Rhein (Swiss border)",
+      "cinema": "KINOPALAST Weil am Rhein (Swiss border)",
       "bookingUrl": "https://kino-weil.de/film/34349/Jailer-2--/",
       "zineflixId": 892
     },
