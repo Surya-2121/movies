@@ -87,12 +87,13 @@ def append_to_manual(slug: str, city: str, cinema: str, sessions: list[dict]) ->
     for sess in sessions:
         if sess["href"] in have_urls:
             continue
-        subtitle = "Telugu"
-        if "Telugu" in sess["lang"]:
-            subtitle = (
-                "Telugu (OmeU)" if re.search(r"engl|OmeU|OmU|UT", sess["lang"], re.I)
-                else "Telugu"
-            )
+        # Telugu-only site: skip sessions Cinemaxx doesn't label Telugu.
+        if "telugu" not in sess["lang"].lower():
+            continue
+        subtitle = (
+            "Telugu (OmeU)" if re.search(r"engl|OmeU|OmU|UT", sess["lang"], re.I)
+            else "Telugu"
+        )
         shows.append({
             "city": city,
             "cinema": cinema,

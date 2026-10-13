@@ -1,7 +1,7 @@
 {
-  "fetchedAt": "2026-10-13T13:38:47.354287+00:00",
+  "fetchedAt": "2026-10-13T16:13:04.023985+00:00",
   "movie": "jailer-2",
-  "totalCinemas": 47,
+  "totalCinemas": 48,
   "cinemas": [
     {
       "city": "Saarbrücken",
@@ -102,7 +102,7 @@
     {
       "city": "Düsseldorf",
       "cinema": "UFA PALAST DÜSSELDORF (TAMIL)",
-      "bookingUrl": "https://ufa-duesseldorf.de/programm/15102026/",
+      "bookingUrl": "https://ufa-duesseldorf.de/programm/2332969/",
       "zineflixId": 893
     },
     {
@@ -284,6 +284,12 @@
       "cinema": "Cinemaxx Wuppertal",
       "bookingUrl": "https://www.cinemaxx.de/kinoprogramm/wuppertal/film/jailer-2",
       "zineflixId": 923
+    },
+    {
+      "city": "KONSTANZ (near Switzerland)",
+      "cinema": "Cinestar Konstanz (Tamil) 25.10.26",
+      "bookingUrl": "https://www.cinestar.de/kino-konstanz/veranstaltung-jailer-2-tamil-omeu",
+      "zineflixId": 924
     }
   ]
 }

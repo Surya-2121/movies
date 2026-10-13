@@ -170,6 +170,11 @@ def merge_sessions_into_manual(slug: str, city_sessions: dict) -> int:
             if s["href"] in have_urls:
                 continue
             lang = s.get("lang", "")
+            # Telugu-only site: publish a session ONLY if Cinemaxx itself
+            # labels it Telugu. Tamil/Hindi/unlabelled sessions of the
+            # same film are skipped (never relabel them as Telugu).
+            if "telugu" not in lang.lower():
+                continue
             subtitle = (
                 "Telugu (OmeU)" if re.search(r"engl|OmeU|OmU|UT", lang, re.I)
                 else "Telugu"
