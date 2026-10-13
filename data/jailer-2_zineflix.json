@@ -1,7 +1,7 @@
 {
-  "fetchedAt": "2026-10-13T02:38:34.605143+00:00",
+  "fetchedAt": "2026-10-13T13:38:47.354287+00:00",
   "movie": "jailer-2",
-  "totalCinemas": 38,
+  "totalCinemas": 47,
   "cinemas": [
     {
       "city": "Saarbrücken",
@@ -230,6 +230,60 @@
       "cinema": "Kino Bleicherode THÜRINGEN - TELUGU",
       "bookingUrl": "https://booking.cinetixx.de/frontend/index.html?cinemaId=2284627575&showId=3681320920&bgswitch=false&resize=false#/show/2284627575/3681320920",
       "zineflixId": 914
+    },
+    {
+      "city": "Bonn",
+      "cinema": "Kinopolis Bad Godesberg Bonn ( TAMIL & HINDI)",
+      "bookingUrl": "https://www.kinopolis.de/bn/filmdetail/jailer-2/EAB74000012PLXMQDD?fguid=2&cindex=0&overlaySrc=null",
+      "zineflixId": 915
+    },
+    {
+      "city": "Nürnberg",
+      "cinema": "Cinecitta Nürnberg",
+      "bookingUrl": "https://www.cinecitta.de/filme/jailer-2/",
+      "zineflixId": 916
+    },
+    {
+      "city": "Hannover",
+      "cinema": "Cinemaxx Hannover",
+      "bookingUrl": "https://www.cinemaxx.de/kinoprogramm/hannover/film/jailer-2",
+      "zineflixId": 917
+    },
+    {
+      "city": "Freiburg",
+      "cinema": "Cinemaxx Freiburg",
+      "bookingUrl": "https://www.cinemaxx.de/kinoprogramm/freiburg/film/jailer-2",
+      "zineflixId": 918
+    },
+    {
+      "city": "Augsburg",
+      "cinema": "Cinemaxx Augsburg",
+      "bookingUrl": "https://www.cinemaxx.de/kinoprogramm/augsburg/film/jailer-2",
+      "zineflixId": 919
+    },
+    {
+      "city": "Magdeburg",
+      "cinema": "Cinemaxx Magdeburg",
+      "bookingUrl": "https://www.cinemaxx.de/kinoprogramm/magdeburg/film/jailer-2",
+      "zineflixId": 920
+    },
+    {
+      "city": "Kiel",
+      "cinema": "Cinemaxx Kiel",
+      "bookingUrl": "https://www.cinemaxx.de/kinoprogramm/kiel/film/jailer-2",
+      "zineflixId": 921
+    },
+    {
+      "city": "Heilbronn",
+      "cinema": "Cinemaxx Heilbronn",
+      "bookingUrl": "https://www.cinemaxx.de/kinoprogramm/heilbronn/film/jailer-2",
+      "zineflixId": 922
+    },
+    {
+      "city": "Wuppertal",
+      "cinema": "Cinemaxx Wuppertal",
+      "bookingUrl": "https://www.cinemaxx.de/kinoprogramm/wuppertal/film/jailer-2",
+      "zineflixId": 923
     }
   ]
 }
