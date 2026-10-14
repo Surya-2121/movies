@@ -1,4 +1,13 @@
 {
   "_comment": "Ranabaali (Telugu). Add only real Telugu shows with confirmed date/time.",
-  "shows": []
+  "shows": [
+    {
+      "city": "Heidelberg",
+      "cinema": "Luxor Filmpalast Heidelberg",
+      "date": "2026-10-17",
+      "time": "11:30",
+      "subtitle": "Telugu",
+      "bookingUrl": "https://ticket-cloud.de/Luxor-Heidelberg/Show/2449142"
+    }
+  ]
 }
