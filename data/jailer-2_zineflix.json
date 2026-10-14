@@ -1,7 +1,7 @@
 {
-  "fetchedAt": "2026-10-14T11:17:22.668015+00:00",
+  "fetchedAt": "2026-10-14T20:28:39.898895+00:00",
   "movie": "jailer-2",
-  "totalCinemas": 48,
+  "totalCinemas": 51,
   "cinemas": [
     {
       "city": "Saarbrücken",
@@ -90,7 +90,7 @@
     {
       "city": "Dresden",
       "cinema": "Zentral Kino Dresden",
-      "bookingUrl": "https://www.kinoheld.de/film/jailer-2-tamil",
+      "bookingUrl": "https://www.kinoheld.de/kino/dresden/zentralkino-dresden/vorstellungen?search=Jailer",
       "zineflixId": 891
     },
     {
@@ -119,7 +119,7 @@
     },
     {
       "city": "Frankfurt",
-      "cinema": "Filmpalast Hofheim Frankfurt",
+      "cinema": "Filmpalast Hofheim Frankfurt (TAMIL)",
       "bookingUrl": "https://www.filmpalast-hofheim.de/de/programm/1525693",
       "zineflixId": 896
     },
@@ -290,6 +290,24 @@
       "cinema": "Cinestar Konstanz (Tamil) 25.10.26",
       "bookingUrl": "https://www.cinestar.de/kino-konstanz/veranstaltung-jailer-2-tamil-omeu",
       "zineflixId": 924
+    },
+    {
+      "city": "München",
+      "cinema": "Rosenhof Lichtspiele Moosburg (Bayern) Tamil Show (Second week)",
+      "bookingUrl": "https://www.rosenhof-lichtspiele.de/detail/132229/Jailer%202%20-%20Tamil%20OmeU",
+      "zineflixId": 925
+    },
+    {
+      "city": "München",
+      "cinema": "Rosenhof Lichtspiele Moosburg (Bayern) Telugu Show (Second week)",
+      "bookingUrl": "https://www.rosenhof-lichtspiele.de/detail/132230/Jailer%202%20-%20Telugu%20OmeU",
+      "zineflixId": 926
+    },
+    {
+      "city": "Frankfurt",
+      "cinema": "Filmpalast Hofheim Frankfurt (TELUGU)",
+      "bookingUrl": "https://www.filmpalast-hofheim.de/de/specials/26047",
+      "zineflixId": 927
     }
   ]
 }
