@@ -40,6 +40,24 @@
       "time": "18:30",
       "subtitle": "Telugu",
       "bookingUrl": "https://kino.colosseumberlin.com/tickets?showUrl=https%3A%2F%2Fwww.kinoheld.de%2Fkino%2Fberlin%2Fcolosseum-filmtheater-berlin%2Fvorstellung%2F3674447301%2Fjailer-2-telugu%3Fmode%3Dwidget%26change%3D0"
+    },
+    {
+      "city": "Magdeburg",
+      "cinema": "Studiokino Magdeburg",
+      "date": "2026-10-18",
+      "time": "11:00",
+      "subtitle": "Telugu",
+      "bookingUrl": "",
+      "contacts": [
+        {
+          "name": "Sai Pavan",
+          "phone": "+49 1556 0830661"
+        },
+        {
+          "name": "Aita Rohit",
+          "phone": "+49 176 67200854"
+        }
+      ]
     }
   ]
 }

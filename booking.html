@@ -126,6 +126,24 @@
     .light-theme .bk-empty h3 { color: #333; }
     .light-theme .bk-powered { color: #999; }
     .light-theme .bk-powered a { color: #d4880f; }
+    /* Contact-to-book popup (shows without an online ticket link) */
+    .bk-contact-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.7); display: none; align-items: center; justify-content: center; z-index: 2000; padding: 16px; }
+    .bk-contact-overlay.open { display: flex; }
+    .bk-contact-box { background: #1a1a2e; border: 1px solid #f0ad4e; border-radius: 12px; padding: 24px; width: 100%; max-width: 360px; position: relative; color: #e0e0e0; }
+    .bk-contact-box h3 { margin: 0 0 4px; color: #f0ad4e; font-size: 1.1rem; }
+    .bk-contact-sub { font-size: 0.8rem; color: #999; margin-bottom: 16px; }
+    .bk-contact-close { position: absolute; top: 8px; right: 12px; background: none; border: none; color: #999; font-size: 1.5rem; cursor: pointer; }
+    .bk-contact-row { display: flex; align-items: center; justify-content: space-between; gap: 8px; padding: 12px 0; border-top: 1px solid #2a2a4a; }
+    .bk-contact-name { font-weight: 600; }
+    .bk-contact-phone { font-size: 0.8rem; color: #999; }
+    .bk-contact-actions { display: flex; gap: 6px; }
+    .bk-contact-actions a { border: 1px solid #f0ad4e; color: #f0ad4e; border-radius: 6px; padding: 6px 10px; font-size: 0.75rem; font-weight: 600; text-decoration: none; }
+    .bk-contact-actions a:hover { background: #f0ad4e; color: #000; }
+    .light-theme .bk-contact-box { background: #fff; border-color: #d4880f; color: #222; }
+    .light-theme .bk-contact-box h3 { color: #d4880f; }
+    .light-theme .bk-contact-row { border-top-color: #e2e2e2; }
+    .light-theme .bk-contact-actions a { border-color: #d4880f; color: #d4880f; }
+    .light-theme .bk-contact-actions a:hover { background: #d4880f; color: #fff; }
   </style>
 </head>
 <body>
@@ -164,6 +182,13 @@
 
   <div class="bk-powered">
     <a href="index.html">Germany Telugu Movies</a>
+  </div>
+
+  <div class="bk-contact-overlay" id="bkContactOverlay" onclick="closeBkContacts(event)">
+    <div class="bk-contact-box">
+      <button class="bk-contact-close" onclick="closeBkContacts()">&times;</button>
+      <div id="bkContactBody"></div>
+    </div>
   </div>
 
   <script>
@@ -1601,6 +1626,24 @@
                       "bookingUrl": "https://kinotickets.express/hofheim-filmpalast/sale/seats/15885"
             },
             {
+                      "city": "Magdeburg",
+                      "cinema": "Studiokino Magdeburg",
+                      "date": "2026-10-18",
+                      "time": "11:00",
+                      "subtitle": "Telugu",
+                      "bookingUrl": "",
+                      "contacts": [
+                                {
+                                          "name": "Sai Pavan",
+                                          "phone": "+49 1556 0830661"
+                                },
+                                {
+                                          "name": "Aita Rohit",
+                                          "phone": "+49 176 67200854"
+                                }
+                      ]
+            },
+            {
                       "city": "Heidelberg",
                       "cinema": "Luxor Filmpalast Heidelberg",
                       "date": "2026-10-18",
@@ -1642,6 +1685,30 @@
         page: "ranabaali-movie.html",
         shows: [
             {
+                      "city": "Berlin",
+                      "cinema": "Cinemaxx Berlin",
+                      "date": "2026-10-15",
+                      "time": "21:10",
+                      "subtitle": "Telugu (OmeU)",
+                      "bookingUrl": "https://www.cinemaxx.de/buchtickets/zusammenfassung/1107/HO00001704/90518"
+            },
+            {
+                      "city": "Hamburg",
+                      "cinema": "Cinemaxx Hamburg (Dammtor)",
+                      "date": "2026-10-15",
+                      "time": "22:00",
+                      "subtitle": "Telugu (OmeU)",
+                      "bookingUrl": "https://www.cinemaxx.de/buchtickets/zusammenfassung/1206/HO00001704/39718"
+            },
+            {
+                      "city": "Essen",
+                      "cinema": "Cinemaxx Essen",
+                      "date": "2026-10-15",
+                      "time": "22:15",
+                      "subtitle": "Telugu (OmeU)",
+                      "bookingUrl": "https://www.cinemaxx.de/buchtickets/zusammenfassung/1431/HO00001704/69422"
+            },
+            {
                       "city": "Heidelberg",
                       "cinema": "Luxor Filmpalast Heidelberg",
                       "date": "2026-10-17",
@@ -1672,6 +1739,7 @@
       const today = new Date().toISOString().split('T')[0];
       const shows = movie.shows.filter(s => s.date >= today);
       let selectedDate = 'all';
+      let contactShows = [];
 
       function buildDateTabs() {
         const dates = [...new Set(shows.map(s => s.date))].sort();
@@ -1733,6 +1801,7 @@
         // Auto-expand cities when the user is actively searching
         const expand = !!search;
 
+        contactShows = [];
         let html = '';
         cityNames.forEach(city => {
           const cinemas = cities[city];
@@ -1759,6 +1828,14 @@
             cs.forEach(s => {
               const dt = new Date(s.date + 'T00:00:00');
               const dateLabel = dt.toLocaleDateString('en-GB', { day: 'numeric', month: 'short' });
+              if (s.contacts && s.contacts.length) {
+                contactShows.push(s);
+                html += `<button type="button" class="bk-showtime" onclick="showBkContacts(${contactShows.length - 1})">
+                ${s.time}
+                <span class="bk-showtime-label">${dateLabel}</span>
+              </button>`;
+                return;
+              }
               html += `<a href="${s.bookingUrl}" target="_blank" rel="noopener" class="bk-showtime">
                 ${s.time}
                 <span class="bk-showtime-label">${dateLabel}</span>
@@ -1775,6 +1852,32 @@
 
       window.toggleCity = function(btn) {
         btn.parentElement.classList.toggle('open');
+      };
+
+      window.showBkContacts = function(i) {
+        const s = contactShows[i];
+        const dt = new Date(s.date + 'T00:00:00');
+        const when = dt.toLocaleDateString('en-GB', { weekday: 'short', day: 'numeric', month: 'short' });
+        let rows = '';
+        s.contacts.forEach(c => {
+          const digits = c.phone.replace(/[^\d]/g, '');
+          rows += `<div class="bk-contact-row">
+            <div><div class="bk-contact-name">${c.name}</div><div class="bk-contact-phone">${c.phone}</div></div>
+            <div class="bk-contact-actions">
+              <a href="tel:+${digits}">Call</a>
+              <a href="https://wa.me/${digits}" target="_blank" rel="noopener">WhatsApp</a>
+            </div>
+          </div>`;
+        });
+        document.getElementById('bkContactBody').innerHTML =
+          `<h3>Contact to book</h3>
+           <div class="bk-contact-sub">${s.cinema}, ${s.city} &bull; ${when}, ${s.time}</div>${rows}`;
+        document.getElementById('bkContactOverlay').classList.add('open');
+      };
+      window.closeBkContacts = function(e) {
+        if (!e || e.target.id === 'bkContactOverlay') {
+          document.getElementById('bkContactOverlay').classList.remove('open');
+        }
       };
 
       buildDateTabs();

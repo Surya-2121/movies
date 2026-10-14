@@ -8,6 +8,30 @@
       "time": "11:30",
       "subtitle": "Telugu",
       "bookingUrl": "https://ticket-cloud.de/Luxor-Heidelberg/Show/2449142"
+    },
+    {
+      "city": "Berlin",
+      "cinema": "Cinemaxx Berlin",
+      "date": "2026-10-15",
+      "time": "21:10",
+      "subtitle": "Telugu (OmeU)",
+      "bookingUrl": "https://www.cinemaxx.de/buchtickets/zusammenfassung/1107/HO00001704/90518"
+    },
+    {
+      "city": "Essen",
+      "cinema": "Cinemaxx Essen",
+      "date": "2026-10-15",
+      "time": "22:15",
+      "subtitle": "Telugu (OmeU)",
+      "bookingUrl": "https://www.cinemaxx.de/buchtickets/zusammenfassung/1431/HO00001704/69422"
+    },
+    {
+      "city": "Hamburg",
+      "cinema": "Cinemaxx Hamburg (Dammtor)",
+      "date": "2026-10-15",
+      "time": "22:00",
+      "subtitle": "Telugu (OmeU)",
+      "bookingUrl": "https://www.cinemaxx.de/buchtickets/zusammenfassung/1206/HO00001704/39718"
     }
   ]
 }
