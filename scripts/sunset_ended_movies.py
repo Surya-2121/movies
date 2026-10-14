@@ -251,8 +251,7 @@ def main():
             ended.append((slug, "forced", dates[-1] if dates else "<no shows>"))
             continue
         if not dates:
-            # No shows at all → treat as ended-at-registration (sunset).
-            ended.append((slug, "empty", "<no shows>"))
+            # No shows yet → newly onboarded, waiting for showtimes. Keep it.
             continue
         if dates[-1] < today.isoformat():
             ended.append((slug, "ended", dates[-1]))

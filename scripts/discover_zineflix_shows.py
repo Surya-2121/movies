@@ -307,6 +307,16 @@ def regenerate_booking_html(movie, shows):
 
 def run_movie(movie, all_theatres, cities):
     slug = movie["slug"]
+    if not movie.get("zineflixMovieId"):
+        # Not on Zineflix (yet): only sync manual shows into booking.html.
+        print(f"\n=== {movie['title']} ({slug}, not on Zineflix) ===")
+        shows = sorted(load_manual_shows(slug), key=lambda s: (
+            s.get("date", ""), s.get("time", ""), s.get("city", ""), s.get("cinema", "")))
+        if regenerate_booking_html(movie, shows):
+            print(f"  Patched booking.html with {len(shows)} real show(s)")
+        else:
+            print(f"  booking.html unchanged ({len(shows)} real show(s))")
+        return {"new": [], "removed": [], "pending": []}
     print(f"\n=== {movie['title']} ({slug}, zineflixMovieId={movie['zineflixMovieId']}) ===")
     current = fetch_zineflix_roster(movie, all_theatres, cities)
     print(f"  Zineflix roster: {len(current)} cinema(s)")

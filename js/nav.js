@@ -33,6 +33,7 @@ const allMovies = [
   { name: 'Peddi', url: 'peddi-movie.html', cast: 'Ram Charan, Janhvi Kapoor', status: 'Now Showing' },
   { name: 'Maa Inti Bangaaram', url: 'maa-inti-bangaaram-movie.html', cast: 'Samantha Ruth Prabhu, Gulshan Devaiah, Gautami', status: 'Now Showing' },
   { name: 'Jailer 2', url: 'jailer-2-movie.html', cast: 'Rajinikanth, S. J. Suryah, Mithun Chakraborty, Ramya Krishnan, Vidya Balan', status: 'Now Showing' },
+  { name: 'Ranabaali', url: 'ranabaali-movie.html', cast: 'Vijay Deverakonda, Rashmika Mandanna, Arnold Vosloo', status: 'Now Showing' },
   { name: 'Dragon', url: 'dragon-movie.html', cast: 'N.T. Rama Rao Jr., Anil Kapoor, Rukmini Vasanth', status: 'Coming Soon' },
   { name: 'Varanasi', url: 'varanasi-movie.html', cast: 'Mahesh Babu', status: 'Coming Soon' },
   { name: 'Spirit', url: 'spirit-movie.html', cast: 'Prabhas, Triptii Dimri', status: 'Coming Soon' },

@@ -18,6 +18,14 @@
       "genre": "Action",
       "language": "Telugu",
       "page": "jailer-2-movie.html"
+    },
+    {
+      "slug": "ranabaali",
+      "cinemaxxSlug": "ranabaali",
+      "title": "Ranabaali",
+      "genre": "Period Action Drama",
+      "language": "Telugu",
+      "page": "ranabaali-movie.html"
     }
   ]
 }

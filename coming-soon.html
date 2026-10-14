@@ -82,6 +82,7 @@
       'vishwanath-and-sons': 'vishwanath-and-sons-movie.html',
       irumudi: 'irumudi-movie.html',
       'jailer-2': 'jailer-2-movie.html',
+      ranabaali: 'ranabaali-movie.html',
       dragon: 'dragon-movie.html',
       paradise: 'paradise-movie.html',
       vishwambhara: 'vishwambhara-movie.html',
@@ -92,7 +93,7 @@
 
     const snap = await get(ref(db, 'movies'));
     const data = snap.val() || {};
-    const nowShowing = new Set(['peddi', 'maa-inti-bangaaram', 'vishwanath-and-sons', 'irumudi', 'jailer-2']);
+    const nowShowing = new Set(['peddi', 'maa-inti-bangaaram', 'vishwanath-and-sons', 'irumudi', 'jailer-2', 'ranabaali']);
     const hidden = new Set(['vishwambhara']);
     // Movies always shown, even when Firebase doesn't have them yet.
     const staticAdditions = [
