@@ -1,36 +1,9 @@
 {
-  "fetchedAt": "2026-10-15T13:03:40.228628+00:00",
+  "fetchedAt": "2026-10-15T22:38:16.333458+00:00",
   "movie": "ranabaali",
-  "totalCities": 4,
-  "totalShows": 4,
+  "totalCities": 1,
+  "totalShows": 1,
   "cities": {
-    "berlin": [
-      {
-        "date": "2026-10-15",
-        "time": "21:10",
-        "kino": "Kino 05",
-        "lang": "engl. UT - Telugu",
-        "href": "https://www.cinemaxx.de/buchtickets/zusammenfassung/1107/HO00001704/90518"
-      }
-    ],
-    "essen": [
-      {
-        "date": "2026-10-15",
-        "time": "22:15",
-        "kino": "Kino 01",
-        "lang": "engl. UT - Telugu",
-        "href": "https://www.cinemaxx.de/buchtickets/zusammenfassung/1431/HO00001704/69422"
-      }
-    ],
-    "hamburg-dammtor": [
-      {
-        "date": "2026-10-15",
-        "time": "22:00",
-        "kino": "Kino 05",
-        "lang": "engl. UT - Telugu",
-        "href": "https://www.cinemaxx.de/buchtickets/zusammenfassung/1206/HO00001704/39718"
-      }
-    ],
     "magdeburg": [
       {
         "date": "2026-10-17",
