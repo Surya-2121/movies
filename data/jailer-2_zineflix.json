@@ -1,7 +1,7 @@
 {
-  "fetchedAt": "2026-10-15T10:55:27.768327+00:00",
+  "fetchedAt": "2026-10-15T20:10:44.842241+00:00",
   "movie": "jailer-2",
-  "totalCinemas": 51,
+  "totalCinemas": 60,
   "cinemas": [
     {
       "city": "Saarbrücken",
@@ -308,6 +308,60 @@
       "cinema": "Filmpalast Hofheim Frankfurt (TELUGU)",
       "bookingUrl": "https://www.filmpalast-hofheim.de/de/specials/26047",
       "zineflixId": 927
+    },
+    {
+      "city": "Frankfurt",
+      "cinema": "Cinemaxx Offenbach (Hindi)",
+      "bookingUrl": "https://www.cinemaxx.de/kinoprogramm/offenbach/film/jailer-2",
+      "zineflixId": 928
+    },
+    {
+      "city": "Berlin",
+      "cinema": "Cinemaxx Berlin (Hindi)",
+      "bookingUrl": "https://www.cinemaxx.de/kinoprogramm/berlin/film/jailer-2",
+      "zineflixId": 929
+    },
+    {
+      "city": "Essen",
+      "cinema": "Cinemaxx Essen (Hindi)",
+      "bookingUrl": "https://www.cinemaxx.de/kinoprogramm/essen/film/jailer-2",
+      "zineflixId": 930
+    },
+    {
+      "city": "Hamburg",
+      "cinema": "Cinemaxx Hamburg (Hindi)",
+      "bookingUrl": "https://www.cinemaxx.de/kinoprogramm/bremen/film/jailer-2",
+      "zineflixId": 931
+    },
+    {
+      "city": "Bremen",
+      "cinema": "Cinemaxx Bremen (Hindi)",
+      "bookingUrl": "https://www.cinemaxx.de/kinoprogramm/bremen/film/jailer-2",
+      "zineflixId": 932
+    },
+    {
+      "city": "Frankfurt",
+      "cinema": "Kinopolis Sulzbach (HINDI)",
+      "bookingUrl": "https://www.kinopolis.de/su/filmdetail/jailer-2/EAB74000012PLXMQDD",
+      "zineflixId": 933
+    },
+    {
+      "city": "München",
+      "cinema": "MATTHÄUSER MÜNCHEN (HINDI)",
+      "bookingUrl": "https://www.mathaeser.de/mm/filmdetail/jailer-2/EAB74000012PLXMQDD",
+      "zineflixId": 934
+    },
+    {
+      "city": "Hamburg",
+      "cinema": "KINOPOLIS HAMBURG (HINDI)",
+      "bookingUrl": "https://www.kinopolis.de/hh/filmdetail/jailer-2/EAB74000012PLXMQDD",
+      "zineflixId": 935
+    },
+    {
+      "city": "Frankfurt",
+      "cinema": "DARMSTADT CITDYDOM (HINDI)",
+      "bookingUrl": "https://www.kinopolis.de/cd/filmdetail/jailer-2/EAB74000012PLXMQDD",
+      "zineflixId": 936
     }
   ]
 }
