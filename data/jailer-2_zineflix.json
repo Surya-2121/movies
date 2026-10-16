@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-10-16T10:47:23.423054+00:00",
+  "fetchedAt": "2026-10-16T19:48:49.778133+00:00",
   "movie": "jailer-2",
   "totalCinemas": 60,
   "cinemas": [
@@ -54,7 +54,7 @@
     {
       "city": "Hamburg",
       "cinema": "SAVOY HAMBURG (BIG SCREEN)",
-      "bookingUrl": "https://savoy.premiumkino.de/specials/standard/indian-cinema/jailer-2",
+      "bookingUrl": "https://savoy.premiumkino.de/de/film/jailer-2-tamil",
       "zineflixId": 885
     },
     {
