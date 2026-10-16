@@ -1,8 +1,8 @@
 {
-  "fetchedAt": "2026-10-15T22:29:44.738436+00:00",
+  "fetchedAt": "2026-10-16T12:38:13.605714+00:00",
   "movie": "jailer-2",
   "totalCities": 12,
-  "totalShows": 22,
+  "totalShows": 24,
   "cities": {
     "augsburg": [
       {
@@ -36,13 +36,6 @@
         "kino": "Kino 10",
         "lang": "Hindi",
         "href": "https://www.cinemaxx.de/buchtickets/zusammenfassung/1281/HO00001703/36684"
-      },
-      {
-        "date": "2026-10-17",
-        "time": "22:25",
-        "kino": "Kino 10",
-        "lang": "Hindi",
-        "href": "https://www.cinemaxx.de/buchtickets/zusammenfassung/1281/HO00001703/36690"
       }
     ],
     "dresden": [
@@ -52,6 +45,13 @@
         "kino": "Kino 03",
         "lang": "engl. UT - Tamil",
         "href": "https://www.cinemaxx.de/buchtickets/zusammenfassung/1011/HO00001703/32159"
+      },
+      {
+        "date": "2026-10-18",
+        "time": "13:00",
+        "kino": "Kino 06",
+        "lang": "engl. UT - Tamil",
+        "href": "https://www.cinemaxx.de/buchtickets/zusammenfassung/1011/HO00001703/32162"
       },
       {
         "date": "2026-10-21",
@@ -128,10 +128,24 @@
       },
       {
         "date": "2026-10-17",
+        "time": "11:40",
+        "kino": "Kino 03",
+        "lang": "engl. UT - Tamil",
+        "href": "https://www.cinemaxx.de/buchtickets/zusammenfassung/1741/HO00001703/24245"
+      },
+      {
+        "date": "2026-10-17",
         "time": "22:20",
         "kino": "Kino 03",
         "lang": "engl. UT - Tamil",
         "href": "https://www.cinemaxx.de/buchtickets/zusammenfassung/1741/HO00001703/24068"
+      },
+      {
+        "date": "2026-10-18",
+        "time": "20:10",
+        "kino": "Kino 03",
+        "lang": "engl. UT - Tamil",
+        "href": "https://www.cinemaxx.de/buchtickets/zusammenfassung/1741/HO00001703/24246"
       }
     ],
     "kiel": [
