@@ -1,17 +1,7 @@
 {
-  "fetchedAt": "2026-10-17T11:59:35.390844+00:00",
+  "fetchedAt": "2026-10-17T21:50:51.056697+00:00",
   "movie": "ranabaali",
-  "totalCities": 1,
-  "totalShows": 1,
-  "cities": {
-    "magdeburg": [
-      {
-        "date": "2026-10-17",
-        "time": "21:50",
-        "kino": "Kino 05",
-        "lang": "engl. UT - Telugu",
-        "href": "https://www.cinemaxx.de/buchtickets/zusammenfassung/1391/HO00001704/49018"
-      }
-    ]
-  }
+  "totalCities": 0,
+  "totalShows": 0,
+  "cities": {}
 }
