@@ -1,7 +1,7 @@
 {
-  "fetchedAt": "2026-10-17T10:12:45.566031+00:00",
+  "fetchedAt": "2026-10-17T19:02:23.971308+00:00",
   "movie": "jailer-2",
-  "totalCinemas": 60,
+  "totalCinemas": 58,
   "cinemas": [
     {
       "city": "Saarbrücken",
@@ -35,12 +35,6 @@
     },
     {
       "city": "Bielefeld",
-      "cinema": "FILMWERK GÜTERSLOH BIELEFELD PREMIERE (BIG SCREEN)",
-      "bookingUrl": "https://web.filmwerk-gt.de/films/Jailer-2-World-Premiere/HO00002016",
-      "zineflixId": 882
-    },
-    {
-      "city": "Bielefeld",
       "cinema": "FILMWERK GÜTERSLOH BIELEFELD (BIG SCREEN)",
       "bookingUrl": "https://web.filmwerk-gt.de/films/Jailer-2-Sprache-Tamil-mit-engl-Untertitel/HO00002015",
       "zineflixId": 883
@@ -62,12 +56,6 @@
       "cinema": "LUX FRANKENTHAL",
       "bookingUrl": "https://www.lux-kinos.de/detail/131840/JAILER%202",
       "zineflixId": 886
-    },
-    {
-      "city": "Berlin",
-      "cinema": "Filmtheater Colloseum Berlin - PREMIERE 15.10.26 Midnight",
-      "bookingUrl": "https://kino.colosseumberlin.com/tickets?showUrl=https%3A%2F%2Fwww.kinoheld.de%2Fkino%2Fberlin%2Fcolosseum-filmtheater-berlin%2Fvorstellung%2F3667894972%2Fjailer-2-tamil-omeu%3Fmode%3Dwidget%26change%3D0",
-      "zineflixId": 887
     },
     {
       "city": "Berlin",
