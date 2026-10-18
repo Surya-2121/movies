@@ -1,18 +1,9 @@
 {
-  "fetchedAt": "2026-10-17T21:42:18.393331+00:00",
+  "fetchedAt": "2026-10-18T12:19:07.317206+00:00",
   "movie": "jailer-2",
-  "totalCities": 8,
-  "totalShows": 12,
+  "totalCities": 6,
+  "totalShows": 9,
   "cities": {
-    "augsburg": [
-      {
-        "date": "2026-10-18",
-        "time": "11:00",
-        "kino": "Kino 02",
-        "lang": "engl. UT - Tamil",
-        "href": "https://www.cinemaxx.de/buchtickets/zusammenfassung/1861/HO00001703/40380"
-      }
-    ],
     "berlin": [
       {
         "date": "2026-10-18",
@@ -38,27 +29,11 @@
     ],
     "dresden": [
       {
-        "date": "2026-10-18",
-        "time": "13:00",
-        "kino": "Kino 06",
-        "lang": "engl. UT - Tamil",
-        "href": "https://www.cinemaxx.de/buchtickets/zusammenfassung/1011/HO00001703/32162"
-      },
-      {
         "date": "2026-10-21",
         "time": "19:45",
         "kino": "Kino 05",
         "lang": "engl. UT - Tamil",
         "href": "https://www.cinemaxx.de/buchtickets/zusammenfassung/1011/HO00001703/31989"
-      }
-    ],
-    "hamburg-dammtor": [
-      {
-        "date": "2026-10-18",
-        "time": "11:30",
-        "kino": "Kino 04",
-        "lang": "Hindi",
-        "href": "https://www.cinemaxx.de/buchtickets/zusammenfassung/1206/HO00001703/39731"
       }
     ],
     "hannover": [
