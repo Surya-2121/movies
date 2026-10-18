@@ -50,7 +50,6 @@ MOVIE_NAMES = {
     'vishwanath-and-sons': 'Vishwanath & Sons',
     'irumudi': 'Irumudi',
     'jailer-2': 'Jailer 2',
-    'ranabaali': 'Ranabaali',
     'varanasi': 'Varanasi',
     'vishwambhara': 'Vishwambhara',
     'ustaad': 'Ustaad Bhagat Singh',
