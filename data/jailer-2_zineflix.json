@@ -1,7 +1,7 @@
 {
-  "fetchedAt": "2026-10-18T10:28:01.799142+00:00",
+  "fetchedAt": "2026-10-18T19:14:19.759605+00:00",
   "movie": "jailer-2",
-  "totalCinemas": 58,
+  "totalCinemas": 59,
   "cinemas": [
     {
       "city": "Saarbrücken",
@@ -95,7 +95,7 @@
     },
     {
       "city": "München",
-      "cinema": "Cincinnati München (Thursday & Friday & Saturday)",
+      "cinema": "Cincinnati München",
       "bookingUrl": "https://www.cincinnati-muenchen.de/de/programm/1525693",
       "zineflixId": 894
     },
@@ -350,6 +350,12 @@
       "cinema": "DARMSTADT CITDYDOM (HINDI)",
       "bookingUrl": "https://www.kinopolis.de/cd/filmdetail/jailer-2/EAB74000012PLXMQDD",
       "zineflixId": 936
+    },
+    {
+      "city": "TUTTLINGEN (NÄHE STUTTGART)",
+      "cinema": "Scala Kino Tuttlingen",
+      "bookingUrl": "https://scala-tuttlingen.de/film/34444/Jailer-2--Action/",
+      "zineflixId": 937
     }
   ]
 }
