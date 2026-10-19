@@ -1,8 +1,8 @@
 {
-  "fetchedAt": "2026-10-18T21:45:02.774619+00:00",
+  "fetchedAt": "2026-10-19T14:55:02.204028+00:00",
   "movie": "jailer-2",
   "totalCities": 3,
-  "totalShows": 4,
+  "totalShows": 3,
   "cities": {
     "berlin": [
       {
@@ -11,13 +11,6 @@
         "kino": "Kino 18",
         "lang": "engl. UT - Hindi",
         "href": "https://www.cinemaxx.de/buchtickets/zusammenfassung/1107/HO00001703/91061"
-      },
-      {
-        "date": "2026-10-20",
-        "time": "22:15",
-        "kino": "Kino 10",
-        "lang": "engl. UT - Tamil",
-        "href": "https://www.cinemaxx.de/buchtickets/zusammenfassung/1107/HO00001703/90126"
       }
     ],
     "dresden": [
