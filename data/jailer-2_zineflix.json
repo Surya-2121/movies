@@ -1,7 +1,7 @@
 {
-  "fetchedAt": "2026-10-18T23:24:42.154043+00:00",
+  "fetchedAt": "2026-10-19T12:15:39.993990+00:00",
   "movie": "jailer-2",
-  "totalCinemas": 59,
+  "totalCinemas": 55,
   "cinemas": [
     {
       "city": "Saarbrücken",
@@ -20,12 +20,6 @@
       "cinema": "Universum Karlsruhe",
       "bookingUrl": "https://www.universum-city.de/en/program/1525693",
       "zineflixId": 879
-    },
-    {
-      "city": "Berlin",
-      "cinema": "Filmtheater Colloseum Berlin ( 17.10.26)",
-      "bookingUrl": "https://kino.colosseumberlin.com/tickets?showUrl=https%3A%2F%2Fwww.kinoheld.de%2Fkino%2Fberlin%2Fcolosseum-filmtheater-berlin%2Fvorstellung%2F3667896120%2Fjailer-2-tamil-omeu%3Fmode%3Dwidget%26change%3D0",
-      "zineflixId": 880
     },
     {
       "city": "Mönchengladbach",
@@ -56,24 +50,6 @@
       "cinema": "LUX FRANKENTHAL",
       "bookingUrl": "https://www.lux-kinos.de/detail/131840/JAILER%202",
       "zineflixId": 886
-    },
-    {
-      "city": "Berlin",
-      "cinema": "Filmtheater Colloseum Berlin - 15.10.26",
-      "bookingUrl": "https://kino.colosseumberlin.com/tickets?showUrl=https%3A%2F%2Fwww.kinoheld.de%2Fkino%2Fberlin%2Fcolosseum-filmtheater-berlin%2Fvorstellung%2F3667895792%2Fjailer-2-tamil-omeu%3Fmode%3Dwidget%26change%3D0",
-      "zineflixId": 888
-    },
-    {
-      "city": "Berlin",
-      "cinema": "Filmtheater Colloseum Berlin - 16.10.26",
-      "bookingUrl": "https://kino.colosseumberlin.com/tickets?showUrl=https%3A%2F%2Fwww.kinoheld.de%2Fkino%2Fberlin%2Fcolosseum-filmtheater-berlin%2Fvorstellung%2F3667896046%2Fjailer-2-tamil-omeu%3Fmode%3Dwidget%26change%3D0",
-      "zineflixId": 889
-    },
-    {
-      "city": "Berlin",
-      "cinema": "Filmtheater Colloseum Berlin - 18.10.26",
-      "bookingUrl": "https://kino.colosseumberlin.com/tickets?showUrl=https%3A%2F%2Fwww.kinoheld.de%2Fkino%2Fberlin%2Fcolosseum-filmtheater-berlin%2Fvorstellung%2F3667896237%2Fjailer-2-tamil-omeu%3Fmode%3Dwidget%26change%3D0",
-      "zineflixId": 890
     },
     {
       "city": "Dresden",
@@ -112,12 +88,6 @@
       "zineflixId": 896
     },
     {
-      "city": "Wolfsburg",
-      "cinema": "Delphi Kino Wolfsburg (Free Popcorn & drinks per Ticket)",
-      "bookingUrl": "https://www.delphin-palast.de/vorverkauf/",
-      "zineflixId": 897
-    },
-    {
       "city": "Mannheim",
       "cinema": "Kinopolis Viernheim",
       "bookingUrl": "https://www.kinopolis.de/vi/filmdetail/jailer-2/EAB74000012PLXMQDD",
@@ -140,12 +110,6 @@
       "cinema": "Cinestar Bremen",
       "bookingUrl": "https://wa.me/4915150121181",
       "zineflixId": 901
-    },
-    {
-      "city": "Rheine",
-      "cinema": "Rheine Cinema",
-      "bookingUrl": "https://zinema-city.de/film/jailer-2",
-      "zineflixId": 902
     },
     {
       "city": "Augsburg",
@@ -197,7 +161,7 @@
     },
     {
       "city": "Düsseldorf",
-      "cinema": "Atelier Düsseldorf (TELUGU)",
+      "cinema": "Atelier Düsseldorf (TAMIL)",
       "bookingUrl": "https://filmkunstkinos.de/filme/jailer-2-2026/",
       "zineflixId": 911
     },
@@ -356,6 +320,18 @@
       "cinema": "Scala Kino Tuttlingen",
       "bookingUrl": "https://scala-tuttlingen.de/film/34444/Jailer-2--Action/",
       "zineflixId": 937
+    },
+    {
+      "city": "Berlin",
+      "cinema": "FILMTHEATER COLLOSEUM BERLIN 24.10.26",
+      "bookingUrl": "https://kino.colosseumberlin.com/tickets?showUrl=https%3A%2F%2Fwww.kinoheld.de%2Fkino%2Fberlin%2Fcolosseum-filmtheater-berlin%2Fvorstellung%2F3688538219%2Fjailer-2-tamil-omeu%3Fmode%3Dwidget%26change%3D0",
+      "zineflixId": 938
+    },
+    {
+      "city": "Berlin",
+      "cinema": "FILMTHEATER COLLOSEUM BERLIN 25.10.26",
+      "bookingUrl": "https://kino.colosseumberlin.com/tickets?showUrl=https%3A%2F%2Fwww.kinoheld.de%2Fkino%2Fberlin%2Fcolosseum-filmtheater-berlin%2Fvorstellung%2F3688538480%2Fjailer-2-tamil-omeu%3Fmode%3Dwidget%26change%3D0",
+      "zineflixId": 939
     }
   ]
 }
