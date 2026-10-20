@@ -1,7 +1,7 @@
 {
-  "fetchedAt": "2026-10-20T10:58:41.924077+00:00",
+  "fetchedAt": "2026-10-20T20:17:49.733567+00:00",
   "movie": "jailer-2",
-  "totalCinemas": 60,
+  "totalCinemas": 63,
   "cinemas": [
     {
       "city": "Saarbrücken",
@@ -11,7 +11,7 @@
     },
     {
       "city": "Stuttgart",
-      "cinema": "Capitol Kornwestheim Stuttgart",
+      "cinema": "Capitol Kornwestheim Stuttgart (Tamil)",
       "bookingUrl": "https://capitol-kornwestheim.de/programm/film/jailer-2",
       "zineflixId": 878
     },
@@ -108,7 +108,7 @@
     {
       "city": "Bremen",
       "cinema": "Cinestar Bremen",
-      "bookingUrl": "https://wa.me/4915150121181",
+      "bookingUrl": "https://www.cinestar.de/kino-bremen-kristall-palast/film/jailer-2-tamil",
       "zineflixId": 901
     },
     {
@@ -281,7 +281,7 @@
     },
     {
       "city": "München",
-      "cinema": "MATTHÄUSER MÜNCHEN (HINDI)",
+      "cinema": "MATTHÄUSER MÜNCHEN",
       "bookingUrl": "https://www.mathaeser.de/mm/filmdetail/jailer-2/EAB74000012PLXMQDD",
       "zineflixId": 934
     },
@@ -362,6 +362,24 @@
       "cinema": "CINESTAR Oberhausen",
       "bookingUrl": "https://www.cinestar.de/kino-oberhausen-filmpalast-im-centro/veranstaltung-jailer-2-tamil-omeu",
       "zineflixId": 949
+    },
+    {
+      "city": "Stuttgart",
+      "cinema": "Capitol KORNWESTHEIM STUTTGART (HINDI)",
+      "bookingUrl": "https://kinotickets.express/kornwestheim-capitol/sale/seats/28228",
+      "zineflixId": 950
+    },
+    {
+      "city": "Düsseldorf",
+      "cinema": "Cinestar Düsseldorf",
+      "bookingUrl": "https://www.cinestar.de/kino-duesseldorf/film/jailer-2-tamil",
+      "zineflixId": 951
+    },
+    {
+      "city": "Bonn",
+      "cinema": "Cinestar Bonn",
+      "bookingUrl": "https://www.cinestar.de/kino-bonn-sternlichtspiele/film/jailer-2-tamil",
+      "zineflixId": 952
     }
   ]
 }
