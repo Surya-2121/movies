@@ -1,8 +1,8 @@
 {
-  "fetchedAt": "2026-10-19T23:10:45.478225+00:00",
+  "fetchedAt": "2026-10-20T12:58:48.720145+00:00",
   "movie": "jailer-2",
-  "totalCities": 8,
-  "totalShows": 21,
+  "totalCities": 9,
+  "totalShows": 30,
   "cities": {
     "augsburg": [
       {
@@ -18,6 +18,71 @@
         "kino": "Kino 09",
         "lang": "engl. UT - Tamil",
         "href": "https://www.cinemaxx.de/buchtickets/zusammenfassung/1861/HO00001703/40704"
+      }
+    ],
+    "berlin": [
+      {
+        "date": "2026-10-22",
+        "time": "22:10",
+        "kino": "Kino 05",
+        "lang": "engl. UT - Tamil",
+        "href": "https://www.cinemaxx.de/buchtickets/zusammenfassung/1107/HO00001703/92016"
+      },
+      {
+        "date": "2026-10-23",
+        "time": "18:30",
+        "kino": "Kino 19",
+        "lang": "Hindi",
+        "href": "https://www.cinemaxx.de/buchtickets/zusammenfassung/1107/HO00001703/91667"
+      },
+      {
+        "date": "2026-10-23",
+        "time": "22:15",
+        "kino": "Kino 09",
+        "lang": "Hindi",
+        "href": "https://www.cinemaxx.de/buchtickets/zusammenfassung/1107/HO00001703/91696"
+      },
+      {
+        "date": "2026-10-24",
+        "time": "22:15",
+        "kino": "Kino 08",
+        "lang": "Hindi",
+        "href": "https://www.cinemaxx.de/buchtickets/zusammenfassung/1107/HO00001703/91583"
+      },
+      {
+        "date": "2026-10-26",
+        "time": "11:30",
+        "kino": "Kino 19",
+        "lang": "Hindi",
+        "href": "https://www.cinemaxx.de/buchtickets/zusammenfassung/1107/HO00001703/91695"
+      },
+      {
+        "date": "2026-10-26",
+        "time": "18:50",
+        "kino": "Kino 19",
+        "lang": "Hindi",
+        "href": "https://www.cinemaxx.de/buchtickets/zusammenfassung/1107/HO00001703/91693"
+      },
+      {
+        "date": "2026-10-27",
+        "time": "15:40",
+        "kino": "Kino 19",
+        "lang": "Hindi",
+        "href": "https://www.cinemaxx.de/buchtickets/zusammenfassung/1107/HO00001703/91681"
+      },
+      {
+        "date": "2026-10-27",
+        "time": "22:00",
+        "kino": "Kino 19",
+        "lang": "Hindi",
+        "href": "https://www.cinemaxx.de/buchtickets/zusammenfassung/1107/HO00001703/91680"
+      },
+      {
+        "date": "2026-10-28",
+        "time": "18:45",
+        "kino": "Kino 19",
+        "lang": "Hindi",
+        "href": "https://www.cinemaxx.de/buchtickets/zusammenfassung/1107/HO00001703/91671"
       }
     ],
     "dresden": [
