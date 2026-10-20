@@ -1,7 +1,7 @@
 {
-  "fetchedAt": "2026-10-20T00:28:08.275531+00:00",
+  "fetchedAt": "2026-10-20T10:58:41.924077+00:00",
   "movie": "jailer-2",
-  "totalCinemas": 54,
+  "totalCinemas": 60,
   "cinemas": [
     {
       "city": "Saarbrücken",
@@ -102,7 +102,7 @@
     {
       "city": "Dortmund",
       "cinema": "Cinestar Dortmund",
-      "bookingUrl": "https://ticketverz.com/movieslist",
+      "bookingUrl": "https://www.cinestar.de/kino-dortmund/veranstaltung-jailer-2-tamil-omeu",
       "zineflixId": 900
     },
     {
@@ -326,6 +326,42 @@
       "cinema": "Babylon Berlin (Telugu)",
       "bookingUrl": "https://babylonberlin.eu/film/10718-indogerman-film-jailer2?highlight=WyJqYWlsZXIiXQ==",
       "zineflixId": 943
+    },
+    {
+      "city": "Berlin",
+      "cinema": "Cinestar Berlin (22.10.26 Show)",
+      "bookingUrl": "https://www.cinestar.de/kino-berlin-hellersdorf/film/jailer-2-tamil",
+      "zineflixId": 944
+    },
+    {
+      "city": "Saarbrücken",
+      "cinema": "Cinestar Saarbrücken (25.10.26)",
+      "bookingUrl": "https://www.cinestar.de/kino-saarbruecken/film/jailer-2-tamil",
+      "zineflixId": 945
+    },
+    {
+      "city": "Rostock",
+      "cinema": "Cinestar Rostock Klein",
+      "bookingUrl": "https://www.cinestar.de/kino-rostock/film/jailer-2-tamil",
+      "zineflixId": 946
+    },
+    {
+      "city": "Mainz",
+      "cinema": "Cinestar Mainz",
+      "bookingUrl": "https://www.cinestar.de/kino-mainz/film/jailer-2-tamil",
+      "zineflixId": 947
+    },
+    {
+      "city": "Emden",
+      "cinema": "Cinestar Emden",
+      "bookingUrl": "https://www.cinestar.de/kino-emden/veranstaltung-jailer-2-tamil-omeu",
+      "zineflixId": 948
+    },
+    {
+      "city": "Oberhausen",
+      "cinema": "CINESTAR Oberhausen",
+      "bookingUrl": "https://www.cinestar.de/kino-oberhausen-filmpalast-im-centro/veranstaltung-jailer-2-tamil-omeu",
+      "zineflixId": 949
     }
   ]
 }
