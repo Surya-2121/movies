@@ -1,7 +1,7 @@
 {
-  "fetchedAt": "2026-10-19T21:20:28.824952+00:00",
+  "fetchedAt": "2026-10-20T00:28:08.269550+00:00",
   "movie": "paradise",
-  "totalCinemas": 28,
+  "totalCinemas": 26,
   "cinemas": [
     {
       "city": "Düsseldorf",
@@ -74,18 +74,6 @@
       "cinema": "Cinemaxx Berlin",
       "bookingUrl": "https://www.cinemaxx.de/kinoprogramm/berlin/film/the-paradise",
       "zineflixId": 845
-    },
-    {
-      "city": "Augsburg",
-      "cinema": "Cinemaxx Essen",
-      "bookingUrl": "https://www.cinemaxx.de/kinoprogramm/essen/film/the-paradise",
-      "zineflixId": 848
-    },
-    {
-      "city": "Essen",
-      "cinema": "Cinemaxx essen",
-      "bookingUrl": "https://www.cinemaxx.de/kinoprogramm/essen/film/the-paradise",
-      "zineflixId": 849
     },
     {
       "city": "Dresden",
