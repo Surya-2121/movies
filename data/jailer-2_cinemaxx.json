@@ -1,8 +1,8 @@
 {
-  "fetchedAt": "2026-10-21T13:11:37.676999+00:00",
+  "fetchedAt": "2026-10-21T22:35:32.178806+00:00",
   "movie": "jailer-2",
-  "totalCities": 9,
-  "totalShows": 31,
+  "totalCities": 10,
+  "totalShows": 30,
   "cities": {
     "augsburg": [
       {
@@ -94,13 +94,6 @@
     ],
     "dresden": [
       {
-        "date": "2026-10-21",
-        "time": "19:45",
-        "kino": "Kino 05",
-        "lang": "engl. UT - Tamil",
-        "href": "https://www.cinemaxx.de/buchtickets/zusammenfassung/1011/HO00001703/31989"
-      },
-      {
         "date": "2026-10-23",
         "time": "19:30",
         "kino": "Kino 03",
@@ -162,13 +155,6 @@
       }
     ],
     "heilbronn": [
-      {
-        "date": "2026-10-21",
-        "time": "19:40",
-        "kino": "Kino 02",
-        "lang": "engl. UT - Tamil",
-        "href": "https://www.cinemaxx.de/buchtickets/zusammenfassung/1741/HO00001703/24329"
-      },
       {
         "date": "2026-10-24",
         "time": "22:30",
@@ -237,6 +223,15 @@
         "kino": "Kino 07",
         "lang": "engl. UT - Tamil",
         "href": "https://www.cinemaxx.de/buchtickets/zusammenfassung/1421/HO00001703/35992"
+      }
+    ],
+    "wurzburg": [
+      {
+        "date": "2026-10-23",
+        "time": "22:30",
+        "kino": "Kino 03",
+        "lang": "engl. UT - Tamil",
+        "href": "https://www.cinemaxx.de/buchtickets/zusammenfassung/1971/HO00001703/28032"
       }
     ]
   }
