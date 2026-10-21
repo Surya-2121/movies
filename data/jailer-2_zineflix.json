@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-10-21T11:14:57.721598+00:00",
+  "fetchedAt": "2026-10-21T20:27:13.469500+00:00",
   "movie": "jailer-2",
   "totalCinemas": 63,
   "cinemas": [
@@ -269,7 +269,7 @@
     },
     {
       "city": "Berlin",
-      "cinema": "Cinemaxx Berlin (Hindi)",
+      "cinema": "Cinemaxx Berlin (Hindi & Tamil)",
       "bookingUrl": "https://www.cinemaxx.de/kinoprogramm/berlin/film/jailer-2",
       "zineflixId": 929
     },
@@ -293,13 +293,13 @@
     },
     {
       "city": "Berlin",
-      "cinema": "FILMTHEATER COLLOSEUM BERLIN 24.10.26",
+      "cinema": "FILMTHEATER COLLOSEUM BERLIN 24.10.26 TAMIL",
       "bookingUrl": "https://kino.colosseumberlin.com/tickets?showUrl=https%3A%2F%2Fwww.kinoheld.de%2Fkino%2Fberlin%2Fcolosseum-filmtheater-berlin%2Fvorstellung%2F3688538219%2Fjailer-2-tamil-omeu%3Fmode%3Dwidget%26change%3D0",
       "zineflixId": 938
     },
     {
       "city": "Berlin",
-      "cinema": "FILMTHEATER COLLOSEUM BERLIN 25.10.26",
+      "cinema": "FILMTHEATER COLLOSEUM BERLIN 25.10.26 TAMIL",
       "bookingUrl": "https://kino.colosseumberlin.com/tickets?showUrl=https%3A%2F%2Fwww.kinoheld.de%2Fkino%2Fberlin%2Fcolosseum-filmtheater-berlin%2Fvorstellung%2F3688538480%2Fjailer-2-tamil-omeu%3Fmode%3Dwidget%26change%3D0",
       "zineflixId": 939
     },
