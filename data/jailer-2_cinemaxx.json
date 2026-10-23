@@ -1,17 +1,10 @@
 {
-  "fetchedAt": "2026-10-23T12:53:04.779847+00:00",
+  "fetchedAt": "2026-10-23T22:21:42.378938+00:00",
   "movie": "jailer-2",
   "totalCities": 10,
-  "totalShows": 29,
+  "totalShows": 21,
   "cities": {
     "augsburg": [
-      {
-        "date": "2026-10-23",
-        "time": "22:15",
-        "kino": "Kino 07",
-        "lang": "engl. UT - Tamil",
-        "href": "https://www.cinemaxx.de/buchtickets/zusammenfassung/1861/HO00001703/40656"
-      },
       {
         "date": "2026-10-24",
         "time": "11:10",
@@ -21,20 +14,6 @@
       }
     ],
     "berlin": [
-      {
-        "date": "2026-10-23",
-        "time": "18:30",
-        "kino": "Kino 19",
-        "lang": "Hindi",
-        "href": "https://www.cinemaxx.de/buchtickets/zusammenfassung/1107/HO00001703/91667"
-      },
-      {
-        "date": "2026-10-23",
-        "time": "22:15",
-        "kino": "Kino 09",
-        "lang": "Hindi",
-        "href": "https://www.cinemaxx.de/buchtickets/zusammenfassung/1107/HO00001703/91696"
-      },
       {
         "date": "2026-10-24",
         "time": "22:15",
@@ -87,13 +66,6 @@
     ],
     "dresden": [
       {
-        "date": "2026-10-23",
-        "time": "19:30",
-        "kino": "Kino 03",
-        "lang": "engl. UT - Tamil",
-        "href": "https://www.cinemaxx.de/buchtickets/zusammenfassung/1011/HO00001703/32626"
-      },
-      {
         "date": "2026-10-24",
         "time": "10:00",
         "kino": "Kino 03",
@@ -102,13 +74,6 @@
       }
     ],
     "freiburg": [
-      {
-        "date": "2026-10-23",
-        "time": "22:45",
-        "kino": "Kino 06",
-        "lang": "engl. UT - Tamil",
-        "href": "https://www.cinemaxx.de/buchtickets/zusammenfassung/1791/HO00001703/35503"
-      },
       {
         "date": "2026-10-24",
         "time": "11:15",
@@ -125,13 +90,6 @@
       }
     ],
     "hannover": [
-      {
-        "date": "2026-10-23",
-        "time": "22:20",
-        "kino": "Kino 04",
-        "lang": "engl. UT - Tamil",
-        "href": "https://www.cinemaxx.de/buchtickets/zusammenfassung/1304/HO00001703/43520"
-      },
       {
         "date": "2026-10-24",
         "time": "11:10",
@@ -174,13 +132,6 @@
     ],
     "magdeburg": [
       {
-        "date": "2026-10-23",
-        "time": "22:00",
-        "kino": "Kino 04",
-        "lang": "engl. UT - Tamil",
-        "href": "https://www.cinemaxx.de/buchtickets/zusammenfassung/1391/HO00001703/49431"
-      },
-      {
         "date": "2026-10-24",
         "time": "22:00",
         "kino": "Kino 04",
@@ -197,28 +148,21 @@
     ],
     "wuppertal": [
       {
-        "date": "2026-10-23",
-        "time": "22:30",
-        "kino": "Kino 02",
-        "lang": "engl. UT - Tamil",
-        "href": "https://www.cinemaxx.de/buchtickets/zusammenfassung/1421/HO00001703/35923"
-      },
-      {
         "date": "2026-10-24",
         "time": "11:00",
         "kino": "Kino 07",
         "lang": "engl. UT - Tamil",
         "href": "https://www.cinemaxx.de/buchtickets/zusammenfassung/1421/HO00001703/35992"
+      },
+      {
+        "date": "2026-10-25",
+        "time": "11:00",
+        "kino": "Kino 08",
+        "lang": "engl. UT - Tamil",
+        "href": "https://www.cinemaxx.de/buchtickets/zusammenfassung/1421/HO00001703/36575"
       }
     ],
     "wurzburg": [
-      {
-        "date": "2026-10-23",
-        "time": "22:30",
-        "kino": "Kino 03",
-        "lang": "engl. UT - Tamil",
-        "href": "https://www.cinemaxx.de/buchtickets/zusammenfassung/1971/HO00001703/28032"
-      },
       {
         "date": "2026-10-24",
         "time": "22:35",
