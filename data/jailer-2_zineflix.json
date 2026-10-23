@@ -1,7 +1,7 @@
 {
-  "fetchedAt": "2026-10-23T00:02:37.053558+00:00",
+  "fetchedAt": "2026-10-23T11:05:01.241471+00:00",
   "movie": "jailer-2",
-  "totalCinemas": 64,
+  "totalCinemas": 65,
   "cinemas": [
     {
       "city": "Saarbrücken",
@@ -386,6 +386,12 @@
       "cinema": "Cinemaxx Würzburg",
       "bookingUrl": "https://www.cinemaxx.de/kinoprogramm/wurzburg/film/jailer-2",
       "zineflixId": 953
+    },
+    {
+      "city": "Pirmasens (Rheinland Pfalz)",
+      "cinema": "Walhalla Pirmasens",
+      "bookingUrl": "https://walhalla-kinocenter.de/programm/film/jailer-2",
+      "zineflixId": 954
     }
   ]
 }
