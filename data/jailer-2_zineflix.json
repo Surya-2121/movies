@@ -1,7 +1,7 @@
 {
-  "fetchedAt": "2026-10-24T10:21:31.030213+00:00",
+  "fetchedAt": "2026-10-24T19:15:10.900136+00:00",
   "movie": "jailer-2",
-  "totalCinemas": 65,
+  "totalCinemas": 67,
   "cinemas": [
     {
       "city": "Saarbrücken",
@@ -392,6 +392,18 @@
       "cinema": "Walhalla Pirmasens",
       "bookingUrl": "https://walhalla-kinocenter.de/programm/film/jailer-2",
       "zineflixId": 954
+    },
+    {
+      "city": "Augsburg",
+      "cinema": "Cinestar Augsburg",
+      "bookingUrl": "https://www.cinestar.de/kino-augsburg/film/jailer-2-tamil",
+      "zineflixId": 955
+    },
+    {
+      "city": "Karlsruhe",
+      "cinema": "Cinestar Karlsruhe",
+      "bookingUrl": "https://filmpalast.net/programmuebersicht/?search=Jailer&searchopen=1",
+      "zineflixId": 956
     }
   ]
 }
