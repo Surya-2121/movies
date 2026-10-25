@@ -1,7 +1,7 @@
 {
-  "fetchedAt": "2026-10-25T19:27:20.584354+00:00",
+  "fetchedAt": "2026-10-25T23:23:46.003136+00:00",
   "movie": "jailer-2",
-  "totalCinemas": 69,
+  "totalCinemas": 70,
   "cinemas": [
     {
       "city": "Stuttgart",
@@ -416,6 +416,12 @@
       "cinema": "Cinestar Erfurt",
       "bookingUrl": "https://www.cinestar.de/kino-erfurt/film/jailer-2-tamil",
       "zineflixId": 978
+    },
+    {
+      "city": "Darmstadt",
+      "cinema": "Kinopolis Citydom Darmstadt",
+      "bookingUrl": "https://www.kinopolis.de/cd/filmdetail/jailer-2/EAB74000012PLXMQDD",
+      "zineflixId": 979
     }
   ]
 }
