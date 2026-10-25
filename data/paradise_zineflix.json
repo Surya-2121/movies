@@ -1,7 +1,7 @@
 {
-  "fetchedAt": "2026-10-25T10:49:07.805792+00:00",
+  "fetchedAt": "2026-10-25T19:27:20.581548+00:00",
   "movie": "paradise",
-  "totalCinemas": 26,
+  "totalCinemas": 24,
   "cinemas": [
     {
       "city": "Düsseldorf",
@@ -32,12 +32,6 @@
       "cinema": "Cineplex Bayreuth",
       "bookingUrl": "https://www.cineplex.de/bayreuth/film/the-paradise-telugu-4C341000012FWBXJYB",
       "zineflixId": 830
-    },
-    {
-      "city": "Dresden",
-      "cinema": "Cineplexx Dresden",
-      "bookingUrl": "https://www.cineplex.de/dresden/film/the-paradise-telugu-4C341000012FWBXJYB",
-      "zineflixId": 833
     },
     {
       "city": "Stuttgart",
@@ -74,12 +68,6 @@
       "cinema": "Cinemaxx Berlin",
       "bookingUrl": "https://www.cinemaxx.de/kinoprogramm/berlin/film/the-paradise",
       "zineflixId": 845
-    },
-    {
-      "city": "Dresden",
-      "cinema": "Cinemaxx Dresden",
-      "bookingUrl": "https://www.cinemaxx.de/kinoprogramm/dresden/film/the-paradise",
-      "zineflixId": 850
     },
     {
       "city": "Heilbronn",

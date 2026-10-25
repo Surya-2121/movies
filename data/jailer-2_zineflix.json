@@ -1,14 +1,8 @@
 {
-  "fetchedAt": "2026-10-25T10:49:07.865455+00:00",
+  "fetchedAt": "2026-10-25T19:27:20.584354+00:00",
   "movie": "jailer-2",
-  "totalCinemas": 67,
+  "totalCinemas": 69,
   "cinemas": [
-    {
-      "city": "Saarbrücken",
-      "cinema": "UT KINO SAARBRÜCKEN",
-      "bookingUrl": "https://ut-kinos.saarfilm.net/programm/film/jailer-2-tamil-englsubtitles",
-      "zineflixId": 877
-    },
     {
       "city": "Stuttgart",
       "cinema": "Capitol Kornwestheim Stuttgart (Tamil)",
@@ -170,18 +164,6 @@
       "cinema": "Luxor Heidelberg",
       "bookingUrl": "https://heidelberg.luxor-kino.de/de/specials/454",
       "zineflixId": 912
-    },
-    {
-      "city": "THÜRINGEN",
-      "cinema": "Kino Bleicherode THÜRINGEN - TAMIL",
-      "bookingUrl": "https://booking.cinetixx.de/frontend/index.html?cinemaId=2284627575&showId=3681320868&bgswitch=false&resize=false#/show/2284627575/3681320868",
-      "zineflixId": 913
-    },
-    {
-      "city": "THÜRINGEN",
-      "cinema": "Kino Bleicherode THÜRINGEN - TELUGU",
-      "bookingUrl": "https://booking.cinetixx.de/frontend/index.html?cinemaId=2284627575&showId=3681320920&bgswitch=false&resize=false#/show/2284627575/3681320920",
-      "zineflixId": 914
     },
     {
       "city": "Bonn",
@@ -404,6 +386,36 @@
       "cinema": "Cinestar Karlsruhe",
       "bookingUrl": "https://filmpalast.net/programmuebersicht/?search=Jailer&searchopen=1",
       "zineflixId": 956
+    },
+    {
+      "city": "Berlin",
+      "cinema": "Filmtheater Colloseum Berlin 29.10.26",
+      "bookingUrl": " https://kino.colosseumberlin.com/tickets?showUrl=https%3A%2F%2Fwww.kinoheld.de%2Fkino%2Fberlin%2Fcolosseum-filmtheater-berlin%2Fvorstellung%2F3692578465%2Fjailer-2-tamil-omeu%3Fmode%3Dwidget%26change%3D0",
+      "zineflixId": 974
+    },
+    {
+      "city": "Berlin",
+      "cinema": "Filmtheater Colloseum Berlin 01.11.26",
+      "bookingUrl": " https://kino.colosseumberlin.com/tickets?showUrl=https%3A%2F%2Fwww.kinoheld.de%2Fkino%2Fberlin%2Fcolosseum-filmtheater-berlin%2Fvorstellung%2F3692578368%2Fjailer-2-tamil-omeu%3Fmode%3Dwidget%26change%3D0",
+      "zineflixId": 975
+    },
+    {
+      "city": "Berlin",
+      "cinema": "Filmtheater Colloseum Berlin 31.10.26",
+      "bookingUrl": "https://kino.colosseumberlin.com/tickets?showUrl=https%3A%2F%2Fwww.kinoheld.de%2Fkino%2Fberlin%2Fcolosseum-filmtheater-berlin%2Fvorstellung%2F3692578398%2Fjailer-2-tamil-omeu%3Fmode%3Dwidget%26change%3D0",
+      "zineflixId": 976
+    },
+    {
+      "city": "Berlin",
+      "cinema": "Filmtheater Colloseum Berlin 30.10.26",
+      "bookingUrl": "https://kino.colosseumberlin.com/tickets?showUrl=https%3A%2F%2Fwww.kinoheld.de%2Fkino%2Fberlin%2Fcolosseum-filmtheater-berlin%2Fvorstellung%2F3692578531%2Fjailer-2-tamil-omeu%3Fmode%3Dwidget%26change%3D0",
+      "zineflixId": 977
+    },
+    {
+      "city": "Erfurt",
+      "cinema": "Cinestar Erfurt",
+      "bookingUrl": "https://www.cinestar.de/kino-erfurt/film/jailer-2-tamil",
+      "zineflixId": 978
     }
   ]
 }
