@@ -15,11 +15,11 @@
       "date": "2026-10-31",
       "time": "10:30",
       "subtitle": "Telugu (OmeU)",
-      "bookingUrl": "https://capitol-kornwestheim.de/programm/film/aadarsha-kutumbam-house-no-47-ak-47-telugu-mit-engl-untertiteln"
+      "bookingUrl": "https://kinotickets.express/kornwestheim-capitol/sale/seats/28336"
     },
     {
       "city": "Ravensburg",
-      "cinema": "Cineparc Ravensburg",
+      "cinema": "Kinozentrum Frauentor (Cineparc)",
       "date": "2026-10-31",
       "time": "17:00",
       "subtitle": "Telugu",
@@ -27,7 +27,7 @@
     },
     {
       "city": "Ravensburg",
-      "cinema": "Cineparc Ravensburg",
+      "cinema": "Kinozentrum Frauentor (Cineparc)",
       "date": "2026-11-01",
       "time": "17:00",
       "subtitle": "Telugu",
@@ -43,7 +43,7 @@
     },
     {
       "city": "Magdeburg",
-      "cinema": "SD Movie Exhibitors (Magdeburg)",
+      "cinema": "Studiokino Magdeburg",
       "date": "2026-10-31",
       "time": "11:15",
       "subtitle": "Telugu",
@@ -91,11 +91,19 @@
     },
     {
       "city": "Düsseldorf",
-      "cinema": "Düsseldorf Kino 3 (book via WhatsApp)",
+      "cinema": "UFA Palast Düsseldorf",
       "date": "2026-10-30",
       "time": "19:30",
-      "subtitle": "Telugu",
+      "subtitle": "Telugu (Kino 3)",
       "bookingUrl": "https://api.whatsapp.com/send/?phone=4915214568179&text=I+am+reaching+through+the+3realmsentertainment.com+website+for+AK47+movie+Tickets&type=phone_number&app_absent=0"
+    },
+    {
+      "city": "Hamburg",
+      "cinema": "Hansa Filmstudio",
+      "date": "2026-11-01",
+      "time": "11:00",
+      "subtitle": "Telugu (Kino 1)",
+      "bookingUrl": "https://wa.me/491778000777?text=I%20am%20reaching%20through%20the%203realmsentertainment.com%20website%20for%20AK47%20movie%20Tickets"
     }
   ]
 }
