@@ -49,6 +49,7 @@ MOVIE_NAMES = {
     'maa-inti-bangaaram': 'Maa Inti Bangaaram',
     'vishwanath-and-sons': 'Vishwanath & Sons',
     'irumudi': 'Irumudi',
+    'aadarsha-kutumbam': 'Aadarsha Kutumbam',
     'varanasi': 'Varanasi',
     'vishwambhara': 'Vishwambhara',
     'ustaad': 'Ustaad Bhagat Singh',

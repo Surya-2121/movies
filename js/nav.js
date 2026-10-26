@@ -31,6 +31,7 @@ applyTheme(localStorage.getItem('theme') || 'light');
 const allMovies = [
   { name: 'Ustaad Bhagat Singh', url: 'ustaad-movie.html', cast: 'Pawan Kalyan, Sreeleela, Raashii Khanna', status: 'Ended' },
   { name: 'Peddi', url: 'peddi-movie.html', cast: 'Ram Charan, Janhvi Kapoor', status: 'Now Showing' },
+  { name: 'Aadarsha Kutumbam (AK-47)', url: 'aadarsha-kutumbam-movie.html', cast: 'Venkatesh, Srinidhi Shetty, Nivetha Pethuraj, Dimple Hayathi', status: 'Now Showing' },
   { name: 'Maa Inti Bangaaram', url: 'maa-inti-bangaaram-movie.html', cast: 'Samantha Ruth Prabhu, Gulshan Devaiah, Gautami', status: 'Now Showing' },
   { name: 'Dragon', url: 'dragon-movie.html', cast: 'N.T. Rama Rao Jr., Anil Kapoor, Rukmini Vasanth', status: 'Coming Soon' },
   { name: 'Varanasi', url: 'varanasi-movie.html', cast: 'Mahesh Babu', status: 'Coming Soon' },

@@ -97,6 +97,16 @@
         <button class="hm-arrow hm-arrow-right" data-target="rowNow" data-dir="1" aria-label="Scroll right">&#8250;</button>
         <div class="hm-row" id="rowNow">
 
+          <a href="aadarsha-kutumbam-movie.html" class="hm-card">
+            <div class="hm-card-poster">
+              <img src="images/aadarsha-kutumbam.webp" alt="Aadarsha Kutumbam">
+              <span class="hm-card-status">Now Showing</span>
+              <div class="hm-card-badge"><span class="hm-star">&#9733;</span><span>30 October 2026</span></div>
+            </div>
+            <div class="hm-card-title">Aadarsha Kutumbam</div>
+            <div class="hm-card-genre">Family Action Comedy</div>
+          </a>
+
         </div>
       </div>
     </section>
@@ -198,8 +208,8 @@
     const snap = await get(ref(db, 'movies'));
     const data = snap.val();
     if (data) {
-      const legacyPages = { ustaad:'ustaad-movie.html', peddi:'peddi-movie.html', 'maa-inti-bangaaram':'maa-inti-bangaaram-movie.html', 'vishwanath-and-sons':'vishwanath-and-sons-movie.html', irumudi:'irumudi-movie.html', 'jailer-2':'jailer-2-movie.html', ranabaali:'ranabaali-movie.html', dragon:'dragon-movie.html', paradise:'paradise-movie.html', vishwambhara:'vishwambhara-movie.html', varanasi:'varanasi-movie.html', spirit:'spirit-movie.html', fauzi:'fauzi-movie.html', dacoit:'dacoit-movie.html' };
-      const nowShowing = new Set(['peddi', 'maa-inti-bangaaram', 'vishwanath-and-sons', 'irumudi']);
+      const legacyPages = { ustaad:'ustaad-movie.html', peddi:'peddi-movie.html', 'maa-inti-bangaaram':'maa-inti-bangaaram-movie.html', 'vishwanath-and-sons':'vishwanath-and-sons-movie.html', irumudi:'irumudi-movie.html', 'jailer-2':'jailer-2-movie.html', ranabaali:'ranabaali-movie.html', 'aadarsha-kutumbam':'aadarsha-kutumbam-movie.html', dragon:'dragon-movie.html', paradise:'paradise-movie.html', vishwambhara:'vishwambhara-movie.html', varanasi:'varanasi-movie.html', spirit:'spirit-movie.html', fauzi:'fauzi-movie.html', dacoit:'dacoit-movie.html' };
+      const nowShowing = new Set(['peddi', 'maa-inti-bangaaram', 'vishwanath-and-sons', 'irumudi', 'aadarsha-kutumbam']);
       const hidden = new Set(['vishwambhara']);
       // Movies always shown in the slider, even when Firebase doesn't have them yet.
       // Order here = visible order on the home page (Firebase entries not in this
@@ -236,6 +246,7 @@
     const movies = [
       { name: 'Ustaad Bhagat Singh', url: 'ustaad-movie.html', cast: 'Pawan Kalyan, Sreeleela, Raashii Khanna', status: 'Ended' },
       { name: 'Peddi', url: 'peddi-movie.html', cast: 'Ram Charan, Janhvi Kapoor', status: 'Now Showing' },
+      { name: 'Aadarsha Kutumbam (AK-47)', url: 'aadarsha-kutumbam-movie.html', cast: 'Venkatesh, Srinidhi Shetty, Nivetha Pethuraj, Dimple Hayathi', status: 'Now Showing' },
       { name: 'Maa Inti Bangaaram', url: 'maa-inti-bangaaram-movie.html', cast: 'Samantha Ruth Prabhu, Gulshan Devaiah, Gautami', status: 'Now Showing' },
       { name: 'Dragon', url: 'dragon-movie.html', cast: 'N.T. Rama Rao Jr., Anil Kapoor, Rukmini Vasanth', status: 'Coming Soon' },
       { name: 'Varanasi', url: 'varanasi-movie.html', cast: 'Mahesh Babu', status: 'Coming Soon' },
