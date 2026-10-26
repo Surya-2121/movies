@@ -1,4 +1,13 @@
 {
   "_comment": "Aadarsha Kutumbam (Telugu). Add only real Telugu shows with confirmed date/time.",
-  "shows": []
+  "shows": [
+    {
+      "city": "Erlangen",
+      "cinema": "Lamm-Lichtspiele Erlangen",
+      "date": "2026-11-01",
+      "time": "10:45",
+      "subtitle": "Telugu",
+      "bookingUrl": "https://www.getmyticket.de/showbookings.php?id=181&time=10:45%20AM&mdate=MjAyNi0xMS0wMQ=="
+    }
+  ]
 }
