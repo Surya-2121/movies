@@ -1,17 +1,7 @@
 {
-  "fetchedAt": "2026-10-25T22:09:14.713548+00:00",
+  "fetchedAt": "2026-10-26T14:37:26.798317+00:00",
   "movie": "ranabaali",
-  "totalCities": 1,
-  "totalShows": 1,
-  "cities": {
-    "berlin": [
-      {
-        "date": "2026-10-26",
-        "time": "15:00",
-        "kino": "Kino 19",
-        "lang": "engl. UT - Telugu",
-        "href": "https://www.cinemaxx.de/buchtickets/zusammenfassung/1107/HO00001704/91692"
-      }
-    ]
-  }
+  "totalCities": 0,
+  "totalShows": 0,
+  "cities": {}
 }

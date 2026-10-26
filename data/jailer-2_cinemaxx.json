@@ -1,8 +1,8 @@
 {
-  "fetchedAt": "2026-10-25T22:00:38.251697+00:00",
+  "fetchedAt": "2026-10-26T14:28:48.324127+00:00",
   "movie": "jailer-2",
   "totalCities": 2,
-  "totalShows": 5,
+  "totalShows": 6,
   "cities": {
     "berlin": [
       {
@@ -32,6 +32,13 @@
         "kino": "Kino 09",
         "lang": "engl. UT - Tamil",
         "href": "https://www.cinemaxx.de/buchtickets/zusammenfassung/1107/HO00001703/92774"
+      },
+      {
+        "date": "2026-10-28",
+        "time": "22:15",
+        "kino": "Kino 19",
+        "lang": "engl. UT - Tamil",
+        "href": "https://www.cinemaxx.de/buchtickets/zusammenfassung/1107/HO00001703/93540"
       }
     ],
     "heilbronn": [
