@@ -1,8 +1,8 @@
 {
-  "fetchedAt": "2026-10-27T13:26:51.991301+00:00",
+  "fetchedAt": "2026-10-27T23:12:52.299635+00:00",
   "movie": "jailer-2",
   "totalCities": 11,
-  "totalShows": 27,
+  "totalShows": 26,
   "cities": {
     "augsburg": [
       {
@@ -150,13 +150,6 @@
       }
     ],
     "heilbronn": [
-      {
-        "date": "2026-10-27",
-        "time": "17:30",
-        "kino": "Kino 02",
-        "lang": "engl. UT - Tamil",
-        "href": "https://www.cinemaxx.de/buchtickets/zusammenfassung/1741/HO00001703/24518"
-      },
       {
         "date": "2026-10-31",
         "time": "11:10",
