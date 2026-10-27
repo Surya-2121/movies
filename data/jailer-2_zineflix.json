@@ -1,7 +1,7 @@
 {
-  "fetchedAt": "2026-10-27T00:38:17.559111+00:00",
+  "fetchedAt": "2026-10-27T11:39:47.295624+00:00",
   "movie": "jailer-2",
-  "totalCinemas": 55,
+  "totalCinemas": 53,
   "cinemas": [
     {
       "city": "Stuttgart",
@@ -80,12 +80,6 @@
       "cinema": "Filmhaus Langerringen - AUGSBURG",
       "bookingUrl": "https://filmhaus-kinos.de/film/jailer-2",
       "zineflixId": 903
-    },
-    {
-      "city": "Aachen",
-      "cinema": "APOLLO AACHEN (big screen)",
-      "bookingUrl": "https://apollo-aachen.de/sondervorstellung/indische-filme/",
-      "zineflixId": 904
     },
     {
       "city": "Chemnitz",
@@ -227,14 +221,8 @@
     },
     {
       "city": "Kehl (near Strasbourg, Offenburg, Lahr)",
-      "cinema": "Kino-Center Kehl FRIDAY SHOW (France border, near Strasbourg, Lahr)",
-      "bookingUrl": "https://kinotickets.express/kehl_kinocenter/sale/seats/45073",
-      "zineflixId": 940
-    },
-    {
-      "city": "Kehl (near Strasbourg, Offenburg, Lahr)",
-      "cinema": "Kino-Center Kehl SATURDAY SHOW (France border, near Strasbourg, Lahr)",
-      "bookingUrl": "https://kinotickets.express/kehl_kinocenter/sale/seats/45074",
+      "cinema": "Kino-Center Kehl (near Strasbourg) Germany France Border",
+      "bookingUrl": "https://kinotickets.express/kehl_kinocenter/sale/seats/45108",
       "zineflixId": 941
     },
     {
@@ -286,12 +274,6 @@
       "zineflixId": 953
     },
     {
-      "city": "Pirmasens (Rheinland Pfalz)",
-      "cinema": "Walhalla Pirmasens",
-      "bookingUrl": "https://walhalla-kinocenter.de/programm/film/jailer-2",
-      "zineflixId": 954
-    },
-    {
       "city": "Karlsruhe",
       "cinema": "Cinestar Karlsruhe",
       "bookingUrl": "https://filmpalast.net/programmuebersicht/?search=Jailer&searchopen=1",
@@ -332,6 +314,12 @@
       "cinema": "Kinopolis Citydom Darmstadt",
       "bookingUrl": "https://www.kinopolis.de/cd/filmdetail/jailer-2/EAB74000012PLXMQDD",
       "zineflixId": 979
+    },
+    {
+      "city": "Bielefeld",
+      "cinema": "Cinemaxx Bielefeld",
+      "bookingUrl": "https://www.cinemaxx.de/kinoprogramm/bielefeld/film/jailer-2",
+      "zineflixId": 980
     }
   ]
 }
