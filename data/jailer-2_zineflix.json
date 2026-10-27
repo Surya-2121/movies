@@ -1,7 +1,7 @@
 {
-  "fetchedAt": "2026-10-27T11:39:47.295624+00:00",
+  "fetchedAt": "2026-10-27T21:07:32.446183+00:00",
   "movie": "jailer-2",
-  "totalCinemas": 53,
+  "totalCinemas": 56,
   "cinemas": [
     {
       "city": "Stuttgart",
@@ -320,6 +320,24 @@
       "cinema": "Cinemaxx Bielefeld",
       "bookingUrl": "https://www.cinemaxx.de/kinoprogramm/bielefeld/film/jailer-2",
       "zineflixId": 980
+    },
+    {
+      "city": "Bielefeld",
+      "cinema": "Filmwerk Gütersloh (BIELFELD, Hamm)",
+      "bookingUrl": "https://web.filmwerk-gt.de/films/Scene-Sprache-Tamilengl-Untertitel/HO00002049",
+      "zineflixId": 982
+    },
+    {
+      "city": "Hamburg",
+      "cinema": "Kinopolis Hamburg",
+      "bookingUrl": "https://www.kinopolis.de/hh/filmdetail/jailer-2/EAB74000012PLXMQDD",
+      "zineflixId": 983
+    },
+    {
+      "city": "Frankfurt",
+      "cinema": "Kinopolis Sulzbach Frankfurt",
+      "bookingUrl": "https://www.kinopolis.de/su/filmdetail/jailer-2/EAB74000012PLXMQDD",
+      "zineflixId": 984
     }
   ]
 }
