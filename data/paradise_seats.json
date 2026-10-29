@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-10-28T22:45:50.403808+00:00",
+  "fetchedAt": "2026-10-29T14:34:59.705620+00:00",
   "filterDate": null,
   "shows": [
     {
@@ -72,12 +72,10 @@
       "time": "20:30",
       "subtitle": "Telugu",
       "bookingUrl": "https://www.cincinnati-muenchen.de/de/programm/1529184",
-      "capacity": 398,
-      "booked": 78,
-      "free": 320,
-      "blocked": 0,
-      "note": null,
-      "rewrittenUrl": "https://www.kinoheld.de/kino/muenchen/cincinnati-muenchen/vorstellung/3362610977"
+      "capacity": null,
+      "booked": null,
+      "free": null,
+      "note": "rewrite failed: no Paradise showId on Cincinnati page"
     },
     {
       "city": "Dresden",
@@ -1146,9 +1144,9 @@
   ],
   "totals": {
     "shows": 94,
-    "coverageShows": 7,
-    "capacity": 1179,
-    "booked": 336,
-    "free": 843
+    "coverageShows": 6,
+    "capacity": 781,
+    "booked": 258,
+    "free": 523
   }
 }
