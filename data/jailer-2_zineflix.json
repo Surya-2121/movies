@@ -1,7 +1,7 @@
 {
-  "fetchedAt": "2026-10-29T21:33:07.374492+00:00",
+  "fetchedAt": "2026-10-30T01:11:25.671762+00:00",
   "movie": "jailer-2",
-  "totalCinemas": 56,
+  "totalCinemas": 57,
   "cinemas": [
     {
       "city": "Stuttgart",
@@ -233,7 +233,7 @@
     },
     {
       "city": "Berlin",
-      "cinema": "Cinestar Berlin (22.10.26 Show)",
+      "cinema": "Cinestar Berlin (01.11.26)",
       "bookingUrl": "https://www.cinestar.de/kino-berlin-hellersdorf/film/jailer-2-tamil",
       "zineflixId": 944
     },
@@ -338,6 +338,12 @@
       "cinema": "Kinopolis Sulzbach Frankfurt",
       "bookingUrl": "https://www.kinopolis.de/su/filmdetail/jailer-2/EAB74000012PLXMQDD",
       "zineflixId": 984
+    },
+    {
+      "city": "KONSTANZ (near Switzerland)",
+      "cinema": "Cinestar Konstanz",
+      "bookingUrl": "https://www.cinestar.de/kino-konstanz/film/jailer-2-tamil",
+      "zineflixId": 999
     }
   ]
 }
