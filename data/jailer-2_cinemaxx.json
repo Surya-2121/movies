@@ -1,8 +1,8 @@
 {
-  "fetchedAt": "2026-10-29T23:32:16.497340+00:00",
+  "fetchedAt": "2026-10-30T14:21:18.181185+00:00",
   "movie": "jailer-2",
   "totalCities": 11,
-  "totalShows": 22,
+  "totalShows": 20,
   "cities": {
     "augsburg": [
       {
@@ -15,25 +15,11 @@
     ],
     "berlin": [
       {
-        "date": "2026-10-30",
-        "time": "13:50",
-        "kino": "Kino 19",
-        "lang": "engl. UT - Tamil",
-        "href": "https://www.cinemaxx.de/buchtickets/zusammenfassung/1107/HO00001703/94077"
-      },
-      {
         "date": "2026-11-01",
         "time": "11:15",
         "kino": "Kino 19",
         "lang": "Hindi",
         "href": "https://www.cinemaxx.de/buchtickets/zusammenfassung/1107/HO00001703/94091"
-      },
-      {
-        "date": "2026-11-01",
-        "time": "22:15",
-        "kino": "Kino 19",
-        "lang": "Hindi",
-        "href": "https://www.cinemaxx.de/buchtickets/zusammenfassung/1107/HO00001703/94090"
       },
       {
         "date": "2026-11-02",
