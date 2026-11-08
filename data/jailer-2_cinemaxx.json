@@ -1,8 +1,8 @@
 {
-  "fetchedAt": "2026-11-07T22:58:20.156826+00:00",
+  "fetchedAt": "2026-11-08T14:32:42.574055+00:00",
   "movie": "jailer-2",
-  "totalCities": 2,
-  "totalShows": 2,
+  "totalCities": 1,
+  "totalShows": 1,
   "cities": {
     "berlin": [
       {
@@ -11,15 +11,6 @@
         "kino": "Kino 19",
         "lang": "engl. UT - Tamil",
         "href": "https://www.cinemaxx.de/buchtickets/zusammenfassung/1107/HO00001703/95193"
-      }
-    ],
-    "wuppertal": [
-      {
-        "date": "2026-11-08",
-        "time": "11:30",
-        "kino": "Kino 04",
-        "lang": "engl. UT - Tamil",
-        "href": "https://www.cinemaxx.de/buchtickets/zusammenfassung/1421/HO00001703/37284"
       }
     ]
   }
