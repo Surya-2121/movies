@@ -56,6 +56,14 @@
       "time": "17:00",
       "subtitle": "Telugu (Kino 3)",
       "bookingUrl": "https://kinotickets.express/hofheim-filmpalast/booking/16088"
+    },
+    {
+      "city": "Moosburg (München)",
+      "cinema": "Rosenhof Lichtspiele",
+      "date": "2026-11-20",
+      "time": "19:30",
+      "subtitle": "Telugu (OmeU, Kino 4)",
+      "bookingUrl": "https://booking.cinetixx.de/frontend/index.html?cinemaId=529077586&showId=3719205761&bgswitch=false"
     }
   ]
 }

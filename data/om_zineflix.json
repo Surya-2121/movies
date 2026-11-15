@@ -1,7 +1,7 @@
 {
-  "fetchedAt": "2026-11-15T17:36:36.785099+00:00",
+  "fetchedAt": "2026-11-15T20:28:23.959680+00:00",
   "movie": "om",
-  "totalCinemas": 34,
+  "totalCinemas": 36,
   "cinemas": [
     {
       "city": "Berlin",
@@ -206,6 +206,18 @@
       "cinema": "Filmwerk Gütersloh - TAMIL",
       "bookingUrl": "https://web.filmwerk-gt.de/films/Om-%E2%80%93-Chapter-1-Udhiram-%E2%80%93-The-Blood-Wood-Tamil/HO00002073",
       "zineflixId": 1086
+    },
+    {
+      "city": "Moosburg (Bayern)",
+      "cinema": "Rosenhof Lichtspiele Moosburg",
+      "bookingUrl": "https://www.rosenhof-lichtspiele.de/reihe/S12/Indian_Movies",
+      "zineflixId": 1087
+    },
+    {
+      "city": "Moosburg (Bayern)",
+      "cinema": "Rosenhof Lichtspiele Moosburg (Telugu & Tamil)",
+      "bookingUrl": "https://www.rosenhof-lichtspiele.de/reihe/S12/Indian_Movies",
+      "zineflixId": 1088
     }
   ]
 }
