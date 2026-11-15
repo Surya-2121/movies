@@ -1,0 +1,53 @@
+{
+  "_comment": "OM Chapter 1: Udhiram is a Tamil film with Telugu-dubbed shows. Only Telugu-labelled sessions verified on each cinema page are kept; Tamil sessions are intentionally not published.",
+  "shows": [
+    {
+      "city": "Berlin",
+      "cinema": "Babylon Berlin",
+      "date": "2026-11-21",
+      "time": "13:00",
+      "subtitle": "Telugu (OmeU)",
+      "bookingUrl": "https://babylonberlin.eu/film/10825-indogerman-film-om-chapter-1-udhiram-the-blood-wood"
+    },
+    {
+      "city": "Berlin",
+      "cinema": "Babylon Berlin",
+      "date": "2026-11-22",
+      "time": "13:00",
+      "subtitle": "Telugu (OmeU)",
+      "bookingUrl": "https://babylonberlin.eu/film/10825-indogerman-film-om-chapter-1-udhiram-the-blood-wood"
+    },
+    {
+      "city": "Hamburg",
+      "cinema": "Kinopolis HafenCity",
+      "date": "2026-11-21",
+      "time": "10:30",
+      "subtitle": "Telugu (OmU, Kino 6)",
+      "bookingUrl": "https://www.kinopolis.de/hh/filmdetail/om-chapter-1-udhiram-the-blood-wood-ind/3EB74000012PLXMQDD"
+    },
+    {
+      "city": "München",
+      "cinema": "Mathäser Filmpalast",
+      "date": "2026-11-21",
+      "time": "10:30",
+      "subtitle": "Telugu (OmU, Kino 8)",
+      "bookingUrl": "https://www.mathaeser.de/mm/filmdetail/om-chapter-1-udhiram-the-blood-wood-ind/3EB74000012PLXMQDD"
+    },
+    {
+      "city": "Stuttgart",
+      "cinema": "Capitol Kornwestheim",
+      "date": "2026-11-22",
+      "time": "10:15",
+      "subtitle": "Telugu (OmeU)",
+      "bookingUrl": "https://capitol-kornwestheim.de/programm/film/om-chapter-1-udhiram-the-blood-wood"
+    },
+    {
+      "city": "Düsseldorf",
+      "cinema": "UFA Palast Düsseldorf",
+      "date": "2026-11-22",
+      "time": "20:30",
+      "subtitle": "Telugu (OmU, Kino 9)",
+      "bookingUrl": "https://www.ufa-duesseldorf.de/programm/307932/"
+    }
+  ]
+}

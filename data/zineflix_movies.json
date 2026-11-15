@@ -33,6 +33,14 @@
       "genre": "Family Action Comedy",
       "language": "Telugu",
       "page": "aadarsha-kutumbam-movie.html"
+    },
+    {
+      "slug": "om",
+      "zineflixMovieId": 88,
+      "title": "OM Chapter 1: Udhiram",
+      "genre": "Action Thriller",
+      "language": "Telugu",
+      "page": "om-movie.html"
     }
   ]
 }

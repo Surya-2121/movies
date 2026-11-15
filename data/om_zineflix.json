@@ -1,0 +1,211 @@
+{
+  "fetchedAt": "2026-11-15T17:23:46.723006+00:00",
+  "movie": "om",
+  "totalCinemas": 34,
+  "cinemas": [
+    {
+      "city": "Berlin",
+      "cinema": "Babylon Berlin (Telugu)",
+      "bookingUrl": "https://babylonberlin.eu/film/10825-indogerman-film-om-chapter-1-udhiram-the-blood-wood",
+      "zineflixId": 1052
+    },
+    {
+      "city": "Berlin",
+      "cinema": "Filmtheater Colloseum Berlin 23.11.26 (Tamil)",
+      "bookingUrl": "https://kino.colosseumberlin.com/tickets?showUrl=https%3A%2F%2Fwww.kinoheld.de%2Fkino%2Fberlin%2Fcolosseum-filmtheater-berlin%2Fvorstellung%2F3716441994%2Fom-chapter-1-udhiram-tamil%3Fmode%3Dwidget%26change%3D0",
+      "zineflixId": 1053
+    },
+    {
+      "city": "Berlin",
+      "cinema": "Filmtheater Colloseum Berlin 22.11.26 (Tamil)",
+      "bookingUrl": "https://kino.colosseumberlin.com/tickets?showUrl=https%3A%2F%2Fwww.kinoheld.de%2Fkino%2Fberlin%2Fcolosseum-filmtheater-berlin%2Fvorstellung%2F3716468321%2Fom-chapter-1-udhiram-tamil%3Fmode%3Dwidget%26change%3D0",
+      "zineflixId": 1054
+    },
+    {
+      "city": "Berlin",
+      "cinema": "Filmtheater Colloseum Berlin 21.11.26 (Tamil)",
+      "bookingUrl": "https://kino.colosseumberlin.com/tickets?showUrl=https%3A%2F%2Fwww.kinoheld.de%2Fkino%2Fberlin%2Fcolosseum-filmtheater-berlin%2Fvorstellung%2F3716442065%2Fom-chapter-1-udhiram-tamil%3Fmode%3Dwidget%26change%3D0",
+      "zineflixId": 1055
+    },
+    {
+      "city": "Berlin",
+      "cinema": "Filmtheater Colloseum Berlin 20.11.26 (Tamil)",
+      "bookingUrl": "https://kino.colosseumberlin.com/tickets?showUrl=https%3A%2F%2Fwww.kinoheld.de%2Fkino%2Fberlin%2Fcolosseum-filmtheater-berlin%2Fvorstellung%2F3716440600%2Fom-chapter-1-udhiram-tamil%3Fmode%3Dwidget%26change%3D0",
+      "zineflixId": 1056
+    },
+    {
+      "city": "Düsseldorf",
+      "cinema": "Ufa Palast Düsseldorf (Tamil)",
+      "bookingUrl": "https://www.ufa-duesseldorf.de/programm/2344028/tellung%2F3716440600%2Fom-chapter-1-udhiram-tamil%3Fmode%3Dwidget%26change%3D0",
+      "zineflixId": 1057
+    },
+    {
+      "city": "Düsseldorf",
+      "cinema": "Ufa Palast Düsseldorf (Telugu)",
+      "bookingUrl": "https://www.ufa-duesseldorf.de/programm/307932/",
+      "zineflixId": 1058
+    },
+    {
+      "city": "Düsseldorf",
+      "cinema": "Atelier Düsseldorf (Tamil)",
+      "bookingUrl": "https://filmkunstkinos.de/filme/om-2026/",
+      "zineflixId": 1059
+    },
+    {
+      "city": "Frankfurt",
+      "cinema": "FILMPALAST HOFHEIM FRANKFURT (Tamil)",
+      "bookingUrl": "https://www.filmpalast-hofheim.de/de/programm/1791546",
+      "zineflixId": 1060
+    },
+    {
+      "city": "Karlsruhe",
+      "cinema": "Universum Karlsruhe (Tamil)",
+      "bookingUrl": "https://www.universum-city.de/de/programm/1791546",
+      "zineflixId": 1062
+    },
+    {
+      "city": "Saarbrücken",
+      "cinema": "UT Saarbrücken (Tamil)",
+      "bookingUrl": "https://saarfilm.de/film/om-tamil-chapter-1",
+      "zineflixId": 1063
+    },
+    {
+      "city": "Hamburg",
+      "cinema": "Kinopolis Hamburg (Tamil)",
+      "bookingUrl": "https://www.kinopolis.de/hh/filmdetail/om-chapter-1-udhiram-the-blood-wood-ind/3EB74000012PLXMQDD",
+      "zineflixId": 1064
+    },
+    {
+      "city": "Hamburg",
+      "cinema": "Kinopolis Hamburg (Telugu)",
+      "bookingUrl": "https://www.kinopolis.de/hh/filmdetail/om-chapter-1-udhiram-the-blood-wood-ind/3EB74000012PLXMQDD",
+      "zineflixId": 1065
+    },
+    {
+      "city": "München",
+      "cinema": "Kinopolis MATTHÄUSER MÜNCHEN (Telugu)",
+      "bookingUrl": "https://www.mathaeser.de/mm/filmdetail/om-chapter-1-udhiram-the-blood-wood-ind/3EB74000012PLXMQDD",
+      "zineflixId": 1066
+    },
+    {
+      "city": "München",
+      "cinema": "Kinopolis MATTHÄUSER MÜNCHEN (Tamil)",
+      "bookingUrl": "https://www.mathaeser.de/mm/filmdetail/om-chapter-1-udhiram-the-blood-wood-ind/3EB74000012PLXMQDD",
+      "zineflixId": 1067
+    },
+    {
+      "city": "Koblenz",
+      "cinema": "Kinopolis Koblenz (Tamil)",
+      "bookingUrl": "https://www.kinopolis.de/ko/filmdetail/om-chapter-1-udhiram-the-blood-wood-ind/3EB74000012PLXMQDD",
+      "zineflixId": 1068
+    },
+    {
+      "city": "Mannheim",
+      "cinema": "Kinopolis Viernheim (Tamil)",
+      "bookingUrl": "https://www.kinopolis.de/vi/filmdetail/om-chapter-1-udhiram-the-blood-wood-ind/3EB74000012PLXMQDD",
+      "zineflixId": 1069
+    },
+    {
+      "city": "Frankfurt",
+      "cinema": "Kinopolis Sulzbach Frankfurt (Tamil)",
+      "bookingUrl": "https://www.kinopolis.de/su/filmdetail/om-chapter-1-udhiram-the-blood-wood-ind/3EB74000012PLXMQDD",
+      "zineflixId": 1070
+    },
+    {
+      "city": "Bonn",
+      "cinema": "Kinopolis Bad Godesberg Bonn - Tamil",
+      "bookingUrl": "https://www.kinopolis.de/bn/filmdetail/om-chapter-1-udhiram-the-blood-wood-ind/3EB74000012PLXMQDD",
+      "zineflixId": 1071
+    },
+    {
+      "city": "Oberhausen",
+      "cinema": "Cinestar Oberhausen- Tamil",
+      "bookingUrl": "https://www.cinestar.de/kino-oberhausen-filmpalast-im-centro/veranstaltung-om-tamil-omeu",
+      "zineflixId": 1072
+    },
+    {
+      "city": "Mainz",
+      "cinema": "Cinestar Mainz - Tamil",
+      "bookingUrl": "https://www.cinestar.de/kino-mainz/veranstaltung-om-tamil-omeu",
+      "zineflixId": 1073
+    },
+    {
+      "city": "Rostock",
+      "cinema": "Cinestar Rostock- Tamil",
+      "bookingUrl": "https://www.cinestar.de/kino-rostock/veranstaltung-om-tamil-omeu",
+      "zineflixId": 1074
+    },
+    {
+      "city": "Siegen",
+      "cinema": "Cinestar Siegen - Tamil",
+      "bookingUrl": "https://www.cinestar.de/kino-siegen/veranstaltung-om-tamil-omeu",
+      "zineflixId": 1075
+    },
+    {
+      "city": "Jena",
+      "cinema": "Cinestar Jena - Tamil",
+      "bookingUrl": "https://www.cinestar.de/kino-jena/veranstaltung-om-tamil-omeu",
+      "zineflixId": 1076
+    },
+    {
+      "city": "Karlsruhe",
+      "cinema": "FILMPALAST Karlsruhe - Tamil",
+      "bookingUrl": "https://filmpalast.net/programmuebersicht/?search=Om&searchopen=1",
+      "zineflixId": 1077
+    },
+    {
+      "city": "Magdeburg",
+      "cinema": "Cinestar Magdeburg- Tamil",
+      "bookingUrl": "https://www.cinestar.de/kino-magdeburg/veranstaltung-om-tamil-omeu",
+      "zineflixId": 1078
+    },
+    {
+      "city": "Dortmund",
+      "cinema": "Cinestar DORTMUND - Tamil",
+      "bookingUrl": "https://www.cinestar.de/kino-dortmund/veranstaltung-om-tamil-omeu",
+      "zineflixId": 1079
+    },
+    {
+      "city": "Düsseldorf",
+      "cinema": "Cinestar Düsseldorf - Tamil",
+      "bookingUrl": "https://www.cinestar.de/kino-duesseldorf/veranstaltung-om-tamil-omeu",
+      "zineflixId": 1080
+    },
+    {
+      "city": "Erlangen",
+      "cinema": "Cinestar Erlangen - Tamil",
+      "bookingUrl": "https://www.cinestar.de/kino-erlangen/veranstaltung-om-tamil-omeu",
+      "zineflixId": 1081
+    },
+    {
+      "city": "Bremen",
+      "cinema": "Cinestar Bremen - Tamil",
+      "bookingUrl": "https://www.cinestar.de/kino-bremen-kristall-palast/veranstaltung-om-tamil-omeu",
+      "zineflixId": 1082
+    },
+    {
+      "city": "Chemnitz",
+      "cinema": "Cinestar Chemnitz - Tamil",
+      "bookingUrl": "https://www.cinestar.de/chemnitz-kino-am-roten-turm/veranstaltung-om-tamil-omeu",
+      "zineflixId": 1083
+    },
+    {
+      "city": "Friedrichshafen",
+      "cinema": "Cineplex Friedrichshafen (Tamil)",
+      "bookingUrl": "https://www.cineplex.de/friedrichshafen/film/30541000012FWBXJYB",
+      "zineflixId": 1084
+    },
+    {
+      "city": "Stuttgart",
+      "cinema": "Capitol KORNWESTHEIM STUTTGART - TAMIL & TELUGU",
+      "bookingUrl": "https://capitol-kornwestheim.de/programm/film/om-chapter-1-udhiram-the-blood-wood",
+      "zineflixId": 1085
+    },
+    {
+      "city": "Bielefeld",
+      "cinema": "Filmwerk Gütersloh - TAMIL",
+      "bookingUrl": "https://web.filmwerk-gt.de/films/Om-%E2%80%93-Chapter-1-Udhiram-%E2%80%93-The-Blood-Wood-Tamil/HO00002073",
+      "zineflixId": 1086
+    }
+  ]
+}
