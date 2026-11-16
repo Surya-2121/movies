@@ -1,7 +1,7 @@
 {
-  "fetchedAt": "2026-11-15T20:49:54.334111+00:00",
+  "fetchedAt": "2026-11-16T01:14:04.699614+00:00",
   "movie": "peddi",
-  "totalShows": 50,
+  "totalShows": 48,
   "shows": [
     {
       "city": "Bielefeld",
@@ -332,14 +332,6 @@
       "bookingUrl": "https://www.cinemaxx.de/kinoprogramm/essen/film/peddi"
     },
     {
-      "city": "München",
-      "cinema": "Mathäser",
-      "date": "2026-06-14",
-      "time": "10:30",
-      "subtitle": "English Subtitles",
-      "bookingUrl": "https://www.mathaeser.de/mm/filmdetail/peddi-telugu/42A74000012PLXMQDD"
-    },
-    {
       "city": "Berlin",
       "cinema": "UCI East Side Gallery",
       "date": "2026-06-14",
@@ -354,14 +346,6 @@
       "time": "11:00",
       "subtitle": "English Subtitles",
       "bookingUrl": "https://www.cinemaxx.de/kinoprogramm/essen/film/peddi"
-    },
-    {
-      "city": "Hamburg",
-      "cinema": "Kinopolis HafenCity",
-      "date": "2026-06-14",
-      "time": "11:15",
-      "subtitle": "English Subtitles",
-      "bookingUrl": "https://www.kinopolis.de/hh/filmdetail/peddi-telugu/42A74000012PLXMQDD"
     },
     {
       "city": "Stuttgart",
