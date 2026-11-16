@@ -1,7 +1,7 @@
 {
-  "fetchedAt": "2026-11-16T01:12:29.845119+00:00",
+  "fetchedAt": "2026-11-16T14:54:11.261184+00:00",
   "movie": "om",
-  "totalCinemas": 36,
+  "totalCinemas": 44,
   "cinemas": [
     {
       "city": "Berlin",
@@ -218,6 +218,54 @@
       "cinema": "Rosenhof Lichtspiele Moosburg (Telugu & Tamil)",
       "bookingUrl": "https://www.rosenhof-lichtspiele.de/reihe/S12/Indian_Movies",
       "zineflixId": 1088
+    },
+    {
+      "city": "AALEN",
+      "cinema": "Kinopark Aalen",
+      "bookingUrl": "https://www.kino-aa.de/de/programm/1791546",
+      "zineflixId": 1089
+    },
+    {
+      "city": "Heidenheim",
+      "cinema": "Capitol Heidenheim",
+      "bookingUrl": "https://www.capitol-hdh.de/de/programm/1791546",
+      "zineflixId": 1090
+    },
+    {
+      "city": "Berlin",
+      "cinema": "Cineplex Neukölln Berlin - Tamil",
+      "bookingUrl": "https://www.cineplex.de/berlin-neukoelln/film/om-tamil-30541000012FWBXJYB",
+      "zineflixId": 1091
+    },
+    {
+      "city": "PASSAU",
+      "cinema": "Cineplex Passau - Tamil",
+      "bookingUrl": "https://www.cineplex.de/passau/film/om-tamil-30541000012FWBXJYB",
+      "zineflixId": 1092
+    },
+    {
+      "city": "Saarbrücken",
+      "cinema": "Cinestar Saarbrücken",
+      "bookingUrl": "https://www.cinestar.de/kino-saarbruecken/veranstaltung-om-tamil-omeu",
+      "zineflixId": 1093
+    },
+    {
+      "city": "KONSTANZ (near Switzerland)",
+      "cinema": "Cinestar Konstanz - Tamil",
+      "bookingUrl": "https://www.cinestar.de/kino-konstanz/veranstaltung-om-tamil-omeu",
+      "zineflixId": 1094
+    },
+    {
+      "city": "Emden",
+      "cinema": "Cinestar Emden- Tamil",
+      "bookingUrl": "https://www.cinestar.de/kino-emden/veranstaltung-om-tamil-omeu",
+      "zineflixId": 1095
+    },
+    {
+      "city": "Erfurt",
+      "cinema": "Cinestar Erfurt - Tamil",
+      "bookingUrl": "https://www.cinestar.de/kino-erfurt/veranstaltung-om-tamil-omeu",
+      "zineflixId": 1096
     }
   ]
 }
