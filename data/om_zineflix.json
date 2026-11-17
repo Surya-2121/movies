@@ -1,7 +1,7 @@
 {
-  "fetchedAt": "2026-11-17T18:15:24.867507+00:00",
+  "fetchedAt": "2026-11-17T23:44:56.193999+00:00",
   "movie": "om",
-  "totalCinemas": 62,
+  "totalCinemas": 63,
   "cinemas": [
     {
       "city": "Berlin",
@@ -374,6 +374,12 @@
       "cinema": "Cinemaxx München Tamil",
       "bookingUrl": "https://www.cinemaxx.de/kinoprogramm/munchen/film/om--chapter-1-udhiram--the-blood-wood",
       "zineflixId": 1114
+    },
+    {
+      "city": "Berlin",
+      "cinema": "UCI Berlin Tamil",
+      "bookingUrl": "https://www2.uci-kinowelt.de/film/om-chapter-1-udhiram-the-blood-wood/423470/berlin-east-side-gallery/82#!#scroll-programm",
+      "zineflixId": 1115
     }
   ]
 }
