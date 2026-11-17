@@ -50,6 +50,7 @@ MOVIE_NAMES = {
     'vishwanath-and-sons': 'Vishwanath & Sons',
     'irumudi': 'Irumudi',
     'om': 'OM Chapter 1: The Blood Wood',
+    'ene-repeat': 'ENE Repeat',
     'varanasi': 'Varanasi',
     'vishwambhara': 'Vishwambhara',
     'ustaad': 'Ustaad Bhagat Singh',

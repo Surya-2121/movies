@@ -41,6 +41,14 @@
       "genre": "Action Thriller",
       "language": "Telugu",
       "page": "om-movie.html"
+    },
+    {
+      "slug": "ene-repeat",
+      "cinemaxxSlug": "ene-repeat",
+      "title": "ENE Repeat",
+      "genre": "Buddy Comedy",
+      "language": "Telugu",
+      "page": "ene-repeat-movie.html"
     }
   ]
 }

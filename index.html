@@ -97,6 +97,16 @@
         <button class="hm-arrow hm-arrow-right" data-target="rowNow" data-dir="1" aria-label="Scroll right">&#8250;</button>
         <div class="hm-row" id="rowNow">
 
+          <a href="ene-repeat-movie.html" class="hm-card">
+            <div class="hm-card-poster">
+              <img src="images/ene-repeat.webp" alt="ENE Repeat">
+              <span class="hm-card-status">Now Showing</span>
+              <div class="hm-card-badge"><span class="hm-star">&#9733;</span><span>19 November 2026</span></div>
+            </div>
+            <div class="hm-card-title">ENE Repeat</div>
+            <div class="hm-card-genre">Buddy Comedy</div>
+          </a>
+
           <a href="om-movie.html" class="hm-card">
             <div class="hm-card-poster">
               <img src="images/om.jpg" alt="OM Chapter 1: The Blood Wood">
@@ -208,8 +218,8 @@
     const snap = await get(ref(db, 'movies'));
     const data = snap.val();
     if (data) {
-      const legacyPages = { ustaad:'ustaad-movie.html', peddi:'peddi-movie.html', 'maa-inti-bangaaram':'maa-inti-bangaaram-movie.html', 'vishwanath-and-sons':'vishwanath-and-sons-movie.html', irumudi:'irumudi-movie.html', 'jailer-2':'jailer-2-movie.html', ranabaali:'ranabaali-movie.html', 'aadarsha-kutumbam':'aadarsha-kutumbam-movie.html', om:'om-movie.html', dragon:'dragon-movie.html', paradise:'paradise-movie.html', vishwambhara:'vishwambhara-movie.html', varanasi:'varanasi-movie.html', spirit:'spirit-movie.html', fauzi:'fauzi-movie.html', dacoit:'dacoit-movie.html' };
-      const nowShowing = new Set(['peddi', 'maa-inti-bangaaram', 'vishwanath-and-sons', 'irumudi', 'om']);
+      const legacyPages = { ustaad:'ustaad-movie.html', peddi:'peddi-movie.html', 'maa-inti-bangaaram':'maa-inti-bangaaram-movie.html', 'vishwanath-and-sons':'vishwanath-and-sons-movie.html', irumudi:'irumudi-movie.html', 'jailer-2':'jailer-2-movie.html', ranabaali:'ranabaali-movie.html', 'aadarsha-kutumbam':'aadarsha-kutumbam-movie.html', om:'om-movie.html', 'ene-repeat':'ene-repeat-movie.html', dragon:'dragon-movie.html', paradise:'paradise-movie.html', vishwambhara:'vishwambhara-movie.html', varanasi:'varanasi-movie.html', spirit:'spirit-movie.html', fauzi:'fauzi-movie.html', dacoit:'dacoit-movie.html' };
+      const nowShowing = new Set(['peddi', 'maa-inti-bangaaram', 'vishwanath-and-sons', 'irumudi', 'om', 'ene-repeat']);
       const hidden = new Set(['vishwambhara']);
       // Movies always shown in the slider, even when Firebase doesn't have them yet.
       // Order here = visible order on the home page (Firebase entries not in this
@@ -245,6 +255,7 @@
   <script>
     const movies = [
       { name: 'Ustaad Bhagat Singh', url: 'ustaad-movie.html', cast: 'Pawan Kalyan, Sreeleela, Raashii Khanna', status: 'Ended' },
+      { name: 'ENE Repeat (Ee Nagaraniki Emaindhi 2)', url: 'ene-repeat-movie.html', cast: 'Vishwak Sen, Abhinav Gomatam, Venkatesh Kakumanu, Srinath Maganti', status: 'Now Showing' },
       { name: 'OM Chapter 1: The Blood Wood', url: 'om-movie.html', cast: 'Dhanush, Mammootty, Sai Pallavi, Sreeleela', status: 'Now Showing' },
       { name: 'Peddi', url: 'peddi-movie.html', cast: 'Ram Charan, Janhvi Kapoor', status: 'Now Showing' },
       { name: 'Maa Inti Bangaaram', url: 'maa-inti-bangaaram-movie.html', cast: 'Samantha Ruth Prabhu, Gulshan Devaiah, Gautami', status: 'Now Showing' },
