@@ -1,7 +1,7 @@
 {
-  "fetchedAt": "2026-11-16T14:54:11.261184+00:00",
+  "fetchedAt": "2026-11-17T00:39:31.749517+00:00",
   "movie": "om",
-  "totalCinemas": 44,
+  "totalCinemas": 46,
   "cinemas": [
     {
       "city": "Berlin",
@@ -36,7 +36,7 @@
     {
       "city": "Düsseldorf",
       "cinema": "Ufa Palast Düsseldorf (Tamil)",
-      "bookingUrl": "https://www.ufa-duesseldorf.de/programm/2344028/tellung%2F3716440600%2Fom-chapter-1-udhiram-tamil%3Fmode%3Dwidget%26change%3D0",
+      "bookingUrl": "https://www.ufa-duesseldorf.de/programm/2344028/",
       "zineflixId": 1057
     },
     {
@@ -266,6 +266,18 @@
       "cinema": "Cinestar Erfurt - Tamil",
       "bookingUrl": "https://www.cinestar.de/kino-erfurt/veranstaltung-om-tamil-omeu",
       "zineflixId": 1096
+    },
+    {
+      "city": "Braunschweig",
+      "cinema": "Astor Braunschweig - Tamil",
+      "bookingUrl": "https://braunschweig.premiumkino.de/specials/veranstaltungen/events/om",
+      "zineflixId": 1097
+    },
+    {
+      "city": "München",
+      "cinema": "Neues Rottman München Tamil",
+      "bookingUrl": "https://www.neuesrottmann.de/de/programm/1791546",
+      "zineflixId": 1098
     }
   ]
 }
