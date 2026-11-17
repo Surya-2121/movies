@@ -1,7 +1,7 @@
 {
-  "fetchedAt": "2026-11-17T04:01:53.285784+00:00",
+  "fetchedAt": "2026-11-17T15:33:21.136267+00:00",
   "movie": "om",
-  "totalCinemas": 46,
+  "totalCinemas": 62,
   "cinemas": [
     {
       "city": "Berlin",
@@ -278,6 +278,102 @@
       "cinema": "Neues Rottman München Tamil",
       "bookingUrl": "https://www.neuesrottmann.de/de/programm/1791546",
       "zineflixId": 1098
+    },
+    {
+      "city": "Ulm",
+      "cinema": "Cineplex Ulm - Tamil",
+      "bookingUrl": "https://www.cineplex.de/ulm/film/om-tamil-30541000012FWBXJYB",
+      "zineflixId": 1099
+    },
+    {
+      "city": "Dresden",
+      "cinema": "Cineplex Dresden - Tamil",
+      "bookingUrl": "https://www.cineplex.de/dresden/film/om-tamil-30541000012FWBXJYB",
+      "zineflixId": 1100
+    },
+    {
+      "city": "Berlin",
+      "cinema": "Cineplex Berlin Neukölln",
+      "bookingUrl": "https://www.cineplex.de/berlin-neukoelln/film/om-tamil-30541000012FWBXJYB",
+      "zineflixId": 1101
+    },
+    {
+      "city": "Berlin",
+      "cinema": "Cineplex Berlin Alhambra - Tamil",
+      "bookingUrl": "https://www.cineplex.de/berlin-alhambra/film/om-tamil-30541000012FWBXJYB",
+      "zineflixId": 1102
+    },
+    {
+      "city": "Berlin",
+      "cinema": "Cinemaxx Berlin Tamil",
+      "bookingUrl": "https://www.cinemaxx.de/kinoprogramm/berlin/film/om--chapter-1-udhiram--the-blood-wood",
+      "zineflixId": 1103
+    },
+    {
+      "city": "Bremen",
+      "cinema": "Cinemaxx Bremen Tamil",
+      "bookingUrl": "https://www.cinemaxx.de/kinoprogramm/bremen/film/om--chapter-1-udhiram--the-blood-wood",
+      "zineflixId": 1104
+    },
+    {
+      "city": "Bielefeld",
+      "cinema": "Cinemaxx BIELFELD Tamil",
+      "bookingUrl": "https://www.cinemaxx.de/kinoprogramm/bielefeld/film/om--chapter-1-udhiram--the-blood-wood",
+      "zineflixId": 1105
+    },
+    {
+      "city": "Augsburg",
+      "cinema": "Cinemaxx Augsburg Tamil",
+      "bookingUrl": "https://www.cinemaxx.de/kinoprogramm/augsburg/film/om--chapter-1-udhiram--the-blood-wood",
+      "zineflixId": 1106
+    },
+    {
+      "city": "Hannover",
+      "cinema": "Cinemaxx Hannover Tamil",
+      "bookingUrl": "https://www.cinemaxx.de/kinoprogramm/hannover/film/om--chapter-1-udhiram--the-blood-wood",
+      "zineflixId": 1107
+    },
+    {
+      "city": "Hamburg",
+      "cinema": "Cinemaxx Hamburg Tamil",
+      "bookingUrl": "https://www.cinemaxx.de/kinoprogramm/hamburg-dammtor/film/om--chapter-1-udhiram--the-blood-wood",
+      "zineflixId": 1108
+    },
+    {
+      "city": "Freiburg",
+      "cinema": "Cinemaxx Freiburg Tamil",
+      "bookingUrl": "https://www.cinemaxx.de/kinoprogramm/freiburg/film/om--chapter-1-udhiram--the-blood-wood",
+      "zineflixId": 1109
+    },
+    {
+      "city": "Essen",
+      "cinema": "Cinemaxx Essen Tamil",
+      "bookingUrl": "https://www.cinemaxx.de/kinoprogramm/essen/film/om--chapter-1-udhiram--the-blood-wood",
+      "zineflixId": 1110
+    },
+    {
+      "city": "Stuttgart",
+      "cinema": "Cinemaxx Stuttgart Tamil",
+      "bookingUrl": "https://www.cinemaxx.de/kinoprogramm/stuttgart-si-centrum/film/om--chapter-1-udhiram--the-blood-wood",
+      "zineflixId": 1111
+    },
+    {
+      "city": "Wuppertal",
+      "cinema": "Cinemaxx Wuppertal Tamil",
+      "bookingUrl": "https://www.cinemaxx.de/kinoprogramm/wuppertal/film/om--chapter-1-udhiram--the-blood-wood",
+      "zineflixId": 1112
+    },
+    {
+      "city": "Frankfurt",
+      "cinema": "Cinemaxx Frankfurt Tamil",
+      "bookingUrl": "https://www.cinemaxx.de/kinoprogramm/offenbach/film/om--chapter-1-udhiram--the-blood-wood",
+      "zineflixId": 1113
+    },
+    {
+      "city": "München",
+      "cinema": "Cinemaxx München Tamil",
+      "bookingUrl": "https://www.cinemaxx.de/kinoprogramm/munchen/film/om--chapter-1-udhiram--the-blood-wood",
+      "zineflixId": 1114
     }
   ]
 }
