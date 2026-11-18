@@ -48,6 +48,22 @@
       "time": "11:30",
       "subtitle": "Telugu (OmeU)",
       "bookingUrl": "https://www.cinemaxx.de/buchtickets/zusammenfassung/1631/HO00001793/29810"
+    },
+    {
+      "city": "Heidelberg",
+      "cinema": "Lux Kino Heidelberg",
+      "date": "2026-11-21",
+      "time": "11:30",
+      "subtitle": "Telugu (OmU, Saal Silver)",
+      "bookingUrl": "https://ticket-cloud.de/Luxor-Heidelberg/Show/2462819/"
+    },
+    {
+      "city": "Heidelberg",
+      "cinema": "Lux Kino Heidelberg",
+      "date": "2026-11-22",
+      "time": "11:30",
+      "subtitle": "Telugu (OmU, Saal Silver)",
+      "bookingUrl": "https://ticket-cloud.de/Luxor-Heidelberg/Show/2462820/"
     }
   ]
 }

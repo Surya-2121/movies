@@ -64,6 +64,22 @@
       "time": "19:30",
       "subtitle": "Telugu (OmeU, Kino 4)",
       "bookingUrl": "https://booking.cinetixx.de/frontend/index.html?cinemaId=529077586&showId=3719205761&bgswitch=false"
+    },
+    {
+      "city": "Heidelberg",
+      "cinema": "Lux Kino Heidelberg",
+      "date": "2026-11-21",
+      "time": "14:30",
+      "subtitle": "Telugu (OmU, Saal Space)",
+      "bookingUrl": "https://ticket-cloud.de/Luxor-Heidelberg/Show/2462783/"
+    },
+    {
+      "city": "Heidelberg",
+      "cinema": "Lux Kino Heidelberg",
+      "date": "2026-11-22",
+      "time": "16:00",
+      "subtitle": "Telugu (OmU, Saal Red)",
+      "bookingUrl": "https://ticket-cloud.de/Luxor-Heidelberg/Show/2462785/"
     }
   ]
 }
