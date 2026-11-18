@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-11-17T16:59:47.135701+00:00",
+  "fetchedAt": "2026-11-18T01:10:19.517644+00:00",
   "filterDate": null,
   "shows": [
     {
@@ -34,12 +34,10 @@
       "time": "20:15",
       "subtitle": "Telugu",
       "bookingUrl": "https://ufa-duesseldorf.de/programm/2322056/",
-      "capacity": 0,
-      "booked": 0,
-      "free": 0,
-      "blocked": 0,
-      "note": null,
-      "rewrittenUrl": "https://kinotickets.express/duesseldorf-ufa-filmpalast/sale/seats/86479"
+      "capacity": null,
+      "booked": null,
+      "free": null,
+      "note": "rewrite failed: <urlopen error [Errno 111] Connection refused>"
     },
     {
       "city": "Heidelberg",
@@ -1144,7 +1142,7 @@
   ],
   "totals": {
     "shows": 94,
-    "coverageShows": 6,
+    "coverageShows": 5,
     "capacity": 781,
     "booked": 258,
     "free": 523
