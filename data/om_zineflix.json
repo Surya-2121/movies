@@ -1,7 +1,7 @@
 {
-  "fetchedAt": "2026-11-18T02:58:53.680207+00:00",
+  "fetchedAt": "2026-11-18T15:10:32.797434+00:00",
   "movie": "om",
-  "totalCinemas": 63,
+  "totalCinemas": 69,
   "cinemas": [
     {
       "city": "Berlin",
@@ -380,6 +380,42 @@
       "cinema": "UCI Berlin Tamil",
       "bookingUrl": "https://www2.uci-kinowelt.de/film/om-chapter-1-udhiram-the-blood-wood/423470/berlin-east-side-gallery/82#!#scroll-programm",
       "zineflixId": 1115
+    },
+    {
+      "city": "Nürnberg",
+      "cinema": "Cinecitta Nürnberg (Tamil & Telugu)",
+      "bookingUrl": "https://www.cinecitta.de/filme/om-chapter-1-udhiram-tamil/",
+      "zineflixId": 1116
+    },
+    {
+      "city": "Bochum",
+      "cinema": "UCI Bochum",
+      "bookingUrl": "https://www.uci-kinowelt.de/film/om-chapter-1-udhiram-the-blood-wood/423470/bochum-ruhr-park",
+      "zineflixId": 1117
+    },
+    {
+      "city": "Düsseldorf",
+      "cinema": "UCI Düsseldorf",
+      "bookingUrl": "https://www.uci-kinowelt.de/film/om-chapter-1-udhiram-the-blood-wood/423470/duesseldorf",
+      "zineflixId": 1118
+    },
+    {
+      "city": "Duisburg",
+      "cinema": "UCI Duisburg",
+      "bookingUrl": "https://www.uci-kinowelt.de/film/om-chapter-1-udhiram-the-blood-wood/423470/duisburg",
+      "zineflixId": 1119
+    },
+    {
+      "city": "Leipzig",
+      "cinema": "UCI Leipzig",
+      "bookingUrl": "https://www.uci-kinowelt.de/film/om-chapter-1-udhiram-the-blood-wood/423470/leipzig-nova-eventis",
+      "zineflixId": 1120
+    },
+    {
+      "city": "Hamburg",
+      "cinema": "UCI Hamburg",
+      "bookingUrl": "https://www.uci-kinowelt.de/film/om-chapter-1-udhiram-the-blood-wood/423470/hh-mundsburg",
+      "zineflixId": 1121
     }
   ]
 }
