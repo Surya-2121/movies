@@ -1,7 +1,7 @@
 {
-  "fetchedAt": "2026-11-19T02:41:13.406612+00:00",
+  "fetchedAt": "2026-11-19T15:18:39.699716+00:00",
   "movie": "om",
-  "totalCinemas": 69,
+  "totalCinemas": 70,
   "cinemas": [
     {
       "city": "Berlin",
@@ -416,6 +416,12 @@
       "cinema": "UCI Hamburg",
       "bookingUrl": "https://www.uci-kinowelt.de/film/om-chapter-1-udhiram-the-blood-wood/423470/hh-mundsburg",
       "zineflixId": 1121
+    },
+    {
+      "city": "Berlin",
+      "cinema": "Cinestar Berlin Hellersdorf Tamil",
+      "bookingUrl": "https://www.cinestar.de/kino-berlin-hellersdorf/veranstaltung-om-tamil-omeu",
+      "zineflixId": 1122
     }
   ]
 }
