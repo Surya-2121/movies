@@ -1,16 +1,16 @@
 {
-  "fetchedAt": "2026-11-19T01:42:29.996351+00:00",
+  "fetchedAt": "2026-11-19T17:05:07.428985+00:00",
   "movie": "ene-repeat",
   "totalCities": 6,
   "totalShows": 6,
   "cities": {
     "berlin": [
       {
-        "date": "2026-11-22",
-        "time": "22:40",
-        "kino": "Kino 10",
+        "date": "2026-11-23",
+        "time": "22:30",
+        "kino": "Kino 09",
         "lang": "engl. UT - Telugu",
-        "href": "https://www.cinemaxx.de/buchtickets/zusammenfassung/1107/HO00001793/96940"
+        "href": "https://www.cinemaxx.de/buchtickets/zusammenfassung/1107/HO00001793/97149"
       }
     ],
     "bremen": [
