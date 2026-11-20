@@ -1,8 +1,8 @@
 {
-  "fetchedAt": "2026-11-20T01:48:55.226019+00:00",
+  "fetchedAt": "2026-11-20T16:39:05.880605+00:00",
   "movie": "ene-repeat",
   "totalCities": 6,
-  "totalShows": 7,
+  "totalShows": 6,
   "cities": {
     "berlin": [
       {
@@ -41,13 +41,6 @@
       }
     ],
     "magdeburg": [
-      {
-        "date": "2026-11-20",
-        "time": "22:10",
-        "kino": "Kino 04",
-        "lang": "engl. UT - Telugu",
-        "href": "https://www.cinemaxx.de/buchtickets/zusammenfassung/1391/HO00001793/51678"
-      },
       {
         "date": "2026-11-21",
         "time": "22:30",
