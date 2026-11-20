@@ -1,8 +1,8 @@
 {
-  "fetchedAt": "2026-11-19T17:05:07.428985+00:00",
+  "fetchedAt": "2026-11-20T01:48:55.226019+00:00",
   "movie": "ene-repeat",
   "totalCities": 6,
-  "totalShows": 6,
+  "totalShows": 7,
   "cities": {
     "berlin": [
       {
@@ -47,6 +47,13 @@
         "kino": "Kino 04",
         "lang": "engl. UT - Telugu",
         "href": "https://www.cinemaxx.de/buchtickets/zusammenfassung/1391/HO00001793/51678"
+      },
+      {
+        "date": "2026-11-21",
+        "time": "22:30",
+        "kino": "Kino 08",
+        "lang": "engl. UT - Telugu",
+        "href": "https://www.cinemaxx.de/buchtickets/zusammenfassung/1391/HO00001793/51765"
       }
     ],
     "offenbach": [
