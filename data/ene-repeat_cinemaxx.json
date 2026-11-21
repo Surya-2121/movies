@@ -1,8 +1,8 @@
 {
-  "fetchedAt": "2026-11-21T01:20:31.471568+00:00",
+  "fetchedAt": "2026-11-21T15:52:30.674903+00:00",
   "movie": "ene-repeat",
-  "totalCities": 6,
-  "totalShows": 6,
+  "totalCities": 4,
+  "totalShows": 4,
   "cities": {
     "berlin": [
       {
@@ -22,15 +22,6 @@
         "href": "https://www.cinemaxx.de/buchtickets/zusammenfassung/1281/HO00001793/39467"
       }
     ],
-    "essen": [
-      {
-        "date": "2026-11-21",
-        "time": "11:15",
-        "kino": "Kino 12",
-        "lang": "engl. UT - Telugu",
-        "href": "https://www.cinemaxx.de/buchtickets/zusammenfassung/1431/HO00001793/72834"
-      }
-    ],
     "hannover": [
       {
         "date": "2026-11-22",
@@ -47,15 +38,6 @@
         "kino": "Kino 08",
         "lang": "engl. UT - Telugu",
         "href": "https://www.cinemaxx.de/buchtickets/zusammenfassung/1391/HO00001793/51765"
-      }
-    ],
-    "offenbach": [
-      {
-        "date": "2026-11-21",
-        "time": "11:30",
-        "kino": "Kino 07",
-        "lang": "engl. UT - Telugu",
-        "href": "https://www.cinemaxx.de/buchtickets/zusammenfassung/1631/HO00001793/29810"
       }
     ]
   }
