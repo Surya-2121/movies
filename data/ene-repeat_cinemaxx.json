@@ -1,8 +1,8 @@
 {
-  "fetchedAt": "2026-11-22T15:49:15.355498+00:00",
+  "fetchedAt": "2026-11-23T00:49:17.589962+00:00",
   "movie": "ene-repeat",
-  "totalCities": 3,
-  "totalShows": 3,
+  "totalCities": 2,
+  "totalShows": 2,
   "cities": {
     "berlin": [
       {
@@ -20,15 +20,6 @@
         "kino": "Kino 03",
         "lang": "engl. UT - Telugu",
         "href": "https://www.cinemaxx.de/buchtickets/zusammenfassung/1281/HO00001793/39467"
-      }
-    ],
-    "hannover": [
-      {
-        "date": "2026-11-22",
-        "time": "22:30",
-        "kino": "Kino 06",
-        "lang": "engl. UT - Telugu",
-        "href": "https://www.cinemaxx.de/buchtickets/zusammenfassung/1304/HO00001793/45843"
       }
     ]
   }
