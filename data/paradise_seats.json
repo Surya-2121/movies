@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-11-23T19:25:18.168579+00:00",
+  "fetchedAt": "2026-11-24T19:01:14.294582+00:00",
   "filterDate": null,
   "shows": [
     {
@@ -84,9 +84,9 @@
       "time": "20:45",
       "subtitle": "Telugu",
       "bookingUrl": "https://www.kinoheld.de/kino/dresden/zentralkino-dresden/vorstellung/3647170129?mode=widget&layout=days&layouts=days&design=red&rb=1#panel-seats",
-      "capacity": 95,
+      "capacity": 70,
       "booked": 68,
-      "free": 27,
+      "free": 2,
       "blocked": 0,
       "note": null
     },
@@ -1145,8 +1145,8 @@
   "totals": {
     "shows": 94,
     "coverageShows": 6,
-    "capacity": 781,
+    "capacity": 756,
     "booked": 258,
-    "free": 523
+    "free": 498
   }
 }
