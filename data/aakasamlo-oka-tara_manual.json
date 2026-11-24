@@ -24,6 +24,14 @@
       "time": "10:45",
       "subtitle": "Telugu (OmeU)",
       "bookingUrl": "https://www.cinemaxx.de/buchtickets/zusammenfassung/1431/HO00001805/73147"
+    },
+    {
+      "city": "Heidelberg",
+      "cinema": "Lux Kino Heidelberg",
+      "date": "2026-11-29",
+      "time": "21:00",
+      "subtitle": "Telugu (OmU, Saal Pirates)",
+      "bookingUrl": "https://ticket-cloud.de/Luxor-Heidelberg/Show/2467012/"
     }
   ]
 }

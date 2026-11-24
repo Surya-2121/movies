@@ -152,6 +152,14 @@
       "time": "11:30",
       "subtitle": "Telugu (OmeU)",
       "bookingUrl": "https://www.cinemaxx.de/buchtickets/zusammenfassung/1631/HO00001793/30053"
+    },
+    {
+      "city": "Berlin",
+      "cinema": "Cinemaxx Berlin",
+      "date": "2026-12-02",
+      "time": "22:15",
+      "subtitle": "Telugu (OmeU)",
+      "bookingUrl": "https://www.cinemaxx.de/buchtickets/zusammenfassung/1107/HO00001793/98166"
     }
   ]
 }
