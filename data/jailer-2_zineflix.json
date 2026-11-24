@@ -1,49 +1,13 @@
 {
-  "fetchedAt": "2026-11-24T05:23:16.360663+00:00",
+  "fetchedAt": "2026-11-24T17:00:35.756179+00:00",
   "movie": "jailer-2",
-  "totalCinemas": 53,
+  "totalCinemas": 18,
   "cinemas": [
-    {
-      "city": "Stuttgart",
-      "cinema": "Capitol Kornwestheim Stuttgart (Tamil)",
-      "bookingUrl": "https://capitol-kornwestheim.de/programm/film/jailer-2",
-      "zineflixId": 878
-    },
-    {
-      "city": "Bielefeld",
-      "cinema": "FILMWERK GÜTERSLOH BIELEFELD (BIG SCREEN)",
-      "bookingUrl": "https://web.filmwerk-gt.de/films/Jailer-2-Sprache-Tamil-mit-engl-Untertitel/HO00002015",
-      "zineflixId": 883
-    },
-    {
-      "city": "Pforzheim",
-      "cinema": "CINEMOON PFORZHEIM PREMIERE & NORMAL SHOWS (BIG SCREEN)",
-      "bookingUrl": "https://www.cinemoon.de/de/programm/1525693",
-      "zineflixId": 884
-    },
-    {
-      "city": "Frankenthal",
-      "cinema": "LUX FRANKENTHAL",
-      "bookingUrl": "https://www.lux-kinos.de/detail/131840/JAILER%202",
-      "zineflixId": 886
-    },
-    {
-      "city": "Dresden",
-      "cinema": "Cinemaxx Dresden",
-      "bookingUrl": "https://www.cinemaxx.de/kinoprogramm/dresden/film/jailer-2",
-      "zineflixId": 891
-    },
     {
       "city": "Weil am Rhein",
       "cinema": "KINOPALAST Weil am Rhein (Swiss border)",
       "bookingUrl": "https://kino-weil.de/film/34349/Jailer-2--/",
       "zineflixId": 892
-    },
-    {
-      "city": "Düsseldorf",
-      "cinema": "UFA PALAST DÜSSELDORF (TAMIL)",
-      "bookingUrl": "https://ufa-duesseldorf.de/programm/2332969/",
-      "zineflixId": 893
     },
     {
       "city": "Frankfurt",
@@ -52,34 +16,10 @@
       "zineflixId": 896
     },
     {
-      "city": "Mannheim",
-      "cinema": "Kinopolis Viernheim",
-      "bookingUrl": "https://www.kinopolis.de/vi/filmdetail/jailer-2/EAB74000012PLXMQDD",
-      "zineflixId": 898
-    },
-    {
-      "city": "Koblenz",
-      "cinema": "Kinopolis KOBLENZ",
-      "bookingUrl": "https://www.kinopolis.de/ko/filmdetail/jailer-2/EAB74000012PLXMQDD",
-      "zineflixId": 899
-    },
-    {
       "city": "Dortmund",
       "cinema": "Cinestar Dortmund",
       "bookingUrl": "https://www.cinestar.de/kino-dortmund/film/jailer-2-tamil",
       "zineflixId": 900
-    },
-    {
-      "city": "Bremen",
-      "cinema": "Cinestar Bremen",
-      "bookingUrl": "https://www.cinestar.de/kino-bremen-kristall-palast/film/jailer-2-tamil",
-      "zineflixId": 901
-    },
-    {
-      "city": "Augsburg",
-      "cinema": "Filmhaus Langerringen - AUGSBURG",
-      "bookingUrl": "https://filmhaus-kinos.de/film/jailer-2",
-      "zineflixId": 903
     },
     {
       "city": "Chemnitz",
@@ -106,28 +46,10 @@
       "zineflixId": 908
     },
     {
-      "city": "Paderborn",
-      "cinema": "FILMWERK GÜTERSLOH",
-      "bookingUrl": "https://web.filmwerk-gt.de/films/Jailer-2-Sprache-Tamil-mit-engl-Untertitel/HO00002015",
-      "zineflixId": 909
-    },
-    {
       "city": "Koblenz",
       "cinema": "Kino Neuwied Koblenz (FRIDAY SHOW)",
       "bookingUrl": "https://www.kinoneuwied.de/detail/131941/Jailer%202",
       "zineflixId": 910
-    },
-    {
-      "city": "Düsseldorf",
-      "cinema": "Atelier Düsseldorf (TAMIL)",
-      "bookingUrl": "https://filmkunstkinos.de/filme/jailer-2-2026/",
-      "zineflixId": 911
-    },
-    {
-      "city": "HEIDELBERG",
-      "cinema": "Luxor Heidelberg",
-      "bookingUrl": "https://heidelberg.luxor-kino.de/de/specials/454",
-      "zineflixId": 912
     },
     {
       "city": "Nürnberg",
@@ -136,82 +58,16 @@
       "zineflixId": 916
     },
     {
-      "city": "Hannover",
-      "cinema": "Cinemaxx Hannover",
-      "bookingUrl": "https://www.cinemaxx.de/kinoprogramm/hannover/film/jailer-2",
-      "zineflixId": 917
-    },
-    {
-      "city": "Freiburg",
-      "cinema": "Cinemaxx Freiburg",
-      "bookingUrl": "https://www.cinemaxx.de/kinoprogramm/freiburg/film/jailer-2",
-      "zineflixId": 918
-    },
-    {
-      "city": "Augsburg",
-      "cinema": "Cinemaxx Augsburg",
-      "bookingUrl": "https://www.cinemaxx.de/kinoprogramm/augsburg/film/jailer-2",
-      "zineflixId": 919
-    },
-    {
-      "city": "Magdeburg",
-      "cinema": "Cinemaxx Magdeburg",
-      "bookingUrl": "https://www.cinemaxx.de/kinoprogramm/magdeburg/film/jailer-2",
-      "zineflixId": 920
-    },
-    {
-      "city": "Kiel",
-      "cinema": "Cinemaxx Kiel",
-      "bookingUrl": "https://www.cinemaxx.de/kinoprogramm/kiel/film/jailer-2",
-      "zineflixId": 921
-    },
-    {
-      "city": "Heilbronn",
-      "cinema": "Cinemaxx Heilbronn",
-      "bookingUrl": "https://www.cinemaxx.de/kinoprogramm/heilbronn/film/jailer-2",
-      "zineflixId": 922
-    },
-    {
-      "city": "Wuppertal",
-      "cinema": "Cinemaxx Wuppertal",
-      "bookingUrl": "https://www.cinemaxx.de/kinoprogramm/wuppertal/film/jailer-2",
-      "zineflixId": 923
-    },
-    {
       "city": "KONSTANZ (near Switzerland)",
       "cinema": "Cinestar Konstanz (Tamil) 25.10.26",
       "bookingUrl": "https://www.cinestar.de/kino-konstanz/veranstaltung-jailer-2-tamil-omeu",
       "zineflixId": 924
     },
     {
-      "city": "München",
-      "cinema": "Rosenhof Lichtspiele Moosburg (Bayern) Tamil Show (Second week)",
-      "bookingUrl": "https://www.rosenhof-lichtspiele.de/detail/132229/Jailer%202%20-%20Tamil%20OmeU",
-      "zineflixId": 925
-    },
-    {
-      "city": "München",
-      "cinema": "Rosenhof Lichtspiele Moosburg (Bayern) Telugu Show (Second week)",
-      "bookingUrl": "https://www.rosenhof-lichtspiele.de/detail/132230/Jailer%202%20-%20Telugu%20OmeU",
-      "zineflixId": 926
-    },
-    {
       "city": "Frankfurt",
       "cinema": "Filmpalast Hofheim Frankfurt (TELUGU)",
       "bookingUrl": "https://www.filmpalast-hofheim.de/de/specials/26047",
       "zineflixId": 927
-    },
-    {
-      "city": "Berlin",
-      "cinema": "Cinemaxx Berlin (Hindi & Tamil)",
-      "bookingUrl": "https://www.cinemaxx.de/kinoprogramm/berlin/film/jailer-2",
-      "zineflixId": 929
-    },
-    {
-      "city": "München",
-      "cinema": "MATTHÄUSER MÜNCHEN",
-      "bookingUrl": "https://www.mathaeser.de/mm/filmdetail/jailer-2/EAB74000012PLXMQDD",
-      "zineflixId": 934
     },
     {
       "city": "TUTTLINGEN (NÄHE STUTTGART)",
@@ -232,18 +88,6 @@
       "zineflixId": 942
     },
     {
-      "city": "Berlin",
-      "cinema": "Cinestar Berlin (01.11.26)",
-      "bookingUrl": "https://www.cinestar.de/kino-berlin-hellersdorf/film/jailer-2-tamil",
-      "zineflixId": 944
-    },
-    {
-      "city": "Rostock",
-      "cinema": "Cinestar Rostock Klein",
-      "bookingUrl": "https://www.cinestar.de/kino-rostock/film/jailer-2-tamil",
-      "zineflixId": 946
-    },
-    {
       "city": "Emden",
       "cinema": "Cinestar Emden",
       "bookingUrl": "https://www.cinestar.de/kino-emden/veranstaltung-jailer-2-tamil-omeu",
@@ -256,64 +100,10 @@
       "zineflixId": 949
     },
     {
-      "city": "Düsseldorf",
-      "cinema": "Cinestar Düsseldorf",
-      "bookingUrl": "https://www.cinestar.de/kino-duesseldorf/film/jailer-2-tamil",
-      "zineflixId": 951
-    },
-    {
       "city": "Bonn",
       "cinema": "Cinestar Bonn",
       "bookingUrl": "https://www.cinestar.de/kino-bonn-sternlichtspiele/film/jailer-2-tamil",
       "zineflixId": 952
-    },
-    {
-      "city": "Würzburg",
-      "cinema": "Cinemaxx Würzburg",
-      "bookingUrl": "https://www.cinemaxx.de/kinoprogramm/wurzburg/film/jailer-2",
-      "zineflixId": 953
-    },
-    {
-      "city": "Karlsruhe",
-      "cinema": "Cinestar Karlsruhe",
-      "bookingUrl": "https://filmpalast.net/programmuebersicht/?search=Jailer&searchopen=1",
-      "zineflixId": 956
-    },
-    {
-      "city": "Erfurt",
-      "cinema": "Cinestar Erfurt",
-      "bookingUrl": "https://www.cinestar.de/kino-erfurt/film/jailer-2-tamil",
-      "zineflixId": 978
-    },
-    {
-      "city": "Darmstadt",
-      "cinema": "Kinopolis Citydom Darmstadt",
-      "bookingUrl": "https://www.kinopolis.de/cd/filmdetail/jailer-2/EAB74000012PLXMQDD",
-      "zineflixId": 979
-    },
-    {
-      "city": "Bielefeld",
-      "cinema": "Cinemaxx Bielefeld",
-      "bookingUrl": "https://www.cinemaxx.de/kinoprogramm/bielefeld/film/jailer-2",
-      "zineflixId": 980
-    },
-    {
-      "city": "Bielefeld",
-      "cinema": "Filmwerk Gütersloh (BIELFELD, Hamm)",
-      "bookingUrl": "https://web.filmwerk-gt.de/films/Scene-Sprache-Tamilengl-Untertitel/HO00002049",
-      "zineflixId": 982
-    },
-    {
-      "city": "Hamburg",
-      "cinema": "Kinopolis Hamburg",
-      "bookingUrl": "https://www.kinopolis.de/hh/filmdetail/jailer-2/EAB74000012PLXMQDD",
-      "zineflixId": 983
-    },
-    {
-      "city": "Frankfurt",
-      "cinema": "Kinopolis Sulzbach Frankfurt",
-      "bookingUrl": "https://www.kinopolis.de/su/filmdetail/jailer-2/EAB74000012PLXMQDD",
-      "zineflixId": 984
     },
     {
       "city": "KONSTANZ (near Switzerland)",
