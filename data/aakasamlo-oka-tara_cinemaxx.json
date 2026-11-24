@@ -1,0 +1,33 @@
+{
+  "fetchedAt": "2026-11-24T19:07:27.989915+00:00",
+  "movie": "aakasamlo-oka-tara",
+  "totalCities": 2,
+  "totalShows": 3,
+  "cities": {
+    "berlin": [
+      {
+        "date": "2026-11-29",
+        "time": "10:15",
+        "kino": "Kino 02",
+        "lang": "engl. UT - Telugu",
+        "href": "https://www.cinemaxx.de/buchtickets/zusammenfassung/1107/HO00001805/98075"
+      },
+      {
+        "date": "2026-11-29",
+        "time": "13:25",
+        "kino": "Kino 18",
+        "lang": "engl. UT - Telugu",
+        "href": "https://www.cinemaxx.de/buchtickets/zusammenfassung/1107/HO00001805/98184"
+      }
+    ],
+    "essen": [
+      {
+        "date": "2026-11-28",
+        "time": "10:45",
+        "kino": "Kino 07",
+        "lang": "engl. UT - Telugu",
+        "href": "https://www.cinemaxx.de/buchtickets/zusammenfassung/1431/HO00001805/73147"
+      }
+    ]
+  }
+}

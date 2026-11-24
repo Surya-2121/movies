@@ -30,6 +30,7 @@ applyTheme(localStorage.getItem('theme') || 'light');
 // Search
 const allMovies = [
   { name: 'Ustaad Bhagat Singh', url: 'ustaad-movie.html', cast: 'Pawan Kalyan, Sreeleela, Raashii Khanna', status: 'Ended' },
+  { name: 'Aakasamlo Oka Tara (AOT)', url: 'aakasamlo-oka-tara-movie.html', cast: 'Dulquer Salmaan, Satvika Veeravalli, Shruti Haasan, Ruhani Sharma', status: 'Now Showing' },
   { name: 'ENE Repeat (Ee Nagaraniki Emaindhi 2)', url: 'ene-repeat-movie.html', cast: 'Vishwak Sen, Abhinav Gomatam, Venkatesh Kakumanu, Srinath Maganti', status: 'Now Showing' },
   { name: 'Peddi', url: 'peddi-movie.html', cast: 'Ram Charan, Janhvi Kapoor', status: 'Now Showing' },
   { name: 'Maa Inti Bangaaram', url: 'maa-inti-bangaaram-movie.html', cast: 'Samantha Ruth Prabhu, Gulshan Devaiah, Gautami', status: 'Now Showing' },

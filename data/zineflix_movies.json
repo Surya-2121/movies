@@ -49,6 +49,14 @@
       "genre": "Buddy Comedy",
       "language": "Telugu",
       "page": "ene-repeat-movie.html"
+    },
+    {
+      "slug": "aakasamlo-oka-tara",
+      "cinemaxxSlug": "aakasamlo-oka-tara",
+      "title": "Aakasamlo Oka Tara",
+      "genre": "Sci-Fi Drama",
+      "language": "Telugu",
+      "page": "aakasamlo-oka-tara-movie.html"
     }
   ]
 }
