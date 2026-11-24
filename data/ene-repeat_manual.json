@@ -160,6 +160,22 @@
       "time": "22:15",
       "subtitle": "Telugu (OmeU)",
       "bookingUrl": "https://www.cinemaxx.de/buchtickets/zusammenfassung/1107/HO00001793/98166"
+    },
+    {
+      "city": "Düsseldorf",
+      "cinema": "UFA Palast Düsseldorf",
+      "date": "2026-11-28",
+      "time": "13:30",
+      "subtitle": "Telugu (OmU, Kino 3)",
+      "bookingUrl": "https://kinotickets.express/duesseldorf-ufa-filmpalast/booking/89719"
+    },
+    {
+      "city": "Düsseldorf",
+      "cinema": "UFA Palast Düsseldorf",
+      "date": "2026-11-29",
+      "time": "13:30",
+      "subtitle": "Telugu (OmU, Kino 3)",
+      "bookingUrl": "https://kinotickets.express/duesseldorf-ufa-filmpalast/booking/89720"
     }
   ]
 }
