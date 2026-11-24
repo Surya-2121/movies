@@ -1,8 +1,8 @@
 {
-  "fetchedAt": "2026-11-23T19:46:50.487171+00:00",
+  "fetchedAt": "2026-11-24T04:52:01.679843+00:00",
   "movie": "ene-repeat",
-  "totalCities": 3,
-  "totalShows": 6,
+  "totalCities": 7,
+  "totalShows": 10,
   "cities": {
     "berlin": [
       {
@@ -34,6 +34,24 @@
         "href": "https://www.cinemaxx.de/buchtickets/zusammenfassung/1107/HO00001793/98166"
       }
     ],
+    "bremen": [
+      {
+        "date": "2026-11-26",
+        "time": "22:20",
+        "kino": "Kino 03",
+        "lang": "engl. UT - Telugu",
+        "href": "https://www.cinemaxx.de/buchtickets/zusammenfassung/1281/HO00001793/39778"
+      }
+    ],
+    "essen": [
+      {
+        "date": "2026-12-01",
+        "time": "22:15",
+        "kino": "Kino 05",
+        "lang": "engl. UT - Telugu",
+        "href": "https://www.cinemaxx.de/buchtickets/zusammenfassung/1431/HO00001793/73321"
+      }
+    ],
     "hannover": [
       {
         "date": "2026-11-29",
@@ -41,6 +59,24 @@
         "kino": "Kino 06",
         "lang": "engl. UT - Telugu",
         "href": "https://www.cinemaxx.de/buchtickets/zusammenfassung/1304/HO00001793/46186"
+      }
+    ],
+    "magdeburg": [
+      {
+        "date": "2026-11-29",
+        "time": "11:30",
+        "kino": "Kino 05",
+        "lang": "engl. UT - Telugu",
+        "href": "https://www.cinemaxx.de/buchtickets/zusammenfassung/1391/HO00001793/51806"
+      }
+    ],
+    "offenbach": [
+      {
+        "date": "2026-11-28",
+        "time": "11:30",
+        "kino": "Kino 07",
+        "lang": "engl. UT - Telugu",
+        "href": "https://www.cinemaxx.de/buchtickets/zusammenfassung/1631/HO00001793/30053"
       }
     ],
     "stuttgart-si-centrum": [

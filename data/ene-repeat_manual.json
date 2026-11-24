@@ -120,6 +120,38 @@
       "time": "11:00",
       "subtitle": "Telugu (OmeU)",
       "bookingUrl": "https://www.cinemaxx.de/buchtickets/zusammenfassung/1701/HO00001793/8041"
+    },
+    {
+      "city": "Bremen",
+      "cinema": "Cinemaxx Bremen",
+      "date": "2026-11-26",
+      "time": "22:20",
+      "subtitle": "Telugu (OmeU)",
+      "bookingUrl": "https://www.cinemaxx.de/buchtickets/zusammenfassung/1281/HO00001793/39778"
+    },
+    {
+      "city": "Essen",
+      "cinema": "Cinemaxx Essen",
+      "date": "2026-12-01",
+      "time": "22:15",
+      "subtitle": "Telugu (OmeU)",
+      "bookingUrl": "https://www.cinemaxx.de/buchtickets/zusammenfassung/1431/HO00001793/73321"
+    },
+    {
+      "city": "Magdeburg",
+      "cinema": "Cinemaxx Magdeburg",
+      "date": "2026-11-29",
+      "time": "11:30",
+      "subtitle": "Telugu (OmeU)",
+      "bookingUrl": "https://www.cinemaxx.de/buchtickets/zusammenfassung/1391/HO00001793/51806"
+    },
+    {
+      "city": "Offenbach",
+      "cinema": "Cinemaxx Offenbach",
+      "date": "2026-11-28",
+      "time": "11:30",
+      "subtitle": "Telugu (OmeU)",
+      "bookingUrl": "https://www.cinemaxx.de/buchtickets/zusammenfassung/1631/HO00001793/30053"
     }
   ]
 }
