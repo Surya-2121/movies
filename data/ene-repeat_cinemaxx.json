@@ -1,8 +1,8 @@
 {
-  "fetchedAt": "2026-11-26T18:15:47.609486+00:00",
+  "fetchedAt": "2026-11-27T02:42:59.880984+00:00",
   "movie": "ene-repeat",
-  "totalCities": 7,
-  "totalShows": 10,
+  "totalCities": 4,
+  "totalShows": 7,
   "cities": {
     "berlin": [
       {
@@ -34,24 +34,6 @@
         "href": "https://www.cinemaxx.de/buchtickets/zusammenfassung/1107/HO00001793/98166"
       }
     ],
-    "bremen": [
-      {
-        "date": "2026-11-26",
-        "time": "22:20",
-        "kino": "Kino 03",
-        "lang": "engl. UT - Telugu",
-        "href": "https://www.cinemaxx.de/buchtickets/zusammenfassung/1281/HO00001793/39778"
-      }
-    ],
-    "essen": [
-      {
-        "date": "2026-12-01",
-        "time": "22:15",
-        "kino": "Kino 05",
-        "lang": "engl. UT - Telugu",
-        "href": "https://www.cinemaxx.de/buchtickets/zusammenfassung/1431/HO00001793/73321"
-      }
-    ],
     "hannover": [
       {
         "date": "2026-11-29",
@@ -77,15 +59,6 @@
         "kino": "Kino 07",
         "lang": "engl. UT - Telugu",
         "href": "https://www.cinemaxx.de/buchtickets/zusammenfassung/1631/HO00001793/30053"
-      }
-    ],
-    "stuttgart-si-centrum": [
-      {
-        "date": "2026-11-29",
-        "time": "11:00",
-        "kino": "Kino 04",
-        "lang": "engl. UT - Telugu",
-        "href": "https://www.cinemaxx.de/buchtickets/zusammenfassung/1701/HO00001793/8041"
       }
     ]
   }
