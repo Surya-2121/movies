@@ -32,6 +32,22 @@
       "time": "21:00",
       "subtitle": "Telugu (OmU, Saal Pirates)",
       "bookingUrl": "https://ticket-cloud.de/Luxor-Heidelberg/Show/2467012/"
+    },
+    {
+      "city": "Berlin",
+      "cinema": "Cinemaxx Berlin",
+      "date": "2026-11-29",
+      "time": "22:20",
+      "subtitle": "Telugu (OmeU)",
+      "bookingUrl": "https://www.cinemaxx.de/buchtickets/zusammenfassung/1107/HO00001805/98617"
+    },
+    {
+      "city": "Berlin",
+      "cinema": "Cinemaxx Berlin",
+      "date": "2026-12-01",
+      "time": "22:15",
+      "subtitle": "Telugu (OmeU)",
+      "bookingUrl": "https://www.cinemaxx.de/buchtickets/zusammenfassung/1107/HO00001805/98618"
     }
   ]
 }
