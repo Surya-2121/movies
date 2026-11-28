@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-11-27T17:35:54.462086+00:00",
+  "fetchedAt": "2026-11-28T01:34:31.934394+00:00",
   "filterDate": null,
   "shows": [
     {
@@ -534,9 +534,9 @@
       "time": "12:30",
       "subtitle": "Telugu",
       "bookingUrl": "https://kino.colosseumberlin.com/tickets?showUrl=https%3A%2F%2Fwww.kinoheld.de%2Fkino%2Fberlin%2Fcolosseum-filmtheater-berlin%2Fvorstellung%2F3648082572%2Fthe-paradise-telugu-omeu%3Fmode%3Dwidget%26change%3D0",
-      "capacity": 525,
+      "capacity": 85,
       "booked": 81,
-      "free": 444,
+      "free": 4,
       "blocked": 0,
       "note": null,
       "rewrittenUrl": "https://www.kinoheld.de/kino/berlin/colosseum-filmtheater-berlin/vorstellung/3648082572/the-paradise-telugu-omeu?mode=widget&change=0"
@@ -1145,8 +1145,8 @@
   "totals": {
     "shows": 94,
     "coverageShows": 6,
-    "capacity": 708,
+    "capacity": 268,
     "booked": 258,
-    "free": 450
+    "free": 10
   }
 }
